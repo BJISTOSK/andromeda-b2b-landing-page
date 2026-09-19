@@ -1,0 +1,20 @@
+{
+  "name": "andromeda-b2b",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Andromeda B2B Platform - Static Astro Front-End hosted on GitHub Pages",
+  "scripts": {
+    "dev": "astro dev --port 4321 --host",
+    "start": "astro dev --port 4321 --host",
+    "build": "astro build",
+    "preview": "astro preview --port 4321 --host",
+    "astro": "astro",
+    "deploy": "astro build && npx gh-pages -d dist -b gh-pages -t"
+  },
+  "dependencies": {
+    "astro": "^5.4.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}

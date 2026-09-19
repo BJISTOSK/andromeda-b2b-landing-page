@@ -1,0 +1,337 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+---
+
+<Layout 
+  title="Andromeda | Autonomous B2B Operating Fabric & Ecosystem"
+  description="Andromeda B2B Platform with decoupled static front-end served from Cloudflare CDN edge and real-time reactive backend powered by Convex."
+  activePage="home"
+>
+  <Hero />
+
+  <Features />
+
+  <!-- Decoupled Architecture Showcase Section -->
+  <section id="architecture" class="arch-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge badge-cyan">Isolated Decoupled Architecture</div>
+        <h2 class="section-title">
+          Pure Front-End Isolation <br />
+          <span class="gradient-text">Meets Convex Reactivity</span>
+        </h2>
+        <p class="section-desc">
+          Zero vendor lock-in. The presentation tier is 100% static, served instantly from Cloudflare Edge PoPs, while stateful workflows communicate asynchronously with Convex.
+        </p>
+      </div>
+
+      <div class="arch-diagram glass-card-glow">
+        <div class="arch-col">
+          <div class="arch-box arch-front">
+            <div class="arch-badge badge-cyan">Static Front-End</div>
+            <h4>Astro 5.x Engine</h4>
+            <p>Pre-rendered static HTML/CSS with zero runtime JS bloat. Ultra-low TTFB.</p>
+            <div class="tech-pills">
+              <span>Astro Components</span>
+              <span>Vanilla CSS Tokens</span>
+              <span>Client Hydration</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="arch-connector">
+          <div class="connector-line"></div>
+          <span class="connector-label">Edge CDN Delivery</span>
+          <div class="connector-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+            </svg>
+            <span>Cloudflare Edge</span>
+          </div>
+        </div>
+
+        <div class="arch-col">
+          <div class="arch-box arch-back">
+            <div class="arch-badge badge-violet">Isolated Backend</div>
+            <h4>Convex Reactive Cloud</h4>
+            <p>WebSocket-powered real-time subscriptions, ACID mutations, and type-safe schema.</p>
+            <div class="tech-pills">
+              <span>convex/schema.ts</span>
+              <span>bos.ts</span>
+              <span>startups.ts</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Ecosystem Hub / Quick Jumps -->
+  <section class="hub-section">
+    <div class="container">
+      <div class="grid-2 hub-grid">
+        <!-- Startups Track -->
+        <div class="glass-card hub-card">
+          <div class="hub-badge badge-pink">For Venture Founders</div>
+          <h3 class="hub-title">Startups Pitch Track</h3>
+          <p class="hub-desc">
+            Submit your pitch deck directly into Andromeda's enterprise deal pipeline. Instant valuation telemetry and partner routing.
+          </p>
+          <ul class="hub-points">
+            <li>&check; Real-time pitch status streaming</li>
+            <li>&check; Direct syndication to enterprise capital</li>
+            <li>&check; Commercial pilot matching with Fortune 500s</li>
+          </ul>
+          <a href="/startups-pitch" class="btn btn-secondary">
+            <span>Open Pitch Portal</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <!-- BOS Track -->
+        <div class="glass-card hub-card">
+          <div class="hub-badge badge-cyan">For Enterprise Operators</div>
+          <h3 class="hub-title">BOS Operational Console</h3>
+          <p class="hub-desc">
+            The Business Operating System for unified telemetry, settlement orchestration, and distributed service node management.
+          </p>
+          <ul class="hub-points">
+            <li>&check; Live cluster throughput & latency monitoring</li>
+            <li>&check; One-click automated node synchronization</li>
+            <li>&check; Autonomous workflow task dispatching</li>
+          </ul>
+          <a href="/bos" class="btn btn-primary btn-glow">
+            <span>Launch BOS Console</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA Banner -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box glass-card-glow">
+        <h2 class="cta-title">Ready to Integrate with the <span class="gradient-text">Andromeda Fabric</span>?</h2>
+        <p class="cta-desc">
+          Deploy your static front-end globally across Cloudflare edge locations, backed by real-time reactive workflows.
+        </p>
+        <div class="cta-buttons">
+          <a href="/bos" class="btn btn-primary btn-glow">Enter BOS Console</a>
+          <a href="/startups-pitch" class="btn btn-secondary">Submit Pitch Deck</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Architecture Section */
+  .arch-section {
+    padding: 6rem 0;
+    position: relative;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+  }
+
+  .section-desc {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .arch-diagram {
+    padding: 3rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+
+  .arch-col {
+    flex: 1;
+  }
+
+  .arch-box {
+    padding: 2rem;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: rgba(11, 17, 32, 0.85);
+    border: 1px solid var(--border-bright);
+  }
+
+  .arch-box h4 {
+    font-size: 1.35rem;
+    color: #ffffff;
+  }
+
+  .arch-box p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .tech-pills span {
+    padding: 0.25rem 0.65rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    font-family: ui-monospace, monospace;
+  }
+
+  .arch-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 180px;
+  }
+
+  .connector-line {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet));
+    position: relative;
+  }
+
+  .connector-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .connector-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.85rem;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    color: #fbbf24;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  /* Hub Section */
+  .hub-section {
+    padding: 4rem 0 6rem;
+  }
+
+  .hub-card {
+    padding: 2.75rem 2.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .hub-title {
+    font-size: 1.6rem;
+  }
+
+  .hub-desc {
+    color: #94a3b8;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+
+  .hub-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin: 0.5rem 0 1rem;
+  }
+
+  .hub-points li {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 2rem 0 6rem;
+  }
+
+  .cta-box {
+    padding: 4rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .cta-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    max-width: 700px;
+  }
+
+  .cta-desc {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    max-width: 580px;
+    line-height: 1.6;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 860px) {
+    .arch-diagram {
+      flex-direction: column;
+    }
+    .arch-connector {
+      width: 100%;
+    }
+    .cta-buttons {
+      flex-direction: column;
+      width: 100%;
+      max-width: 320px;
+    }
+  }
+</style>

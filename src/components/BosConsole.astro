@@ -1,0 +1,538 @@
+---
+import { DEFAULT_BOS_TELEMETRY } from '../lib/api';
+
+const telemetry = DEFAULT_BOS_TELEMETRY;
+---
+
+<div class="bos-console">
+  <!-- Console Header -->
+  <div class="console-header glass-card">
+    <div class="header-left">
+      <div class="status-badge">
+        <span class="status-dot status-dot-active"></span>
+        <span>BOS ORCHESTRATION CORE &bull; OPERATIONAL</span>
+      </div>
+      <h2 class="console-title">Business Operating System <span class="gradient-text">(BOS)</span></h2>
+      <p class="console-desc">
+        Real-time telemetry, autonomous pipeline orchestration, and multi-cloud sync wired directly to Convex backend.
+      </p>
+    </div>
+
+    <div class="header-right">
+      <div class="system-sync-pill">
+        <span class="label">Backend State:</span>
+        <span class="badge badge-emerald" id="bosBackendPill">Convex Stream Active</span>
+      </div>
+      <button type="button" id="triggerGlobalSyncBtn" class="btn btn-primary btn-sm btn-glow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="23 4 23 10 17 10"></polyline>
+          <polyline points="1 20 1 14 7 14"></polyline>
+          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+        </svg>
+        <span>Trigger Node Sync</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Key Metrics Row -->
+  <div class="metrics-grid grid-4">
+    {telemetry.metrics.map((m) => (
+      <div class="glass-card metric-card">
+        <span class="metric-label">{m.label}</span>
+        <div class="metric-value-row">
+          <span class="metric-val">{m.value}</span>
+          <span class:list={['metric-badge', { 'text-emerald': m.trend === 'up', 'text-violet': m.trend === 'stable' }]}>
+            {m.change}
+          </span>
+        </div>
+        <div class="metric-progress-bar">
+          <div class="metric-progress-fill" style={`width: ${m.trend === 'up' ? '82%' : '99.9%'};`}></div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Operations & Action Center Grid -->
+  <div class="grid-2 console-main-grid">
+    <!-- Active Operations Telemetry -->
+    <div class="glass-card panel-card">
+      <div class="panel-header">
+        <div class="panel-title-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <h3>Active Operational Nodes</h3>
+        </div>
+        <span class="badge badge-cyan">{telemetry.operations.length} Nodes Online</span>
+      </div>
+
+      <div class="operations-list" id="operationsList">
+        {telemetry.operations.map((op, idx) => (
+          <div class="operation-item" data-op-index={idx}>
+            <div class="op-info">
+              <div class="op-title-row">
+                <span class="status-dot status-dot-active"></span>
+                <span class="op-title">{op.title}</span>
+                <span class="badge badge-sm">{op.domain}</span>
+              </div>
+              <div class="op-meta">
+                <span>Latency: <strong class="text-cyan op-latency">{op.latencyMs}ms</strong></span>
+                <span>&bull;</span>
+                <span>Throughput: {op.throughput}</span>
+                <span>&bull;</span>
+                <span>Instances: {op.instances}</span>
+              </div>
+            </div>
+            <button type="button" class="btn-sync-node btn btn-secondary btn-xs" data-domain={op.domain}>
+              Sync Node
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Action Center & Pipeline Tasks -->
+    <div class="glass-card panel-card">
+      <div class="panel-header">
+        <div class="panel-title-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-violet)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <h3>BOS Pipeline Tasks</h3>
+        </div>
+        <span class="badge badge-violet">Autonomous Flow</span>
+      </div>
+
+      <div class="tasks-list">
+        {telemetry.tasks.map((t) => (
+          <div class="task-item">
+            <div class="task-left">
+              <div class="task-check-circle">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div class="task-details">
+                <span class="task-title">{t.title}</span>
+                <span class="task-role">Assigned to: {t.role}</span>
+              </div>
+            </div>
+            <span class:list={[
+              'badge', 
+              { 
+                'badge-pink': t.priority === 'critical',
+                'badge-cyan': t.priority === 'high',
+                'badge-violet': t.priority === 'medium'
+              }
+            ]}>
+              {t.priority}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Live Terminal Log -->
+      <div class="console-terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span class="t-dot red"></span>
+            <span class="t-dot yellow"></span>
+            <span class="t-dot green"></span>
+          </div>
+          <span class="terminal-title">BOS-TELEMETRY-STREAM // Cloudflare Edge</span>
+        </div>
+        <div class="terminal-body" id="terminalBody">
+          <p class="t-line"><span class="t-cyan">[BOS-DAEMON]</span> Ingress router initialized on Cloudflare edge.</p>
+          <p class="t-line"><span class="t-violet">[CONVEX-SYNC]</span> Connected to Convex reactive database schema.</p>
+          <p class="t-line"><span class="t-emerald">[CONSENSUS]</span> 16/16 cluster instances report sub-10ms latency.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .bos-console {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0 4rem;
+  }
+
+  .console-header {
+    padding: 2rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent-emerald);
+  }
+
+  .console-title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+  }
+
+  .console-desc {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    max-width: 620px;
+    line-height: 1.5;
+  }
+
+  .header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+
+  .system-sync-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .system-sync-pill .label {
+    color: #64748b;
+  }
+
+  /* Metrics Cards */
+  .metric-card {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .metric-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .metric-value-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  .metric-val {
+    font-family: var(--font-display);
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .metric-badge {
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .metric-progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .metric-progress-fill {
+    height: 100%;
+    background: var(--grad-primary);
+    border-radius: 999px;
+  }
+
+  /* Panels */
+  .panel-card {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 1rem;
+  }
+
+  .panel-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .panel-title-wrap h3 {
+    font-size: 1.15rem;
+  }
+
+  /* Operations List */
+  .operations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .operation-item {
+    padding: 1.15rem 1.25rem;
+    background: rgba(11, 17, 32, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    transition: all 0.2s ease;
+  }
+
+  .operation-item:hover {
+    border-color: var(--border-bright);
+    background: rgba(11, 17, 32, 0.85);
+  }
+
+  .op-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .op-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .op-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #f8fafc;
+  }
+
+  .op-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: #64748b;
+  }
+
+  .btn-xs {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  /* Tasks List */
+  .tasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .task-item {
+    padding: 0.9rem 1rem;
+    background: rgba(11, 17, 32, 0.5);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .task-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .task-check-circle {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: var(--accent-emerald);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .task-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .task-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #f1f5f9;
+  }
+
+  .task-role {
+    font-size: 0.75rem;
+    color: #64748b;
+  }
+
+  .badge-pink {
+    background: rgba(236, 72, 153, 0.15);
+    color: #f472b6;
+    border: 1px solid rgba(236, 72, 153, 0.3);
+  }
+
+  /* Terminal */
+  .console-terminal {
+    background: #04070d;
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.8rem;
+  }
+
+  .terminal-bar {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.5rem 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .terminal-dots {
+    display: flex;
+    gap: 0.35rem;
+  }
+
+  .t-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .t-dot.red { background: #ef4444; }
+  .t-dot.yellow { background: #f59e0b; }
+  .t-dot.green { background: #10b981; }
+
+  .terminal-title {
+    color: #64748b;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+  }
+
+  .terminal-body {
+    padding: 0.85rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    max-height: 120px;
+    overflow-y: auto;
+  }
+
+  .t-line {
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+  .t-cyan { color: var(--accent-cyan); }
+  .t-violet { color: var(--accent-violet); }
+  .t-emerald { color: var(--accent-emerald); }
+
+  @media (max-width: 960px) {
+    .console-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .header-right {
+      align-items: flex-start;
+      width: 100%;
+    }
+    .console-main-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const syncBtn = document.getElementById('triggerGlobalSyncBtn') as HTMLButtonElement;
+  const terminalBody = document.getElementById('terminalBody') as HTMLElement;
+  const nodeSyncBtns = document.querySelectorAll('.btn-sync-node');
+
+  function appendLog(domain: string, msg: string) {
+    if (!terminalBody) return;
+    const p = document.createElement('p');
+    p.className = 't-line';
+    const timestamp = new Date().toLocaleTimeString();
+    p.innerHTML = `<span class="t-cyan">[${timestamp}]</span> <span class="t-emerald">[SYNC]</span> ${domain}: ${msg}`;
+    terminalBody.appendChild(p);
+    terminalBody.scrollTop = terminalBody.scrollHeight;
+  }
+
+  if (syncBtn) {
+    syncBtn.addEventListener('click', async () => {
+      syncBtn.disabled = true;
+      syncBtn.innerHTML = `<span>Synchronizing...</span>`;
+
+      appendLog('CLUSTER', 'Initiating full-spectrum operational re-sync...');
+
+      // Randomize latencies to illustrate live telemetry
+      const latencies = document.querySelectorAll('.op-latency');
+      latencies.forEach((el) => {
+        const randomMs = Math.floor(Math.random() * 12) + 5;
+        el.textContent = `${randomMs}ms`;
+      });
+
+      await new Promise((r) => setTimeout(r, 800));
+
+      appendLog('CONVEX', 'All 4 service domains updated and synced with Convex database.');
+      syncBtn.disabled = false;
+      syncBtn.innerHTML = `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="23 4 23 10 17 10"></polyline>
+          <polyline points="1 20 1 14 7 14"></polyline>
+          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+        </svg>
+        <span>Trigger Node Sync</span>
+      `;
+    });
+  }
+
+  nodeSyncBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const target = e.currentTarget as HTMLButtonElement;
+      const domain = target.dataset.domain || 'Node';
+      target.textContent = 'Syncing...';
+      setTimeout(() => {
+        target.textContent = 'Synced';
+        appendLog(domain, `Domain rebalanced. 0 dropped packets.`);
+        setTimeout(() => {
+          target.textContent = 'Sync Node';
+        }, 2000);
+      }, 500);
+    });
+  });
+</script>

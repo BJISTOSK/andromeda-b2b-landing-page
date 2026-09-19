@@ -1,0 +1,210 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PitchForm from '../components/PitchForm.astro';
+---
+
+<Layout
+  title="Startups Pitch Portal | Andromeda B2B Venture Track"
+  description="Submit your startup pitch deck to the Andromeda Venture Acceleration Track. Powered by a reactive Convex backend with enterprise dealflow evaluation."
+  activePage="pitch"
+>
+  <div class="pitch-page-wrap">
+    <!-- Header Hero Banner -->
+    <section class="pitch-hero">
+      <div class="container text-center">
+        <div class="badge badge-pink">Venture Dealflow Track</div>
+        <h1 class="page-title">
+          Andromeda <span class="gradient-text">Startups Pitch</span>
+        </h1>
+        <p class="page-subtitle">
+          Accelerating the next cohort of enterprise B2B unicorns. Submit your pitch deck directly into our reactive evaluation pipeline.
+        </p>
+
+        <!-- Track Cards -->
+        <div class="grid-4 tracks-grid">
+          <div class="glass-card track-card">
+            <div class="track-badge">Track 01</div>
+            <h4>Pre-Seed Fast Track</h4>
+            <p>For technical founders with an MVP or proprietary protocol. Up to $500k check.</p>
+            <span class="track-focus">Focus: DeepTech & Infrastructure</span>
+          </div>
+
+          <div class="glass-card track-card">
+            <div class="track-badge">Track 02</div>
+            <h4>Seed Acceleration</h4>
+            <p>For early revenue startups ready to scale enterprise distribution. Up to $2.5M check.</p>
+            <span class="track-focus">Focus: B2B SaaS & Liquidity</span>
+          </div>
+
+          <div class="glass-card track-card">
+            <div class="track-badge">Track 03</div>
+            <h4>Enterprise Pilot</h4>
+            <p>Direct commercial co-development and integration with Fortune 500 partners.</p>
+            <span class="track-focus">Focus: Cloud & AI Ops</span>
+          </div>
+
+          <div class="glass-card track-card">
+            <div class="track-badge">Track 04</div>
+            <h4>Growth Syndicate</h4>
+            <p>Series A & beyond syndication with top-tier global venture partners.</p>
+            <span class="track-focus">Focus: Global Commerce</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pitch Application Form Section -->
+    <section class="form-section">
+      <div class="container">
+        <PitchForm />
+      </div>
+    </section>
+
+    <!-- Evaluation Criteria FAQ -->
+    <section class="criteria-section">
+      <div class="container">
+        <div class="criteria-box glass-card">
+          <h3 class="criteria-title">What Andromeda Looks For in Pitch Decks</h3>
+          <div class="grid-3 criteria-grid">
+            <div class="crit-item">
+              <div class="crit-num">01</div>
+              <h4>Unfair Technical Edge</h4>
+              <p>Proprietary architecture, defensible data moats, and high-performance infrastructure.</p>
+            </div>
+            <div class="crit-item">
+              <div class="crit-num">02</div>
+              <h4>B2B Enterprise Urgency</h4>
+              <p>Demonstrated customer demand, clear contract velocity, and low customer acquisition cost.</p>
+            </div>
+            <div class="crit-item">
+              <div class="crit-num">03</div>
+              <h4>Ecosystem Synergy</h4>
+              <p>Potential to leverage Andromeda BOS and liquidity protocols for mutual network expansion.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .pitch-page-wrap {
+    padding-bottom: 6rem;
+  }
+
+  .pitch-hero {
+    padding: 4rem 0 3rem;
+  }
+
+  .text-center {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin: 1rem 0;
+  }
+
+  .page-subtitle {
+    color: #94a3b8;
+    max-width: 680px;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 3.5rem;
+  }
+
+  .tracks-grid {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .track-card {
+    padding: 1.75rem 1.5rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .track-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent-pink);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .track-card h4 {
+    font-size: 1.15rem;
+    color: #ffffff;
+  }
+
+  .track-card p {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .track-focus {
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 0.75rem;
+  }
+
+  .form-section {
+    padding: 2rem 0;
+  }
+
+  .criteria-section {
+    padding: 3rem 0;
+  }
+
+  .criteria-box {
+    padding: 3rem;
+  }
+
+  .criteria-title {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .criteria-grid {
+    gap: 2rem;
+  }
+
+  .crit-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .crit-num {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent-cyan);
+  }
+
+  .crit-item h4 {
+    font-size: 1.1rem;
+  }
+
+  .crit-item p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .criteria-box {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>

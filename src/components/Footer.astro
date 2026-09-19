@@ -1,0 +1,223 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <div class="brand-logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="14" stroke="url(#foot-grad)" stroke-width="2" stroke-dasharray="3 2" opacity="0.8"/>
+            <circle cx="16" cy="16" r="4" fill="url(#foot-grad)"/>
+            <defs>
+              <linearGradient id="foot-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#06B6D4"/>
+                <stop offset="100%" stop-color="#EC4899"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="brand-name">ANDROMEDA</span>
+      </div>
+      <p class="brand-desc">
+        The next-generation B2B operating fabric. Empowering enterprise commerce, automated liquidity, and venture-scale startups with decoupled speed.
+      </p>
+      <div class="tech-stack-badges">
+        <span class="badge badge-cyan">Astro Static Front-End</span>
+        <span class="badge badge-violet">Convex Reactive Backend</span>
+        <span class="badge badge-emerald">Cloudflare Edge CDN</span>
+      </div>
+    </div>
+
+    <div class="footer-links-grid">
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="/#solutions">Ecosystem Overview</a></li>
+          <li><a href="/bos">BOS Operations Console</a></li>
+          <li><a href="/startups-pitch">Startups Pitch Portal</a></li>
+          <li><a href="/#architecture">Decoupled Architecture</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Infrastructure</h4>
+        <ul>
+          <li><a href="https://convex.dev" target="_blank" rel="noopener">Convex Database</a></li>
+          <li><a href="https://astro.build" target="_blank" rel="noopener">Astro Static Engine</a></li>
+          <li><a href="https://pages.cloudflare.com" target="_blank" rel="noopener">Cloudflare CDN</a></li>
+          <li><a href="https://github.com/BJISTOSK/andromeda-b2b-landing-page" target="_blank" rel="noopener">GitHub Repository</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Security & SLAs</h4>
+        <ul>
+          <li><span class="status-indicator"><span class="status-dot status-dot-active"></span> 99.995% System Uptime</span></li>
+          <li><span class="status-indicator">SOC-2 Type II Certified</span></li>
+          <li><span class="status-indicator">End-to-End Encryption</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p class="copyright">
+        &copy; {currentYear} Andromeda B2B Operating System. All rights reserved.
+      </p>
+      <div class="footer-bottom-links">
+        <a href="#privacy">Privacy Protocol</a>
+        <a href="#terms">Terms of Service</a>
+        <a href="#security">Security Vault</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: #04060c;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 4rem;
+    margin-top: auto;
+    position: relative;
+    z-index: 10;
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    gap: 3rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .logo-mark {
+    width: 28px;
+    height: 28px;
+  }
+
+  .brand-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    font-size: 1.1rem;
+    color: #ffffff;
+  }
+
+  .brand-desc {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 380px;
+  }
+
+  .tech-stack-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .footer-col h4 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #f8fafc;
+    margin-bottom: 1rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-col a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+  }
+
+  .footer-col a:hover {
+    color: var(--accent-cyan);
+  }
+
+  .status-indicator {
+    color: #94a3b8;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5rem 0;
+  }
+
+  .footer-bottom-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-bottom-links a {
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-bottom-links a:hover {
+    color: #cbd5e1;
+  }
+
+  @media (max-width: 860px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+    }
+    .footer-links-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 580px) {
+    .footer-links-grid {
+      grid-template-columns: 1fr;
+    }
+    .footer-bottom-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+  }
+</style>
