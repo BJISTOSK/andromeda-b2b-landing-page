@@ -12,7 +12,7 @@
     "deploy": "astro build && npx gh-pages -d dist -b gh-pages -t"
   },
   "dependencies": {
-    "astro": "^5.4.2"
+    "astro": "^7.3.3"
   },
   "devDependencies": {
     "typescript": "^5.7.3"
