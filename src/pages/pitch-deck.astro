@@ -91,6 +91,69 @@ const frameworkComparisons = [
     keyRequirement: "Zero superlatives ('best', 'first', 'only' are strictly forbidden)."
   }
 ];
+
+const sequoiaSlides = [
+  {
+    num: "01",
+    title: "Company Purpose",
+    headline: "One-Sentence Reason for Existence",
+    desc: "Define your company's reason for existing in a single, declarative sentence. Communicate a durable mission rather than a list of features."
+  },
+  {
+    num: "02",
+    title: "Problem",
+    headline: "Quantified Pain & Current Workarounds",
+    desc: "Describe the acute pain of your customer, how they address it today, and the critical shortcomings of existing patchwork workarounds."
+  },
+  {
+    num: "03",
+    title: "Solution",
+    headline: "The Eureka Moment & Visual Proof",
+    desc: "Demonstrate your unique, compelling value proposition. Use a demo, screenshots, or user workflow that directly maps back to the problem."
+  },
+  {
+    num: "04",
+    title: "Why Now?",
+    headline: "The Critical Inflection Point",
+    desc: "Explain why this hasn't been built before. Identify the recent technological breakthrough, behavioral shift, or regulatory catalyst opening this window."
+  },
+  {
+    num: "05",
+    title: "Market Potential",
+    headline: "Bottom-Up Customer Calculation",
+    desc: "Calculate target market size from the bottom up: actual customer count, growth rate, and customer value. Great companies often invent new markets."
+  },
+  {
+    num: "06",
+    title: "Competition / Alternatives",
+    headline: "Proactive Mapping & Differentiation",
+    desc: "Identify direct and indirect competitors proactively. Clearly explain your strategic differentiation and how you plan to win."
+  },
+  {
+    num: "07",
+    title: "Business Model",
+    headline: "Economic Engine & Distribution",
+    desc: "Detail how you intend to thrive: revenue model, pricing strategy, average account size, and your sales/distribution execution plan."
+  },
+  {
+    num: "08",
+    title: "Team",
+    headline: "Founders & Unfair Advantage",
+    desc: "Highlight the specific talents, past successes, or unique domain experiences that make this specific team perfectly suited to win."
+  },
+  {
+    num: "09",
+    title: "Financials",
+    headline: "Milestone-Driven Capital Deployment",
+    desc: "Share your financial model (P&L, cash flow, cap table) with a clear timeline of how capital expenditure (e.g. headcount) unlocks key milestones."
+  },
+  {
+    num: "10",
+    title: "Vision",
+    headline: "5-Year Scope of Ambition",
+    desc: "Zoom out and explain what the company looks like in 5 years if everything goes according to plan, reinforcing the massive scale of your ambition."
+  }
+];
 ---
 
 <Layout 
@@ -102,7 +165,7 @@ const frameworkComparisons = [
     <div class="container article-container">
       
       <!-- ========================================================================= -->
-      <!-- MASTERCLASS HERO & ARTICLES DIRECTORY (Both Articles Highlighted)        -->
+      <!-- MASTERCLASS HERO & ARTICLES DIRECTORY (All 3 Articles Highlighted)       -->
       <!-- ========================================================================= -->
       <header class="masterclass-hero">
         <div class="hero-badge">
@@ -118,7 +181,7 @@ const frameworkComparisons = [
           Official frameworks, slide-by-slide blueprints, and investor psychology synthesized from Sequoia Capital, Y Combinator, Point Nine, NextView Ventures, First Round, and 500 Global.
         </p>
 
-        <!-- Both Articles Index Cards -->
+        <!-- All 3 Articles Index Cards -->
         <div class="articles-index-grid">
           <a href="#article-1" class="article-index-card">
             <div class="index-card-meta">
@@ -155,11 +218,29 @@ const frameworkComparisons = [
               </svg>
             </span>
           </a>
+
+          <a href="#article-3" class="article-index-card">
+            <div class="index-card-meta">
+              <span class="index-badge">ARTICLE 03</span>
+              <span class="index-time">9 min read</span>
+            </div>
+            <h2 class="index-card-title">The Sequoia Capital Framework</h2>
+            <p class="index-card-desc">
+              The definitive 10-slide Silicon Valley gold standard (used by Airbnb): testing founder clarity of thought and the sheer scope of ambition.
+            </p>
+            <span class="index-card-link">
+              <span>Read Article 03</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+            </span>
+          </a>
         </div>
       </header>
 
       <!-- ========================================================================= -->
-      <!-- ARTICLE 1: 6 Slides for Pitch Deck (Always Visible)                       -->
+      <!-- ARTICLE 1: 6 Slides for Pitch Deck                                        -->
       <!-- ========================================================================= -->
       <article id="article-1" class="article-block">
         <!-- Article 1 Header -->
@@ -570,7 +651,7 @@ const frameworkComparisons = [
       </article>
 
       <!-- ========================================================================= -->
-      <!-- ARTICLES SEPARATOR BANNER                                                 -->
+      <!-- ARTICLES SEPARATOR BANNER 1 -> 2                                          -->
       <!-- ========================================================================= -->
       <div class="articles-separator-banner">
         <div class="sep-line"></div>
@@ -582,7 +663,7 @@ const frameworkComparisons = [
       </div>
 
       <!-- ========================================================================= -->
-      <!-- ARTICLE 2: The Anatomy of a Winning Pitch (Always Visible)                -->
+      <!-- ARTICLE 2: The Anatomy of a Winning Pitch                                 -->
       <!-- ========================================================================= -->
       <article id="article-2" class="article-block">
         <!-- Article 2 Header -->
@@ -771,15 +852,250 @@ const frameworkComparisons = [
             </p>
           </div>
         </section>
+      </article>
 
-        <!-- Back to Top / Article 1 Link -->
+      <!-- ========================================================================= -->
+      <!-- ARTICLES SEPARATOR BANNER 2 -> 3                                          -->
+      <!-- ========================================================================= -->
+      <div class="articles-separator-banner">
+        <div class="sep-line"></div>
+        <div class="sep-pill">
+          <span class="sep-dot"></span>
+          <span>ARTICLE 03 &bull; THE SEQUOIA CAPITAL 10-SLIDE BLUEPRINT</span>
+        </div>
+        <div class="sep-line"></div>
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- ARTICLE 3: The Sequoia Capital Pitch Deck Framework (10 Slides)           -->
+      <!-- ========================================================================= -->
+      <article id="article-3" class="article-block">
+        <!-- Article 3 Header -->
+        <div class="article-header">
+          <div class="article-category-badge">
+            <span class="badge-dot"></span>
+            <span>ARTICLE 03 &bull; SILICON VALLEY GOLD STANDARD &bull; SEQUOIA CAPITAL</span>
+          </div>
+
+          <h2 class="article-title">
+            The Sequoia Capital Pitch Deck Framework (10 Slides)
+          </h2>
+
+          <p class="article-lead">
+            Sequoia Capital's pitch deck framework is one of the most revered in Silicon Valley, famously utilized by companies like Airbnb in their earliest stages. The core philosophy behind this framework is not just about the slides themselves, but about testing the founder's clarity of thought and the sheer scope of their ambition. Sequoia specifically looks for founders who are determined to build something that conventional wisdom considers impossible.
+          </p>
+
+          <div class="article-meta-bar">
+            <span class="meta-item"><strong>Reading time:</strong> 9 min read</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Firm:</strong> Sequoia Capital</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Format:</strong> 10-Slide Master Blueprint</span>
+          </div>
+        </div>
+
+        <!-- Quick Navigation Bar for Article 3 -->
+        <nav class="toc-nav" aria-label="Slide quick links">
+          <span class="toc-label">Jump to slide:</span>
+          <div class="toc-pills">
+            {sequoiaSlides.map((slide) => (
+              <a href={`#seq-slide-${parseInt(slide.num)}`} class="toc-pill">
+                {slide.num}. {slide.title.split(' ')[0]}
+              </a>
+            ))}
+          </div>
+        </nav>
+
+        <!-- Sequoia 10-Slide Overview Cards Grid -->
+        <section class="summary-cards-section">
+          <div class="summary-cards-grid">
+            {sequoiaSlides.map((slide) => (
+              <a href={`#seq-slide-${parseInt(slide.num)}`} class="summary-card">
+                <div class="card-num-row">
+                  <span class="slide-badge">SLIDE {slide.num}</span>
+                  <span class="slide-question">{slide.headline}</span>
+                </div>
+                <h3 class="card-slide-title">{slide.title}</h3>
+                <p class="card-slide-desc">{slide.desc}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- Sequoia Slide Deep Dives (1 to 10) -->
+        <div class="key-points-list">
+          
+          <!-- Slide 1: Company Purpose -->
+          <div id="seq-slide-1" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">01</span>
+              <span class="slide-tag-title">SEQUOIA SLIDE 1</span>
+            </div>
+            <h3 class="slide-heading">1. Company Purpose</h3>
+            <p class="point-text">
+              You must define your company's reason for existing in a <strong>single, declarative sentence</strong>. This is often harder than it looks because founders tend to list product features instead of communicating a durable, overarching mission. It needs to be a specific and aspirational statement rather than just a generic tagline.
+            </p>
+            <div class="callout-tip">
+              <strong>Sequoia Test:</strong> Does your purpose statement describe the timeless mission of your enterprise, or does it merely describe your initial v1.0 software feature?
+            </div>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 2: Problem -->
+          <div id="seq-slide-2" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">02</span>
+              <span class="slide-tag-title">SEQUOIA SLIDE 2</span>
+            </div>
+            <h3 class="slide-heading">2. Problem</h3>
+            <p class="point-text">
+              This slide must clearly describe the pain of your customer, how they are addressing it today, and the critical shortcomings of those current workarounds. You must prove the pain is real and quantified. For enterprise startups, this means showing a detailed understanding of the customer's financial or operational pain, while consumer startups must highlight deep user needs.
+            </p>
+            <ul class="framework-checklist">
+              <li>Quantify the financial or operational drag experienced by the customer.</li>
+              <li>Outline the exact patchwork solutions and workarounds used today.</li>
+              <li>Expose why current alternatives are fundamentally unsustainable.</li>
+            </ul>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 3: Solution -->
+          <div id="seq-slide-3" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">03</span>
+              <span class="slide-tag-title">SEQUOIA SLIDE 3</span>
+            </div>
+            <h3 class="slide-heading">3. Solution</h3>
+            <p class="point-text">
+              Here, you explain your <strong>"eureka moment"</strong> and demonstrate why your value proposition is unique, compelling, and built to endure. If possible, use a demo, screenshots, or a user workflow to bring the solution to life, as a visual demonstration is highly effective at this stage. The solution must directly and logically map back to the problem you just established.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 4: Why Now? -->
+          <div id="seq-slide-4" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">04</span>
+              <span class="slide-tag-title">SEQUOIA SLIDE 4</span>
+            </div>
+            <h3 class="slide-heading">4. Why Now?</h3>
+            <p class="point-text">
+              Sequoia considers this a critical test: <strong>since nature hates a vacuum, you must explain why your solution hasn't been built before</strong>. You need to identify a specific, recent inflection point—such as a technological breakthrough, a behavioral shift, or a regulatory change—that suddenly opened the window to create this new company.
+            </p>
+            <div class="callout-conclusion">
+              <strong>The Inflection Window:</strong> What shifted in the macro environment in the last 12-24 months that makes your company possible today, whereas 5 years ago it would have failed?
+            </div>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 5: Market Potential -->
+          <div id="seq-slide-5" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">05</span>
+              <span class="slide-tag-title">SEQUOIA SLIDE 5</span>
+            </div>
+            <h3 class="slide-heading">5. Market Potential</h3>
+            <p class="point-text">
+              Identify your target customer and the size of the market. Rather than throwing out massive, top-down market study numbers without detail, investors want to see a <strong>bottom-up calculation</strong>: how many actual users or customers exist, how that number grows, and how much each customer is worth. Sequoia also notes that the best companies often invent entirely new markets.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 6: Competition / Alternatives -->
+          <div id="seq-slide-6" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">06</span>
+              <span class="slide-tag-title">SEQUOIA SLIDE 6</span>
+            </div>
+            <h3 class="slide-heading">6. Competition / Alternatives</h3>
+            <p class="point-text">
+              Identify both your direct and indirect competitors. It is much better to proactively identify all competitors than to let investors discover them later; this allows you to clearly explain your specific differentiation and how you plan to win.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 7: Business Model -->
+          <div id="seq-slide-7" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">07</span>
+              <span class="slide-tag-title">SEQUOIA SLIDE 7</span>
+            </div>
+            <h3 class="slide-heading">7. Business Model</h3>
+            <p class="point-text">
+              This slide explains how you intend to thrive economically. You should detail your revenue model, pricing strategy, average account size, and your sales and distribution plan.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 8: Team -->
+          <div id="seq-slide-8" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">08</span>
+              <span class="slide-tag-title">SEQUOIA SLIDE 8</span>
+            </div>
+            <h3 class="slide-heading">8. Team</h3>
+            <p class="point-text">
+              Tell the story of your founders and key management. Highlight the specific talents, past successes, or unique experiences that make this specific team perfectly suited to build this exact business.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 9: Financials -->
+          <div id="seq-slide-9" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">09</span>
+              <span class="slide-tag-title">SEQUOIA SLIDE 9</span>
+            </div>
+            <h3 class="slide-heading">9. Financials</h3>
+            <p class="point-text">
+              Share your financial data, which typically includes your P&amp;L, balance sheet, cash flow, and cap table. However, you should keep the narrative simple by showing a <strong>timeline of exactly how you plan to spend the raised capital (e.g., headcount) to hit specific developmental milestones</strong>.
+            </p>
+            <div class="callout-warning">
+              <strong>Sequoia Financial Rule:</strong> Never present financial projections as a passive burn rate. Anchor every dollar of headcount and expenditure to a concrete product or revenue milestone.
+            </div>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 10: Vision -->
+          <div id="seq-slide-10" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">10</span>
+              <span class="slide-tag-title">SEQUOIA SLIDE 10</span>
+            </div>
+            <h3 class="slide-heading">10. Vision</h3>
+            <p class="point-text">
+              Conclude by zooming out. <strong>Explain what the company will look like in five years if everything goes according to plan.</strong> This is your final chance to reinforce the massive scope of your ambition.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Back to Top / Navigation -->
         <div class="article-footer-nav">
           <a href="#article-1" class="btn btn-secondary">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <line x1="12" y1="19" x2="12" y2="5"></line>
               <polyline points="5 12 12 5 19 12"></polyline>
             </svg>
-            <span>Back to Article 01</span>
+            <span>Article 01</span>
+          </a>
+          <a href="#article-2" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="19" x2="12" y2="5"></line>
+              <polyline points="5 12 12 5 19 12"></polyline>
+            </svg>
+            <span>Article 02</span>
           </a>
           <a href="#" class="btn btn-primary">
             <span>Back to Top</span>
@@ -804,7 +1120,7 @@ const frameworkComparisons = [
   }
 
   .article-container {
-    max-width: 880px;
+    max-width: 920px;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
@@ -831,6 +1147,13 @@ const frameworkComparisons = [
     margin-bottom: 1.25rem;
   }
 
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--brand-blue);
+  }
+
   .hero-main-title {
     font-size: clamp(2.25rem, 5vw, 3.25rem);
     font-weight: 800;
@@ -847,18 +1170,18 @@ const frameworkComparisons = [
     margin-bottom: 2.5rem;
   }
 
-  /* Articles Index Cards */
+  /* Articles Index Cards (3 Column Grid) */
   .articles-index-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
   }
 
   .article-index-card {
     background: #ffffff;
     border: 1px solid var(--border-subtle);
     border-radius: 1.25rem;
-    padding: 2rem;
+    padding: 1.75rem;
     text-decoration: none;
     transition: all 0.2s ease;
     display: flex;
@@ -896,7 +1219,7 @@ const frameworkComparisons = [
   }
 
   .index-card-title {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: 700;
     color: var(--text-primary);
     line-height: 1.35;
@@ -904,7 +1227,7 @@ const frameworkComparisons = [
   }
 
   .index-card-desc {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 1.5rem;
@@ -915,7 +1238,7 @@ const frameworkComparisons = [
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: 700;
     color: var(--brand-blue);
     transition: transform 0.15s ease;
@@ -1442,7 +1765,7 @@ const frameworkComparisons = [
     border-top: 1px solid var(--border-subtle);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .articles-index-grid {
       grid-template-columns: 1fr;
     }
