@@ -16,146 +16,6 @@ import Testimonial from '../components/Testimonial.astro';
   <!-- Core Features & Cruip Dark Planet Showcase -->
   <Features />
 
-  <!-- Decoupled Architecture Showcase Section (Cruip Style) -->
-  <section id="architecture" class="arch-section">
-    <div class="container">
-      <div class="section-intro">
-        <div class="pill-badge">
-          <span class="pill-highlight">Decoupled Stack</span>
-          <span>&bull; Pure Front-End Isolation</span>
-        </div>
-        <h2 class="section-title">
-          Static speed meets <br />
-          <span class="gradient-text">reactive consistency</span>
-        </h2>
-        <p class="section-desc">
-          Zero vendor lock-in. The presentation tier is 100% pre-rendered static HTML/CSS served instantly from Cloudflare Edge PoPs, while stateful workflows communicate asynchronously with Convex.
-        </p>
-      </div>
-
-      <!-- Architecture Diagram (Cruip Card Frame) -->
-      <div class="arch-diagram cruip-card">
-        <div class="arch-col">
-          <div class="arch-box arch-front">
-            <div class="box-badge badge-blue">Static Front-End</div>
-            <h4>Astro 7.x Engine</h4>
-            <p>Pre-rendered static HTML/CSS with zero runtime JS bloat. Sub-second TTFB across global edge locations.</p>
-            <div class="tech-pills">
-              <span>Static Pages</span>
-              <span>Vanilla CSS Tokens</span>
-              <span>GitHub Pages</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="arch-connector">
-          <div class="connector-line"></div>
-          <div class="connector-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5">
-              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
-            </svg>
-            <span>Cloudflare Edge PoPs</span>
-          </div>
-        </div>
-
-        <div class="arch-col">
-          <div class="arch-box arch-back">
-            <div class="box-badge badge-indigo">Isolated Backend</div>
-            <h4>Convex Reactive Cloud</h4>
-            <p>WebSocket-powered real-time subscriptions, ACID mutations, and type-safe schema in private repo.</p>
-            <div class="tech-pills">
-              <span>Private Microservices</span>
-              <span>WebSocket Streams</span>
-              <span>ACID Mutations</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Interactive Ecosystem Hub -->
-  <section class="hub-section">
-    <div class="container">
-      <div class="grid-2 hub-grid">
-        <!-- Startups Track -->
-        <div class="cruip-card hub-card">
-          <div class="pill-badge mb-3">
-            <span class="pill-highlight">Founders Track</span>
-          </div>
-          <h3 class="hub-title">Startups Pitch Portal</h3>
-          <p class="hub-desc">
-            Submit your pitch deck directly into Andromeda's enterprise deal pipeline. Instant valuation telemetry and partner routing.
-          </p>
-          <ul class="hub-points">
-            <li>
-              <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span>Real-time pitch status streaming</span>
-            </li>
-            <li>
-              <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span>Direct syndication to enterprise capital</span>
-            </li>
-            <li>
-              <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span>Commercial pilot matching with Fortune 500s</span>
-            </li>
-          </ul>
-          <a href="/startups-pitch" class="btn btn-secondary">
-            <span>Open Pitch Portal</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </a>
-        </div>
-
-        <!-- BOS Track -->
-        <div class="cruip-card hub-card">
-          <div class="pill-badge mb-3">
-            <span class="pill-highlight">Enterprise Operators</span>
-          </div>
-          <h3 class="hub-title">BOS Operational Console</h3>
-          <p class="hub-desc">
-            The Business Operating System for unified telemetry, settlement orchestration, and distributed service node management.
-          </p>
-          <ul class="hub-points">
-            <li>
-              <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span>Live cluster throughput & latency monitoring</span>
-            </li>
-            <li>
-              <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span>One-click automated node synchronization</span>
-            </li>
-            <li>
-              <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span>Autonomous workflow task dispatching</span>
-            </li>
-          </ul>
-          <a href="/bos" class="btn btn-primary">
-            <span>Launch BOS Console</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Large Testimonial (Cruip Style) -->
   <Testimonial />
 
@@ -165,21 +25,21 @@ import Testimonial from '../components/Testimonial.astro';
       <div class="cta-banner">
         <div class="cta-content">
           <h2 class="cta-title">
-            Create your next venture with <span class="gradient-text">Andromeda</span>
+            Create your next project with <span class="gradient-text">Andromeda</span>
           </h2>
           <p class="cta-desc">
             Deploy your static front-end globally across Cloudflare edge locations, backed by real-time reactive workflows.
           </p>
           <div class="cta-actions">
-            <a href="/bos" class="btn btn-primary btn-hero">
-              <span>Enter BOS Console</span>
+            <a href="#trial" class="btn btn-primary btn-hero">
+              <span>Start Free Trial</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
-            <a href="/startups-pitch" class="btn btn-secondary btn-hero">
-              <span>Submit Pitch Deck</span>
+            <a href="#features" class="btn btn-secondary btn-hero">
+              <span>Learn More</span>
             </a>
           </div>
         </div>
@@ -190,178 +50,6 @@ import Testimonial from '../components/Testimonial.astro';
 </Layout>
 
 <style>
-  /* Architecture Section */
-  .arch-section {
-    padding: 6rem 0;
-    background-color: var(--bg-page);
-  }
-
-  .section-intro {
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto 3.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .section-title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin: 1.25rem 0 1rem;
-    color: var(--text-primary);
-  }
-
-  .section-desc {
-    color: var(--text-secondary);
-    font-size: 1.0625rem;
-    line-height: 1.6;
-  }
-
-  .arch-diagram {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 2rem;
-    align-items: center;
-    padding: 2.5rem;
-  }
-
-  .arch-box {
-    padding: 1.75rem;
-    border-radius: 0.75rem;
-    background-color: #f8fafc;
-    border: 1px solid var(--border-subtle);
-  }
-
-  .box-badge {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.25rem 0.6rem;
-    border-radius: 0.25rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .badge-blue {
-    background-color: #eff6ff;
-    color: #2563eb;
-    border: 1px solid #dbeafe;
-  }
-
-  .badge-indigo {
-    background-color: #eef2ff;
-    color: #4f46e5;
-    border: 1px solid #e0e7ff;
-  }
-
-  .arch-box h4 {
-    font-size: 1.125rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .arch-box p {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-
-  .tech-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.375rem;
-  }
-
-  .tech-pills span {
-    font-size: 0.75rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 0.25rem;
-    background-color: #ffffff;
-    border: 1px solid var(--border-subtle);
-    color: var(--text-secondary);
-    font-weight: 500;
-  }
-
-  /* Connector */
-  .arch-connector {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .connector-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    padding: 0.35rem 0.75rem;
-    border-radius: 9999px;
-    background-color: #ffffff;
-    border: 1px solid var(--border-subtle);
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    box-shadow: var(--shadow-xs);
-    white-space: nowrap;
-  }
-
-  .connector-line {
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(to right, #2563eb, #4f46e5);
-  }
-
-  /* Hub Section */
-  .hub-section {
-    padding: 5rem 0 6rem;
-    background-color: var(--bg-subtle);
-  }
-
-  .hub-card {
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .mb-3 {
-    margin-bottom: 1rem;
-  }
-
-  .hub-title {
-    font-size: 1.375rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .hub-desc {
-    color: var(--text-secondary);
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-  }
-
-  .hub-points {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
-    flex: 1;
-  }
-
-  .hub-points li {
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
-    font-size: 0.875rem;
-    color: var(--text-primary);
-  }
-
-  .check-icon {
-    flex-shrink: 0;
-  }
-
   /* CTA Section */
   .cta-section {
     padding: 6rem 0 7rem;
@@ -421,13 +109,6 @@ import Testimonial from '../components/Testimonial.astro';
   }
 
   @media (max-width: 860px) {
-    .arch-diagram {
-      grid-template-columns: 1fr;
-    }
-    .arch-connector {
-      transform: rotate(90deg);
-      margin: 1rem 0;
-    }
     .cta-actions {
       flex-direction: column;
       width: 100%;
