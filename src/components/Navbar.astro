@@ -1,6 +1,6 @@
 ---
 interface Props {
-  activePage?: 'home' | 'pitch' | 'bos' | 'news';
+  activePage?: 'home' | 'pitch' | 'bos' | 'news' | 'pitch-deck';
 }
 
 const { activePage = 'home' } = Astro.props;
@@ -30,6 +30,9 @@ const { activePage = 'home' } = Astro.props;
     <nav class="nav-center">
       <a href="/startup-news" class:list={['nav-link-simple', { active: activePage === 'news' }]}>
         Startup News
+      </a>
+      <a href="/pitch-deck" class:list={['nav-link-simple', { active: activePage === 'pitch-deck' || activePage === 'pitch' }]}>
+        Pitch Deck
       </a>
     </nav>
 
@@ -108,6 +111,7 @@ const { activePage = 'home' } = Astro.props;
   .nav-center {
     display: flex;
     align-items: center;
+    gap: 1.5rem;
   }
 
   .nav-link-simple {
