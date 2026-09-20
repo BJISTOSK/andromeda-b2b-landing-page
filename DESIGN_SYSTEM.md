@@ -134,6 +134,31 @@ Used for accentuating key words within headlines:
 
 ---
 
+## 3.1. Magenta Orb Grid Background
+
+The standard background pattern across all primary pages of the platform:
+- **Base Color**: Pure white (`#ffffff`)
+- **Grid Pattern**: 40px &times; 40px geometric grid lines in slate-600 with 15% opacity (`rgba(71, 85, 105, 0.15)`)
+- **Radiant Orb**: Centered magenta/purple radial orb at `50% 60%` transitioning from pink-500 (`rgba(236, 72, 153, 0.15)`) through purple-500 (`rgba(168, 85, 247, 0.05)`) to transparent.
+
+```css
+/* Magenta Orb Grid Background */
+.magenta-orb-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-color: #ffffff;
+  background-image: 
+    linear-gradient(to right, rgba(71, 85, 105, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(71, 85, 105, 0.15) 1px, transparent 1px),
+    radial-gradient(circle at 50% 60%, rgba(236, 72, 153, 0.15) 0%, rgba(168, 85, 247, 0.05) 40%, transparent 70%);
+  background-size: 40px 40px, 40px 40px, 100% 100%;
+}
+```
+
+---
+
 ## 4. Reusable UI Components
 
 ### 4.1. Floating Navbar (`src/components/Navbar.astro`)
