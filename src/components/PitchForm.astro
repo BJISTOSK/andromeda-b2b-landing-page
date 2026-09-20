@@ -295,6 +295,8 @@
           if (errEl) errEl.textContent = '';
           if (input) input.style.borderColor = '';
         }
+      });
+
       // Validate URL scheme for security (prevent javascript: URIs)
       if (data.deckUrl) {
         try {
