@@ -511,6 +511,81 @@ const kawasakiSlides = [
     desc: "Current product status (MVP, beta, launched), milestones achieved, capital sought, and fund allocation over next 6-12 months."
   }
 ];
+
+const firstRoundSlides = [
+  {
+    num: "01",
+    title: "Title Slide",
+    question: "How does your sponsor articulate what you do?",
+    desc: "Anchor the room immediately with company name, founder details, and a sharp, one-sentence positioning statement that your partner sponsor can easily repeat to peers."
+  },
+  {
+    num: "02",
+    title: "Problem",
+    question: "Who exactly feels this pain?",
+    desc: "Grounded, hyper-specific pain point and the exact customer profile who suffers from it. Built to withstand immediate partner interruptions."
+  },
+  {
+    num: "03",
+    title: "Solution",
+    question: "Does it cleanly map to the pain?",
+    desc: "Logical, conceptual clarity mapping directly back to the problem without overcomplicated technical diagrams that derail the meeting."
+  },
+  {
+    num: "04",
+    title: "Why Now?",
+    question: "Why now when others failed before?",
+    desc: "Defines the exact market, technological, regulatory, or behavioral catalyst that makes this solution viable today."
+  },
+  {
+    num: "05",
+    title: "Product Walkthrough",
+    question: "What is the 'aha!' moment?",
+    desc: "Interruption-friendly product substance: real screenshots, user flow, and the precise moment of value realization."
+  },
+  {
+    num: "06",
+    title: "Traction",
+    question: "Can you defend the cohorts?",
+    desc: "Designed for 'altitude shifting': clean revenue, user retention, and cohort trends you can instantly zoom into when questioned."
+  },
+  {
+    num: "07",
+    title: "Customer Proof",
+    question: "What measurable outcomes were achieved?",
+    desc: "Builds emotional conviction through real case studies, specific customer outcomes, and measurable impact rather than fluffy testimonials."
+  },
+  {
+    num: "08",
+    title: "Market Size",
+    question: "What is your wedge into the TAM?",
+    desc: "Define your sharp initial wedge market and the logical expansion roadmap into a massive venture-scale Total Addressable Market."
+  },
+  {
+    num: "09",
+    title: "Business Model",
+    question: "Can this support venture-scale margins?",
+    desc: "Pricing structure, revenue streams, and early unit economics showing a coherent path to long-term sustainability."
+  },
+  {
+    num: "10",
+    title: "Team",
+    question: "Why this specific combination?",
+    desc: "Prove why this combination of founders possesses the unique domain expertise and technical capability to win."
+  },
+  {
+    num: "11",
+    title: "Competition",
+    question: "What are your structural advantages?",
+    desc: "Map direct competitors, indirect alternatives, and existing substitutes. Clearly articulate your structural moat."
+  },
+  {
+    num: "12",
+    title: "Vision & The Ask",
+    question: "What changes after we invest?",
+    desc: "Link the capital directly to milestone outcomes—revenue targets, market penetration, and key hires—not just a feature wishlist."
+  }
+];
 ---
 
 <Layout 
@@ -648,7 +723,7 @@ const kawasakiSlides = [
             </span>
           </a>
 
-          <a href="#article-7" class="article-index-card span-full">
+          <a href="#article-7" class="article-index-card">
             <div class="index-card-meta">
               <span class="index-badge">ARTICLE 07</span>
               <span class="index-time">7 min read &bull; Classic Rule</span>
@@ -659,6 +734,24 @@ const kawasakiSlides = [
             </p>
             <span class="index-card-link">
               <span>Read Article 07</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+            </span>
+          </a>
+
+          <a href="#article-8" class="article-index-card">
+            <div class="index-card-meta">
+              <span class="index-badge">ARTICLE 08</span>
+              <span class="index-time">9 min read &bull; Partner Meeting</span>
+            </div>
+            <h2 class="index-card-title">First Round Capital’s Framework</h2>
+            <p class="index-card-desc">
+              Architected for the Partner Meeting: equipping your internal sponsor with defensible arguments, altitude-shifting traction, and interruption-friendly product flows.
+            </p>
+            <span class="index-card-link">
+              <span>Read Article 08</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <line x1="12" y1="5" x2="12" y2="19"></line>
                 <polyline points="19 12 12 19 5 12"></polyline>
@@ -2698,6 +2791,364 @@ const kawasakiSlides = [
           </a>
           <a href="#article-6" class="btn btn-secondary">
             <span>Article 06</span>
+          </a>
+          <a href="#article-8" class="btn btn-secondary">
+            <span>Article 08</span>
+          </a>
+          <a href="#" class="btn btn-primary">
+            <span>Back to Top</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- ========================================================================= -->
+      <!-- ARTICLES SEPARATOR BANNER 7 -> 8                                          -->
+      <!-- ========================================================================= -->
+      <div class="articles-separator-banner">
+        <div class="sep-line"></div>
+        <div class="sep-pill">
+          <span class="sep-dot"></span>
+          <span>ARTICLE 08 &bull; FIRST ROUND CAPITAL'S PARTNER MEETING BLUEPRINT</span>
+        </div>
+        <div class="sep-line"></div>
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- ARTICLE 8: First Round Capital’s pitch deck framework                     -->
+      <!-- ========================================================================= -->
+      <article id="article-8" class="article-block">
+        <!-- Article 8 Header -->
+        <div class="article-header">
+          <div class="article-category-badge">
+            <span class="badge-dot"></span>
+            <span>ARTICLE 08 &bull; PARTNER MEETING CONSENSUS &bull; FIRST ROUND CAPITAL</span>
+          </div>
+
+          <h2 class="article-title">
+            First Round Capital’s Pitch Deck Framework
+          </h2>
+
+          <p class="article-lead">
+            First Round Capital’s pitch deck framework is uniquely architected for a specific hurdle in the venture capital process: <strong>the Partner Meeting</strong>. At this stage, you are no longer pitching a single investor; you are presenting to a room of decision-makers. The core philosophy of this deck is to give your internal sponsor (the partner advocating for you) the logical, defensible arguments they need to build consensus among their peers.
+          </p>
+
+          <div class="article-meta-bar">
+            <span class="meta-item"><strong>Reading time:</strong> 9 min read</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Firm:</strong> First Round Capital</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Objective:</strong> Partner Meeting &bull; Internal Consensus</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Format:</strong> 12 Interruption-Friendly Slides</span>
+          </div>
+        </div>
+
+        <!-- Section 1: Partner Meeting Dynamics & Psychology -->
+        <section class="yc-philosophy-section">
+          <div class="section-tag-row">
+            <span class="section-badge-pill">CORE PHILOSOPHY</span>
+            <span class="section-tag-name">PARTNER MEETING DYNAMICS</span>
+          </div>
+
+          <h3 class="slide-heading">Equipping Your Internal Sponsor</h3>
+          <p class="slide-intro">
+            In a partner meeting, the dynamic completely shifts. Your primary ally in the room is the partner who brought you in, but they cannot answer questions on your behalf. Your deck must serve three critical psychological functions:
+          </p>
+
+          <div class="philosophy-cards-grid">
+            <div class="philosophy-card">
+              <div class="ph-card-icon">01</div>
+              <h4 class="ph-card-title">Cognitive Simplicity</h4>
+              <p class="ph-card-desc">
+                Partners evaluate you simultaneously. Sharp, declarative positioning reduces cognitive load so partners can instantly understand and advocate for your business.
+              </p>
+            </div>
+
+            <div class="philosophy-card">
+              <div class="ph-card-icon">02</div>
+              <h4 class="ph-card-title">Interruption-Friendly</h4>
+              <p class="ph-card-desc">
+                Partner meetings are dialogues, not speeches. Expect frequent interruptions on unit metrics or onboarding times without losing narrative composure.
+              </p>
+            </div>
+
+            <div class="philosophy-card">
+              <div class="ph-card-icon">03</div>
+              <h4 class="ph-card-title">Altitude Shifting</h4>
+              <p class="ph-card-desc">
+                Present macro trends clearly, but be prepared to instantly zoom down into cohort data, CAC breakdowns, or customer case studies when challenged.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: 12-Slide Overview -->
+        <section class="slides-overview-section">
+          <div class="section-tag-row">
+            <span class="section-badge-pill">DECK ARCHITECTURE</span>
+            <span class="section-tag-name">THE 12-SLIDE STRUCTURE</span>
+          </div>
+
+          <h3 class="slide-heading">The 12-Slide Sequence</h3>
+          <p class="slide-intro">
+            Every slide is engineered to arm your sponsor with bulletproof evidence across the 12 evaluation criteria:
+          </p>
+
+          <!-- Quick Navigation Bar for Article 8 -->
+          <nav class="toc-nav" aria-label="First Round slide quick links">
+            <span class="toc-label">Jump to slide:</span>
+            <div class="toc-pills">
+              {firstRoundSlides.map((slide) => (
+                <a href={`#frc-slide-${parseInt(slide.num)}`} class="toc-pill">
+                  {slide.num}. {slide.title}
+                </a>
+              ))}
+            </div>
+          </nav>
+
+          <!-- Summary Cards Grid -->
+          <div class="summary-cards-grid">
+            {firstRoundSlides.map((slide) => (
+              <a href={`#frc-slide-${parseInt(slide.num)}`} class="summary-card">
+                <div class="card-num-row">
+                  <span class="slide-badge">SLIDE {slide.num}</span>
+                  <span class="slide-question">{slide.question}</span>
+                </div>
+                <h3 class="card-slide-title">{slide.title}</h3>
+                <p class="card-slide-desc">{slide.desc}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- Slide Deep Dives (1 to 12) -->
+        <div class="key-points-list">
+          
+          <!-- Slide 1: Title Slide -->
+          <div id="frc-slide-1" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">01</span>
+              <span class="slide-tag-title">FIRST ROUND SLIDE 1</span>
+            </div>
+            <h3 class="slide-heading">1. Title Slide</h3>
+            <p class="point-text">
+              Your cover slide must <strong>anchor the room immediately</strong>. It should include your company name, founder details, and a sharp, one-sentence positioning statement.
+            </p>
+            <p class="point-text">
+              Because multiple partners are evaluating you at once, this clear one-liner reduces cognitive load. Avoid clever or vague taglines; <strong>if the partners can't easily articulate what you do in one sentence, they can't advocate for you later.</strong>
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 2: Problem -->
+          <div id="frc-slide-2" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">02</span>
+              <span class="slide-tag-title">FIRST ROUND SLIDE 2</span>
+            </div>
+            <h3 class="slide-heading">2. Problem</h3>
+            <p class="point-text">
+              You must establish urgency by defining a <strong>grounded, specific pain point and the exact customer who feels it</strong>.
+            </p>
+            <p class="point-text">
+              Avoid broad, inflated statements like <em>"The real estate industry is broken."</em> Instead, describe the problem with such specificity that if a partner interrupts to ask, <strong>"Who exactly feels this pain?"</strong>, the slide already answers it.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 3: Solution -->
+          <div id="frc-slide-3" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">03</span>
+              <span class="slide-tag-title">FIRST ROUND SLIDE 3</span>
+            </div>
+            <h3 class="slide-heading">3. Solution</h3>
+            <p class="point-text">
+              Partners are assessing coherence here—<strong>does your solution logically and cleanly map to the specific pain you just described?</strong>
+            </p>
+            <p class="point-text">
+              Keep this slide simple and focused on conceptual clarity. <strong>Avoid overcomplicated technical architecture diagrams</strong>, as they often create confusion and derail the meeting into unhelpful technical debates.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 4: Why Now -->
+          <div id="frc-slide-4" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">04</span>
+              <span class="slide-tag-title">FIRST ROUND SLIDE 4</span>
+            </div>
+            <h3 class="slide-heading">4. Why Now</h3>
+            <p class="point-text">
+              Seed investing is incredibly sensitive to timing. You must explain the specific <strong>market, technological, regulatory, or behavioral shifts</strong> that make your solution viable today.
+            </p>
+            <p class="point-text">
+              This slide directly answers the silent skepticism in the room: <strong>"Why will this work now when similar ideas have failed in the past?"</strong>
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 5: Product Walkthrough -->
+          <div id="frc-slide-5" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">05</span>
+              <span class="slide-tag-title">FIRST ROUND SLIDE 5</span>
+            </div>
+            <h3 class="slide-heading">5. Product Walkthrough</h3>
+            <p class="point-text">
+              First Round emphasizes <strong>substance over storytelling theatrics</strong>. Ground the discussion by showing screenshots, a clear user flow, or the exact "aha!" moment where the user realizes value.
+            </p>
+            <p class="point-text">
+              This section must be <strong>"interruption-friendly"</strong>—expect partners to pause you to ask about onboarding times or user drop-off rates, and be ready to answer without losing your narrative.
+            </p>
+            <div class="callout-conclusion">
+              <strong>Interruption Resilience:</strong> When partners interrupt during product slides, it is a signal of high engagement. Welcome their scrutiny, address their specific operational question with exact metrics, and pivot back smoothly.
+            </div>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 6: Traction -->
+          <div id="frc-slide-6" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">06</span>
+              <span class="slide-tag-title">FIRST ROUND SLIDE 6</span>
+            </div>
+            <h3 class="slide-heading">6. Traction</h3>
+            <p class="point-text">
+              This is where the discussion usually intensifies. Provide <strong>clear signals of growth</strong>, such as revenue, user retention, or cohort trends, using clean charts without vanity metrics.
+            </p>
+            <p class="point-text">
+              You must design this slide for <strong>"altitude shifting,"</strong> meaning if a partner asks you to break down a specific retention metric, you can instantly zoom into the details to defend your numbers.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 7: Customer Proof -->
+          <div id="frc-slide-7" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">07</span>
+              <span class="slide-tag-title">FIRST ROUND SLIDE 7</span>
+            </div>
+            <h3 class="slide-heading">7. Customer Proof</h3>
+            <p class="point-text">
+              While data builds intellectual confidence, <strong>customer proof builds emotional conviction</strong>. Use real case studies, specific outcomes achieved, and measurable impact rather than generic, fluffy praise. Prove that users genuinely care about the product.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 8: Market Size -->
+          <div id="frc-slide-8" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">08</span>
+              <span class="slide-tag-title">FIRST ROUND SLIDE 8</span>
+            </div>
+            <h3 class="slide-heading">8. Market Size</h3>
+            <p class="point-text">
+              Demonstrate your venture-scale potential without relying on lazy, inflated top-down numbers (e.g., <em>"It's a trillion-dollar market"</em>).
+            </p>
+            <p class="point-text">
+              Instead, <strong>clearly define your initial target market (your "wedge")</strong> and explain how conquering that specific segment logically sets you up to expand into a massive Total Addressable Market (TAM) later.
+            </p>
+            <div class="callout-tip">
+              <strong>The Wedge Strategy:</strong> VCs care about how you enter a market, not just its total size. A dominant position in a focused $500M niche is far more valuable than a 0.01% share of a $100B ocean.
+            </div>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 9: Business Model -->
+          <div id="frc-slide-9" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">09</span>
+              <span class="slide-tag-title">FIRST ROUND SLIDE 9</span>
+            </div>
+            <h3 class="slide-heading">9. Business Model</h3>
+            <p class="point-text">
+              Connect your value to revenue. Explain your <strong>pricing structure, revenue streams, and early unit economics</strong>. It must be highly coherent to prove that the business can eventually become sustainable and support venture-scale margins.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 10: Team -->
+          <div id="frc-slide-10" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">10</span>
+              <span class="slide-tag-title">FIRST ROUND SLIDE 10</span>
+            </div>
+            <h3 class="slide-heading">10. Team</h3>
+            <p class="point-text">
+              Highlight the founders and key personnel. In a partner meeting, you need to prove <strong>why this specific combination of people possesses the unique background, domain expertise, or technical skill</strong> required to execute this exact vision better than anyone else.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 11: Competition -->
+          <div id="frc-slide-11" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">11</span>
+              <span class="slide-tag-title">FIRST ROUND SLIDE 11</span>
+            </div>
+            <h3 class="slide-heading">11. Competition</h3>
+            <p class="point-text">
+              Demonstrate strategic awareness by mapping out direct competitors, indirect alternatives, and the current substitutes customers use.
+            </p>
+            <p class="point-text">
+              Claiming <em>"we have no competition"</em> signals naivety. Instead, <strong>articulate your structural advantages and exactly how you plan to win against incumbents</strong>.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 12: Vision and Value Proposition / Ask -->
+          <div id="frc-slide-12" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">12</span>
+              <span class="slide-tag-title">FIRST ROUND SLIDE 12</span>
+            </div>
+            <h3 class="slide-heading">12. Vision and Value Proposition / Ask</h3>
+            <p class="point-text">
+              Link the capital you are asking for to tangible progress. <strong>Do not just offer a list of future product features; instead, focus on outcomes.</strong>
+            </p>
+            <p class="point-text">
+              Tell the partners exactly what milestones (e.g., revenue targets, market penetration, specific hires) this exact round of funding will unlock, answering their final question: <strong>"What changes after we invest?"</strong>
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Back to Top / Navigation -->
+        <div class="article-footer-nav">
+          <a href="#article-1" class="btn btn-secondary">
+            <span>Article 01</span>
+          </a>
+          <a href="#article-2" class="btn btn-secondary">
+            <span>Article 02</span>
+          </a>
+          <a href="#article-3" class="btn btn-secondary">
+            <span>Article 03</span>
+          </a>
+          <a href="#article-4" class="btn btn-secondary">
+            <span>Article 04</span>
+          </a>
+          <a href="#article-5" class="btn btn-secondary">
+            <span>Article 05</span>
+          </a>
+          <a href="#article-6" class="btn btn-secondary">
+            <span>Article 06</span>
+          </a>
+          <a href="#article-7" class="btn btn-secondary">
+            <span>Article 07</span>
           </a>
           <a href="#" class="btn btn-primary">
             <span>Back to Top</span>
