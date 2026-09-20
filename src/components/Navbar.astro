@@ -28,9 +28,8 @@ const { activePage = 'home' } = Astro.props;
 
     <!-- Nav Links -->
     <nav class="nav-center">
-      <a href="/startup-news" class:list={['nav-link-item', { active: activePage === 'news' }]}>
-        <span class="live-dot-pulse"></span>
-        <span>Startup News</span>
+      <a href="/startup-news" class:list={['nav-link-simple', { active: activePage === 'news' }]}>
+        Startup News
       </a>
     </nav>
 
@@ -109,40 +108,19 @@ const { activePage = 'home' } = Astro.props;
   .nav-center {
     display: flex;
     align-items: center;
-    gap: 1rem;
   }
 
-  .nav-link-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+  .nav-link-simple {
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-secondary);
     text-decoration: none;
-    padding: 0.375rem 0.875rem;
-    border-radius: 9999px;
-    transition: all 0.2s ease;
+    transition: color 0.15s ease;
   }
 
-  .nav-link-item:hover,
-  .nav-link-item.active {
-    color: var(--brand-blue);
-    background-color: rgba(37, 99, 235, 0.08);
-  }
-
-  .live-dot-pulse {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background-color: #10b981;
-    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
-    animation: pulse-dot 2s infinite;
-  }
-
-  @keyframes pulse-dot {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.8); }
+  .nav-link-simple:hover,
+  .nav-link-simple.active {
+    color: var(--text-primary);
   }
 
   .nav-actions {
@@ -161,12 +139,6 @@ const { activePage = 'home' } = Astro.props;
 
   .nav-link-subtle:hover {
     color: var(--text-primary);
-  }
-
-  @media (max-width: 640px) {
-    .nav-link-item span:not(.live-dot-pulse) {
-      font-size: 0.8125rem;
-    }
   }
 
   @media (max-width: 480px) {
