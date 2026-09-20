@@ -1,9 +1,12 @@
 ---
 ---
 
-<div class="pitch-form-container glass-card-glow">
+<div class="pitch-form-container cruip-card">
   <div class="form-header">
-    <div class="badge badge-cyan">Application Portal</div>
+    <div class="pill-badge mb-2">
+      <span class="pill-highlight">Venture Syndicate</span>
+      <span>&bull; Application Portal</span>
+    </div>
     <h2 class="form-title">Submit Your <span class="gradient-text">Startup Pitch</span></h2>
     <p class="form-desc">
       Join the Andromeda venture acceleration ecosystem. Your submission is streamed to our reactive Convex dealflow pipeline for enterprise evaluation.
@@ -125,9 +128,9 @@
         <span id="backendStatusLabel">Convex Backend Stream Ready</span>
       </div>
 
-      <button type="submit" id="submitPitchBtn" class="btn btn-primary btn-glow">
+      <button type="submit" id="submitPitchBtn" class="btn btn-primary">
         <span>Transmit Application</span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="22" y1="2" x2="11" y2="13"></line>
           <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
         </svg>
@@ -170,12 +173,18 @@
     gap: 0.75rem;
   }
 
+  .mb-2 {
+    margin-bottom: 0.5rem;
+  }
+
   .form-title {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 800;
+    color: var(--text-primary);
   }
 
   .form-desc {
-    color: #94a3b8;
+    color: var(--text-secondary);
     max-width: 620px;
     font-size: 1rem;
     line-height: 1.6;
@@ -188,8 +197,9 @@
 
   .field-error {
     font-size: 0.75rem;
-    color: #f87171;
+    color: #ef4444;
     min-height: 1rem;
+    font-weight: 500;
   }
 
   .form-footer {
@@ -205,8 +215,9 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.85rem;
-    color: #94a3b8;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-secondary);
   }
 
   .success-box {
@@ -222,8 +233,8 @@
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background: rgba(16, 185, 129, 0.12);
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    background-color: #ecfdf5;
+    border: 1px solid #a7f3d0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -231,11 +242,13 @@
 
   .success-content h3 {
     font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
   }
 
   .success-content p {
-    color: #94a3b8;
+    color: var(--text-secondary);
     max-width: 500px;
     margin: 0 auto 1.25rem;
   }
@@ -243,12 +256,12 @@
   .ref-badge {
     display: inline-block;
     padding: 0.4rem 1rem;
-    background: rgba(6, 182, 212, 0.1);
-    border: 1px solid rgba(6, 182, 212, 0.3);
-    color: var(--accent-cyan);
+    background-color: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: var(--brand-blue);
     font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 0.85rem;
+    font-weight: 700;
+    font-size: 0.875rem;
     border-radius: 8px;
   }
 
@@ -290,7 +303,7 @@
         if (!data[field]) {
           isValid = false;
           if (errEl) errEl.textContent = 'This field is required.';
-          if (input) input.style.borderColor = '#f87171';
+          if (input) input.style.borderColor = '#ef4444';
         } else {
           if (errEl) errEl.textContent = '';
           if (input) input.style.borderColor = '';
@@ -306,14 +319,14 @@
             const errEl = document.getElementById('deckUrlError');
             const input = document.getElementById('deckUrl') as HTMLInputElement;
             if (errEl) errEl.textContent = 'Please enter a valid web URL starting with http:// or https://';
-            if (input) input.style.borderColor = '#f87171';
+            if (input) input.style.borderColor = '#ef4444';
           }
         } catch {
           isValid = false;
           const errEl = document.getElementById('deckUrlError');
           const input = document.getElementById('deckUrl') as HTMLInputElement;
           if (errEl) errEl.textContent = 'Please enter a valid web URL.';
-          if (input) input.style.borderColor = '#f87171';
+          if (input) input.style.borderColor = '#ef4444';
         }
       }
 

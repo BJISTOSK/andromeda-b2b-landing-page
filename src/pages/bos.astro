@@ -9,16 +9,17 @@ import BosConsole from '../components/BosConsole.astro';
   activePage="bos"
 >
   <div class="bos-page-wrap">
-    <!-- Top Hero Section -->
+    <!-- Top Hero Section (Cruip Style) -->
     <section class="bos-hero">
-      <div class="container">
+      <div class="container text-center">
         <div class="hero-top-row">
-          <div class="badge badge-emerald">
+          <div class="pill-badge">
             <span class="status-dot status-dot-active"></span>
-            Enterprise Grade &bull; Real-Time Telemetry
+            <span class="pill-highlight">Enterprise Grade</span>
+            <span>&bull; Real-Time Telemetry</span>
           </div>
           <div class="edge-indicator">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2">
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="2" y1="12" x2="22" y2="12"></line>
               <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
@@ -43,13 +44,16 @@ import BosConsole from '../components/BosConsole.astro';
       </div>
     </section>
 
-    <!-- Architecture & Developer Integration Notes -->
+    <!-- Architecture & Developer Integration Notes (Cruip Card) -->
     <section class="dev-notes-section">
       <div class="container">
-        <div class="glass-card notes-box">
+        <div class="cruip-card notes-box">
           <div class="notes-header">
-            <div class="badge badge-cyan">Convex Backend Architecture</div>
-            <h3>How BOS Interfaces with Convex</h3>
+            <div class="pill-badge mb-2">
+              <span class="pill-highlight">Convex Stack</span>
+              <span>&bull; Reactive Backend Architecture</span>
+            </div>
+            <h3 class="notes-title">How BOS Interfaces with Convex</h3>
           </div>
 
           <div class="grid-3 notes-grid">
@@ -86,38 +90,52 @@ import BosConsole from '../components/BosConsole.astro';
   }
 
   .bos-hero {
-    padding: 3.5rem 0 1rem;
+    padding: 3.5rem 0 1.5rem;
+  }
+
+  .text-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .hero-top-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1.25rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
   }
 
   .edge-indicator {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.8rem;
-    color: #94a3b8;
-    background: rgba(255, 255, 255, 0.04);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: #ffffff;
     border: 1px solid var(--border-subtle);
     padding: 0.35rem 0.85rem;
     border-radius: 999px;
+    box-shadow: var(--shadow-xs);
   }
 
   .page-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 0.75rem;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
   }
 
   .page-subtitle {
-    color: #94a3b8;
+    color: var(--text-secondary);
     max-width: 720px;
-    font-size: 1.15rem;
+    font-size: 1.125rem;
     line-height: 1.6;
+    margin-bottom: 1rem;
   }
 
   .console-section {
@@ -139,8 +157,15 @@ import BosConsole from '../components/BosConsole.astro';
     margin-bottom: 2rem;
   }
 
-  .notes-header h3 {
+  .mb-2 {
+    margin-bottom: 0.5rem;
+    align-self: flex-start;
+  }
+
+  .notes-title {
     font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
   }
 
   .notes-grid {
@@ -151,36 +176,38 @@ import BosConsole from '../components/BosConsole.astro';
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
+    background-color: #f8fafc;
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
   }
 
   .note-item h4 {
     font-size: 1.05rem;
-    color: #f1f5f9;
+    font-weight: 700;
+    color: var(--text-primary);
   }
 
   .note-item p {
-    color: #94a3b8;
-    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
     line-height: 1.6;
-  }
-
-  .note-item code {
-    background: rgba(255, 255, 255, 0.08);
-    color: var(--accent-cyan);
-    padding: 0.15rem 0.4rem;
-    border-radius: 4px;
-    font-family: ui-monospace, monospace;
-    font-size: 0.85rem;
   }
 
   @media (max-width: 768px) {
     .hero-top-row {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       gap: 0.75rem;
     }
     .notes-box {
       padding: 2rem 1.5rem;
+    }
+    .notes-header .mb-2 {
+      align-self: center;
+    }
+    .notes-title {
+      text-align: center;
     }
   }
 </style>
