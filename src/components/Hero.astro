@@ -3,19 +3,6 @@
 
 <section class="hero-section">
   <div class="container hero-container">
-    <!-- Announcement / Avatar Trust Pill -->
-    <div class="hero-trust-bar">
-      <div class="avatar-stack">
-        <div class="avatar-circle av-1">AO</div>
-        <div class="avatar-circle av-2">MK</div>
-        <div class="avatar-circle av-3">SL</div>
-        <div class="avatar-circle av-4">DR</div>
-        <div class="avatar-circle av-5">+1.4k</div>
-      </div>
-      <div class="trust-text">
-        <span>Trusted by 1,400+ Enterprise Leaders & Founders</span>
-      </div>
-    </div>
 
     <!-- Main Headline -->
     <h1 class="hero-title">
@@ -136,70 +123,6 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-  }
-
-  /* Trust Bar with Avatars */
-  .hero-trust-bar {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.35rem 1rem 0.35rem 0.5rem;
-    border-radius: 9999px;
-    background-color: #ffffff;
-    border: 1px solid var(--border-subtle);
-    box-shadow: var(--shadow-xs);
-    margin-bottom: 2rem;
-    transition: all 0.2s ease;
-  }
-
-  .hero-trust-bar:hover {
-    border-color: var(--brand-blue);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .avatar-stack {
-    display: flex;
-    align-items: center;
-    margin-right: -0.25rem;
-  }
-
-  .avatar-circle {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    border: 2px solid #ffffff;
-    font-size: 0.625rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: -0.5rem;
-    color: #ffffff;
-  }
-
-  .avatar-circle:first-child {
-    margin-left: 0;
-  }
-
-  .av-1 { background-color: #2563eb; }
-  .av-2 { background-color: #4f46e5; }
-  .av-3 { background-color: #06b6d4; }
-  .av-4 { background-color: #ec4899; }
-  .av-5 { background-color: #64748b; font-size: 0.55rem; }
-
-  .trust-text {
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    transition: color 0.15s ease;
-  }
-
-  .trust-text:hover {
-    color: var(--brand-blue);
   }
 
   /* Hero Typography */
