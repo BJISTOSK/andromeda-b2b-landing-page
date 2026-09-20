@@ -26,25 +26,6 @@ const { activePage = 'home' } = Astro.props;
       <span class="brand-name">Andromeda<span class="brand-dot">.</span></span>
     </a>
 
-    <!-- Desktop Navigation -->
-    <nav class="nav-links">
-      <a href="/" class:list={['nav-item', { active: activePage === 'home' }]}>
-        Overview
-      </a>
-      <a href="/#solutions" class="nav-item">
-        Solutions
-      </a>
-      <a href="/startups-pitch" class:list={['nav-item', { active: activePage === 'pitch' }]}>
-        Startups Pitch
-      </a>
-      <a href="/bos" class:list={['nav-item', { active: activePage === 'bos' }]}>
-        <span class="status-dot status-dot-active"></span>
-        BOS Console
-      </a>
-      <a href="/#architecture" class="nav-item">
-        Architecture
-      </a>
-    </nav>
 
     <!-- Action Buttons -->
     <div class="nav-actions">
@@ -118,32 +99,6 @@ const { activePage = 'home' } = Astro.props;
     color: var(--brand-blue);
   }
 
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .nav-item {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.15s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
-  }
-
-  .nav-item:hover {
-    color: var(--text-primary);
-  }
-
-  .nav-item.active {
-    color: var(--brand-blue);
-    font-weight: 600;
-  }
-
   .nav-actions {
     display: flex;
     align-items: center;
@@ -160,12 +115,6 @@ const { activePage = 'home' } = Astro.props;
 
   .nav-link-subtle:hover {
     color: var(--text-primary);
-  }
-
-  @media (max-width: 860px) {
-    .nav-links {
-      display: none;
-    }
   }
 
   @media (max-width: 480px) {
