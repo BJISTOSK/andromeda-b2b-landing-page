@@ -1,121 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Features from '../components/Features.astro';
-import Testimonial from '../components/Testimonial.astro';
 ---
 
 <Layout 
   title="Andromeda | The Next-Gen B2B Operating System"
-  description="Andromeda B2B Platform - Decoupled static front-end served globally from Cloudflare Edge PoPs with real-time reactive state powered by Convex."
+  description="Andromeda B2B Platform - High-velocity B2B commerce, venture dealflow syndication, and autonomous enterprise orchestration with decoupled speed."
   activePage="home"
 >
-  <!-- Hero Section -->
-  <Hero />
-
-  <!-- Core Features & Cruip Dark Planet Showcase -->
-  <Features />
-
-  <!-- Large Testimonial (Cruip Style) -->
-  <Testimonial />
-
-  <!-- Cruip Call-to-Action (CTA) Banner -->
-  <section class="cta-section">
+  <div class="page-wrapper">
     <div class="container">
-      <div class="cta-banner">
-        <div class="cta-content">
-          <h2 class="cta-title">
-            Create your next project with <span class="gradient-text">Andromeda</span>
-          </h2>
-          <p class="cta-desc">
-            Deploy your static front-end globally across Cloudflare edge locations, backed by real-time reactive workflows.
-          </p>
-          <div class="cta-actions">
-            <a href="#trial" class="btn btn-primary btn-hero">
-              <span>Start Free Trial</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
-            <a href="#features" class="btn btn-secondary btn-hero">
-              <span>Learn More</span>
-            </a>
-          </div>
-        </div>
-        <div class="cta-glow" aria-hidden="true"></div>
-      </div>
+      <!-- Content will be added per your instructions -->
     </div>
-  </section>
+  </div>
 </Layout>
 
 <style>
-  /* CTA Section */
-  .cta-section {
-    padding: 6rem 0 7rem;
+  .page-wrapper {
+    min-height: 60vh;
+    padding: 4rem 0;
     position: relative;
-  }
-
-  .cta-banner {
-    position: relative;
-    border-radius: 1.5rem;
-    background: linear-gradient(135deg, #090d16 0%, #0f172a 100%);
-    padding: 4.5rem 2rem;
-    text-align: center;
-    overflow: hidden;
-    box-shadow: var(--shadow-2xl);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .cta-content {
-    position: relative;
-    z-index: 2;
-    max-width: 640px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .cta-title {
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    color: #ffffff;
-    margin-bottom: 1rem;
-  }
-
-  .cta-desc {
-    color: #94a3b8;
-    font-size: 1.0625rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-  }
-
-  .cta-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .cta-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: 300px;
-    background: radial-gradient(ellipse, rgba(37, 99, 235, 0.3) 0%, rgba(99, 102, 241, 0.15) 40%, transparent 70%);
-    filter: blur(40px);
-    pointer-events: none;
-  }
-
-  @media (max-width: 860px) {
-    .cta-actions {
-      flex-direction: column;
-      width: 100%;
-      max-width: 300px;
-    }
-    .cta-actions .btn {
-      width: 100%;
-    }
+    z-index: 1;
   }
 </style>
