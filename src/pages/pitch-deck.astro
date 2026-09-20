@@ -101,48 +101,80 @@ const frameworkComparisons = [
   <div class="pitch-page-wrapper">
     <div class="container article-container">
       
-      <!-- Top Article Switcher Tabs -->
-      <div class="article-selector-bar">
-        <span class="selector-label">Articles:</span>
-        <div class="selector-tabs">
-          <button 
-            type="button" 
-            id="tab-btn-1" 
-            class="tab-btn active"
-            onclick="switchArticle(1)"
-          >
-            <span class="tab-num">01</span>
-            <span class="tab-title">6 Slides for Pitch Deck</span>
-          </button>
-          <button 
-            type="button" 
-            id="tab-btn-2" 
-            class="tab-btn"
-            onclick="switchArticle(2)"
-          >
-            <span class="tab-num">02</span>
-            <span class="tab-title">The Anatomy of a Winning Pitch</span>
-          </button>
+      <!-- ========================================================================= -->
+      <!-- MASTERCLASS HERO & ARTICLES DIRECTORY (Both Articles Highlighted)        -->
+      <!-- ========================================================================= -->
+      <header class="masterclass-hero">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>PITCH DECK MASTERCLASS &bull; VENTURE CAPITAL INTELLIGENCE</span>
         </div>
-      </div>
+
+        <h1 class="hero-main-title">
+          Pitch Deck Masterclass &amp; <span class="gradient-text">Framework Analysis</span>
+        </h1>
+
+        <p class="hero-main-desc">
+          Official frameworks, slide-by-slide blueprints, and investor psychology synthesized from Sequoia Capital, Y Combinator, Point Nine, NextView Ventures, First Round, and 500 Global.
+        </p>
+
+        <!-- Both Articles Index Cards -->
+        <div class="articles-index-grid">
+          <a href="#article-1" class="article-index-card">
+            <div class="index-card-meta">
+              <span class="index-badge">ARTICLE 01</span>
+              <span class="index-time">10 min read</span>
+            </div>
+            <h2 class="index-card-title">6 Slides for Pitch Deck</h2>
+            <p class="index-card-desc">
+              The universally agreed-upon core structure duplicated across Sequoia, YC, NextView, and 500 Global answering the 6 fundamental questions every investor asks.
+            </p>
+            <span class="index-card-link">
+              <span>Read Article 01</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+            </span>
+          </a>
+
+          <a href="#article-2" class="article-index-card">
+            <div class="index-card-meta">
+              <span class="index-badge">ARTICLE 02</span>
+              <span class="index-time">8 min read</span>
+            </div>
+            <h2 class="index-card-title">The Anatomy of a Winning Pitch</h2>
+            <p class="index-card-desc">
+              A comparative analysis of the world's top VC frameworks: universal laws (brevity, bottom-up TAM) and strategic divergences (metrics vs storytelling).
+            </p>
+            <span class="index-card-link">
+              <span>Read Article 02</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </header>
 
       <!-- ========================================================================= -->
-      <!-- ARTICLE 1: 6 Slides for Pitch Deck                                        -->
+      <!-- ARTICLE 1: 6 Slides for Pitch Deck (Always Visible)                       -->
       <!-- ========================================================================= -->
-      <article id="article-pane-1" class="article-pane active">
-        <!-- Breadcrumb & Header -->
-        <header class="article-header">
+      <article id="article-1" class="article-block">
+        <!-- Article 1 Header -->
+        <div class="article-header">
           <div class="article-category-badge">
             <span class="badge-dot"></span>
             <span>ARTICLE 01 &bull; VENTURE CAPITAL FRAMEWORKS &bull; MASTERCLASS</span>
           </div>
 
-          <h1 class="article-title">
+          <h2 class="article-title">
             6 Slides for Pitch Deck
-          </h1>
+          </h2>
 
           <p class="article-lead">
-            Based on the official pitch deck frameworks reviewed from top venture capital firms and accelerators (such as Sequoia Capital, Y Combinator, NextView Ventures, and 500 Global), there is a universally agreed-upon core structure. Even though the specific sequence or exact naming might vary slightly, the following six slides are duplicated across every single framework.
+            Based on the official pitch deck frameworks reviewed from top venture capital firms and accelerators (such as Sequoia Capital, Y Combinator, NextView Ventures, and 500 Global), there is a universally agreed-upon core structure. Even though the specific sequence or exact naming might vary slightly, the following six slides are duplicated across every single framework:
           </p>
 
           <div class="article-meta-bar">
@@ -152,9 +184,9 @@ const frameworkComparisons = [
             <span class="meta-divider">&bull;</span>
             <span class="meta-item"><strong>Stage:</strong> Pre-Seed to Series A</span>
           </div>
-        </header>
+        </div>
 
-        <!-- Quick Navigation Bar -->
+        <!-- Quick Navigation Bar for Article 1 -->
         <nav class="toc-nav" aria-label="Slide quick links">
           <span class="toc-label">Jump to slide:</span>
           <div class="toc-pills">
@@ -198,7 +230,7 @@ const frameworkComparisons = [
             <span class="slide-tag-title">SLIDE 1</span>
           </div>
 
-          <h2 class="slide-heading">Problem / Opportunity</h2>
+          <h3 class="slide-heading">Problem / Opportunity</h3>
 
           <p class="slide-intro">
             The <strong>"Problem" (or Opportunity)</strong> slide is arguably the most critical component of your pitch deck. If investors do not fundamentally believe that a severe, urgent problem exists, they will not care how elegant your solution is.
@@ -210,28 +242,28 @@ const frameworkComparisons = [
 
           <div class="key-points-list">
             <div class="point-item">
-              <h3 class="point-title">1. Extreme Specificity Over Abstract Language</h3>
+              <h4 class="point-title">1. Extreme Specificity Over Abstract Language</h4>
               <p class="point-text">
                 The most common reason founders fail on this slide is that they use abstract, corporate jargon that fails to create urgency. Investors see thousands of pitches claiming massive, vague issues like, <em>"Team communication is inefficient"</em> or <em>"The healthcare industry is broken"</em>. Instead, top frameworks demand that you identify a highly specific customer and a concrete pain point. Y Combinator advises founders to <strong>"make investors feel the pain"</strong> by ensuring the problem is relatable and grounded in the real world.
               </p>
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">2. The Micro-Economic View (Quantifying the Pain)</h3>
+              <h4 class="point-title">2. The Micro-Economic View (Quantifying the Pain)</h4>
               <p class="point-text">
                 You must attach a specific cost to the problem. Rather than quoting a macro-level statistic from a global industry report, frame the problem from the micro-economic perspective of your specific user. For example, instead of saying, <em>"E-commerce brands struggle with customer service,"</em> a highly effective problem slide will state: <strong>"E-commerce brands receive hundreds of repetitive order-tracking queries daily, forcing support teams to waste hours on manual replies"</strong>. You want investors to immediately recognize the lost revenue, wasted time, or operational friction.
               </p>
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">3. Acknowledging the "Workaround"</h3>
+              <h4 class="point-title">3. Acknowledging the "Workaround"</h4>
               <p class="point-text">
                 Sequoia Capital's framework includes a very specific mandate for the Problem slide: <strong>you must outline how the customer addresses the issue today</strong>. Investors know that if a problem is truly painful, customers are already trying to solve it. You need to explain the current workaround—even if that workaround is just a messy system of Excel spreadsheets or a patchwork of expensive consultants—and explicitly state why these existing solutions are completely insufficient.
               </p>
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">4. The Optimal Slide Structure</h3>
+              <h4 class="point-title">4. The Optimal Slide Structure</h4>
               <p class="point-text">
                 Because venture capitalists spend roughly 20 to 30 seconds reading this slide, it cannot be a wall of text. If you require a long paragraph to explain the problem, investors will assume you haven't found the right framing yet. To maximize impact, structure the slide around three concise points:
               </p>
@@ -256,7 +288,7 @@ const frameworkComparisons = [
             <span class="slide-tag-title">SLIDE 2</span>
           </div>
 
-          <h2 class="slide-heading">Solution / Value Proposition</h2>
+          <h3 class="slide-heading">Solution / Value Proposition</h3>
 
           <p class="slide-intro">
             The <strong>"Solution" or "Value Proposition"</strong> slide is the pivot point of your entire pitch deck. Immediately after you have made the investor feel the customer's pain, this slide must deliver the "aha!" moment by presenting your product as the logical, inevitable cure.
@@ -268,28 +300,28 @@ const frameworkComparisons = [
 
           <div class="key-points-list">
             <div class="point-item">
-              <h3 class="point-title">1. The "Problem A to Solution A" Mapping</h3>
+              <h4 class="point-title">1. The "Problem A to Solution A" Mapping</h4>
               <p class="point-text">
                 Your solution must directly mirror the problem you just established. If your previous slide stated that <em>"current software is too slow and expensive,"</em> your solution slide must immediately prove how your product is measurably faster and cheaper. The audience should instantly see a one-to-one logical connection without having to guess how the product solves the pain.
               </p>
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">2. Focus on Outcomes, Not Features</h3>
+              <h4 class="point-title">2. Focus on Outcomes, Not Features</h4>
               <p class="point-text">
                 The most common mistake founders make here is treating this slide like a technical manual. Top frameworks strongly advise against listing technical specifications, API details, or backend architecture. Instead, you must emphasize the benefits and outcomes. Investors care far more about the "magic" your product performs for the user (e.g., <strong>"reduces support workload by 70%"</strong>) than the underlying machine-learning algorithms powering it.
               </p>
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">3. The Clear, Jargon-Free Formula</h3>
+              <h4 class="point-title">3. The Clear, Jargon-Free Formula</h4>
               <p class="point-text">
                 You need to describe your product in plain language that a non-technical person can understand immediately. A highly recommended framework for this is the simple syntax: <strong>"We built [product] that helps [customer] achieve [result]"</strong>. Airbnb famously executed this to perfection in their seed deck by capturing their entire value proposition in just seven words: <em>"Book rooms with locals, rather than hotels"</em>.
               </p>
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">4. Visual Evidence (Show, Don't Tell)</h3>
+              <h4 class="point-title">4. Visual Evidence (Show, Don't Tell)</h4>
               <p class="point-text">
                 Because investors spend an average of only 20 seconds reviewing the Solution slide, a wall of text will fail. You must make the product tangible:
               </p>
@@ -300,7 +332,7 @@ const frameworkComparisons = [
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">5. The Unique Value Proposition (UVP)</h3>
+              <h4 class="point-title">5. The Unique Value Proposition (UVP)</h4>
               <p class="point-text">
                 Finally, this slide should clearly articulate what sets your solution apart from the rest of the market. While you will dive deeper into competitors later in the deck, your Solution slide must immediately establish your primary differentiator and explicitly show why investors and customers should care about your specific approach.
               </p>
@@ -317,7 +349,7 @@ const frameworkComparisons = [
             <span class="slide-tag-title">SLIDE 3</span>
           </div>
 
-          <h2 class="slide-heading">Business Model</h2>
+          <h3 class="slide-heading">Business Model</h3>
 
           <p class="slide-intro">
             The <strong>"Business Model"</strong> slide is where you prove to investors that your brilliant idea is actually a viable, scalable company. While a beautiful product might win users, only a mathematical path to profitability will win venture capital.
@@ -329,7 +361,7 @@ const frameworkComparisons = [
 
           <div class="key-points-list">
             <div class="point-item">
-              <h3 class="point-title">1. The Revenue Model and Pricing Strategy</h3>
+              <h4 class="point-title">1. The Revenue Model and Pricing Strategy</h4>
               <p class="point-text">
                 You must explicitly state how the company generates revenue. Whether you are using a SaaS subscription tier, a transactional fee, or a marketplace commission, you need to lay out your exact pricing structure.
               </p>
@@ -340,21 +372,21 @@ const frameworkComparisons = [
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">2. Core Unit Economics</h3>
+              <h4 class="point-title">2. Core Unit Economics</h4>
               <p class="point-text">
                 Investors want to see the underlying math of a single customer. You should include critical metrics such as your <strong>Average Contract Value (ACV)</strong> or the <strong>Customer Lifetime Value (LTV)</strong>. By clearly displaying these numbers, you prove to the investor that your customer acquisition costs (which are often detailed on a Go-To-Market slide) make mathematical sense relative to the revenue each customer brings in.
               </p>
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">3. The Sales and Distribution Flow</h3>
+              <h4 class="point-title">3. The Sales and Distribution Flow</h4>
               <p class="point-text">
                 Sequoia Capital specifically recommends that founders use this slide to also touch upon their sales and distribution model. It is not enough to just list a price; investors want a brief understanding of how you actually capture that money. Are you relying on a high-touch enterprise sales team, or is this a self-serve, product-led growth (PLG) model?
               </p>
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">4. Visual Presentation</h3>
+              <h4 class="point-title">4. Visual Presentation</h4>
               <p class="point-text">
                 Like the rest of the deck, this slide must remain uncluttered. If you have different pricing tiers, a simple visual table or icons representing your revenue streams is highly recommended over bullet points or paragraphs of text. The goal is for an investor to look at the slide and understand the exact mechanics of your cash flow in under 20 seconds.
               </p>
@@ -371,7 +403,7 @@ const frameworkComparisons = [
             <span class="slide-tag-title">SLIDE 4</span>
           </div>
 
-          <h2 class="slide-heading">Competition</h2>
+          <h3 class="slide-heading">Competition</h3>
 
           <p class="slide-intro">
             The <strong>"Competition"</strong> slide is where investors test your self-awareness and your grip on the market reality. The absolute fastest way to lose an investor's trust is to claim that you have <em>"no competition,"</em> as this immediately signals naivety and a lack of market research.
@@ -383,14 +415,14 @@ const frameworkComparisons = [
 
           <div class="key-points-list">
             <div class="point-item">
-              <h3 class="point-title">1. Who to Include (Direct vs. Indirect)</h3>
+              <h4 class="point-title">1. Who to Include (Direct vs. Indirect)</h4>
               <p class="point-text">
                 You must acknowledge both direct competitors (companies building a similar solution) and indirect competitors (the old-school, inefficient workarounds your customers currently use, like spreadsheets or offline agencies). However, do not overwhelm the slide with 10 or 20 logos. Investors want you to narrow the field to the <strong>3 to 5 competitors</strong> you are actually racing against to win your specific target customer.
               </p>
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">2. The Visual Frameworks</h3>
+              <h4 class="point-title">2. The Visual Frameworks</h4>
               <p class="point-text">
                 Because this slide needs to be understood in seconds, text-heavy explanations fail. VCs expect to see one of two standard visual frameworks:
               </p>
@@ -401,14 +433,14 @@ const frameworkComparisons = [
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">3. Highlighting Your Differentiator (The "Secret Sauce")</h3>
+              <h4 class="point-title">3. Highlighting Your Differentiator (The "Secret Sauce")</h4>
               <p class="point-text">
                 Just showing that you have more features is not enough. You must quantify your competitive edge. The slide should clearly label your Unique Selling Proposition (USP), whether that is a proprietary AI algorithm, a radically different price point, or a superior user experience. If you have data to back this up—such as a significantly lower Customer Acquisition Cost (CAC) or higher retention rate than the industry average—you should highlight it here.
               </p>
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">4. Honesty and Strategic Positioning</h3>
+              <h4 class="point-title">4. Honesty and Strategic Positioning</h4>
               <ul class="framework-checklist">
                 <li><strong>Admit What You Don't Do:</strong> The best competition slides build trust by being honest about what the startup doesn't do. Admitting that you are intentionally ignoring a certain feature set to hyper-focus on a specific "wedge" of the market shows immense strategic maturity.</li>
                 <li><strong>Respect the Enemy:</strong> Never dismiss a competitor just because they are smaller or haven't raised as much money. Investors know that bootstrapped competitors often have incredible capital efficiency and better unit economics than heavily funded giants.</li>
@@ -417,7 +449,7 @@ const frameworkComparisons = [
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">5. Design Best Practices</h3>
+              <h4 class="point-title">5. Design Best Practices</h4>
               <p class="point-text">
                 To keep the slide clean and prevent visual fatigue, use competitor logos instead of typing out their names. A pro-tip from presentation designers is to render competitor logos in grayscale or black-and-white to avoid color conflicts with your own brand and keep the slide looking professional.
               </p>
@@ -434,7 +466,7 @@ const frameworkComparisons = [
             <span class="slide-tag-title">SLIDE 5</span>
           </div>
 
-          <h2 class="slide-heading">Founding Team</h2>
+          <h3 class="slide-heading">Founding Team</h3>
 
           <p class="slide-intro">
             The <strong>"Founding Team"</strong> slide is often the most scrutinized page in an early-stage pitch deck. At the seed stage, investors are primarily betting on the people, making this slide the moment where they decide if you have the specific ability to execute the vision.
@@ -446,7 +478,7 @@ const frameworkComparisons = [
 
           <div class="key-points-list">
             <div class="point-item">
-              <h3 class="point-title">1. The Core Elements of a Winning Team Slide</h3>
+              <h4 class="point-title">1. The Core Elements of a Winning Team Slide</h4>
               <ul class="framework-checklist">
                 <li><strong>The Founder-Market Fit Headline:</strong> Instead of simply titling the slide "Team," use a declarative sentence that summarizes exactly why your team has an unfair advantage in this market.</li>
                 <li><strong>Photos, Names, and Roles:</strong> Include clear headshots, names, and the core operational titles (e.g., CEO, CTO) of the founding team.</li>
@@ -455,7 +487,7 @@ const frameworkComparisons = [
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">2. Major Red Flags to Avoid</h3>
+              <h4 class="point-title">2. Major Red Flags to Avoid</h4>
               <p class="point-text">
                 Investors use specific heuristics to evaluate the risk associated with a team. Avoid these common mistakes that immediately signal inexperience:
               </p>
@@ -468,7 +500,7 @@ const frameworkComparisons = [
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">3. Strategic Slide Placement</h3>
+              <h4 class="point-title">3. Strategic Slide Placement</h4>
               <p class="point-text">
                 While the content of the team slide is generally uniform, its placement depends on your startup's nature. Frameworks like Y Combinator and Sequoia generally place the team slide toward the end, preferring to hook the investor with the problem and solution first. However, if you are building a highly technical B2B SaaS, deep tech, or biotech company—where your PhDs or specialized industry experience are your primary advantage—it is often recommended to place the team slide immediately at the beginning (Slide 2) to establish instant credibility before explaining the complex product.
               </p>
@@ -485,7 +517,7 @@ const frameworkComparisons = [
             <span class="slide-tag-title">SLIDE 6</span>
           </div>
 
-          <h2 class="slide-heading">Fundraising / The Ask</h2>
+          <h3 class="slide-heading">Fundraising / The Ask</h3>
 
           <p class="slide-intro">
             The <strong>"Fundraising" or "The Ask"</strong> slide is the culmination of your entire pitch deck. After spending the whole presentation proving that your company is a massive opportunity, this slide is where you close the deal. Surprisingly, data shows that up to <strong>56% of public startup pitch decks actually omit a clear "Use of Funds" statement</strong>, which is a massive strategic error that costs founders funding.
@@ -497,7 +529,7 @@ const frameworkComparisons = [
 
           <div class="key-points-list">
             <div class="point-item">
-              <h3 class="point-title">1. The Specific Ask and Details</h3>
+              <h4 class="point-title">1. The Specific Ask and Details</h4>
               <p class="point-text">
                 You must confidently and clearly state the exact amount of money you want to raise (e.g., <em>"Seeking $1.5M in seed funding"</em>). The most effective Ask slides also include the round type and, if applicable, the terms or investment vehicle (e.g., <strong>"Raising $1.5M on an $8M post-money SAFE"</strong>).
               </p>
@@ -507,7 +539,7 @@ const frameworkComparisons = [
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">2. The Use of Funds Breakdown</h3>
+              <h4 class="point-title">2. The Use of Funds Breakdown</h4>
               <p class="point-text">
                 Investors need a high-level view of how you plan to allocate their capital across your business functions. You should provide a breakdown showing exactly where the money will be deployed, such as <strong>40% to product development, 30% to marketing, 20% to new engineering hires, and 10% to operational overhead</strong>.
               </p>
@@ -517,7 +549,7 @@ const frameworkComparisons = [
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">3. The Milestones (The Value Inflection Point)</h3>
+              <h4 class="point-title">3. The Milestones (The Value Inflection Point)</h4>
               <p class="point-text">
                 This is the most critical and frequently botched part of the Ask slide. Founders often make the mistake of asking for capital simply to buy time, phrasing it as: <em>"We are raising $1.5M for 18 months of runway."</em> <strong>Investors do not fund runway; they fund milestones.</strong>
               </p>
@@ -535,38 +567,34 @@ const frameworkComparisons = [
             </div>
           </div>
         </section>
-
-        <!-- Next Article Banner -->
-        <div class="article-nav-banner">
-          <div class="banner-content">
-            <span class="banner-tag">NEXT ARTICLE IN MASTERCLASS SERIES</span>
-            <h4 class="banner-title">The Anatomy of a Winning Pitch: An Analysis of the World's Top Pitch Deck Frameworks</h4>
-            <p class="banner-desc">Explore the universal laws of pitching and deep-dive comparisons across YC, Sequoia, Point Nine, NextView, and 500 Global.</p>
-          </div>
-          <button type="button" class="btn btn-primary" onclick="switchArticle(2)">
-            <span>Read Article 02</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </button>
-        </div>
       </article>
 
       <!-- ========================================================================= -->
-      <!-- ARTICLE 2: The Anatomy of a Winning Pitch                                 -->
+      <!-- ARTICLES SEPARATOR BANNER                                                 -->
       <!-- ========================================================================= -->
-      <article id="article-pane-2" class="article-pane">
-        <!-- Breadcrumb & Header -->
-        <header class="article-header">
+      <div class="articles-separator-banner">
+        <div class="sep-line"></div>
+        <div class="sep-pill">
+          <span class="sep-dot"></span>
+          <span>ARTICLE 02 &bull; COMPARATIVE VC ANALYSIS</span>
+        </div>
+        <div class="sep-line"></div>
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- ARTICLE 2: The Anatomy of a Winning Pitch (Always Visible)                -->
+      <!-- ========================================================================= -->
+      <article id="article-2" class="article-block">
+        <!-- Article 2 Header -->
+        <div class="article-header">
           <div class="article-category-badge">
             <span class="badge-dot"></span>
             <span>ARTICLE 02 &bull; VENTURE CAPITAL ANALYSIS &bull; COMPARATIVE STUDY</span>
           </div>
 
-          <h1 class="article-title">
+          <h2 class="article-title">
             The Anatomy of a Winning Pitch: An Analysis of the World's Top Pitch Deck Frameworks
-          </h1>
+          </h2>
 
           <p class="article-lead">
             Venture capital pitch decks serve as the critical gateway to fundraising. While investors from Y Combinator to Sequoia Capital review thousands of these documents annually, the frameworks they publish reveal a shared psychological approach to evaluating risk, combined with distinct firm-specific priorities. A comparative analysis of the most prominent frameworks highlights the universal laws of pitching and the unique structural strategies required for different investment theses.
@@ -579,7 +607,7 @@ const frameworkComparisons = [
             <span class="meta-divider">&bull;</span>
             <span class="meta-item"><strong>Analysis:</strong> Universal Laws &amp; Divergences</span>
           </div>
-        </header>
+        </div>
 
         <!-- Universal Stats Metrics Row -->
         <div class="stat-metrics-grid">
@@ -608,7 +636,7 @@ const frameworkComparisons = [
             <span class="section-tag-name">FOUNDATIONAL BASELINE</span>
           </div>
 
-          <h2 class="slide-heading">The Intersections: Universal Laws of the Pitch Deck</h2>
+          <h3 class="slide-heading">The Intersections: Universal Laws of the Pitch Deck</h3>
 
           <p class="slide-intro">
             Despite differing philosophies, top venture capital firms and accelerators agree on a foundational baseline for what constitutes a fundable presentation.
@@ -616,28 +644,28 @@ const frameworkComparisons = [
 
           <div class="key-points-list">
             <div class="point-item">
-              <h3 class="point-title">1. Structural Brevity and Time Constraints</h3>
+              <h4 class="point-title">1. Structural Brevity and Time Constraints</h4>
               <p class="point-text">
                 Whether it is Guy Kawasaki's famous 10/20/30 rule or the strict constraints of 500 Global, brevity is universally demanded. Industry data reveals that <strong>investors spend an average of just 3 minutes and 44 seconds reviewing a pitch deck</strong>. Because every slide gets only 15 to 35 seconds of attention, almost all official frameworks cap presentations at 10 to 14 slides to respect the investor's cognitive load and scanning behavior.
               </p>
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">2. The Core Narrative Arc</h3>
+              <h4 class="point-title">2. The Core Narrative Arc</h4>
               <p class="point-text">
                 Regardless of the accelerator or fund, there is a non-negotiable sequence of required information. The core slides—<strong>Problem, Solution (or Value Proposition), Business Model, Competition, Founding Team, and the Fundraising Ask</strong>—are universally mandated across all models. A presentation missing any of these pillars will fail the initial screening process.
               </p>
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">3. The "Bottom-Up" Market Mandate</h3>
+              <h4 class="point-title">3. The "Bottom-Up" Market Mandate</h4>
               <p class="point-text">
                 Frameworks from Y Combinator, Sequoia, and Point Nine all explicitly warn founders against using lazy, top-down market estimates (e.g., claiming a 1% share of a "trillion-dollar industry"). The consensus across these top frameworks is that market potential must be calculated from the bottom up. Founders are expected to multiply the <strong>realistic number of their specific target customers by their actual pricing model</strong> to prove they understand their unit economics.
               </p>
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">4. Honesty in Competition</h3>
+              <h4 class="point-title">4. Honesty in Competition</h4>
               <p class="point-text">
                 No major framework accepts the claim that a startup has <em>"no competition."</em> Models like the Founder Institute and 500 Global specifically require founders to visually map out existing alternatives—often using a 2x2 matrix—to demonstrate a grounded understanding of the market and to explicitly define their competitive differentiators.
               </p>
@@ -654,7 +682,7 @@ const frameworkComparisons = [
             <span class="section-tag-name">STRATEGIC NUANCES</span>
           </div>
 
-          <h2 class="slide-heading">The Differences: Where Frameworks Diverge</h2>
+          <h3 class="slide-heading">The Differences: Where Frameworks Diverge</h3>
 
           <p class="slide-intro">
             While the basic ingredients remain the same, how these frameworks structure the narrative changes drastically based on the firm's investment stage, sector focus, and meeting style.
@@ -662,7 +690,7 @@ const frameworkComparisons = [
 
           <div class="key-points-list">
             <div class="point-item">
-              <h3 class="point-title">1. Narrative Storytelling vs. Hardcore Metrics (The Stage Divide)</h3>
+              <h4 class="point-title">1. Narrative Storytelling vs. Hardcore Metrics (The Stage Divide)</h4>
               <p class="point-text">
                 The focus of a framework shifts depending on the maturity of the startup. <strong>Y Combinator's seed-stage framework</strong> prioritizes a <em>"Unique Insight"</em> and qualitative narratives, actively discouraging complex diagrams because early companies lack deep historical data.
               </p>
@@ -672,7 +700,7 @@ const frameworkComparisons = [
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">2. Structural Mechanics and the "Kitchen Sink"</h3>
+              <h4 class="point-title">2. Structural Mechanics and the "Kitchen Sink"</h4>
               <p class="point-text">
                 Most models follow a linear monologue format (Slide 1 to Slide 10), but <strong>NextView Ventures breaks this mold entirely</strong>. They advocate for an asymmetrical structure: a hyper-condensed 5 to 8 slide core deck meant to spark a two-way conversation, backed by a massive <strong>"Kitchen Sink" appendix</strong> containing detailed financials and roadmaps to answer specific questions on the fly.
               </p>
@@ -682,7 +710,7 @@ const frameworkComparisons = [
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">3. Placement of the Team Slide</h3>
+              <h4 class="point-title">3. Placement of the Team Slide</h4>
               <p class="point-text">
                 The sequence of information reveals differing philosophies on how to build early credibility. <strong>Point Nine Capital and NextView Ventures</strong> advise placing the Team slide immediately at the beginning of the presentation. In highly technical or B2B markets, establishing the founders' domain expertise upfront makes the subsequent product slides more credible.
               </p>
@@ -692,7 +720,7 @@ const frameworkComparisons = [
             </div>
 
             <div class="point-item">
-              <h3 class="point-title">4. Rigid Syntax and Linguistic Constraints</h3>
+              <h4 class="point-title">4. Rigid Syntax and Linguistic Constraints</h4>
               <p class="point-text">
                 Frameworks like <strong>500 Global and the Founder Institute</strong> enforce rigid syntactical rules to prevent founders from rambling. 500 Global requires founders to use a strict fill-in-the-blank formula for their opening elevator pitch.
               </p>
@@ -744,20 +772,18 @@ const frameworkComparisons = [
           </div>
         </section>
 
-        <!-- Previous Article Navigation Banner -->
-        <div class="article-nav-banner">
-          <div class="banner-content">
-            <span class="banner-tag">PREVIOUS ARTICLE IN MASTERCLASS SERIES</span>
-            <h4 class="banner-title">6 Slides for Pitch Deck</h4>
-            <p class="banner-desc">Master the exact anatomy of the 6 universally required slides from Sequoia Capital, Y Combinator, and 500 Global.</p>
-          </div>
-          <button type="button" class="btn btn-secondary" onclick="switchArticle(1)">
+        <!-- Back to Top / Article 1 Link -->
+        <div class="article-footer-nav">
+          <a href="#article-1" class="btn btn-secondary">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="19" y1="12" x2="5" y2="12"></line>
-              <polyline points="12 19 5 12 12 5"></polyline>
+              <line x1="12" y1="19" x2="12" y2="5"></line>
+              <polyline points="5 12 12 5 19 12"></polyline>
             </svg>
-            <span>Read Article 01</span>
-          </button>
+            <span>Back to Article 01</span>
+          </a>
+          <a href="#" class="btn btn-primary">
+            <span>Back to Top</span>
+          </a>
         </div>
       </article>
 
@@ -765,43 +791,11 @@ const frameworkComparisons = [
   </div>
 </Layout>
 
-<script is:inline>
-  function switchArticle(articleNum) {
-    // Hide all panes
-    const pane1 = document.getElementById('article-pane-1');
-    const pane2 = document.getElementById('article-pane-2');
-    const btn1 = document.getElementById('tab-btn-1');
-    const btn2 = document.getElementById('tab-btn-2');
-
-    if (articleNum === 1) {
-      if (pane1) pane1.classList.add('active');
-      if (pane2) pane2.classList.remove('active');
-      if (btn1) btn1.classList.add('active');
-      if (btn2) btn2.classList.remove('active');
-      window.location.hash = 'article-1';
-    } else {
-      if (pane1) pane1.classList.remove('active');
-      if (pane2) pane2.classList.add('active');
-      if (btn1) btn1.classList.remove('active');
-      if (btn2) btn2.classList.add('active');
-      window.location.hash = 'article-2';
-    }
-
-    // Scroll to top of content
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+<style>
+  html {
+    scroll-behavior: smooth;
   }
 
-  // Check URL hash on page load
-  window.addEventListener('DOMContentLoaded', () => {
-    if (window.location.hash === '#article-2') {
-      switchArticle(2);
-    } else {
-      switchArticle(1);
-    }
-  });
-</script>
-
-<style>
   .pitch-page-wrapper {
     background-color: #ffffff;
     padding: 2.5rem 0 6rem;
@@ -815,92 +809,130 @@ const frameworkComparisons = [
     padding: 0 1.5rem;
   }
 
-  /* Article Selector Tabs */
-  .article-selector-bar {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 2.5rem;
-    padding: 0.5rem;
-    background-color: #f8fafc;
-    border: 1px solid var(--border-subtle);
-    border-radius: 0.875rem;
+  /* Masterclass Hero */
+  .masterclass-hero {
+    margin-bottom: 4rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border-subtle);
   }
 
-  .selector-label {
-    font-size: 0.8125rem;
-    font-weight: 700;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding-left: 0.75rem;
-  }
-
-  .selector-tabs {
-    display: flex;
+  .hero-badge {
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    background-color: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    color: var(--brand-blue);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-main-title {
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-main-desc {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+  }
+
+  /* Articles Index Cards */
+  .articles-index-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .article-index-card {
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+  }
+
+  .article-index-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 15px 30px -10px rgba(15, 23, 42, 0.08);
+    transform: translateY(-3px);
+  }
+
+  .index-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .index-badge {
+    font-size: 0.6875rem;
+    font-weight: 800;
+    color: var(--brand-blue);
+    background-color: rgba(37, 99, 235, 0.1);
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+    letter-spacing: 0.05em;
+  }
+
+  .index-time {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .index-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.35;
+    margin-bottom: 0.75rem;
+  }
+
+  .index-card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
     flex: 1;
   }
 
-  .tab-btn {
+  .index-card-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.625rem;
-    padding: 0.5rem 1rem;
-    background: transparent;
-    border: 1px solid transparent;
-    border-radius: 0.625rem;
-    cursor: pointer;
-    font-family: inherit;
+    gap: 0.5rem;
     font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    transition: all 0.2s ease;
-  }
-
-  .tab-btn:hover {
-    color: var(--text-primary);
-    background-color: #ffffff;
-    border-color: var(--border-subtle);
-  }
-
-  .tab-btn.active {
+    font-weight: 700;
     color: var(--brand-blue);
-    background-color: #ffffff;
-    border-color: rgba(37, 99, 235, 0.25);
-    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+    transition: transform 0.15s ease;
   }
 
-  .tab-num {
-    font-size: 0.6875rem;
-    font-weight: 800;
-    padding: 0.15rem 0.4rem;
-    border-radius: 9999px;
-    background-color: rgba(37, 99, 235, 0.1);
-    color: var(--brand-blue);
+  .article-index-card:hover .index-card-link {
+    transform: translateX(4px);
   }
 
-  .tab-title {
-    white-space: nowrap;
-  }
-
-  /* Article Panes */
-  .article-pane {
-    display: none;
-  }
-
-  .article-pane.active {
+  /* Article Blocks */
+  .article-block {
     display: block;
-    animation: fadeIn 0.2s ease-in-out;
+    scroll-margin-top: 5rem;
+    margin-bottom: 5rem;
   }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(4px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Header */
+  /* Article Headers */
   .article-header {
     margin-bottom: 2.5rem;
   }
@@ -928,10 +960,10 @@ const frameworkComparisons = [
   }
 
   .article-title {
-    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: 800;
     color: var(--text-primary);
-    line-height: 1.15;
+    line-height: 1.2;
     letter-spacing: -0.03em;
     margin-bottom: 1.25rem;
   }
@@ -1231,6 +1263,41 @@ const frameworkComparisons = [
     margin-top: 0.75rem;
   }
 
+  /* Articles Separator Banner */
+  .articles-separator-banner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 6rem 0 5rem;
+  }
+
+  .sep-line {
+    flex: 1;
+    height: 1px;
+    background-color: var(--border-subtle);
+  }
+
+  .sep-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    background-color: #f8fafc;
+    border: 1px solid var(--border-strong);
+    color: var(--text-primary);
+    font-size: 0.8125rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+  }
+
+  .sep-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--brand-blue);
+  }
+
   /* Article 2: Stat Metrics Cards */
   .stat-metrics-grid {
     display: grid;
@@ -1364,68 +1431,34 @@ const frameworkComparisons = [
     color: var(--text-secondary);
   }
 
-  /* Article Navigation Banner */
-  .article-nav-banner {
-    margin-top: 4rem;
-    padding: 2rem;
-    background-color: #f8fafc;
-    border: 1px solid var(--border-subtle);
-    border-radius: 1rem;
+  /* Article Footer Nav */
+  .article-footer-nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
-  }
-
-  .banner-tag {
-    font-size: 0.6875rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    color: var(--brand-blue);
-    display: block;
-    margin-bottom: 0.35rem;
-  }
-
-  .banner-title {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 0.35rem;
-  }
-
-  .banner-desc {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    margin: 0;
-  }
-
-  .article-nav-banner .btn {
-    white-space: nowrap;
+    gap: 1rem;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-subtle);
   }
 
   @media (max-width: 768px) {
+    .articles-index-grid {
+      grid-template-columns: 1fr;
+    }
     .summary-cards-grid {
       grid-template-columns: 1fr;
     }
     .stat-metrics-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-    .article-nav-banner {
+    .article-footer-nav {
       flex-direction: column;
-      align-items: flex-start;
-      gap: 1.25rem;
+      align-items: stretch;
     }
-    .article-nav-banner .btn {
+    .article-footer-nav .btn {
       width: 100%;
       justify-content: center;
-    }
-    .article-selector-bar {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .selector-tabs {
-      width: 100%;
-      overflow-x: auto;
     }
   }
 </style>
