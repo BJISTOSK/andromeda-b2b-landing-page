@@ -295,7 +295,25 @@
           if (errEl) errEl.textContent = '';
           if (input) input.style.borderColor = '';
         }
-      });
+      // Validate URL scheme for security (prevent javascript: URIs)
+      if (data.deckUrl) {
+        try {
+          const parsed = new URL(data.deckUrl);
+          if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+            isValid = false;
+            const errEl = document.getElementById('deckUrlError');
+            const input = document.getElementById('deckUrl') as HTMLInputElement;
+            if (errEl) errEl.textContent = 'Please enter a valid web URL starting with http:// or https://';
+            if (input) input.style.borderColor = '#f87171';
+          }
+        } catch {
+          isValid = false;
+          const errEl = document.getElementById('deckUrlError');
+          const input = document.getElementById('deckUrl') as HTMLInputElement;
+          if (errEl) errEl.textContent = 'Please enter a valid web URL.';
+          if (input) input.style.borderColor = '#f87171';
+        }
+      }
 
       if (!isValid) return;
 

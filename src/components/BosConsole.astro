@@ -487,7 +487,19 @@ const telemetry = DEFAULT_BOS_TELEMETRY;
     const p = document.createElement('p');
     p.className = 't-line';
     const timestamp = new Date().toLocaleTimeString();
-    p.innerHTML = `<span class="t-cyan">[${timestamp}]</span> <span class="t-emerald">[SYNC]</span> ${domain}: ${msg}`;
+    
+    const timeSpan = document.createElement('span');
+    timeSpan.className = 't-cyan';
+    timeSpan.textContent = `[${timestamp}] `;
+
+    const syncSpan = document.createElement('span');
+    syncSpan.className = 't-emerald';
+    syncSpan.textContent = '[SYNC] ';
+
+    p.appendChild(timeSpan);
+    p.appendChild(syncSpan);
+    p.appendChild(document.createTextNode(`${domain}: ${msg}`));
+
     terminalBody.appendChild(p);
     terminalBody.scrollTop = terminalBody.scrollHeight;
   }

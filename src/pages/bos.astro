@@ -56,14 +56,14 @@ import BosConsole from '../components/BosConsole.astro';
             <div class="note-item">
               <h4>1. Schema-Gated Queries</h4>
               <p>
-                Telemetry is defined in <code>convex/schema.ts</code> with tables for <code>bos_operations</code>, <code>bos_tasks</code>, and <code>bos_metrics</code>.
+                Telemetry is validated against strict enterprise contracts for operations, tasks, and live metrics.
               </p>
             </div>
 
             <div class="note-item">
               <h4>2. Reactive WebSocket Subscriptions</h4>
               <p>
-                Mutations executed in <code>convex/bos.ts</code> instantly broadcast state changes to all connected enterprise clients without polling.
+                Backend mutations instantly broadcast state changes to all connected enterprise clients without polling.
               </p>
             </div>
 
