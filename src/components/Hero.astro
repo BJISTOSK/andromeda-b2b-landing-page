@@ -2,163 +2,440 @@
 ---
 
 <section class="hero-section">
-  <div class="container hero-content">
-    <div class="hero-badge-wrap">
-      <div class="badge badge-cyan">
-        <span class="status-dot status-dot-active"></span>
-        Andromeda 2.0 &bull; Cloudflare CDN &bull; Convex Reactive
+  <div class="container hero-container">
+    <!-- Announcement / Avatar Trust Pill -->
+    <div class="hero-trust-bar">
+      <div class="avatar-stack">
+        <div class="avatar-circle av-1">AO</div>
+        <div class="avatar-circle av-2">MK</div>
+        <div class="avatar-circle av-3">SL</div>
+        <div class="avatar-circle av-4">DR</div>
+        <div class="avatar-circle av-5">+1.4k</div>
       </div>
+      <a href="/startups-pitch" class="trust-text">
+        <span>Trusted by 1,400+ Enterprise Leaders & Founders</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
     </div>
 
+    <!-- Main Headline -->
     <h1 class="hero-title">
-      The Autonomous <br />
-      <span class="gradient-text">B2B Operating Fabric</span>
+      The modern operating system <br class="hidden sm:inline" />
+      for <span class="gradient-text">scaled B2B commerce</span>
     </h1>
 
+    <!-- Subtitle -->
     <p class="hero-subtitle">
-      Accelerate enterprise commerce, liquidity orchestration, and high-velocity venture dealflow with a strictly decoupled static front-end and a real-time reactive backend.
+      Andromeda changes how high-growth enterprises orchestrate liquidity, accelerate venture dealflow, and manage distributed service nodes together.
     </p>
 
+    <!-- Dual CTAs -->
     <div class="hero-cta-group">
-      <a href="/bos" class="btn btn-primary btn-glow">
+      <a href="/bos" class="btn btn-primary btn-hero">
         <span>Enter BOS Console</span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
       </a>
-      <a href="/startups-pitch" class="btn btn-secondary">
-        <span>Startups Pitch Deck</span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-          <polyline points="14 2 14 8 20 8"></polyline>
-          <line x1="16" y1="13" x2="8" y2="13"></line>
-          <line x1="16" y1="17" x2="8" y2="17"></line>
-          <polyline points="10 9 9 9 8 9"></polyline>
-        </svg>
+      <a href="/startups-pitch" class="btn btn-secondary btn-hero">
+        <span>Startups Pitch Track</span>
       </a>
     </div>
 
-    <!-- Live Telemetry Ticker -->
-    <div class="telemetry-bar glass-card">
-      <div class="telemetry-item">
-        <div class="telemetry-label">B2B Volume</div>
-        <div class="telemetry-value">$248.6M+</div>
-        <div class="telemetry-change text-emerald">&uarr; +28.4% YoY</div>
+    <!-- Hero Mockup Showcase (Cruip Signature Preview Frame) -->
+    <div class="hero-mockup-wrap">
+      <div class="hero-mockup cruip-card">
+        <!-- Browser Top Bar -->
+        <div class="mockup-header">
+          <div class="mockup-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="mockup-address-bar">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span>https://console.andromedab2b.com/live</span>
+          </div>
+          <div class="mockup-status">
+            <span class="status-dot status-dot-active"></span>
+            <span>Convex Sync Active</span>
+          </div>
+        </div>
+
+        <!-- Mockup Content Body -->
+        <div class="mockup-body">
+          <!-- Top Telemetry Row -->
+          <div class="telemetry-grid">
+            <div class="telemetry-stat">
+              <span class="stat-label">B2B Volume Settled</span>
+              <span class="stat-value">$248.6M</span>
+              <span class="stat-pill text-emerald">+28.4% YoY</span>
+            </div>
+            <div class="telemetry-stat">
+              <span class="stat-label">Edge CDN Latency</span>
+              <span class="stat-value">9ms</span>
+              <span class="stat-pill text-blue">Cloudflare PoPs</span>
+            </div>
+            <div class="telemetry-stat">
+              <span class="stat-label">Enterprise SLA</span>
+              <span class="stat-value">99.995%</span>
+              <span class="stat-pill text-indigo">SOC-2 Type II</span>
+            </div>
+            <div class="telemetry-stat">
+              <span class="stat-label">Active Node Clusters</span>
+              <span class="stat-value">1,420+</span>
+              <span class="stat-pill text-emerald">Global Nodes</span>
+            </div>
+          </div>
+
+          <!-- Interactive Node Ticker Preview -->
+          <div class="preview-activity">
+            <div class="activity-header">
+              <span class="activity-title">Live Node Cluster Stream</span>
+              <span class="activity-badge">Real-Time WebSocket Feed</span>
+            </div>
+            <div class="activity-items">
+              <div class="activity-item">
+                <span class="node-id">us-east-1a (Liquidity Hub)</span>
+                <span class="node-metric">Throughput: 4,820 tx/s</span>
+                <span class="node-status text-emerald">Healthy &bull; 9ms</span>
+              </div>
+              <div class="activity-item">
+                <span class="node-id">eu-west-1b (Settlement Mesh)</span>
+                <span class="node-metric">Throughput: 3,110 tx/s</span>
+                <span class="node-status text-emerald">Healthy &bull; 14ms</span>
+              </div>
+              <div class="activity-item">
+                <span class="node-id">ap-northeast-1c (Dealflow Engine)</span>
+                <span class="node-metric">Throughput: 2,640 tx/s</span>
+                <span class="node-status text-emerald">Healthy &bull; 18ms</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="telemetry-divider"></div>
-      <div class="telemetry-item">
-        <div class="telemetry-label">Edge Latency</div>
-        <div class="telemetry-value">9ms</div>
-        <div class="telemetry-change text-cyan">Cloudflare PoPs</div>
-      </div>
-      <div class="telemetry-divider"></div>
-      <div class="telemetry-item">
-        <div class="telemetry-label">Enterprise SLA</div>
-        <div class="telemetry-value">99.995%</div>
-        <div class="telemetry-change text-violet">SOC-2 Type II</div>
-      </div>
-      <div class="telemetry-divider"></div>
-      <div class="telemetry-item">
-        <div class="telemetry-label">Active Partners</div>
-        <div class="telemetry-value">1,420+</div>
-        <div class="telemetry-change text-emerald">Global Nodes</div>
-      </div>
+
+      <!-- Subtle background glow under card -->
+      <div class="mockup-glow" aria-hidden="true"></div>
     </div>
   </div>
 </section>
 
 <style>
   .hero-section {
-    padding: 5rem 0 4rem;
+    padding: 3rem 0 5rem;
     position: relative;
     overflow: hidden;
   }
 
-  .hero-content {
+  .hero-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
-  .hero-badge-wrap {
-    margin-bottom: 1.5rem;
+  /* Trust Bar with Avatars */
+  .hero-trust-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.35rem 1rem 0.35rem 0.5rem;
+    border-radius: 9999px;
+    background-color: #ffffff;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-xs);
+    margin-bottom: 2rem;
+    transition: all 0.2s ease;
   }
 
-  .hero-title {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    max-width: 900px;
+  .hero-trust-bar:hover {
+    border-color: var(--brand-blue);
+    box-shadow: var(--shadow-sm);
   }
 
-  .hero-subtitle {
-    font-size: clamp(1.05rem, 2vw, 1.25rem);
-    color: #94a3b8;
-    max-width: 720px;
-    line-height: 1.65;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-cta-group {
+  .avatar-stack {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
-    margin-bottom: 4rem;
+    margin-right: -0.25rem;
   }
 
-  /* Telemetry Bar */
-  .telemetry-bar {
-    width: 100%;
-    max-width: 960px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 1.5rem 2rem;
-    background: rgba(11, 17, 32, 0.75);
-    border: 1px solid var(--border-bright);
-    box-shadow: var(--shadow-md);
-  }
-
-  .telemetry-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.35rem;
-  }
-
-  .telemetry-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #64748b;
-  }
-
-  .telemetry-value {
-    font-family: var(--font-display);
-    font-size: 1.75rem;
+  .avatar-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    font-size: 0.625rem;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -0.5rem;
     color: #ffffff;
   }
 
-  .telemetry-change {
+  .avatar-circle:first-child {
+    margin-left: 0;
+  }
+
+  .av-1 { background-color: #2563eb; }
+  .av-2 { background-color: #4f46e5; }
+  .av-3 { background-color: #06b6d4; }
+  .av-4 { background-color: #ec4899; }
+  .av-5 { background-color: #64748b; font-size: 0.55rem; }
+
+  .trust-text {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    transition: color 0.15s ease;
+  }
+
+  .trust-text:hover {
+    color: var(--brand-blue);
+  }
+
+  /* Hero Typography */
+  .hero-title {
+    font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+    max-width: 900px;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    color: var(--text-secondary);
+    max-width: 680px;
+    line-height: 1.6;
+    margin-bottom: 2.25rem;
+  }
+
+  /* CTAs */
+  .hero-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  .btn-hero {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  /* Mockup Frame */
+  .hero-mockup-wrap {
+    width: 100%;
+    max-width: 980px;
+    position: relative;
+  }
+
+  .hero-mockup {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-2xl);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    position: relative;
+    z-index: 2;
+  }
+
+  .mockup-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    background-color: #f8fafc;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .mockup-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .dot-red { background-color: #ef4444; }
+  .dot-yellow { background-color: #f59e0b; }
+  .dot-green { background-color: #10b981; }
+
+  .mockup-address-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #ffffff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.375rem;
+    padding: 0.25rem 1rem;
     font-size: 0.75rem;
+    color: var(--text-muted);
+    font-family: monospace;
+    width: 100%;
+    max-width: 380px;
+    justify-content: center;
+  }
+
+  .mockup-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  /* Mockup Body */
+  .mockup-body {
+    padding: 2rem;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  }
+
+  .telemetry-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .telemetry-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-xs);
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-pill {
+    font-size: 0.7rem;
     font-weight: 600;
   }
 
-  .text-emerald { color: var(--accent-emerald); }
-  .text-cyan { color: var(--accent-cyan); }
-  .text-violet { color: var(--accent-violet); }
+  .text-emerald { color: #059669; }
+  .text-blue { color: #2563eb; }
+  .text-indigo { color: #4f46e5; }
 
-  .telemetry-divider {
-    width: 1px;
-    height: 40px;
-    background: var(--border-subtle);
+  /* Activity Stream */
+  .preview-activity {
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    box-shadow: var(--shadow-xs);
+    text-align: left;
+  }
+
+  .activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .activity-title {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .activity-badge {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--brand-blue);
+    background-color: var(--brand-blue-light);
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+
+  .activity-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .activity-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    background-color: #f8fafc;
+    border-radius: 0.375rem;
+    font-size: 0.8125rem;
+  }
+
+  .node-id {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .node-metric {
+    color: var(--text-secondary);
+  }
+
+  .node-status {
+    font-weight: 600;
+    font-size: 0.75rem;
+  }
+
+  /* Mockup Glow */
+  .mockup-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(ellipse, rgba(37, 99, 235, 0.15) 0%, rgba(99, 102, 241, 0.08) 50%, transparent 70%);
+    filter: blur(40px);
+    z-index: 1;
+    pointer-events: none;
   }
 
   @media (max-width: 768px) {
+    .telemetry-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
     .hero-cta-group {
       flex-direction: column;
       width: 100%;
@@ -167,12 +444,18 @@
     .hero-cta-group .btn {
       width: 100%;
     }
-    .telemetry-bar {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
+    .activity-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
     }
-    .telemetry-divider {
+  }
+
+  @media (max-width: 480px) {
+    .telemetry-grid {
+      grid-template-columns: 1fr;
+    }
+    .mockup-address-bar {
       display: none;
     }
   }

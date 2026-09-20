@@ -10,8 +10,8 @@ interface Props {
 }
 
 const {
-  title = "Andromeda | Next-Gen B2B Platform & Operating System",
-  description = "Andromeda B2B Platform - Decoupled static front-end powered by Astro and Convex reactive backend. Featuring B2B solutions, Startups Pitch, and BOS operations console.",
+  title = "Andromeda | The Next-Gen B2B Operating System",
+  description = "Andromeda B2B Platform - High-velocity B2B commerce, venture dealflow syndication, and autonomous enterprise orchestration with decoupled speed.",
   activePage = 'home'
 } = Astro.props;
 ---
@@ -32,13 +32,13 @@ const {
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Cloudflare Edge & Preconnect -->
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
-  <body>
-    <div class="cosmic-grid" aria-hidden="true"></div>
-    <div class="cosmic-glow-top" aria-hidden="true"></div>
+  <body class="cruip-body">
+    <!-- Cruip Background Stripe Illustration -->
+    <div class="page-stripes" aria-hidden="true"></div>
     
     <Navbar activePage={activePage} />
     
@@ -49,22 +49,18 @@ const {
     <Footer />
 
     <style>
-      .cosmic-glow-top {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 1000px;
-        height: 400px;
-        background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(6, 182, 212, 0.08) 40%, transparent 70%);
-        pointer-events: none;
-        z-index: 0;
+      .cruip-body {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
       }
 
       #main-content {
         flex: 1;
         position: relative;
         z-index: 1;
+        padding-top: 5rem; /* Space for floating navbar */
       }
     </style>
   </body>

@@ -1,0 +1,132 @@
+---
+---
+
+<section class="testimonial-section">
+  <div class="container testimonial-container">
+    <div class="testimonial-wrap">
+      <!-- Decorative SVG Quote Graphic -->
+      <div class="quote-icon-wrap" aria-hidden="true">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 28H8C8 20 12 16 18 14L20 18C16 19 14 22 14 24V28ZM34 28H28C28 20 32 16 38 14L40 18C36 19 34 22 34 24V28Z" fill="#2563eb" fill-opacity="0.2"/>
+        </svg>
+      </div>
+
+      <!-- Testimonial Quote -->
+      <blockquote class="testimonial-quote">
+        “Andromeda has transformed our enterprise operations in more ways than one. From orchestrating distributed service nodes to accelerating pilot dealflow, it has become our go-to fabric for everything.”
+      </blockquote>
+
+      <!-- Author Attribution -->
+      <div class="testimonial-author">
+        <div class="author-avatar">
+          <span>MK</span>
+        </div>
+        <div class="author-info">
+          <span class="author-name">Marcus Vance</span>
+          <span class="author-title">Chief Technology Officer at Enterprise Partner</span>
+        </div>
+      </div>
+
+      <!-- Trust Metrics / Rating -->
+      <div class="trust-rating">
+        <div class="stars">
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+        </div>
+        <span class="rating-text">Rated 4.9/5 by 1,400+ Enterprise Operators</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonial-section {
+    padding: 6rem 0;
+    background-color: var(--bg-subtle);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    position: relative;
+  }
+
+  .testimonial-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .testimonial-wrap {
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+
+  .quote-icon-wrap {
+    margin-bottom: 1rem;
+  }
+
+  .testimonial-quote {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    letter-spacing: -0.015em;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .author-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+  }
+
+  .author-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .author-name {
+    font-weight: 700;
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+  }
+
+  .author-title {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  .trust-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  .stars {
+    color: #f59e0b;
+    letter-spacing: 2px;
+  }
+</style>
