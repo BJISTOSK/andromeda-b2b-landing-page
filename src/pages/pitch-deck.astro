@@ -39,438 +39,865 @@ const slideSummary = [
     desc: "State the exact capital sought, transparent use of funds, and the specific milestones it will unlock."
   }
 ];
+
+const frameworkComparisons = [
+  {
+    firm: "Y Combinator",
+    stage: "Seed",
+    philosophy: "Narrative & Unique Insight",
+    teamPlacement: "End of Deck",
+    keyRequirement: "Qualitative founder insight; avoids noisy dashboard mockups."
+  },
+  {
+    firm: "Sequoia Capital",
+    stage: "Seed to Growth",
+    philosophy: "Problem-First Discipline",
+    teamPlacement: "End of Deck",
+    keyRequirement: "Mandates current workaround analysis and bottom-up TAM."
+  },
+  {
+    firm: "Point Nine Capital",
+    stage: "Seed / Series A",
+    philosophy: "B2B SaaS Hardcore Metrics",
+    teamPlacement: "Beginning (Slide 2)",
+    keyRequirement: "Net Dollar Retention (NDR), Account Expansion, and LTV/CAC ratios."
+  },
+  {
+    firm: "NextView Ventures",
+    stage: "Seed",
+    philosophy: "Asymmetric / Conversational",
+    teamPlacement: "Beginning",
+    keyRequirement: "Hyper-condensed 5-8 slide core deck + massive 'Kitchen Sink' appendix."
+  },
+  {
+    firm: "First Round Capital",
+    stage: "Seed",
+    philosophy: "Internal Committee Consensus",
+    teamPlacement: "Flexible",
+    keyRequirement: "12-slide structure optimized for internal partner advocacy."
+  },
+  {
+    firm: "500 Global",
+    stage: "Pre-Seed / Seed",
+    philosophy: "Strict Syntax & Brevity",
+    teamPlacement: "End of Deck",
+    keyRequirement: "Rigid fill-in-the-blank elevator pitch formula."
+  },
+  {
+    firm: "Founder Institute",
+    stage: "Idea / Pre-Seed",
+    philosophy: "Jargon-Free One-Sentence Pitch",
+    teamPlacement: "End of Deck",
+    keyRequirement: "Zero superlatives ('best', 'first', 'only' are strictly forbidden)."
+  }
+];
 ---
 
 <Layout 
-  title="6 Slides for Pitch Deck | Framework Masterclass | Andromeda"
-  description="Synthesized pitch deck framework from Sequoia Capital, Y Combinator, NextView Ventures, and 500 Global covering the 6 universally required slides."
+  title="Pitch Deck Masterclass & Framework Analysis | Andromeda"
+  description="Comprehensive venture capital pitch deck frameworks from Sequoia Capital, Y Combinator, NextView, Point Nine, and 500 Global."
   activePage="pitch-deck"
 >
-  <article class="pitch-article-wrapper">
+  <div class="pitch-page-wrapper">
     <div class="container article-container">
       
-      <!-- Breadcrumb & Header -->
-      <header class="article-header">
-        <div class="article-category-badge">
-          <span class="badge-dot"></span>
-          <span>VENTURE CAPITAL FRAMEWORKS &bull; MASTERCLASS</span>
+      <!-- Top Article Switcher Tabs -->
+      <div class="article-selector-bar">
+        <span class="selector-label">Articles:</span>
+        <div class="selector-tabs">
+          <button 
+            type="button" 
+            id="tab-btn-1" 
+            class="tab-btn active"
+            onclick="switchArticle(1)"
+          >
+            <span class="tab-num">01</span>
+            <span class="tab-title">6 Slides for Pitch Deck</span>
+          </button>
+          <button 
+            type="button" 
+            id="tab-btn-2" 
+            class="tab-btn"
+            onclick="switchArticle(2)"
+          >
+            <span class="tab-num">02</span>
+            <span class="tab-title">The Anatomy of a Winning Pitch</span>
+          </button>
         </div>
+      </div>
 
-        <h1 class="article-title">
-          6 Slides for Pitch Deck
-        </h1>
+      <!-- ========================================================================= -->
+      <!-- ARTICLE 1: 6 Slides for Pitch Deck                                        -->
+      <!-- ========================================================================= -->
+      <article id="article-pane-1" class="article-pane active">
+        <!-- Breadcrumb & Header -->
+        <header class="article-header">
+          <div class="article-category-badge">
+            <span class="badge-dot"></span>
+            <span>ARTICLE 01 &bull; VENTURE CAPITAL FRAMEWORKS &bull; MASTERCLASS</span>
+          </div>
 
-        <p class="article-lead">
-          Based on the official pitch deck frameworks reviewed from top venture capital firms and accelerators (such as Sequoia Capital, Y Combinator, NextView Ventures, and 500 Global), there is a universally agreed-upon core structure. Even though the specific sequence or exact naming might vary slightly, the following six slides are duplicated across every single framework.
-        </p>
+          <h1 class="article-title">
+            6 Slides for Pitch Deck
+          </h1>
 
-        <div class="article-meta-bar">
-          <span class="meta-item"><strong>Reading time:</strong> 10 min read</span>
-          <span class="meta-divider">&bull;</span>
-          <span class="meta-item"><strong>Framework:</strong> Sequoia &bull; YC &bull; 500 Global</span>
-          <span class="meta-divider">&bull;</span>
-          <span class="meta-item"><strong>Stage:</strong> Pre-Seed to Series A</span>
-        </div>
-      </header>
-
-      <!-- Quick Navigation Bar -->
-      <nav class="toc-nav" aria-label="Slide quick links">
-        <span class="toc-label">Jump to slide:</span>
-        <div class="toc-pills">
-          <a href="#slide-1" class="toc-pill">01. Problem</a>
-          <a href="#slide-2" class="toc-pill">02. Solution</a>
-          <a href="#slide-3" class="toc-pill">03. Business Model</a>
-          <a href="#slide-4" class="toc-pill">04. Competition</a>
-          <a href="#slide-5" class="toc-pill">05. Founding Team</a>
-          <a href="#slide-6" class="toc-pill">06. The Ask</a>
-        </div>
-      </nav>
-
-      <!-- Executive Summary Cards -->
-      <section class="summary-cards-section">
-        <div class="summary-cards-grid">
-          {slideSummary.map((slide) => (
-            <a href={`#slide-${parseInt(slide.num)}`} class="summary-card">
-              <div class="card-num-row">
-                <span class="slide-badge">SLIDE {slide.num}</span>
-                <span class="slide-question">{slide.question}</span>
-              </div>
-              <h3 class="card-slide-title">{slide.title}</h3>
-              <p class="card-slide-desc">{slide.desc}</p>
-            </a>
-          ))}
-        </div>
-
-        <div class="anatomy-callout">
-          <p>
-            <strong>The Core Investor Anatomy:</strong> These six slides constitute the absolute minimum anatomy of a pitch deck because they answer the fundamental questions every investor asks: <em>what is broken, how do you fix it, how do you make money, who else is doing it, who are you, and what do you need to succeed.</em>
+          <p class="article-lead">
+            Based on the official pitch deck frameworks reviewed from top venture capital firms and accelerators (such as Sequoia Capital, Y Combinator, NextView Ventures, and 500 Global), there is a universally agreed-upon core structure. Even though the specific sequence or exact naming might vary slightly, the following six slides are duplicated across every single framework.
           </p>
-        </div>
-      </section>
 
-      <hr class="section-divider" />
+          <div class="article-meta-bar">
+            <span class="meta-item"><strong>Reading time:</strong> 10 min read</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Frameworks:</strong> Sequoia &bull; YC &bull; 500 Global</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Stage:</strong> Pre-Seed to Series A</span>
+          </div>
+        </header>
 
-      <!-- SLIDE 1: Problem / Opportunity -->
-      <section id="slide-1" class="slide-deep-dive">
-        <div class="slide-tag-row">
-          <span class="slide-number-pill">01</span>
-          <span class="slide-tag-title">SLIDE 1</span>
-        </div>
+        <!-- Quick Navigation Bar -->
+        <nav class="toc-nav" aria-label="Slide quick links">
+          <span class="toc-label">Jump to slide:</span>
+          <div class="toc-pills">
+            <a href="#slide-1" class="toc-pill">01. Problem</a>
+            <a href="#slide-2" class="toc-pill">02. Solution</a>
+            <a href="#slide-3" class="toc-pill">03. Business Model</a>
+            <a href="#slide-4" class="toc-pill">04. Competition</a>
+            <a href="#slide-5" class="toc-pill">05. Founding Team</a>
+            <a href="#slide-6" class="toc-pill">06. The Ask</a>
+          </div>
+        </nav>
 
-        <h2 class="slide-heading">Problem / Opportunity</h2>
-
-        <p class="slide-intro">
-          The <strong>"Problem" (or Opportunity)</strong> slide is arguably the most critical component of your pitch deck. If investors do not fundamentally believe that a severe, urgent problem exists, they will not care how elegant your solution is.
-        </p>
-
-        <p class="slide-body-text">
-          When you synthesize the requirements from Sequoia Capital, Y Combinator, 500 Global, and other top-tier frameworks, a clear blueprint emerges for exactly how to construct this slide. Here is a deep dive into what venture capitalists expect to see:
-        </p>
-
-        <div class="key-points-list">
-          <div class="point-item">
-            <h3 class="point-title">1. Extreme Specificity Over Abstract Language</h3>
-            <p class="point-text">
-              The most common reason founders fail on this slide is that they use abstract, corporate jargon that fails to create urgency. Investors see thousands of pitches claiming massive, vague issues like, <em>"Team communication is inefficient"</em> or <em>"The healthcare industry is broken"</em>. Instead, top frameworks demand that you identify a highly specific customer and a concrete pain point. Y Combinator advises founders to <strong>"make investors feel the pain"</strong> by ensuring the problem is relatable and grounded in the real world.
-            </p>
+        <!-- Executive Summary Cards -->
+        <section class="summary-cards-section">
+          <div class="summary-cards-grid">
+            {slideSummary.map((slide) => (
+              <a href={`#slide-${parseInt(slide.num)}`} class="summary-card">
+                <div class="card-num-row">
+                  <span class="slide-badge">SLIDE {slide.num}</span>
+                  <span class="slide-question">{slide.question}</span>
+                </div>
+                <h3 class="card-slide-title">{slide.title}</h3>
+                <p class="card-slide-desc">{slide.desc}</p>
+              </a>
+            ))}
           </div>
 
-          <div class="point-item">
-            <h3 class="point-title">2. The Micro-Economic View (Quantifying the Pain)</h3>
-            <p class="point-text">
-              You must attach a specific cost to the problem. Rather than quoting a macro-level statistic from a global industry report, frame the problem from the micro-economic perspective of your specific user. For example, instead of saying, <em>"E-commerce brands struggle with customer service,"</em> a highly effective problem slide will state: <strong>"E-commerce brands receive hundreds of repetitive order-tracking queries daily, forcing support teams to waste hours on manual replies"</strong>. You want investors to immediately recognize the lost revenue, wasted time, or operational friction.
+          <div class="anatomy-callout">
+            <p>
+              <strong>The Core Investor Anatomy:</strong> These six slides constitute the absolute minimum anatomy of a pitch deck because they answer the fundamental questions every investor asks: <em>what is broken, how do you fix it, how do you make money, who else is doing it, who are you, and what do you need to succeed.</em>
             </p>
           </div>
+        </section>
 
-          <div class="point-item">
-            <h3 class="point-title">3. Acknowledging the "Workaround"</h3>
-            <p class="point-text">
-              Sequoia Capital's framework includes a very specific mandate for the Problem slide: <strong>you must outline how the customer addresses the issue today</strong>. Investors know that if a problem is truly painful, customers are already trying to solve it. You need to explain the current workaround—even if that workaround is just a messy system of Excel spreadsheets or a patchwork of expensive consultants—and explicitly state why these existing solutions are completely insufficient.
-            </p>
+        <hr class="section-divider" />
+
+        <!-- SLIDE 1: Problem / Opportunity -->
+        <section id="slide-1" class="slide-deep-dive">
+          <div class="slide-tag-row">
+            <span class="slide-number-pill">01</span>
+            <span class="slide-tag-title">SLIDE 1</span>
           </div>
 
-          <div class="point-item">
-            <h3 class="point-title">4. The Optimal Slide Structure</h3>
-            <p class="point-text">
-              Because venture capitalists spend roughly 20 to 30 seconds reading this slide, it cannot be a wall of text. If you require a long paragraph to explain the problem, investors will assume you haven't found the right framing yet. To maximize impact, structure the slide around three concise points:
-            </p>
-            <ul class="framework-checklist">
-              <li><strong>Who experiences the problem:</strong> Define the exact persona or business.</li>
-              <li><strong>What exactly goes wrong:</strong> Define the specific operational or personal failure.</li>
-              <li><strong>Why existing solutions fail:</strong> Briefly highlight the gap in the current market.</li>
-            </ul>
-            <div class="callout-tip">
-              <strong>The Natural Setup:</strong> Ultimately, a perfect Problem slide acts as a natural setup. If you articulate the customer's pain and the failure of current solutions clearly enough, the investor should naturally anticipate—and eagerly want to see—the solution you present on the very next slide.
+          <h2 class="slide-heading">Problem / Opportunity</h2>
+
+          <p class="slide-intro">
+            The <strong>"Problem" (or Opportunity)</strong> slide is arguably the most critical component of your pitch deck. If investors do not fundamentally believe that a severe, urgent problem exists, they will not care how elegant your solution is.
+          </p>
+
+          <p class="slide-body-text">
+            When you synthesize the requirements from Sequoia Capital, Y Combinator, 500 Global, and other top-tier frameworks, a clear blueprint emerges for exactly how to construct this slide. Here is a deep dive into what venture capitalists expect to see:
+          </p>
+
+          <div class="key-points-list">
+            <div class="point-item">
+              <h3 class="point-title">1. Extreme Specificity Over Abstract Language</h3>
+              <p class="point-text">
+                The most common reason founders fail on this slide is that they use abstract, corporate jargon that fails to create urgency. Investors see thousands of pitches claiming massive, vague issues like, <em>"Team communication is inefficient"</em> or <em>"The healthcare industry is broken"</em>. Instead, top frameworks demand that you identify a highly specific customer and a concrete pain point. Y Combinator advises founders to <strong>"make investors feel the pain"</strong> by ensuring the problem is relatable and grounded in the real world.
+              </p>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">2. The Micro-Economic View (Quantifying the Pain)</h3>
+              <p class="point-text">
+                You must attach a specific cost to the problem. Rather than quoting a macro-level statistic from a global industry report, frame the problem from the micro-economic perspective of your specific user. For example, instead of saying, <em>"E-commerce brands struggle with customer service,"</em> a highly effective problem slide will state: <strong>"E-commerce brands receive hundreds of repetitive order-tracking queries daily, forcing support teams to waste hours on manual replies"</strong>. You want investors to immediately recognize the lost revenue, wasted time, or operational friction.
+              </p>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">3. Acknowledging the "Workaround"</h3>
+              <p class="point-text">
+                Sequoia Capital's framework includes a very specific mandate for the Problem slide: <strong>you must outline how the customer addresses the issue today</strong>. Investors know that if a problem is truly painful, customers are already trying to solve it. You need to explain the current workaround—even if that workaround is just a messy system of Excel spreadsheets or a patchwork of expensive consultants—and explicitly state why these existing solutions are completely insufficient.
+              </p>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">4. The Optimal Slide Structure</h3>
+              <p class="point-text">
+                Because venture capitalists spend roughly 20 to 30 seconds reading this slide, it cannot be a wall of text. If you require a long paragraph to explain the problem, investors will assume you haven't found the right framing yet. To maximize impact, structure the slide around three concise points:
+              </p>
+              <ul class="framework-checklist">
+                <li><strong>Who experiences the problem:</strong> Define the exact persona or business.</li>
+                <li><strong>What exactly goes wrong:</strong> Define the specific operational or personal failure.</li>
+                <li><strong>Why existing solutions fail:</strong> Briefly highlight the gap in the current market.</li>
+              </ul>
+              <div class="callout-tip">
+                <strong>The Natural Setup:</strong> Ultimately, a perfect Problem slide acts as a natural setup. If you articulate the customer's pain and the failure of current solutions clearly enough, the investor should naturally anticipate—and eagerly want to see—the solution you present on the very next slide.
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <hr class="section-divider" />
+        <hr class="section-divider" />
 
-      <!-- SLIDE 2: Solution / Value Proposition -->
-      <section id="slide-2" class="slide-deep-dive">
-        <div class="slide-tag-row">
-          <span class="slide-number-pill">02</span>
-          <span class="slide-tag-title">SLIDE 2</span>
-        </div>
-
-        <h2 class="slide-heading">Solution / Value Proposition</h2>
-
-        <p class="slide-intro">
-          The <strong>"Solution" or "Value Proposition"</strong> slide is the pivot point of your entire pitch deck. Immediately after you have made the investor feel the customer's pain, this slide must deliver the "aha!" moment by presenting your product as the logical, inevitable cure.
-        </p>
-
-        <p class="slide-body-text">
-          Based on the guidelines from top accelerators and venture capital firms like Sequoia, Y Combinator, and Point Nine, here is a deep dive into exactly what investors expect to see on this slide:
-        </p>
-
-        <div class="key-points-list">
-          <div class="point-item">
-            <h3 class="point-title">1. The "Problem A to Solution A" Mapping</h3>
-            <p class="point-text">
-              Your solution must directly mirror the problem you just established. If your previous slide stated that <em>"current software is too slow and expensive,"</em> your solution slide must immediately prove how your product is measurably faster and cheaper. The audience should instantly see a one-to-one logical connection without having to guess how the product solves the pain.
-            </p>
+        <!-- SLIDE 2: Solution / Value Proposition -->
+        <section id="slide-2" class="slide-deep-dive">
+          <div class="slide-tag-row">
+            <span class="slide-number-pill">02</span>
+            <span class="slide-tag-title">SLIDE 2</span>
           </div>
 
-          <div class="point-item">
-            <h3 class="point-title">2. Focus on Outcomes, Not Features</h3>
-            <p class="point-text">
-              The most common mistake founders make here is treating this slide like a technical manual. Top frameworks strongly advise against listing technical specifications, API details, or backend architecture. Instead, you must emphasize the benefits and outcomes. Investors care far more about the "magic" your product performs for the user (e.g., <strong>"reduces support workload by 70%"</strong>) than the underlying machine-learning algorithms powering it.
-            </p>
-          </div>
+          <h2 class="slide-heading">Solution / Value Proposition</h2>
 
-          <div class="point-item">
-            <h3 class="point-title">3. The Clear, Jargon-Free Formula</h3>
-            <p class="point-text">
-              You need to describe your product in plain language that a non-technical person can understand immediately. A highly recommended framework for this is the simple syntax: <strong>"We built [product] that helps [customer] achieve [result]"</strong>. Airbnb famously executed this to perfection in their seed deck by capturing their entire value proposition in just seven words: <em>"Book rooms with locals, rather than hotels"</em>.
-            </p>
-          </div>
+          <p class="slide-intro">
+            The <strong>"Solution" or "Value Proposition"</strong> slide is the pivot point of your entire pitch deck. Immediately after you have made the investor feel the customer's pain, this slide must deliver the "aha!" moment by presenting your product as the logical, inevitable cure.
+          </p>
 
-          <div class="point-item">
-            <h3 class="point-title">4. Visual Evidence (Show, Don't Tell)</h3>
-            <p class="point-text">
-              Because investors spend an average of only 20 seconds reviewing the Solution slide, a wall of text will fail. You must make the product tangible:
-            </p>
-            <ul class="framework-checklist">
-              <li><strong>Sequoia & Point Nine:</strong> Recommend including actual product screenshots, prototype images, or use cases to give investors a sense of the product's UI/UX DNA and physical reality.</li>
-              <li><strong>Y Combinator Warning:</strong> Avoid overly cluttered or "noisy" dashboard screenshots. If a user interface is too complex to read on a slide, YC suggests using a highly simplified step-by-step diagram or a basic user flow instead (e.g., <em>Customer question &rarr; AI reads order data &rarr; Automatic response</em>).</li>
-            </ul>
-          </div>
+          <p class="slide-body-text">
+            Based on the guidelines from top accelerators and venture capital firms like Sequoia, Y Combinator, and Point Nine, here is a deep dive into exactly what investors expect to see on this slide:
+          </p>
 
-          <div class="point-item">
-            <h3 class="point-title">5. The Unique Value Proposition (UVP)</h3>
-            <p class="point-text">
-              Finally, this slide should clearly articulate what sets your solution apart from the rest of the market. While you will dive deeper into competitors later in the deck, your Solution slide must immediately establish your primary differentiator and explicitly show why investors and customers should care about your specific approach.
-            </p>
-          </div>
-        </div>
-      </section>
+          <div class="key-points-list">
+            <div class="point-item">
+              <h3 class="point-title">1. The "Problem A to Solution A" Mapping</h3>
+              <p class="point-text">
+                Your solution must directly mirror the problem you just established. If your previous slide stated that <em>"current software is too slow and expensive,"</em> your solution slide must immediately prove how your product is measurably faster and cheaper. The audience should instantly see a one-to-one logical connection without having to guess how the product solves the pain.
+              </p>
+            </div>
 
-      <hr class="section-divider" />
+            <div class="point-item">
+              <h3 class="point-title">2. Focus on Outcomes, Not Features</h3>
+              <p class="point-text">
+                The most common mistake founders make here is treating this slide like a technical manual. Top frameworks strongly advise against listing technical specifications, API details, or backend architecture. Instead, you must emphasize the benefits and outcomes. Investors care far more about the "magic" your product performs for the user (e.g., <strong>"reduces support workload by 70%"</strong>) than the underlying machine-learning algorithms powering it.
+              </p>
+            </div>
 
-      <!-- SLIDE 3: Business Model -->
-      <section id="slide-3" class="slide-deep-dive">
-        <div class="slide-tag-row">
-          <span class="slide-number-pill">03</span>
-          <span class="slide-tag-title">SLIDE 3</span>
-        </div>
+            <div class="point-item">
+              <h3 class="point-title">3. The Clear, Jargon-Free Formula</h3>
+              <p class="point-text">
+                You need to describe your product in plain language that a non-technical person can understand immediately. A highly recommended framework for this is the simple syntax: <strong>"We built [product] that helps [customer] achieve [result]"</strong>. Airbnb famously executed this to perfection in their seed deck by capturing their entire value proposition in just seven words: <em>"Book rooms with locals, rather than hotels"</em>.
+              </p>
+            </div>
 
-        <h2 class="slide-heading">Business Model</h2>
+            <div class="point-item">
+              <h3 class="point-title">4. Visual Evidence (Show, Don't Tell)</h3>
+              <p class="point-text">
+                Because investors spend an average of only 20 seconds reviewing the Solution slide, a wall of text will fail. You must make the product tangible:
+              </p>
+              <ul class="framework-checklist">
+                <li><strong>Sequoia & Point Nine:</strong> Recommend including actual product screenshots, prototype images, or use cases to give investors a sense of the product's UI/UX DNA and physical reality.</li>
+                <li><strong>Y Combinator Warning:</strong> Avoid overly cluttered or "noisy" dashboard screenshots. If a user interface is too complex to read on a slide, YC suggests using a highly simplified step-by-step diagram or a basic user flow instead (e.g., <em>Customer question &rarr; AI reads order data &rarr; Automatic response</em>).</li>
+              </ul>
+            </div>
 
-        <p class="slide-intro">
-          The <strong>"Business Model"</strong> slide is where you prove to investors that your brilliant idea is actually a viable, scalable company. While a beautiful product might win users, only a mathematical path to profitability will win venture capital.
-        </p>
-
-        <p class="slide-body-text">
-          When synthesizing the guidelines from Y Combinator, Sequoia Capital, and other top-tier frameworks, investors are looking for clear, unambiguous answers to three foundational questions: <strong>Who pays, how much do they pay, and how often do they pay?</strong>.
-        </p>
-
-        <div class="key-points-list">
-          <div class="point-item">
-            <h3 class="point-title">1. The Revenue Model and Pricing Strategy</h3>
-            <p class="point-text">
-              You must explicitly state how the company generates revenue. Whether you are using a SaaS subscription tier, a transactional fee, or a marketplace commission, you need to lay out your exact pricing structure.
-            </p>
-            <ul class="framework-checklist">
-              <li><strong>Avoid jargon:</strong> Explain your pricing as simply as possible. For example, saying <em>"we take a 10% commission on every transaction"</em> is vastly superior to saying <em>"we leverage a platform-based marketplace model with dynamic pricing optimization"</em>.</li>
-              <li><strong>Avoid the "potpourri" approach:</strong> A major red flag for investors is when a founder lists five different theoretical ways they could make money (e.g., subscriptions, ads, data selling, and affiliate links). Stick to your primary, proven monetization model. If you have a complex billing system, summarize it simply.</li>
-            </ul>
-          </div>
-
-          <div class="point-item">
-            <h3 class="point-title">2. Core Unit Economics</h3>
-            <p class="point-text">
-              Investors want to see the underlying math of a single customer. You should include critical metrics such as your <strong>Average Contract Value (ACV)</strong> or the <strong>Customer Lifetime Value (LTV)</strong>. By clearly displaying these numbers, you prove to the investor that your customer acquisition costs (which are often detailed on a Go-To-Market slide) make mathematical sense relative to the revenue each customer brings in.
-            </p>
-          </div>
-
-          <div class="point-item">
-            <h3 class="point-title">3. The Sales and Distribution Flow</h3>
-            <p class="point-text">
-              Sequoia Capital specifically recommends that founders use this slide to also touch upon their sales and distribution model. It is not enough to just list a price; investors want a brief understanding of how you actually capture that money. Are you relying on a high-touch enterprise sales team, or is this a self-serve, product-led growth (PLG) model?
-            </p>
-          </div>
-
-          <div class="point-item">
-            <h3 class="point-title">4. Visual Presentation</h3>
-            <p class="point-text">
-              Like the rest of the deck, this slide must remain uncluttered. If you have different pricing tiers, a simple visual table or icons representing your revenue streams is highly recommended over bullet points or paragraphs of text. The goal is for an investor to look at the slide and understand the exact mechanics of your cash flow in under 20 seconds.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <hr class="section-divider" />
-
-      <!-- SLIDE 4: Competition -->
-      <section id="slide-4" class="slide-deep-dive">
-        <div class="slide-tag-row">
-          <span class="slide-number-pill">04</span>
-          <span class="slide-tag-title">SLIDE 4</span>
-        </div>
-
-        <h2 class="slide-heading">Competition</h2>
-
-        <p class="slide-intro">
-          The <strong>"Competition"</strong> slide is where investors test your self-awareness and your grip on the market reality. The absolute fastest way to lose an investor's trust is to claim that you have <em>"no competition,"</em> as this immediately signals naivety and a lack of market research.
-        </p>
-
-        <p class="slide-body-text">
-          Based on the guidelines from top accelerators and venture capital funds, here is a deep dive into exactly how you must structure and present your competition slide:
-        </p>
-
-        <div class="key-points-list">
-          <div class="point-item">
-            <h3 class="point-title">1. Who to Include (Direct vs. Indirect)</h3>
-            <p class="point-text">
-              You must acknowledge both direct competitors (companies building a similar solution) and indirect competitors (the old-school, inefficient workarounds your customers currently use, like spreadsheets or offline agencies). However, do not overwhelm the slide with 10 or 20 logos. Investors want you to narrow the field to the <strong>3 to 5 competitors</strong> you are actually racing against to win your specific target customer.
-            </p>
-          </div>
-
-          <div class="point-item">
-            <h3 class="point-title">2. The Visual Frameworks</h3>
-            <p class="point-text">
-              Because this slide needs to be understood in seconds, text-heavy explanations fail. VCs expect to see one of two standard visual frameworks:
-            </p>
-            <ul class="framework-checklist">
-              <li><strong>The 2x2 Matrix (Magic Quadrant):</strong> You plot your market on an X and Y axis based on the two most important value propositions for the end-user. Airbnb famously used this framework to plot <em>"Affordable vs. Expensive"</em> on one axis and <em>"Online vs. Offline"</em> on the other, placing themselves uniquely in the affordable/online quadrant against competitors like Craigslist and hotels. <em>Warning: Avoid the over-optimistic cliché of placing yourself completely alone in the top-right corner, as this can look oversimplified to seasoned investors.</em></li>
-              <li><strong>The Comparison Table (Power Grid / Feature Matrix):</strong> A simple table listing competitors across the top and key features/benefits down the side, utilizing checkmarks and crosses. The startup Front used this to successfully raise money by comparing themselves to Gmail and Zendesk; while visually simple, it made their core argument legible in just five seconds.</li>
-            </ul>
-          </div>
-
-          <div class="point-item">
-            <h3 class="point-title">3. Highlighting Your Differentiator (The "Secret Sauce")</h3>
-            <p class="point-text">
-              Just showing that you have more features is not enough. You must quantify your competitive edge. The slide should clearly label your Unique Selling Proposition (USP), whether that is a proprietary AI algorithm, a radically different price point, or a superior user experience. If you have data to back this up—such as a significantly lower Customer Acquisition Cost (CAC) or higher retention rate than the industry average—you should highlight it here.
-            </p>
-          </div>
-
-          <div class="point-item">
-            <h3 class="point-title">4. Honesty and Strategic Positioning</h3>
-            <ul class="framework-checklist">
-              <li><strong>Admit What You Don't Do:</strong> The best competition slides build trust by being honest about what the startup doesn't do. Admitting that you are intentionally ignoring a certain feature set to hyper-focus on a specific "wedge" of the market shows immense strategic maturity.</li>
-              <li><strong>Respect the Enemy:</strong> Never dismiss a competitor just because they are smaller or haven't raised as much money. Investors know that bootstrapped competitors often have incredible capital efficiency and better unit economics than heavily funded giants.</li>
-              <li><strong>Focus on Growth, Not Market Cap:</strong> Do not position yourself against a massive incumbent's total market cap. A $50 billion legacy company with flat growth is often easier to beat than a $500 million startup growing 40% year-over-year.</li>
-            </ul>
-          </div>
-
-          <div class="point-item">
-            <h3 class="point-title">5. Design Best Practices</h3>
-            <p class="point-text">
-              To keep the slide clean and prevent visual fatigue, use competitor logos instead of typing out their names. A pro-tip from presentation designers is to render competitor logos in grayscale or black-and-white to avoid color conflicts with your own brand and keep the slide looking professional.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <hr class="section-divider" />
-
-      <!-- SLIDE 5: Founding Team -->
-      <section id="slide-5" class="slide-deep-dive">
-        <div class="slide-tag-row">
-          <span class="slide-number-pill">05</span>
-          <span class="slide-tag-title">SLIDE 5</span>
-        </div>
-
-        <h2 class="slide-heading">Founding Team</h2>
-
-        <p class="slide-intro">
-          The <strong>"Founding Team"</strong> slide is often the most scrutinized page in an early-stage pitch deck. At the seed stage, investors are primarily betting on the people, making this slide the moment where they decide if you have the specific ability to execute the vision.
-        </p>
-
-        <p class="slide-body-text">
-          The primary goal of this slide is to prove <strong>Founder-Market Fit</strong>—the idea that your specific combination of backgrounds, skills, and experiences makes your team uniquely qualified to solve this exact problem, rather than a competing team founded next month.
-        </p>
-
-        <div class="key-points-list">
-          <div class="point-item">
-            <h3 class="point-title">1. The Core Elements of a Winning Team Slide</h3>
-            <ul class="framework-checklist">
-              <li><strong>The Founder-Market Fit Headline:</strong> Instead of simply titling the slide "Team," use a declarative sentence that summarizes exactly why your team has an unfair advantage in this market.</li>
-              <li><strong>Photos, Names, and Roles:</strong> Include clear headshots, names, and the core operational titles (e.g., CEO, CTO) of the founding team.</li>
-              <li><strong>One Relevant Accomplishment Per Founder:</strong> Investors do not want to read a full resume or every job you have had since college. Under each name, include just one or two bullet points highlighting a prior exit, deep domain expertise, or a specific technical achievement that maps directly to the work your startup requires.</li>
-            </ul>
-          </div>
-
-          <div class="point-item">
-            <h3 class="point-title">2. Major Red Flags to Avoid</h3>
-            <p class="point-text">
-              Investors use specific heuristics to evaluate the risk associated with a team. Avoid these common mistakes that immediately signal inexperience:
-            </p>
-            <ul class="framework-checklist">
-              <li><strong>The "Logo Wall" Substitute:</strong> Founders often paste logos of prestigious former employers (like Google, Stripe, or McKinsey) without explaining what they actually did there. A logo is not a substitute for a narrative; explain how your specific role prepared you for this startup.</li>
-              <li><strong>Advisor Inflation:</strong> Crowding the slide with peripheral advisors to look legitimate is a massive red flag. At the seed stage, investors weight founders 10x more than advisors. If advisors are included, separate them clearly and only include them if they provide an undeniable edge (like proprietary IP or major enterprise intros).</li>
-              <li><strong>Generic Claims:</strong> Using phrases like "serial entrepreneur" without explicitly naming the prior company, the scale of its success, or the outcome creates skepticism rather than trust.</li>
-              <li><strong>Right-Size Mismatch:</strong> The size of the team presented must match the funding stage. Pitching a 12-person team at pre-seed reads as a massive cash-burn risk, while a solo founder raising a Series A often signals a severe execution risk.</li>
-            </ul>
-          </div>
-
-          <div class="point-item">
-            <h3 class="point-title">3. Strategic Slide Placement</h3>
-            <p class="point-text">
-              While the content of the team slide is generally uniform, its placement depends on your startup's nature. Frameworks like Y Combinator and Sequoia generally place the team slide toward the end, preferring to hook the investor with the problem and solution first. However, if you are building a highly technical B2B SaaS, deep tech, or biotech company—where your PhDs or specialized industry experience are your primary advantage—it is often recommended to place the team slide immediately at the beginning (Slide 2) to establish instant credibility before explaining the complex product.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <hr class="section-divider" />
-
-      <!-- SLIDE 6: Fundraising / The Ask -->
-      <section id="slide-6" class="slide-deep-dive">
-        <div class="slide-tag-row">
-          <span class="slide-number-pill">06</span>
-          <span class="slide-tag-title">SLIDE 6</span>
-        </div>
-
-        <h2 class="slide-heading">Fundraising / The Ask</h2>
-
-        <p class="slide-intro">
-          The <strong>"Fundraising" or "The Ask"</strong> slide is the culmination of your entire pitch deck. After spending the whole presentation proving that your company is a massive opportunity, this slide is where you close the deal. Surprisingly, data shows that up to <strong>56% of public startup pitch decks actually omit a clear "Use of Funds" statement</strong>, which is a massive strategic error that costs founders funding.
-        </p>
-
-        <p class="slide-body-text">
-          Venture capitalists view this slide not as a mere formality, but as a commitment device. They are evaluating your operational maturity and want to know exactly what they are buying with their capital.
-        </p>
-
-        <div class="key-points-list">
-          <div class="point-item">
-            <h3 class="point-title">1. The Specific Ask and Details</h3>
-            <p class="point-text">
-              You must confidently and clearly state the exact amount of money you want to raise (e.g., <em>"Seeking $1.5M in seed funding"</em>). The most effective Ask slides also include the round type and, if applicable, the terms or investment vehicle (e.g., <strong>"Raising $1.5M on an $8M post-money SAFE"</strong>).
-            </p>
-            <p class="point-text">
-              Furthermore, if you already have a lead investor or have secured a portion of the round (e.g., <em>"$500K of $1.5M already committed"</em>), you should explicitly state this. Showing that other reputable investors have already committed capital provides powerful social proof and creates a sense of urgency for new investors to join.
-            </p>
-          </div>
-
-          <div class="point-item">
-            <h3 class="point-title">2. The Use of Funds Breakdown</h3>
-            <p class="point-text">
-              Investors need a high-level view of how you plan to allocate their capital across your business functions. You should provide a breakdown showing exactly where the money will be deployed, such as <strong>40% to product development, 30% to marketing, 20% to new engineering hires, and 10% to operational overhead</strong>.
-            </p>
-            <div class="callout-warning">
-              <strong>Major Red Flag:</strong> A major red flag for investors is when founders present their Use of Funds as just a generalized "burn rate" to keep the lights on. The breakdown must show a strategic allocation of resources designed to aggressively grow the company.
+            <div class="point-item">
+              <h3 class="point-title">5. The Unique Value Proposition (UVP)</h3>
+              <p class="point-text">
+                Finally, this slide should clearly articulate what sets your solution apart from the rest of the market. While you will dive deeper into competitors later in the deck, your Solution slide must immediately establish your primary differentiator and explicitly show why investors and customers should care about your specific approach.
+              </p>
             </div>
           </div>
+        </section>
 
-          <div class="point-item">
-            <h3 class="point-title">3. The Milestones (The Value Inflection Point)</h3>
-            <p class="point-text">
-              This is the most critical and frequently botched part of the Ask slide. Founders often make the mistake of asking for capital simply to buy time, phrasing it as: <em>"We are raising $1.5M for 18 months of runway."</em> <strong>Investors do not fund runway; they fund milestones.</strong>
-            </p>
-            <p class="point-text">
-              You must explicitly connect the capital to tangible business outcomes. You need to show exactly what this specific round of funding will unlock to propel the company to its next major value inflection point (e.g., becoming ready to raise a Series A). Examples of strong, specific milestones include:
-            </p>
-            <ul class="framework-checklist">
-              <li><em>"Growing to 50K active users in 18 months."</em></li>
-              <li><em>"Reaching $1M ARR and achieving Series A readiness by Q4 2025."</em></li>
-              <li><em>"Hiring 5 engineers and successfully launching the core mobile application."</em></li>
-            </ul>
-            <div class="callout-conclusion">
-              <strong>The Closing Principle:</strong> Ultimately, this slide must convey absolute confidence. The tone should never suggest you are asking for money to survive. Instead, you are offering the investor a lucrative opportunity to fuel a highly calculated growth engine.
+        <hr class="section-divider" />
+
+        <!-- SLIDE 3: Business Model -->
+        <section id="slide-3" class="slide-deep-dive">
+          <div class="slide-tag-row">
+            <span class="slide-number-pill">03</span>
+            <span class="slide-tag-title">SLIDE 3</span>
+          </div>
+
+          <h2 class="slide-heading">Business Model</h2>
+
+          <p class="slide-intro">
+            The <strong>"Business Model"</strong> slide is where you prove to investors that your brilliant idea is actually a viable, scalable company. While a beautiful product might win users, only a mathematical path to profitability will win venture capital.
+          </p>
+
+          <p class="slide-body-text">
+            When synthesizing the guidelines from Y Combinator, Sequoia Capital, and other top-tier frameworks, investors are looking for clear, unambiguous answers to three foundational questions: <strong>Who pays, how much do they pay, and how often do they pay?</strong>.
+          </p>
+
+          <div class="key-points-list">
+            <div class="point-item">
+              <h3 class="point-title">1. The Revenue Model and Pricing Strategy</h3>
+              <p class="point-text">
+                You must explicitly state how the company generates revenue. Whether you are using a SaaS subscription tier, a transactional fee, or a marketplace commission, you need to lay out your exact pricing structure.
+              </p>
+              <ul class="framework-checklist">
+                <li><strong>Avoid jargon:</strong> Explain your pricing as simply as possible. For example, saying <em>"we take a 10% commission on every transaction"</em> is vastly superior to saying <em>"we leverage a platform-based marketplace model with dynamic pricing optimization"</em>.</li>
+                <li><strong>Avoid the "potpourri" approach:</strong> A major red flag for investors is when a founder lists five different theoretical ways they could make money (e.g., subscriptions, ads, data selling, and affiliate links). Stick to your primary, proven monetization model. If you have a complex billing system, summarize it simply.</li>
+              </ul>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">2. Core Unit Economics</h3>
+              <p class="point-text">
+                Investors want to see the underlying math of a single customer. You should include critical metrics such as your <strong>Average Contract Value (ACV)</strong> or the <strong>Customer Lifetime Value (LTV)</strong>. By clearly displaying these numbers, you prove to the investor that your customer acquisition costs (which are often detailed on a Go-To-Market slide) make mathematical sense relative to the revenue each customer brings in.
+              </p>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">3. The Sales and Distribution Flow</h3>
+              <p class="point-text">
+                Sequoia Capital specifically recommends that founders use this slide to also touch upon their sales and distribution model. It is not enough to just list a price; investors want a brief understanding of how you actually capture that money. Are you relying on a high-touch enterprise sales team, or is this a self-serve, product-led growth (PLG) model?
+              </p>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">4. Visual Presentation</h3>
+              <p class="point-text">
+                Like the rest of the deck, this slide must remain uncluttered. If you have different pricing tiers, a simple visual table or icons representing your revenue streams is highly recommended over bullet points or paragraphs of text. The goal is for an investor to look at the slide and understand the exact mechanics of your cash flow in under 20 seconds.
+              </p>
             </div>
           </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- SLIDE 4: Competition -->
+        <section id="slide-4" class="slide-deep-dive">
+          <div class="slide-tag-row">
+            <span class="slide-number-pill">04</span>
+            <span class="slide-tag-title">SLIDE 4</span>
+          </div>
+
+          <h2 class="slide-heading">Competition</h2>
+
+          <p class="slide-intro">
+            The <strong>"Competition"</strong> slide is where investors test your self-awareness and your grip on the market reality. The absolute fastest way to lose an investor's trust is to claim that you have <em>"no competition,"</em> as this immediately signals naivety and a lack of market research.
+          </p>
+
+          <p class="slide-body-text">
+            Based on the guidelines from top accelerators and venture capital funds, here is a deep dive into exactly how you must structure and present your competition slide:
+          </p>
+
+          <div class="key-points-list">
+            <div class="point-item">
+              <h3 class="point-title">1. Who to Include (Direct vs. Indirect)</h3>
+              <p class="point-text">
+                You must acknowledge both direct competitors (companies building a similar solution) and indirect competitors (the old-school, inefficient workarounds your customers currently use, like spreadsheets or offline agencies). However, do not overwhelm the slide with 10 or 20 logos. Investors want you to narrow the field to the <strong>3 to 5 competitors</strong> you are actually racing against to win your specific target customer.
+              </p>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">2. The Visual Frameworks</h3>
+              <p class="point-text">
+                Because this slide needs to be understood in seconds, text-heavy explanations fail. VCs expect to see one of two standard visual frameworks:
+              </p>
+              <ul class="framework-checklist">
+                <li><strong>The 2x2 Matrix (Magic Quadrant):</strong> You plot your market on an X and Y axis based on the two most important value propositions for the end-user. Airbnb famously used this framework to plot <em>"Affordable vs. Expensive"</em> on one axis and <em>"Online vs. Offline"</em> on the other, placing themselves uniquely in the affordable/online quadrant against competitors like Craigslist and hotels. <em>Warning: Avoid the over-optimistic cliché of placing yourself completely alone in the top-right corner, as this can look oversimplified to seasoned investors.</em></li>
+                <li><strong>The Comparison Table (Power Grid / Feature Matrix):</strong> A simple table listing competitors across the top and key features/benefits down the side, utilizing checkmarks and crosses. The startup Front used this to successfully raise money by comparing themselves to Gmail and Zendesk; while visually simple, it made their core argument legible in just five seconds.</li>
+              </ul>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">3. Highlighting Your Differentiator (The "Secret Sauce")</h3>
+              <p class="point-text">
+                Just showing that you have more features is not enough. You must quantify your competitive edge. The slide should clearly label your Unique Selling Proposition (USP), whether that is a proprietary AI algorithm, a radically different price point, or a superior user experience. If you have data to back this up—such as a significantly lower Customer Acquisition Cost (CAC) or higher retention rate than the industry average—you should highlight it here.
+              </p>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">4. Honesty and Strategic Positioning</h3>
+              <ul class="framework-checklist">
+                <li><strong>Admit What You Don't Do:</strong> The best competition slides build trust by being honest about what the startup doesn't do. Admitting that you are intentionally ignoring a certain feature set to hyper-focus on a specific "wedge" of the market shows immense strategic maturity.</li>
+                <li><strong>Respect the Enemy:</strong> Never dismiss a competitor just because they are smaller or haven't raised as much money. Investors know that bootstrapped competitors often have incredible capital efficiency and better unit economics than heavily funded giants.</li>
+                <li><strong>Focus on Growth, Not Market Cap:</strong> Do not position yourself against a massive incumbent's total market cap. A $50 billion legacy company with flat growth is often easier to beat than a $500 million startup growing 40% year-over-year.</li>
+              </ul>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">5. Design Best Practices</h3>
+              <p class="point-text">
+                To keep the slide clean and prevent visual fatigue, use competitor logos instead of typing out their names. A pro-tip from presentation designers is to render competitor logos in grayscale or black-and-white to avoid color conflicts with your own brand and keep the slide looking professional.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- SLIDE 5: Founding Team -->
+        <section id="slide-5" class="slide-deep-dive">
+          <div class="slide-tag-row">
+            <span class="slide-number-pill">05</span>
+            <span class="slide-tag-title">SLIDE 5</span>
+          </div>
+
+          <h2 class="slide-heading">Founding Team</h2>
+
+          <p class="slide-intro">
+            The <strong>"Founding Team"</strong> slide is often the most scrutinized page in an early-stage pitch deck. At the seed stage, investors are primarily betting on the people, making this slide the moment where they decide if you have the specific ability to execute the vision.
+          </p>
+
+          <p class="slide-body-text">
+            The primary goal of this slide is to prove <strong>Founder-Market Fit</strong>—the idea that your specific combination of backgrounds, skills, and experiences makes your team uniquely qualified to solve this exact problem, rather than a competing team founded next month.
+          </p>
+
+          <div class="key-points-list">
+            <div class="point-item">
+              <h3 class="point-title">1. The Core Elements of a Winning Team Slide</h3>
+              <ul class="framework-checklist">
+                <li><strong>The Founder-Market Fit Headline:</strong> Instead of simply titling the slide "Team," use a declarative sentence that summarizes exactly why your team has an unfair advantage in this market.</li>
+                <li><strong>Photos, Names, and Roles:</strong> Include clear headshots, names, and the core operational titles (e.g., CEO, CTO) of the founding team.</li>
+                <li><strong>One Relevant Accomplishment Per Founder:</strong> Investors do not want to read a full resume or every job you have had since college. Under each name, include just one or two bullet points highlighting a prior exit, deep domain expertise, or a specific technical achievement that maps directly to the work your startup requires.</li>
+              </ul>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">2. Major Red Flags to Avoid</h3>
+              <p class="point-text">
+                Investors use specific heuristics to evaluate the risk associated with a team. Avoid these common mistakes that immediately signal inexperience:
+              </p>
+              <ul class="framework-checklist">
+                <li><strong>The "Logo Wall" Substitute:</strong> Founders often paste logos of prestigious former employers (like Google, Stripe, or McKinsey) without explaining what they actually did there. A logo is not a substitute for a narrative; explain how your specific role prepared you for this startup.</li>
+                <li><strong>Advisor Inflation:</strong> Crowding the slide with peripheral advisors to look legitimate is a massive red flag. At the seed stage, investors weight founders 10x more than advisors. If advisors are included, separate them clearly and only include them if they provide an undeniable edge (like proprietary IP or major enterprise intros).</li>
+                <li><strong>Generic Claims:</strong> Using phrases like "serial entrepreneur" without explicitly naming the prior company, the scale of its success, or the outcome creates skepticism rather than trust.</li>
+                <li><strong>Right-Size Mismatch:</strong> The size of the team presented must match the funding stage. Pitching a 12-person team at pre-seed reads as a massive cash-burn risk, while a solo founder raising a Series A often signals a severe execution risk.</li>
+              </ul>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">3. Strategic Slide Placement</h3>
+              <p class="point-text">
+                While the content of the team slide is generally uniform, its placement depends on your startup's nature. Frameworks like Y Combinator and Sequoia generally place the team slide toward the end, preferring to hook the investor with the problem and solution first. However, if you are building a highly technical B2B SaaS, deep tech, or biotech company—where your PhDs or specialized industry experience are your primary advantage—it is often recommended to place the team slide immediately at the beginning (Slide 2) to establish instant credibility before explaining the complex product.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- SLIDE 6: Fundraising / The Ask -->
+        <section id="slide-6" class="slide-deep-dive">
+          <div class="slide-tag-row">
+            <span class="slide-number-pill">06</span>
+            <span class="slide-tag-title">SLIDE 6</span>
+          </div>
+
+          <h2 class="slide-heading">Fundraising / The Ask</h2>
+
+          <p class="slide-intro">
+            The <strong>"Fundraising" or "The Ask"</strong> slide is the culmination of your entire pitch deck. After spending the whole presentation proving that your company is a massive opportunity, this slide is where you close the deal. Surprisingly, data shows that up to <strong>56% of public startup pitch decks actually omit a clear "Use of Funds" statement</strong>, which is a massive strategic error that costs founders funding.
+          </p>
+
+          <p class="slide-body-text">
+            Venture capitalists view this slide not as a mere formality, but as a commitment device. They are evaluating your operational maturity and want to know exactly what they are buying with their capital.
+          </p>
+
+          <div class="key-points-list">
+            <div class="point-item">
+              <h3 class="point-title">1. The Specific Ask and Details</h3>
+              <p class="point-text">
+                You must confidently and clearly state the exact amount of money you want to raise (e.g., <em>"Seeking $1.5M in seed funding"</em>). The most effective Ask slides also include the round type and, if applicable, the terms or investment vehicle (e.g., <strong>"Raising $1.5M on an $8M post-money SAFE"</strong>).
+              </p>
+              <p class="point-text">
+                Furthermore, if you already have a lead investor or have secured a portion of the round (e.g., <em>"$500K of $1.5M already committed"</em>), you should explicitly state this. Showing that other reputable investors have already committed capital provides powerful social proof and creates a sense of urgency for new investors to join.
+              </p>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">2. The Use of Funds Breakdown</h3>
+              <p class="point-text">
+                Investors need a high-level view of how you plan to allocate their capital across your business functions. You should provide a breakdown showing exactly where the money will be deployed, such as <strong>40% to product development, 30% to marketing, 20% to new engineering hires, and 10% to operational overhead</strong>.
+              </p>
+              <div class="callout-warning">
+                <strong>Major Red Flag:</strong> A major red flag for investors is when founders present their Use of Funds as just a generalized "burn rate" to keep the lights on. The breakdown must show a strategic allocation of resources designed to aggressively grow the company.
+              </div>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">3. The Milestones (The Value Inflection Point)</h3>
+              <p class="point-text">
+                This is the most critical and frequently botched part of the Ask slide. Founders often make the mistake of asking for capital simply to buy time, phrasing it as: <em>"We are raising $1.5M for 18 months of runway."</em> <strong>Investors do not fund runway; they fund milestones.</strong>
+              </p>
+              <p class="point-text">
+                You must explicitly connect the capital to tangible business outcomes. You need to show exactly what this specific round of funding will unlock to propel the company to its next major value inflection point (e.g., becoming ready to raise a Series A). Examples of strong, specific milestones include:
+              </p>
+              <ul class="framework-checklist">
+                <li><em>"Growing to 50K active users in 18 months."</em></li>
+                <li><em>"Reaching $1M ARR and achieving Series A readiness by Q4 2025."</em></li>
+                <li><em>"Hiring 5 engineers and successfully launching the core mobile application."</em></li>
+              </ul>
+              <div class="callout-conclusion">
+                <strong>The Closing Principle:</strong> Ultimately, this slide must convey absolute confidence. The tone should never suggest you are asking for money to survive. Instead, you are offering the investor a lucrative opportunity to fuel a highly calculated growth engine.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Next Article Banner -->
+        <div class="article-nav-banner">
+          <div class="banner-content">
+            <span class="banner-tag">NEXT ARTICLE IN MASTERCLASS SERIES</span>
+            <h4 class="banner-title">The Anatomy of a Winning Pitch: An Analysis of the World's Top Pitch Deck Frameworks</h4>
+            <p class="banner-desc">Explore the universal laws of pitching and deep-dive comparisons across YC, Sequoia, Point Nine, NextView, and 500 Global.</p>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="switchArticle(2)">
+            <span>Read Article 02</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
         </div>
-      </section>
+      </article>
+
+      <!-- ========================================================================= -->
+      <!-- ARTICLE 2: The Anatomy of a Winning Pitch                                 -->
+      <!-- ========================================================================= -->
+      <article id="article-pane-2" class="article-pane">
+        <!-- Breadcrumb & Header -->
+        <header class="article-header">
+          <div class="article-category-badge">
+            <span class="badge-dot"></span>
+            <span>ARTICLE 02 &bull; VENTURE CAPITAL ANALYSIS &bull; COMPARATIVE STUDY</span>
+          </div>
+
+          <h1 class="article-title">
+            The Anatomy of a Winning Pitch: An Analysis of the World's Top Pitch Deck Frameworks
+          </h1>
+
+          <p class="article-lead">
+            Venture capital pitch decks serve as the critical gateway to fundraising. While investors from Y Combinator to Sequoia Capital review thousands of these documents annually, the frameworks they publish reveal a shared psychological approach to evaluating risk, combined with distinct firm-specific priorities. A comparative analysis of the most prominent frameworks highlights the universal laws of pitching and the unique structural strategies required for different investment theses.
+          </p>
+
+          <div class="article-meta-bar">
+            <span class="meta-item"><strong>Reading time:</strong> 8 min read</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Firms:</strong> YC &bull; Sequoia &bull; Point Nine &bull; NextView &bull; First Round &bull; 500 Global</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Analysis:</strong> Universal Laws &amp; Divergences</span>
+          </div>
+        </header>
+
+        <!-- Universal Stats Metrics Row -->
+        <div class="stat-metrics-grid">
+          <div class="stat-metric-card">
+            <span class="stat-metric-val">3m 44s</span>
+            <span class="stat-metric-lbl">Average Investor Review Time</span>
+          </div>
+          <div class="stat-metric-card">
+            <span class="stat-metric-val">10 - 14</span>
+            <span class="stat-metric-lbl">Universal Slide Cap</span>
+          </div>
+          <div class="stat-metric-card">
+            <span class="stat-metric-val">15 - 35s</span>
+            <span class="stat-metric-lbl">Average Attention Per Slide</span>
+          </div>
+          <div class="stat-metric-card">
+            <span class="stat-metric-val">Bottom-Up</span>
+            <span class="stat-metric-lbl">Mandatory TAM Formula</span>
+          </div>
+        </div>
+
+        <!-- Section 1: The Intersections: Universal Laws of the Pitch Deck -->
+        <section class="analysis-section">
+          <div class="section-tag-row">
+            <span class="section-badge-pill">PART I</span>
+            <span class="section-tag-name">FOUNDATIONAL BASELINE</span>
+          </div>
+
+          <h2 class="slide-heading">The Intersections: Universal Laws of the Pitch Deck</h2>
+
+          <p class="slide-intro">
+            Despite differing philosophies, top venture capital firms and accelerators agree on a foundational baseline for what constitutes a fundable presentation.
+          </p>
+
+          <div class="key-points-list">
+            <div class="point-item">
+              <h3 class="point-title">1. Structural Brevity and Time Constraints</h3>
+              <p class="point-text">
+                Whether it is Guy Kawasaki's famous 10/20/30 rule or the strict constraints of 500 Global, brevity is universally demanded. Industry data reveals that <strong>investors spend an average of just 3 minutes and 44 seconds reviewing a pitch deck</strong>. Because every slide gets only 15 to 35 seconds of attention, almost all official frameworks cap presentations at 10 to 14 slides to respect the investor's cognitive load and scanning behavior.
+              </p>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">2. The Core Narrative Arc</h3>
+              <p class="point-text">
+                Regardless of the accelerator or fund, there is a non-negotiable sequence of required information. The core slides—<strong>Problem, Solution (or Value Proposition), Business Model, Competition, Founding Team, and the Fundraising Ask</strong>—are universally mandated across all models. A presentation missing any of these pillars will fail the initial screening process.
+              </p>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">3. The "Bottom-Up" Market Mandate</h3>
+              <p class="point-text">
+                Frameworks from Y Combinator, Sequoia, and Point Nine all explicitly warn founders against using lazy, top-down market estimates (e.g., claiming a 1% share of a "trillion-dollar industry"). The consensus across these top frameworks is that market potential must be calculated from the bottom up. Founders are expected to multiply the <strong>realistic number of their specific target customers by their actual pricing model</strong> to prove they understand their unit economics.
+              </p>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">4. Honesty in Competition</h3>
+              <p class="point-text">
+                No major framework accepts the claim that a startup has <em>"no competition."</em> Models like the Founder Institute and 500 Global specifically require founders to visually map out existing alternatives—often using a 2x2 matrix—to demonstrate a grounded understanding of the market and to explicitly define their competitive differentiators.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- Section 2: The Differences: Where Frameworks Diverge -->
+        <section class="analysis-section">
+          <div class="section-tag-row">
+            <span class="section-badge-pill">PART II</span>
+            <span class="section-tag-name">STRATEGIC NUANCES</span>
+          </div>
+
+          <h2 class="slide-heading">The Differences: Where Frameworks Diverge</h2>
+
+          <p class="slide-intro">
+            While the basic ingredients remain the same, how these frameworks structure the narrative changes drastically based on the firm's investment stage, sector focus, and meeting style.
+          </p>
+
+          <div class="key-points-list">
+            <div class="point-item">
+              <h3 class="point-title">1. Narrative Storytelling vs. Hardcore Metrics (The Stage Divide)</h3>
+              <p class="point-text">
+                The focus of a framework shifts depending on the maturity of the startup. <strong>Y Combinator's seed-stage framework</strong> prioritizes a <em>"Unique Insight"</em> and qualitative narratives, actively discouraging complex diagrams because early companies lack deep historical data.
+              </p>
+              <p class="point-text">
+                In stark contrast, <strong>Point Nine Capital's framework</strong> is engineered for B2B SaaS companies. Point Nine demands hardcore, unmanipulated financial metrics, requiring highly specific slides dedicated to <strong>Account Expansion, Net Dollar Retention (NDR), and Customer Acquisition Costs (CAC)</strong> that would be entirely out of place in a Y Combinator seed deck.
+              </p>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">2. Structural Mechanics and the "Kitchen Sink"</h3>
+              <p class="point-text">
+                Most models follow a linear monologue format (Slide 1 to Slide 10), but <strong>NextView Ventures breaks this mold entirely</strong>. They advocate for an asymmetrical structure: a hyper-condensed 5 to 8 slide core deck meant to spark a two-way conversation, backed by a massive <strong>"Kitchen Sink" appendix</strong> containing detailed financials and roadmaps to answer specific questions on the fly.
+              </p>
+              <p class="point-text">
+                Similarly, <strong>First Round Capital</strong> alters the structural goal by designing their 12-slide deck specifically to help an internal partner build consensus during a closed-door committee meeting, which heavily prioritizes interruption-friendly product walkthroughs.
+              </p>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">3. Placement of the Team Slide</h3>
+              <p class="point-text">
+                The sequence of information reveals differing philosophies on how to build early credibility. <strong>Point Nine Capital and NextView Ventures</strong> advise placing the Team slide immediately at the beginning of the presentation. In highly technical or B2B markets, establishing the founders' domain expertise upfront makes the subsequent product slides more credible.
+              </p>
+              <p class="point-text">
+                Conversely, <strong>Sequoia Capital and Y Combinator</strong> generally relegate the team slide to the end of the presentation, preferring the founders to first hook the investor with the problem, solution, and overarching market opportunity.
+              </p>
+            </div>
+
+            <div class="point-item">
+              <h3 class="point-title">4. Rigid Syntax and Linguistic Constraints</h3>
+              <p class="point-text">
+                Frameworks like <strong>500 Global and the Founder Institute</strong> enforce rigid syntactical rules to prevent founders from rambling. 500 Global requires founders to use a strict fill-in-the-blank formula for their opening elevator pitch.
+              </p>
+              <p class="point-text">
+                The <strong>Founder Institute</strong> takes this a step further, requiring founders to master a jargon-free <em>"One-Sentence Pitch"</em> before they are even allowed to build their 14-slide deck. The Founder Institute <strong>actively forbids the use of superlatives like "best," "first," or "only,"</strong> as these words instantly signal inexperience to seasoned investors.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Comparative Framework Matrix Table -->
+        <section class="matrix-table-section">
+          <h3 class="matrix-title">Comparative Framework Matrix</h3>
+          <p class="matrix-subtitle">Key structural differentiators across premier accelerator and venture capital models.</p>
+
+          <div class="table-responsive">
+            <table class="framework-matrix-table">
+              <thead>
+                <tr>
+                  <th>VC / Accelerator</th>
+                  <th>Primary Stage</th>
+                  <th>Core Philosophy</th>
+                  <th>Team Placement</th>
+                  <th>Distinctive Priority</th>
+                </tr>
+              </thead>
+              <tbody>
+                {frameworkComparisons.map((row) => (
+                  <tr>
+                    <td class="firm-cell"><strong>{row.firm}</strong></td>
+                    <td><span class="stage-tag">{row.stage}</span></td>
+                    <td>{row.philosophy}</td>
+                    <td>{row.teamPlacement}</td>
+                    <td class="req-cell">{row.keyRequirement}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Summary & Strategic Synthesis -->
+        <section class="summary-box-section">
+          <div class="summary-card-large">
+            <h3 class="summary-large-title">Strategic Synthesis</h3>
+            <p class="summary-large-text">
+              The 10-to-14 slide structure is a proven industry standard validated by thousands of funding rounds. However, the difference between a generic presentation and a highly compelling pitch lies in understanding these framework nuances. Founders must master the universal requirements of brevity and problem-solution alignment, while selectively adopting the specific strategies—like Point Nine's rigorous metrics or NextView's conversational appendix—that best fit their company's stage and their target investor's underlying thesis.
+            </p>
+          </div>
+        </section>
+
+        <!-- Previous Article Navigation Banner -->
+        <div class="article-nav-banner">
+          <div class="banner-content">
+            <span class="banner-tag">PREVIOUS ARTICLE IN MASTERCLASS SERIES</span>
+            <h4 class="banner-title">6 Slides for Pitch Deck</h4>
+            <p class="banner-desc">Master the exact anatomy of the 6 universally required slides from Sequoia Capital, Y Combinator, and 500 Global.</p>
+          </div>
+          <button type="button" class="btn btn-secondary" onclick="switchArticle(1)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Read Article 01</span>
+          </button>
+        </div>
+      </article>
 
     </div>
-  </article>
+  </div>
 </Layout>
 
+<script is:inline>
+  function switchArticle(articleNum) {
+    // Hide all panes
+    const pane1 = document.getElementById('article-pane-1');
+    const pane2 = document.getElementById('article-pane-2');
+    const btn1 = document.getElementById('tab-btn-1');
+    const btn2 = document.getElementById('tab-btn-2');
+
+    if (articleNum === 1) {
+      if (pane1) pane1.classList.add('active');
+      if (pane2) pane2.classList.remove('active');
+      if (btn1) btn1.classList.add('active');
+      if (btn2) btn2.classList.remove('active');
+      window.location.hash = 'article-1';
+    } else {
+      if (pane1) pane1.classList.remove('active');
+      if (pane2) pane2.classList.add('active');
+      if (btn1) btn1.classList.remove('active');
+      if (btn2) btn2.classList.add('active');
+      window.location.hash = 'article-2';
+    }
+
+    // Scroll to top of content
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Check URL hash on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    if (window.location.hash === '#article-2') {
+      switchArticle(2);
+    } else {
+      switchArticle(1);
+    }
+  });
+</script>
+
 <style>
-  .pitch-article-wrapper {
+  .pitch-page-wrapper {
     background-color: #ffffff;
-    padding: 3rem 0 6rem;
+    padding: 2.5rem 0 6rem;
     position: relative;
     z-index: 1;
   }
 
   .article-container {
-    max-width: 860px;
+    max-width: 880px;
     margin: 0 auto;
     padding: 0 1.5rem;
+  }
+
+  /* Article Selector Tabs */
+  .article-selector-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    padding: 0.5rem;
+    background-color: #f8fafc;
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.875rem;
+  }
+
+  .selector-label {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-left: 0.75rem;
+  }
+
+  .selector-tabs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  .tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+  }
+
+  .tab-btn:hover {
+    color: var(--text-primary);
+    background-color: #ffffff;
+    border-color: var(--border-subtle);
+  }
+
+  .tab-btn.active {
+    color: var(--brand-blue);
+    background-color: #ffffff;
+    border-color: rgba(37, 99, 235, 0.25);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+  }
+
+  .tab-num {
+    font-size: 0.6875rem;
+    font-weight: 800;
+    padding: 0.15rem 0.4rem;
+    border-radius: 9999px;
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--brand-blue);
+  }
+
+  .tab-title {
+    white-space: nowrap;
+  }
+
+  /* Article Panes */
+  .article-pane {
+    display: none;
+  }
+
+  .article-pane.active {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   /* Header */
@@ -660,31 +1087,36 @@ const slideSummary = [
   }
 
   /* Deep Dive Sections */
-  .slide-deep-dive {
+  .slide-deep-dive,
+  .analysis-section {
     scroll-margin-top: 5rem;
+    margin-bottom: 3.5rem;
   }
 
-  .slide-tag-row {
+  .slide-tag-row,
+  .section-tag-row {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     margin-bottom: 1rem;
   }
 
-  .slide-number-pill {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+  .slide-number-pill,
+  .section-badge-pill {
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
     background-color: var(--brand-blue);
     color: #ffffff;
-    font-size: 0.875rem;
-    font-weight: 700;
+    font-size: 0.75rem;
+    font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
+    letter-spacing: 0.05em;
   }
 
-  .slide-tag-title {
+  .slide-tag-title,
+  .section-tag-name {
     font-size: 0.75rem;
     font-weight: 700;
     color: var(--text-muted);
@@ -799,17 +1231,201 @@ const slideSummary = [
     margin-top: 0.75rem;
   }
 
+  /* Article 2: Stat Metrics Cards */
+  .stat-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0 3.5rem;
+  }
+
+  .stat-metric-card {
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.875rem;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+  }
+
+  .stat-metric-val {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--brand-blue);
+    letter-spacing: -0.02em;
+  }
+
+  .stat-metric-lbl {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  /* Comparative Matrix Table */
+  .matrix-table-section {
+    margin: 4rem 0;
+  }
+
+  .matrix-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .matrix-subtitle {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+    border: 1px solid var(--border-subtle);
+    border-radius: 1rem;
+    background: #ffffff;
+  }
+
+  .framework-matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    text-align: left;
+  }
+
+  .framework-matrix-table th {
+    background-color: #f8fafc;
+    padding: 1rem 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-subtle);
+    white-space: nowrap;
+  }
+
+  .framework-matrix-table td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-secondary);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  .framework-matrix-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .firm-cell {
+    color: var(--text-primary);
+    white-space: nowrap;
+  }
+
+  .stage-tag {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 9999px;
+    background-color: #eff6ff;
+    color: var(--brand-blue);
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .req-cell {
+    font-size: 0.8125rem;
+  }
+
+  /* Summary Card Large */
+  .summary-box-section {
+    margin: 3.5rem 0;
+  }
+
+  .summary-card-large {
+    background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    border-radius: 1.25rem;
+    padding: 2.5rem;
+  }
+
+  .summary-large-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .summary-large-text {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  /* Article Navigation Banner */
+  .article-nav-banner {
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: #f8fafc;
+    border: 1px solid var(--border-subtle);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .banner-tag {
+    font-size: 0.6875rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: var(--brand-blue);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .banner-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+  }
+
+  .banner-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .article-nav-banner .btn {
+    white-space: nowrap;
+  }
+
   @media (max-width: 768px) {
     .summary-cards-grid {
       grid-template-columns: 1fr;
     }
-    .article-meta-bar {
+    .stat-metrics-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .article-nav-banner {
       flex-direction: column;
       align-items: flex-start;
-      gap: 0.35rem;
+      gap: 1.25rem;
     }
-    .meta-divider {
-      display: none;
+    .article-nav-banner .btn {
+      width: 100%;
+      justify-content: center;
+    }
+    .article-selector-bar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .selector-tabs {
+      width: 100%;
+      overflow-x: auto;
     }
   }
 </style>
