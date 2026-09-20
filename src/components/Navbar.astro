@@ -1,6 +1,6 @@
 ---
 interface Props {
-  activePage?: 'home' | 'pitch' | 'bos';
+  activePage?: 'home' | 'pitch' | 'bos' | 'news';
 }
 
 const { activePage = 'home' } = Astro.props;
@@ -26,6 +26,13 @@ const { activePage = 'home' } = Astro.props;
       <span class="brand-name">Andromeda<span class="brand-dot">.</span></span>
     </a>
 
+    <!-- Nav Links -->
+    <nav class="nav-center">
+      <a href="/startup-news" class:list={['nav-link-item', { active: activePage === 'news' }]}>
+        <span class="live-dot-pulse"></span>
+        <span>Startup News</span>
+      </a>
+    </nav>
 
     <!-- Action Buttons -->
     <div class="nav-actions">
@@ -99,6 +106,45 @@ const { activePage = 'home' } = Astro.props;
     color: var(--brand-blue);
   }
 
+  .nav-center {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-link-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.375rem 0.875rem;
+    border-radius: 9999px;
+    transition: all 0.2s ease;
+  }
+
+  .nav-link-item:hover,
+  .nav-link-item.active {
+    color: var(--brand-blue);
+    background-color: rgba(37, 99, 235, 0.08);
+  }
+
+  .live-dot-pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #10b981;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+    animation: pulse-dot 2s infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
   .nav-actions {
     display: flex;
     align-items: center;
@@ -115,6 +161,12 @@ const { activePage = 'home' } = Astro.props;
 
   .nav-link-subtle:hover {
     color: var(--text-primary);
+  }
+
+  @media (max-width: 640px) {
+    .nav-link-item span:not(.live-dot-pulse) {
+      font-size: 0.8125rem;
+    }
   }
 
   @media (max-width: 480px) {
