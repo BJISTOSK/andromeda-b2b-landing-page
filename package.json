@@ -4,10 +4,10 @@
   "type": "module",
   "description": "Andromeda B2B Platform - Static Astro Front-End hosted on GitHub Pages",
   "scripts": {
-    "dev": "astro dev --port 4321 --host",
-    "start": "astro dev --port 4321 --host",
+    "dev": "astro dev --host 0.0.0.0 --port 4321",
+    "start": "astro dev --host 0.0.0.0 --port 4321",
     "build": "astro build",
-    "preview": "astro preview --port 4321 --host",
+    "preview": "astro preview --host 0.0.0.0 --port 4321",
     "astro": "astro",
     "deploy": "astro build && npx gh-pages -d dist -b gh-pages -t"
   },

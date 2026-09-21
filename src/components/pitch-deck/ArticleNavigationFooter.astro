@@ -1,0 +1,227 @@
+---
+import type { PitchDeckArticle } from '../../data/pitchDeckData';
+
+interface Props {
+  prevArticle?: PitchDeckArticle;
+  nextArticle?: PitchDeckArticle;
+}
+
+const { prevArticle, nextArticle } = Astro.props;
+---
+
+<nav class="article-footer-nav" aria-label="Article navigation">
+  <div class="footer-nav-container container">
+    <!-- Previous Article Card -->
+    <div class="nav-slot nav-prev">
+      {prevArticle ? (
+        <a href={`/pitch-deck/${prevArticle.slug}`} class="nav-card prev-card">
+          <div class="nav-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </div>
+          <div class="nav-card-body">
+            <span class="nav-direction">PREVIOUS ARTICLE ({prevArticle.num})</span>
+            <span class="nav-title">{prevArticle.title}</span>
+          </div>
+        </a>
+      ) : (
+        <div class="nav-card disabled">
+          <span class="nav-direction">MASTERCLASS START</span>
+          <span class="nav-title">You are at Article 01</span>
+        </div>
+      )}
+    </div>
+
+    <!-- Center Hub Link -->
+    <div class="nav-slot nav-center">
+      <a href="/pitch-deck" class="hub-action-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        <span>All 12 Articles</span>
+      </a>
+    </div>
+
+    <!-- Next Article Card -->
+    <div class="nav-slot nav-next">
+      {nextArticle ? (
+        <a href={`/pitch-deck/${nextArticle.slug}`} class="nav-card next-card">
+          <div class="nav-card-body">
+            <span class="nav-direction">NEXT ARTICLE ({nextArticle.num})</span>
+            <span class="nav-title">{nextArticle.title}</span>
+          </div>
+          <div class="nav-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+        </a>
+      ) : (
+        <div class="nav-card disabled">
+          <span class="nav-direction">MASTERCLASS COMPLETE</span>
+          <span class="nav-title">You reached the final article</span>
+        </div>
+      )}
+    </div>
+  </div>
+</nav>
+
+<style>
+  .article-footer-nav {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 2px solid #e2e8f0;
+  }
+
+  .footer-nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .nav-slot {
+    display: flex;
+  }
+
+  .nav-prev {
+    justify-content: flex-start;
+  }
+
+  .nav-center {
+    justify-content: center;
+  }
+
+  .nav-next {
+    justify-content: flex-end;
+  }
+
+  .nav-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-card:hover:not(.disabled) {
+    border-color: #3b82f6;
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15);
+    transform: translateY(-3px);
+  }
+
+  .nav-card.disabled {
+    opacity: 0.55;
+    background: #f8fafc;
+    border-color: #e2e8f0;
+    cursor: default;
+  }
+
+  .nav-arrow {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+
+  .nav-card:hover .nav-arrow {
+    background: #2563eb;
+    color: #ffffff;
+  }
+
+  .nav-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    overflow: hidden;
+  }
+
+  .prev-card .nav-card-body {
+    text-align: left;
+  }
+
+  .next-card .nav-card-body {
+    text-align: right;
+  }
+
+  .nav-direction {
+    font-size: 0.725rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #3b82f6;
+  }
+
+  .nav-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0f172a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hub-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.4rem;
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    white-space: nowrap;
+  }
+
+  .hub-action-btn:hover {
+    background: #1e293b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.25);
+  }
+
+  @media (max-width: 900px) {
+    .footer-nav-container {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .nav-card {
+      max-width: 100%;
+    }
+    .next-card .nav-card-body {
+      text-align: left;
+    }
+    .next-card {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+    .nav-center {
+      order: -1;
+      justify-content: flex-start;
+    }
+  }
+</style>

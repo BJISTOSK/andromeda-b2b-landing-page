@@ -1,0 +1,264 @@
+---
+import { pointNineSlides, pointNineAnimals } from '../../../data/pitchDeckData';
+---
+
+      <article id="article-10" class="article-block">
+        <!-- Article 10 Header -->
+        <div class="article-header">
+          <div class="article-category-badge">
+            <span class="badge-dot"></span>
+            <span>ARTICLE 10 &bull; B2B SAAS &amp; UNIT ECONOMICS &bull; POINT NINE CAPITAL</span>
+          </div>
+
+          <h2 class="article-title">
+            Point Nine Capital: The SaaS Metrics Framework
+          </h2>
+
+          <p class="article-lead">
+            Point Nine Capital is one of the most prominent early-stage venture capital firms in Europe, famously known for its deep expertise and rigorous focus on B2B SaaS (Software-as-a-Service) and online marketplaces. The firm—driven heavily by the methodologies of partners like Christoph Janz—applies an intensely quantitative, data-driven lens to evaluating startups.
+          </p>
+
+          <div class="article-meta-bar">
+            <span class="meta-item"><strong>Reading time:</strong> 9 min read</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Firm:</strong> Point Nine Capital</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Sector:</strong> B2B SaaS &amp; Marketplaces</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Core Focus:</strong> Capital Efficiency &bull; Unit Economics &bull; NDR</span>
+          </div>
+        </div>
+
+        <!-- Section 1: Core Philosophy & Janz's Customer Animal Sizing -->
+        <section class="yc-philosophy-section">
+          <div class="section-tag-row">
+            <span class="section-badge-pill">CORE PHILOSOPHY</span>
+            <span class="section-tag-name">SAAS FINANCIAL RIGOR</span>
+          </div>
+
+          <h3 class="slide-heading">The Core Philosophy: "Financial Rigor and SaaS Metrics"</h3>
+          <p class="slide-intro">
+            Point Nine looks for "momentum" and absolute financial discipline. They expect founders to deeply understand the alignment between <strong>Average Revenue Per Account (ARPA) and Customer Acquisition Cost (CAC)</strong>—a concept Christoph Janz famously coined as hunting:
+          </p>
+
+          <div class="philosophy-cards-grid">
+            {pointNineAnimals.map((a) => (
+              <div class="philosophy-card">
+                <div class="ph-card-icon">{a.animal.slice(0, 2).toUpperCase()}</div>
+                <h4 class="ph-card-title">{a.animal} ({a.arpa})</h4>
+                <p class="ph-card-desc">{a.strategy}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="callout-warning" style="margin-top: 1.5rem;">
+            <strong>Zero Chart Manipulation:</strong> Point Nine demands extreme transparency. Never manipulate charts (e.g., cutting off the Y-axis or compressing the X-axis to make growth look steeper) and strictly avoid ambiguous metric definitions (like confusing "signups" with "active recurring users").
+          </div>
+        </section>
+
+        <!-- Section 2: 10-Slide Overview -->
+        <section class="slides-overview-section">
+          <div class="section-tag-row">
+            <span class="section-badge-pill">DECK BLUEPRINT</span>
+            <span class="section-tag-name">POINT NINE 10-SLIDE SEQUENCE</span>
+          </div>
+
+          <h3 class="slide-heading">The 10-Slide Breakdown</h3>
+
+          <!-- Quick Navigation Bar for Article 10 -->
+          <nav class="toc-nav" aria-label="Point Nine slide quick links">
+            <span class="toc-label">Jump to slide:</span>
+            <div class="toc-pills">
+              {pointNineSlides.map((slide) => (
+                <a href={`#p9-slide-${parseInt(slide.num)}`} class="toc-pill">
+                  {slide.num}. {slide.title}
+                </a>
+              ))}
+            </div>
+          </nav>
+
+          <!-- Summary Cards Grid -->
+          <div class="summary-cards-grid">
+            {pointNineSlides.map((slide) => (
+              <a href={`#p9-slide-${parseInt(slide.num)}`} class="summary-card">
+                <div class="card-num-row">
+                  <span class="slide-badge">SLIDE {slide.num}</span>
+                  <span class="slide-question">{slide.question}</span>
+                </div>
+                <h3 class="card-slide-title">{slide.title}</h3>
+                <p class="card-slide-desc">{slide.desc}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- Slide Deep Dives (1 to 10) -->
+        <div class="key-points-list">
+          
+          <!-- Slide 1: Title -->
+          <div id="p9-slide-1" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">01</span>
+              <span class="slide-tag-title">POINT NINE SLIDE 1</span>
+            </div>
+            <h3 class="slide-heading">1. Title</h3>
+            <p class="point-text">
+              A clean introduction that sets the stage. It should display the <strong>company logo, the founders' details, and a clear, non-ambiguous one-liner</strong> about what the business actually does.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 2: Team -->
+          <div id="p9-slide-2" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">02</span>
+              <span class="slide-tag-title">POINT NINE SLIDE 2 &bull; UPFRONT PLACEMENT</span>
+            </div>
+            <h3 class="slide-heading">2. Team (Upfront)</h3>
+            <p class="point-text">
+              Unlike many standard frameworks that relegate the team slide to the end, <strong>Point Nine's template brings the founding team to the very front (Slide 2)</strong>.
+            </p>
+            <p class="point-text">
+              Because B2B SaaS requires deep industry knowledge to solve painful, highly specific business problems, placing the team on Slide 2 immediately establishes the founders' domain expertise and credibility before delving into product complexities.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 3: Product -->
+          <div id="p9-slide-3" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">03</span>
+              <span class="slide-tag-title">POINT NINE SLIDE 3</span>
+            </div>
+            <h3 class="slide-heading">3. Product (Screens and UX)</h3>
+            <p class="point-text">
+              This slide highlights the actual software. Point Nine prefers seeing <strong>tangible evidence of the product—like screenshots and user workflows—that demonstrate its usability</strong>.
+            </p>
+            <p class="point-text">
+              For early-stage companies relying on Product-Led Growth (PLG), a product that is so intuitive it effectively "sells itself" is viewed as the ultimate competitive advantage.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 4: Customers -->
+          <div id="p9-slide-4" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">04</span>
+              <span class="slide-tag-title">POINT NINE SLIDE 4</span>
+            </div>
+            <h3 class="slide-heading">4. Customers (Pipeline and Segmentation)</h3>
+            <p class="point-text">
+              Investors need to know exactly who feels the pain you are solving. This slide should outline your <strong>specific target customer segments and provide a glimpse into your current sales pipeline or early customer stories</strong>.
+            </p>
+            <p class="point-text">
+              It is crucial to define what "animal" (customer size) you are hunting, as this completely dictates the viability of your sales and marketing strategy.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 5: Traction -->
+          <div id="p9-slide-5" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">05</span>
+              <span class="slide-tag-title">POINT NINE SLIDE 5 &bull; THE CROWN JEWEL</span>
+            </div>
+            <h3 class="slide-heading">5. Traction (MRR, ACV, Account Expansion)</h3>
+            <p class="point-text">
+              <strong>This is arguably the most critical slide for Point Nine.</strong> You must present real, unmanipulated data (actuals) detailing your key SaaS metrics:
+            </p>
+            <ul class="framework-checklist">
+              <li><strong>MRR/ARR (Monthly/Annual Recurring Revenue):</strong> Historical growth of your predictable revenue stream.</li>
+              <li><strong>ACV (Annual Contract Value) &amp; CAC:</strong> Ensuring customer acquisition costs make mathematical sense relative to contract sizes.</li>
+              <li><strong>Net Dollar Retention (NDR):</strong> Showing account expansion. A credible path to 100%+ NDR proves that customers stay, upgrade, and spend more over time.</li>
+            </ul>
+            <div class="callout-tip">
+              <strong>The 100%+ NDR Law:</strong> Net Dollar Retention above 100% means your SaaS revenue expands even if you add zero new customers. It is the gold standard of SaaS capital efficiency.
+            </div>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 6: Market -->
+          <div id="p9-slide-6" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">06</span>
+              <span class="slide-tag-title">POINT NINE SLIDE 6</span>
+            </div>
+            <h3 class="slide-heading">6. Market</h3>
+            <p class="point-text">
+              Point Nine demands a <strong>highly specific, comprehensible, bottom-up Total Addressable Market (TAM) estimate</strong>. They actively discourage founders from using vague, top-down assertions (e.g. pulling a massive "trillion-dollar market" statistic from a generic industry report).
+            </p>
+            <p class="point-text">
+              You must calculate market size based on: <em>(Actual potential customers in your specific segment) &times; (Your annual pricing model)</em>.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 7: Competition -->
+          <div id="p9-slide-7" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">07</span>
+              <span class="slide-tag-title">POINT NINE SLIDE 7</span>
+            </div>
+            <h3 class="slide-heading">7. Competition</h3>
+            <p class="point-text">
+              A transparent look at the competitive landscape. You must show current market alternatives, direct and indirect, and clearly define your differentiators.
+            </p>
+            <p class="point-text">
+              Point Nine recognizes that as any SaaS market matures, <strong>customer acquisition costs inevitably go up</strong>; therefore, product differentiation or brand strength is your primary defense against rising acquisition costs.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 8: Roadmap -->
+          <div id="p9-slide-8" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">08</span>
+              <span class="slide-tag-title">POINT NINE SLIDE 8</span>
+            </div>
+            <h3 class="slide-heading">8. Roadmap (The Plan)</h3>
+            <p class="point-text">
+              A forward-looking slide detailing the <strong>key milestones you plan to achieve over the next 12 to 24 months</strong>. This should focus on concrete deliverables regarding product development, key hires, and revenue targets.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 9: Ask -->
+          <div id="p9-slide-9" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">09</span>
+              <span class="slide-tag-title">POINT NINE SLIDE 9</span>
+            </div>
+            <h3 class="slide-heading">9. Ask (The Round)</h3>
+            <p class="point-text">
+              Clearly state how much capital you are raising and who is already participating. <strong>Point Nine is highly sensitive to the "Burn Multiple"</strong> (how much capital you spend to generate each new dollar of ARR), so your ask must align with an efficient, realistic growth plan.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 10: Contact -->
+          <div id="p9-slide-10" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">10</span>
+              <span class="slide-tag-title">POINT NINE SLIDE 10</span>
+            </div>
+            <h3 class="slide-heading">10. Contact / Thank You</h3>
+            <p class="point-text">
+              A simple, professional wrap-up slide providing clear contact information to seamlessly transition the meeting into the Q&amp;A or discussion phase.
+            </p>
+          </div>
+
+        </div>
+
+        
+      </article>

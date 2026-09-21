@@ -1,0 +1,274 @@
+---
+import { fiveHundredSlides } from '../../../data/pitchDeckData';
+---
+
+      <article id="article-11" class="article-block">
+        <!-- Article 11 Header -->
+        <div class="article-header">
+          <div class="article-category-badge">
+            <span class="badge-dot"></span>
+            <span>ARTICLE 11 &bull; HIGH-GROWTH SEED ACCELERATOR &bull; 500 GLOBAL</span>
+          </div>
+
+          <h2 class="article-title">
+            500 Global (500 Startups): The High-Growth Framework
+          </h2>
+
+          <p class="article-lead">
+            500 Startups (now known as 500 Global) operates one of the most prolific early-stage venture funds and seed accelerators in the world. Originally shaped by founder Dave McClure’s "Startup Viagra" philosophy, this framework is engineered to trigger an immediate reaction from investors by focusing heavily on rapid customer acquisition, actionable metrics, and high growth.
+          </p>
+
+          <div class="article-meta-bar">
+            <span class="meta-item"><strong>Reading time:</strong> 8 min read</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Accelerator:</strong> 500 Global</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Format:</strong> Strict 10 Slides &bull; Zero Jargon</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Market Constraint:</strong> TAM &gt; $1 Billion</span>
+          </div>
+        </div>
+
+        <!-- Section 1: The 500 Global Strict Syntax & Philosophy -->
+        <section class="yc-philosophy-section">
+          <div class="section-tag-row">
+            <span class="section-badge-pill">CORE SYNTAX</span>
+            <span class="section-tag-name">FILL-IN-THE-BLANK ELEVATOR PITCH</span>
+          </div>
+
+          <h3 class="slide-heading">The 500 Global Elevator Pitch Formula</h3>
+          <p class="slide-intro">
+            500 Global reviewers look at thousands of decks. They enforce a strict, fill-in-the-blank formula on Slide 1 that explains your business as simply as talking to a 5-year-old:
+          </p>
+
+          <div class="callout-conclusion">
+            <strong>The 500 Global Pitch Formula:</strong>
+            <br />
+            <em>"A <strong>[product type]</strong> to help <strong>[target customer]</strong> with <strong>[#1 problem]</strong> by <strong>[#1 benefit]</strong> using our <strong>[secret sauce/differentiator]</strong>."</em>
+          </div>
+
+          <div class="philosophy-cards-grid" style="margin-top: 1.5rem;">
+            <div class="philosophy-card">
+              <div class="ph-card-icon">01</div>
+              <h4 class="ph-card-title">Strict Brevity</h4>
+              <p class="ph-card-desc">
+                No more than 10 slides. Zero tolerance for expert jargon, text-heavy walls, or cluttered images.
+              </p>
+            </div>
+
+            <div class="philosophy-card">
+              <div class="ph-card-icon">02</div>
+              <h4 class="ph-card-title">Startup Viagra</h4>
+              <p class="ph-card-desc">
+                Focus on one key upward-trending growth metric (MRR, GMV, MoM) that instantly grabs investor dopamine.
+              </p>
+            </div>
+
+            <div class="philosophy-card">
+              <div class="ph-card-icon">03</div>
+              <h4 class="ph-card-title">TAM &gt; $1 Billion</h4>
+              <p class="ph-card-desc">
+                Explicit bottom-up proof: <em>(Customers) &times; (Avg Transaction Size) &times; (Purchases/Yr) &gt; $1B</em>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: 10-Slide Overview -->
+        <section class="slides-overview-section">
+          <div class="section-tag-row">
+            <span class="section-badge-pill">DECK SEQUENCE</span>
+            <span class="section-tag-name">500 GLOBAL 10-SLIDE BLUEPRINT</span>
+          </div>
+
+          <h3 class="slide-heading">The 10-Slide Breakdown</h3>
+
+          <!-- Quick Navigation Bar for Article 11 -->
+          <nav class="toc-nav" aria-label="500 Global slide quick links">
+            <span class="toc-label">Jump to slide:</span>
+            <div class="toc-pills">
+              {fiveHundredSlides.map((slide) => (
+                <a href={`#fg-slide-${parseInt(slide.num)}`} class="toc-pill">
+                  {slide.num}. {slide.title}
+                </a>
+              ))}
+            </div>
+          </nav>
+
+          <!-- Summary Cards Grid -->
+          <div class="summary-cards-grid">
+            {fiveHundredSlides.map((slide) => (
+              <a href={`#fg-slide-${parseInt(slide.num)}`} class="summary-card">
+                <div class="card-num-row">
+                  <span class="slide-badge">SLIDE {slide.num}</span>
+                  <span class="slide-question">{slide.question}</span>
+                </div>
+                <h3 class="card-slide-title">{slide.title}</h3>
+                <p class="card-slide-desc">{slide.desc}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- Slide Deep Dives (1 to 10) -->
+        <div class="key-points-list">
+          
+          <!-- Slide 1: Logo & Elevator Pitch -->
+          <div id="fg-slide-1" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">01</span>
+              <span class="slide-tag-title">500 GLOBAL SLIDE 1</span>
+            </div>
+            <h3 class="slide-heading">1. Your Logo &amp; Elevator Pitch</h3>
+            <p class="point-text">
+              This slide must make a great impression in seconds. You are required to <strong>explain your product as simply as if you were talking to a 5-year-old</strong> using 500 Global's strict fill-in-the-blank syntax.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 2: The Problem -->
+          <div id="fg-slide-2" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">02</span>
+              <span class="slide-tag-title">500 GLOBAL SLIDE 2</span>
+            </div>
+            <h3 class="slide-heading">2. The Problem</h3>
+            <p class="point-text">
+              You must explain the problem <strong>strictly from the micro-economic point of view of your specific customer</strong>, not as a broad, generic global statistic.
+            </p>
+            <p class="point-text">
+              For example, do not say <em>"40% of patients lack post-discharge care"</em>; instead, frame it as a tangible pain point: <strong>"Hospitals are losing $30B by not having the resources to monitor patients remotely."</strong>
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 3: Your Solution -->
+          <div id="fg-slide-3" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">03</span>
+              <span class="slide-tag-title">500 GLOBAL SLIDE 3</span>
+            </div>
+            <h3 class="slide-heading">3. Your Solution</h3>
+            <p class="point-text">
+              Introduce your product immediately before losing the audience's attention. Present the key features, list the top benefits to the customer, and ensure it maps directly to the problem stated in Slide 2.
+            </p>
+            <p class="point-text">
+              This is the ideal place for your <strong>primary product screenshot</strong>.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 4: How it Works -->
+          <div id="fg-slide-4" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">04</span>
+              <span class="slide-tag-title">500 GLOBAL SLIDE 4</span>
+            </div>
+            <h3 class="slide-heading">4. How it Works</h3>
+            <p class="point-text">
+              This is a deeper dive into the proprietary technology or user experience. You should showcase the <strong>unique tech that powers your product or provide a visual workflow</strong> that proves the product is tangible and functional.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 5: Traction -->
+          <div id="fg-slide-5" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">05</span>
+              <span class="slide-tag-title">500 GLOBAL SLIDE 5 &bull; STARTUP VIAGRA</span>
+            </div>
+            <h3 class="slide-heading">5. Traction</h3>
+            <p class="point-text">
+              This is the <strong>"Startup Viagra" slide designed to capture investor attention</strong>. You should focus on just one key growth metric (like MRR for SaaS, GMV for marketplaces, or Month-over-Month growth) and display it clearly in an upward-trending chart.
+            </p>
+            <p class="point-text">
+              If you are a B2B company, prominently place the <strong>logos of your most notable signed clients</strong> here.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 6: Business Model -->
+          <div id="fg-slide-6" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">06</span>
+              <span class="slide-tag-title">500 GLOBAL SLIDE 6</span>
+            </div>
+            <h3 class="slide-heading">6. Business Model</h3>
+            <p class="point-text">
+              Explain how you make money today, or how you plan to in the future. You must detail your <strong>top sources of revenue and prioritize them by size</strong>, clarifying whether your model is direct (e-commerce, subscriptions) or indirect (advertising, lead generation).
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 7: Competition -->
+          <div id="fg-slide-7" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">07</span>
+              <span class="slide-tag-title">500 GLOBAL SLIDE 7</span>
+            </div>
+            <h3 class="slide-heading">7. Competition</h3>
+            <p class="point-text">
+              Claiming you have "no competition" is viewed as a red flag. 500 Global prefers a standard <strong>2x2 quadrant matrix where your company is in the upper right corner</strong>, and requires you to frame your edge using this exact phrasing:
+            </p>
+            <div class="callout-conclusion">
+              <em>"Unlike <strong>[existing alternatives]</strong>, <strong>[your product]</strong> <strong>[primary differentiator]</strong> and <strong>[secondary differentiator]</strong>."</em>
+            </div>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 8: The Market Opportunity -->
+          <div id="fg-slide-8" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">08</span>
+              <span class="slide-tag-title">500 GLOBAL SLIDE 8 &bull; TAM &gt; $1B</span>
+            </div>
+            <h3 class="slide-heading">8. The Market Opportunity</h3>
+            <p class="point-text">
+              You must prove that you are targeting a massive market capable of generating venture-scale returns. <strong>500 Global explicitly looks for a Total Addressable Market (TAM) of greater than $1 Billion.</strong>
+            </p>
+            <p class="point-text">
+              Calculate this using their bottom-up formula: <em>(X customers in your market) &times; ($Y average transaction size) &times; (Z number of purchases per year)</em>.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 9: Progress to Date -->
+          <div id="fg-slide-9" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">09</span>
+              <span class="slide-tag-title">500 GLOBAL SLIDE 9</span>
+            </div>
+            <h3 class="slide-heading">9. Progress to Date</h3>
+            <p class="point-text">
+              List your historical milestones to prove execution speed. This should include your actual or planned launch date, when you signed your first customer, notable awards, and any prior investments or grants you have already secured.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 10: The Team -->
+          <div id="fg-slide-10" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">10</span>
+              <span class="slide-tag-title">500 GLOBAL SLIDE 10 &bull; UNFAIR ADVANTAGE</span>
+            </div>
+            <h3 class="slide-heading">10. The Team</h3>
+            <p class="point-text">
+              Highlight why your team has an <strong>"unfair advantage."</strong> Early-stage VCs bet heavily on founders, so you must emphasize specific traits like past startup exits, deep technical/product expertise, or industry-specific networks. Limit descriptions to just 1-2 bullet points per key founder.
+            </p>
+          </div>
+
+        </div>
+
+        
+      </article>

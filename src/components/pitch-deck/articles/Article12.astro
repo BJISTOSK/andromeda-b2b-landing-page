@@ -1,0 +1,309 @@
+---
+import { founderInstituteRisks, founderInstituteSlides } from '../../../data/pitchDeckData';
+---
+
+      <article id="article-12" class="article-block">
+        <!-- Article 12 Header -->
+        <div class="article-header">
+          <div class="article-category-badge">
+            <span class="badge-dot"></span>
+            <span>ARTICLE 12 &bull; RISK MITIGATION &bull; FOUNDER INSTITUTE</span>
+          </div>
+
+          <h2 class="article-title">
+            The Founder Institute (FI) Pitch Deck Framework
+          </h2>
+
+          <p class="article-lead">
+            The Founder Institute (FI) pitch deck framework is a comprehensive, highly structured template designed to systematically de-risk an early-stage venture for potential investors.
+          </p>
+
+          <div class="article-meta-bar">
+            <span class="meta-item"><strong>Reading time:</strong> 10 min read</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Accelerator:</strong> Founder Institute</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Structure:</strong> 14 De-risking Slides</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Prerequisite:</strong> The One-Sentence Pitch</span>
+          </div>
+        </div>
+
+        <!-- Section 1: The Core Philosophy: De-risking and the "One-Sentence Pitch" -->
+        <section class="yc-philosophy-section">
+          <div class="section-tag-row">
+            <span class="section-badge-pill">CORE PHILOSOPHY</span>
+            <span class="section-tag-name">THE THREE RISKS</span>
+          </div>
+
+          <h3 class="slide-heading">De-risking and the "One-Sentence Pitch"</h3>
+          <p class="slide-intro">
+            FI teaches that investors evaluate opportunities by looking for three specific types of risk: <strong>Market Risk, Product Risk, and Execution Risk</strong>. This 14-slide deck is engineered to explicitly answer and mitigate all three:
+          </p>
+
+          <div class="philosophy-cards-grid">
+            {founderInstituteRisks.map((r) => (
+              <div class="philosophy-card">
+                <div class="ph-card-icon">&bull;</div>
+                <h4 class="ph-card-title">{r.risk}</h4>
+                <p class="ph-card-desc"><strong>{r.question}</strong><br />{r.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="callout-conclusion" style="margin-top: 1.5rem;">
+            <strong>The One-Sentence Rule:</strong> If you cannot explain exactly what your company does in one clear, jargon-free declarative sentence, you do not understand your business well enough to pitch it. Master your one-sentence pitch before building this 14-slide deck.
+          </div>
+        </section>
+
+        <!-- Section 2: 14-Slide Sequence -->
+        <section class="slides-overview-section">
+          <div class="section-tag-row">
+            <span class="section-badge-pill">DECK SEQUENCE</span>
+            <span class="section-tag-name">FOUNDER INSTITUTE 14-SLIDE BLUEPRINT</span>
+          </div>
+
+          <h3 class="slide-heading">The 14-Slide Breakdown</h3>
+
+          <!-- Quick Navigation Bar for Article 12 -->
+          <nav class="toc-nav" aria-label="Founder Institute slide quick links">
+            <span class="toc-label">Jump to slide:</span>
+            <div class="toc-pills">
+              {founderInstituteSlides.map((slide) => (
+                <a href={`#fi-slide-${parseInt(slide.num)}`} class="toc-pill">
+                  {slide.num}. {slide.title}
+                </a>
+              ))}
+            </div>
+          </nav>
+
+          <!-- Summary Cards Grid -->
+          <div class="summary-cards-grid">
+            {founderInstituteSlides.map((slide) => (
+              <a href={`#fi-slide-${parseInt(slide.num)}`} class="summary-card">
+                <div class="card-num-row">
+                  <span class="slide-badge">SLIDE {slide.num}</span>
+                  <span class="slide-question">{slide.question}</span>
+                </div>
+                <h3 class="card-slide-title">{slide.title}</h3>
+                <p class="card-slide-desc">{slide.desc}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- Slide Deep Dives (1 to 14) -->
+        <div class="key-points-list">
+          
+          <!-- Slide 1: Cover Slide -->
+          <div id="fi-slide-1" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">01</span>
+              <span class="slide-tag-title">FI SLIDE 1</span>
+            </div>
+            <h3 class="slide-heading">1. Cover Slide</h3>
+            <p class="point-text">
+              You have <strong>10 seconds to grab the investor's attention</strong>. Introduce your big idea using a simple, declarative statement (your perfected one-sentence pitch) that explains exactly what you do.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 2: Summary Slide -->
+          <div id="fi-slide-2" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">02</span>
+              <span class="slide-tag-title">FI SLIDE 2</span>
+            </div>
+            <h3 class="slide-heading">2. Summary Slide</h3>
+            <p class="point-text">
+              <strong>Do not make investors wait until the end of the presentation to hear why your business is exciting.</strong> Use this slide as a teaser to highlight the upside potential of your business, explain how you have minimized risks, and showcase any initial traction.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 3: Problem Slide -->
+          <div id="fi-slide-3" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">03</span>
+              <span class="slide-tag-title">FI SLIDE 3</span>
+            </div>
+            <h3 class="slide-heading">3. Problem Slide</h3>
+            <p class="point-text">
+              Define the core problem and explicitly state who experiences it. You must list the <strong>specific reasons why your target customers and users are frustrated</strong> with current solutions available on the market.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 4: Solution Slide -->
+          <div id="fi-slide-4" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">04</span>
+              <span class="slide-tag-title">FI SLIDE 4</span>
+            </div>
+            <h3 class="slide-heading">4. Solution Slide</h3>
+            <p class="point-text">
+              Explain your solution in simple language (e.g., clarify whether it is an app, a physical device, or a website).
+            </p>
+            <p class="point-text">
+              List the major benefits for the customer, ensuring that these benefits <strong>map directly to the frustrations you just highlighted in the Problem slide</strong> (e.g., if current solutions are slow and expensive, your solution must be measurably faster and cheaper).
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 5: Product Slide -->
+          <div id="fi-slide-5" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">05</span>
+              <span class="slide-tag-title">FI SLIDE 5</span>
+            </div>
+            <h3 class="slide-heading">5. Product Slide</h3>
+            <p class="point-text">
+              Make your product tangible. <strong>Explain exactly how the product works in three simple steps.</strong>
+            </p>
+            <p class="point-text">
+              FI advises using screenshots or recorded videos of the user experience rather than attempting a live software demo, which is prone to crashing. Highlight any pending or granted patents here.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 6: Business Model Slide -->
+          <div id="fi-slide-6" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">06</span>
+              <span class="slide-tag-title">FI SLIDE 6</span>
+            </div>
+            <h3 class="slide-heading">6. Business Model Slide</h3>
+            <p class="point-text">
+              Explain how you make money. <strong>Focus on your primary revenue model rather than presenting a laundry list of "potential" passive streams.</strong>
+            </p>
+            <p class="point-text">
+              Investors strongly prefer active, recurring revenue (like subscriptions) and want to see proof that customers are genuinely willing to pay your price.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 7: Market Opportunity Slide -->
+          <div id="fi-slide-7" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">07</span>
+              <span class="slide-tag-title">FI SLIDE 7</span>
+            </div>
+            <h3 class="slide-heading">7. Market Opportunity Slide</h3>
+            <p class="point-text">
+              Show investors how much money you could make if you dominate the space. Define your Total Addressable Market (TAM) and Serviceable Addressable Market (SAM). A <strong>bottom-up calculation driven by your actual pricing model</strong> is highly preferred over a top-down approach.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 8: Competition Slide -->
+          <div id="fi-slide-8" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">08</span>
+              <span class="slide-tag-title">FI SLIDE 8</span>
+            </div>
+            <h3 class="slide-heading">8. Competition Slide</h3>
+            <p class="point-text">
+              Identify your competitors and visually map them out, typically using a two-axis grid (e.g., comparing convenience vs. expense). Clearly position your company on this matrix to show exactly why your product is superior to existing alternatives.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 9: Growth (Customer Acquisition) -->
+          <div id="fi-slide-9" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">09</span>
+              <span class="slide-tag-title">FI SLIDE 9</span>
+            </div>
+            <h3 class="slide-heading">9. Growth (Customer Acquisition)</h3>
+            <p class="point-text">
+              Explain your strategy to acquire and retain customers profitably at scale. You should be prepared to discuss key unit economics here, such as your expected <strong>Customer Acquisition Cost (CAC), Lifetime Value (LTV), and payback period</strong>.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 10: Traction Slide -->
+          <div id="fi-slide-10" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">10</span>
+              <span class="slide-tag-title">FI SLIDE 10</span>
+            </div>
+            <h3 class="slide-heading">10. Traction Slide</h3>
+            <p class="point-text">
+              Provide <strong>tangible, measurable proof that customers love your product</strong>. Highlight metrics such as active users, jobs completed, or gross revenue generated.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 11: Financials Slide -->
+          <div id="fi-slide-11" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">11</span>
+              <span class="slide-tag-title">FI SLIDE 11</span>
+            </div>
+            <h3 class="slide-heading">11. Financials Slide</h3>
+            <p class="point-text">
+              Show your financial projections detailing your best estimate of revenue, user growth, and customer adoption over the next 3 to 5 years.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 12: Team Slide -->
+          <div id="fi-slide-12" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">12</span>
+              <span class="slide-tag-title">FI SLIDE 12 &bull; ZERO ADVISOR FLUFF</span>
+            </div>
+            <h3 class="slide-heading">12. Team Slide</h3>
+            <p class="point-text">
+              Highlight the specific experience and expertise your team possesses that will allow you to build a massive business. Focus on past successes in similar startups, markets, or with similar technologies.
+            </p>
+            <div class="callout-warning">
+              <strong>No Advisor Fluff:</strong> FI strictly advises against including peripheral advisors on this slide; keep the focus entirely on the core team who are executing every single day.
+            </div>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 13: Funding (The Ask) -->
+          <div id="fi-slide-13" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">13</span>
+              <span class="slide-tag-title">FI SLIDE 13</span>
+            </div>
+            <h3 class="slide-heading">13. Funding (The Ask)</h3>
+            <p class="point-text">
+              Clearly state how much capital you are trying to raise (e.g., <em>"Seeking $2M Series A"</em>) and detail exactly what milestones that money will help you achieve (e.g., reaching a $6M run rate or launching a new product tier).
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 14: Summary (Closer) -->
+          <div id="fi-slide-14" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">14</span>
+              <span class="slide-tag-title">FI SLIDE 14</span>
+            </div>
+            <h3 class="slide-heading">14. Summary (Closer)</h3>
+            <p class="point-text">
+              End the presentation by <strong>summarizing the primary highlights of your business and the investment opportunity</strong>, leaving the investors with a clear, memorable final impression.
+            </p>
+          </div>
+
+        </div>
+
+        
+      </article>

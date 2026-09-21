@@ -1,0 +1,250 @@
+---
+import { kawasakiRules, kawasakiSlides } from '../../../data/pitchDeckData';
+---
+
+      <article id="article-7" class="article-block">
+        <!-- Article 7 Header -->
+        <div class="article-header">
+          <div class="article-category-badge">
+            <span class="badge-dot"></span>
+            <span>ARTICLE 07 &bull; RADICAL CONSTRAINTS &bull; GUY KAWASAKI</span>
+          </div>
+
+          <h2 class="article-title">
+            Guy Kawasaki’s 10/20/30 Rule
+          </h2>
+
+          <p class="article-lead">
+            Guy Kawasaki’s 10/20/30 rule is one of the most enduring frameworks in venture capital pitching because it relies on strict constraints to force clarity and respect the investor's time.
+          </p>
+
+          <div class="article-meta-bar">
+            <span class="meta-item"><strong>Reading time:</strong> 7 min read</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Author:</strong> Guy Kawasaki</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Format:</strong> 10 Slides &bull; 20 Minutes &bull; 30-Point Font</span>
+          </div>
+        </div>
+
+        <!-- Section 1: The Core Philosophy (10/20/30 Cards) -->
+        <section class="yc-philosophy-section">
+          <div class="section-tag-row">
+            <span class="section-badge-pill">CORE PHILOSOPHY</span>
+            <span class="section-tag-name">THREE GOLDEN CONSTRAINTS</span>
+          </div>
+
+          <h3 class="slide-heading">The 10/20/30 Constraints</h3>
+          <p class="slide-intro">
+            Kawasaki established these three non-negotiable boundaries to cure the most common mistakes founders make when presenting to venture capitalists:
+          </p>
+
+          <div class="philosophy-cards-grid">
+            {kawasakiRules.map((r) => (
+              <div class="philosophy-card">
+                <div class="ph-card-icon">{r.num}</div>
+                <h4 class="ph-card-title">{r.title}</h4>
+                <p class="ph-card-desc">{r.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Section 2: The 10-Slide Sequence -->
+        <section class="slides-overview-section">
+          <div class="section-tag-row">
+            <span class="section-badge-pill">DECK BLUEPRINT</span>
+            <span class="section-tag-name">THE 10-SLIDE SEQUENCE</span>
+          </div>
+
+          <h3 class="slide-heading">The 10-Slide Breakdown</h3>
+          <p class="slide-intro">
+            Every slide in the 10-slide deck addresses a single distinct concept required to evaluate the venture:
+          </p>
+
+          <!-- Quick Navigation Bar for Article 7 -->
+          <nav class="toc-nav" aria-label="Kawasaki slide quick links">
+            <span class="toc-label">Jump to slide:</span>
+            <div class="toc-pills">
+              {kawasakiSlides.map((slide) => (
+                <a href={`#gk-slide-${parseInt(slide.num)}`} class="toc-pill">
+                  {slide.num}. {slide.title}
+                </a>
+              ))}
+            </div>
+          </nav>
+
+          <!-- Summary Cards Grid -->
+          <div class="summary-cards-grid">
+            {kawasakiSlides.map((slide) => (
+              <a href={`#gk-slide-${parseInt(slide.num)}`} class="summary-card">
+                <div class="card-num-row">
+                  <span class="slide-badge">SLIDE {slide.num}</span>
+                  <span class="slide-question">{slide.question}</span>
+                </div>
+                <h3 class="card-slide-title">{slide.title}</h3>
+                <p class="card-slide-desc">{slide.desc}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- Slide Deep Dives (1 to 10) -->
+        <div class="key-points-list">
+          
+          <!-- Slide 1: Title Slide -->
+          <div id="gk-slide-1" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">01</span>
+              <span class="slide-tag-title">KAWASAKI SLIDE 1</span>
+            </div>
+            <h3 class="slide-heading">1. Title Slide</h3>
+            <p class="point-text">
+              This is your first impression. It should be <strong>incredibly straightforward</strong>, featuring your company name, your name and title, your contact information, and a brief tagline describing what the company does.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 2: Problem/Opportunity -->
+          <div id="gk-slide-2" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">02</span>
+              <span class="slide-tag-title">KAWASAKI SLIDE 2</span>
+            </div>
+            <h3 class="slide-heading">2. Problem/Opportunity</h3>
+            <p class="point-text">
+              This slide must <strong>clearly articulate the specific pain point or unmet need of your target customers</strong>. It should make the investor understand why this problem matters right now. Using a specific, relatable client example here can help anchor the narrative.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 3: Value Proposition -->
+          <div id="gk-slide-3" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">03</span>
+              <span class="slide-tag-title">KAWASAKI SLIDE 3</span>
+            </div>
+            <h3 class="slide-heading">3. Value Proposition</h3>
+            <p class="point-text">
+              Following the problem, you must <strong>explain exactly how your product or service solves it</strong>. This slide should clearly state the benefits and outcomes the user receives, often summarized in a single, powerful sentence.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 4: Underlying Magic -->
+          <div id="gk-slide-4" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">04</span>
+              <span class="slide-tag-title">KAWASAKI SLIDE 4</span>
+            </div>
+            <h3 class="slide-heading">4. Underlying Magic</h3>
+            <p class="point-text">
+              This is where you showcase your <strong>"secret sauce."</strong> It covers the core technology, intellectual property, or unfair advantage that makes your solution work.
+            </p>
+            <p class="point-text">
+              Kawasaki highly recommends <strong>using a live demo here</strong>, or telling a story about a specific client to prove that your solution drives real, measurable value rather than just listing features.
+            </p>
+            <div class="callout-tip">
+              <strong>The Demo Heuristic:</strong> Talk is cheap; working software is undeniable. If you have code, show it. A live 60-second demonstration builds vastly more credibility than five slides of architectural diagrams.
+            </div>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 5: Business Model -->
+          <div id="gk-slide-5" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">05</span>
+              <span class="slide-tag-title">KAWASAKI SLIDE 5</span>
+            </div>
+            <h3 class="slide-heading">5. Business Model</h3>
+            <p class="point-text">
+              Investors need to know how you intend to make money. This slide must outline <strong>who pays you, what exactly they are paying for, and your general pricing strategy</strong> (e.g., whether you charge a $250,000 annual enterprise license or a $10 monthly subscription).
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 6: Go-to-Market Plan -->
+          <div id="gk-slide-6" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">06</span>
+              <span class="slide-tag-title">KAWASAKI SLIDE 6</span>
+            </div>
+            <h3 class="slide-heading">6. Go-to-Market Plan</h3>
+            <p class="point-text">
+              This slide explains your strategy for <strong>acquiring customers and distributing your product</strong>. Your sales and marketing approach here must logically align with the pricing structure you outlined in the business model slide.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 7: Competitive Analysis -->
+          <div id="gk-slide-7" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">07</span>
+              <span class="slide-tag-title">KAWASAKI SLIDE 7</span>
+            </div>
+            <h3 class="slide-heading">7. Competitive Analysis</h3>
+            <p class="point-text">
+              You must <strong>map out the current market landscape</strong>. Trying to hide competitors makes founders look naive; instead, acknowledging big competitors proves that a substantial market exists.
+            </p>
+            <p class="point-text">
+              Use this slide to explicitly state your unique differentiators and how you plan to exploit the weaknesses of current solutions.
+            </p>
+            <div class="callout-warning">
+              <strong>Embrace the Competition:</strong> Never claim you have no competitors. If no one else is trying to solve this problem, investors assume the market does not exist. Acknowledge incumbents and explain why their architecture cannot easily replicate your edge.
+            </div>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 8: Management Team -->
+          <div id="gk-slide-8" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">08</span>
+              <span class="slide-tag-title">KAWASAKI SLIDE 8</span>
+            </div>
+            <h3 class="slide-heading">8. Management Team</h3>
+            <p class="point-text">
+              Focus on the <strong>3 to 4 key individuals driving the company</strong>. Detail their names, roles, relevant educational backgrounds, and highly specific past experiences (like prior successful startup exits or deep domain expertise) that prove they are the right people to execute this specific vision.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 9: Financial Projections and Key Metrics -->
+          <div id="gk-slide-9" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">09</span>
+              <span class="slide-tag-title">KAWASAKI SLIDE 9</span>
+            </div>
+            <h3 class="slide-heading">9. Financial Projections and Key Metrics</h3>
+            <p class="point-text">
+              Provide a <strong>realistic 3 to 5-year financial forecast</strong>. Investors want to see your revenue aspirations, profit forecasts, and the critical metrics you will track to measure the health of the business.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 10: Current Status/Ask -->
+          <div id="gk-slide-10" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">10</span>
+              <span class="slide-tag-title">KAWASAKI SLIDE 10</span>
+            </div>
+            <h3 class="slide-heading">10. Current Status/Ask</h3>
+            <p class="point-text">
+              The final slide grounds the presentation in reality. It should detail the <strong>current status of the product</strong> (e.g., MVP, beta, launched), key milestones already achieved, the specific amount of money you are trying to raise, and exactly how you plan to allocate those funds over the next 6 to 12 months.
+            </p>
+          </div>
+
+        </div>
+
+        
+      </article>

@@ -1,0 +1,242 @@
+---
+import { ycSlides } from '../../../data/pitchDeckData';
+---
+
+      <article id="article-4" class="article-block">
+        <!-- Article 4 Header -->
+        <div class="article-header">
+          <div class="article-category-badge">
+            <span class="badge-dot"></span>
+            <span>ARTICLE 04 &bull; SEED STAGE GOLD STANDARD &bull; Y COMBINATOR</span>
+          </div>
+
+          <h2 class="article-title">
+            The Y Combinator (YC) Pitch Deck Framework
+          </h2>
+
+          <p class="article-lead">
+            Y Combinator’s (YC) pitch deck framework is specifically tailored for the seed stage. Because early-stage startups typically lack years of financial data or comprehensive market share, YC emphasizes clarity, concision, and a compelling narrative over exhaustive details or world philosophy.
+          </p>
+
+          <div class="article-meta-bar">
+            <span class="meta-item"><strong>Reading time:</strong> 8 min read</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Accelerator:</strong> Y Combinator</span>
+            <span class="meta-divider">&bull;</span>
+            <span class="meta-item"><strong>Format:</strong> 9 Slides + Kevin Hale Philosophy</span>
+          </div>
+        </div>
+
+        <!-- YC Core Philosophy: Legible, Simple, Obvious -->
+        <section class="yc-philosophy-section">
+          <div class="section-tag-row">
+            <span class="section-badge-pill">CORE PRINCIPLE</span>
+            <span class="section-tag-name">KEVIN HALE'S THREE LAWS</span>
+          </div>
+
+          <h3 class="slide-heading">The Core Philosophy: "Legible, Simple, Obvious"</h3>
+
+          <p class="slide-intro">
+            Kevin Hale, a former YC partner, famously codified the accelerator's visual and structural rules for pitching into three words:
+          </p>
+
+          <div class="philosophy-cards-grid">
+            <div class="philosophy-card">
+              <div class="ph-card-icon">01</div>
+              <h4 class="ph-card-title">Legible</h4>
+              <p class="ph-card-desc">
+                If investors can't read it, they won't understand it. Use large, bold typography with strong contrast. Avoid faint greys or tiny font sizes.
+              </p>
+            </div>
+
+            <div class="philosophy-card">
+              <div class="ph-card-icon">02</div>
+              <h4 class="ph-card-title">Simple</h4>
+              <p class="ph-card-desc">
+                A simple slide expresses exactly one idea. Do not crowd slides with multiple concepts. YC strongly advises against complex diagrams—calling them <em>"mazes for ideas"</em> that waste investors' time.
+              </p>
+            </div>
+
+            <div class="philosophy-card">
+              <div class="ph-card-icon">03</div>
+              <h4 class="ph-card-title">Obvious</h4>
+              <p class="ph-card-desc">
+                Slides must be understood at a glance. YC recommends the <strong>"stranger test"</strong>: if you show a slide to a stranger and they cannot immediately grasp the main point, the slide fails.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quick Navigation Bar for Article 4 -->
+        <nav class="toc-nav" aria-label="Slide quick links">
+          <span class="toc-label">Jump to slide:</span>
+          <div class="toc-pills">
+            {ycSlides.map((slide) => (
+              <a href={`#yc-slide-${parseInt(slide.num)}`} class="toc-pill">
+                {slide.num}. {slide.title}
+              </a>
+            ))}
+          </div>
+        </nav>
+
+        <!-- YC 9-Slide Overview Cards Grid -->
+        <section class="summary-cards-section">
+          <div class="summary-cards-grid">
+            {ycSlides.map((slide) => (
+              <a href={`#yc-slide-${parseInt(slide.num)}`} class="summary-card">
+                <div class="card-num-row">
+                  <span class="slide-badge">SLIDE {slide.num}</span>
+                  <span class="slide-question">{slide.question}</span>
+                </div>
+                <h3 class="card-slide-title">{slide.title}</h3>
+                <p class="card-slide-desc">{slide.desc}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- YC Slide Deep Dives (1 to 9) -->
+        <div class="key-points-list">
+          
+          <!-- Slide 1: Title -->
+          <div id="yc-slide-1" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">01</span>
+              <span class="slide-tag-title">YC SLIDE 1</span>
+            </div>
+            <h3 class="slide-heading">1. Title</h3>
+            <p class="point-text">
+              This slide should include your <strong>company name and a highly concise, one-line description</strong> of exactly what you do.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 2: Problem -->
+          <div id="yc-slide-2" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">02</span>
+              <span class="slide-tag-title">YC SLIDE 2</span>
+            </div>
+            <h3 class="slide-heading">2. Problem</h3>
+            <p class="point-text">
+              State the problem <strong>clearly and without jargon</strong>. You must explain how this problem specifically impacts real-world people or businesses.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 3: Solution -->
+          <div id="yc-slide-3" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">03</span>
+              <span class="slide-tag-title">YC SLIDE 3</span>
+            </div>
+            <h3 class="slide-heading">3. Solution</h3>
+            <p class="point-text">
+              Explain your product in <strong>as few words as possible</strong>. Rather than listing highly technical features, describe the concrete, immediate benefits your solution provides to the user.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 4: Traction / Progress -->
+          <div id="yc-slide-4" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">04</span>
+              <span class="slide-tag-title">YC SLIDE 4</span>
+            </div>
+            <h3 class="slide-heading">4. Traction / Progress</h3>
+            <p class="point-text">
+              If you have metrics, show them here. <strong>YC values the ratio of execution over time</strong>: they want to see how much you have accomplished relative to how long you have been working on the startup. Make the charts explicit and easy to read.
+            </p>
+            <div class="callout-tip">
+              <strong>Execution Velocity:</strong> Investors are assessing the slope of your growth curve. Accomplishing $10K MRR in 2 months is vastly more impressive than $10K MRR after 3 years.
+            </div>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 5: Unique Insight -->
+          <div id="yc-slide-5" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">05</span>
+              <span class="slide-tag-title">YC SLIDE 5</span>
+            </div>
+            <h3 class="slide-heading">5. Unique Insight</h3>
+            <p class="point-text">
+              This is often the <strong>most critical slide in a YC deck</strong>. You must demonstrate an asymmetric understanding of the market by answering: <em>What do you know about this problem that everyone else doesn't?</em>
+            </p>
+            <p class="point-text">
+              This insight should be derived from deep customer conversations or specific personal experience, not a generic complaint. For example, claiming <em>"email is broken"</em> is not an insight, but recognizing that <strong>"an inbox is a personal database where users should never have to delete anything"</strong> was the unique insight behind Gmail.
+            </p>
+            <div class="callout-conclusion">
+              <strong>The Asymmetric Advantage:</strong> A unique insight proves that you have discovered a secret about customer behavior or market structure before the rest of the world caught on.
+            </div>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 6: Business Model -->
+          <div id="yc-slide-6" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">06</span>
+              <span class="slide-tag-title">YC SLIDE 6</span>
+            </div>
+            <h3 class="slide-heading">6. Business Model</h3>
+            <p class="point-text">
+              Explain how you make money. <strong>YC explicitly warns against offering a "potpourri" of business models</strong> (like trying to do subscriptions, ads, and virtual goods all at once). Pick the single most logical monetization strategy for your space and own it.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 7: Market Size -->
+          <div id="yc-slide-7" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">07</span>
+              <span class="slide-tag-title">YC SLIDE 7</span>
+            </div>
+            <h3 class="slide-heading">7. Market Size</h3>
+            <p class="point-text">
+              Show how big the opportunity is, but avoid lazy "top-down" estimates (e.g., <em>"It's a $4 trillion market"</em>). <strong>YC strongly prefers a "bottom-up" analysis</strong>, where you identify your specific, narrowed-down target customer base, determine how much they pay, and calculate the realistic market opportunity from there.
+            </p>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 8: Team -->
+          <div id="yc-slide-8" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">08</span>
+              <span class="slide-tag-title">YC SLIDE 8</span>
+            </div>
+            <h3 class="slide-heading">8. Team</h3>
+            <p class="point-text">
+              This slide should explain why your specific team is uniquely suited to tackle this exact problem. <strong>YC is adamant about one rule here: focus purely on the founders.</strong> Do not waste valuable space listing peripheral advisors.
+            </p>
+            <div class="callout-warning">
+              <strong>YC Heuristic:</strong> Early stage VCs back founders, not advisors. Listing advisors suggests founders need external crutches to look legitimate.
+            </div>
+          </div>
+
+          <hr class="section-divider" />
+
+          <!-- Slide 9: Ask -->
+          <div id="yc-slide-9" class="slide-deep-dive">
+            <div class="slide-tag-row">
+              <span class="slide-number-pill">09</span>
+              <span class="slide-tag-title">YC SLIDE 9</span>
+            </div>
+            <h3 class="slide-heading">9. Ask</h3>
+            <p class="point-text">
+              Conclude by stating exactly how much money you are raising and what that capital will buy you. Specifically, <strong>YC wants founders to map out how this money will fund the company over the next year to hit the milestones necessary to become "Series A ready"</strong>.
+            </p>
+          </div>
+
+        </div>
+
+        
+      </article>

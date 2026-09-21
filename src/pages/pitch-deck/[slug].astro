@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { pitchDeckArticles, type PitchDeckArticle } from '../../data/pitchDeckData';
+import ArticleReaderHeader from '../../components/pitch-deck/ArticleReaderHeader.astro';
+import ArticleNavigationFooter from '../../components/pitch-deck/ArticleNavigationFooter.astro';
+
+// Import all 12 modular article components
+import Article1 from '../../components/pitch-deck/articles/Article1.astro';
+import Article2 from '../../components/pitch-deck/articles/Article2.astro';
+import Article3 from '../../components/pitch-deck/articles/Article3.astro';
+import Article4 from '../../components/pitch-deck/articles/Article4.astro';
+import Article5 from '../../components/pitch-deck/articles/Article5.astro';
+import Article6 from '../../components/pitch-deck/articles/Article6.astro';
+import Article7 from '../../components/pitch-deck/articles/Article7.astro';
+import Article8 from '../../components/pitch-deck/articles/Article8.astro';
+import Article9 from '../../components/pitch-deck/articles/Article9.astro';
+import Article10 from '../../components/pitch-deck/articles/Article10.astro';
+import Article11 from '../../components/pitch-deck/articles/Article11.astro';
+import Article12 from '../../components/pitch-deck/articles/Article12.astro';
+
+import '../../styles/pitch-deck.css';
+
+export function getStaticPaths() {
+  return pitchDeckArticles.map((article, idx) => {
+    const prevArticle = idx > 0 ? pitchDeckArticles[idx - 1] : undefined;
+    const nextArticle = idx < pitchDeckArticles.length - 1 ? pitchDeckArticles[idx + 1] : undefined;
+
+    return {
+      params: { slug: article.slug },
+      props: {
+        article,
+        prevArticle,
+        nextArticle,
+        totalArticles: pitchDeckArticles.length
+      }
+    };
+  });
+}
+
+interface Props {
+  article: PitchDeckArticle;
+  prevArticle?: PitchDeckArticle;
+  nextArticle?: PitchDeckArticle;
+  totalArticles: number;
+}
+
+const { article, prevArticle, nextArticle, totalArticles } = Astro.props;
+
+// Map article num to component
+const articleComponents: Record<string, any> = {
+  "01": Article1,
+  "02": Article2,
+  "03": Article3,
+  "04": Article4,
+  "05": Article5,
+  "06": Article6,
+  "07": Article7,
+  "08": Article8,
+  "09": Article9,
+  "10": Article10,
+  "11": Article11,
+  "12": Article12,
+};
+
+const ActiveArticleComponent = articleComponents[article.num];
+---
+
+<Layout 
+  title={`${article.title} • Pitch Deck Masterclass | Andromeda`}
+  description={article.desc}
+  activePage="pitch-deck"
+>
+  <!-- Reader Top Bar & Reading Progress -->
+  <ArticleReaderHeader article={article} totalArticles={totalArticles} />
+
+  <div class="pitch-page-wrapper single-article-view">
+    <div class="container article-single-container">
+      {ActiveArticleComponent && <ActiveArticleComponent />}
+
+      <!-- Article Navigation Footer (Prev / Hub / Next) -->
+      <ArticleNavigationFooter 
+        prevArticle={prevArticle} 
+        nextArticle={nextArticle} 
+      />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .single-article-view {
+    padding-top: 1.5rem;
+  }
+
+  .article-single-container {
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+</style>
