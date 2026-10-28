@@ -1,0 +1,46 @@
+---
+import BrandMark from '../BrandMark.astro';
+---
+<figure class="orbit-figure" aria-label="Andromeda connects operations, commerce, and capital in one system">
+  <div class="orbit-caption"><span>FIG. 01 — THE CONNECTED BUSINESS</span><span>ANDROMEDA®</span></div>
+  <div class="orbit-drawing">
+    <svg viewBox="0 0 560 530" fill="none" class="orbit-lines" aria-hidden="true">
+      <defs>
+        <pattern id="orbit-grid" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.7" fill="currentColor" opacity=".16" /></pattern>
+      </defs>
+      <rect width="560" height="530" fill="url(#orbit-grid)" />
+      <g stroke="currentColor" stroke-width=".8">
+        <path d="M280 38v454M53 265h454" opacity=".15" />
+        <circle cx="280" cy="265" r="186" opacity=".3" />
+        <circle cx="280" cy="265" r="126" opacity=".3" stroke-dasharray="2 6" />
+        <ellipse cx="280" cy="265" rx="218" ry="81" transform="rotate(-38 280 265)" />
+        <ellipse cx="280" cy="265" rx="218" ry="81" transform="rotate(38 280 265)" />
+      </g>
+      <g fill="currentColor"><circle cx="137" cy="148" r="6" /><circle cx="453" cy="332" r="6" /><circle cx="208" cy="436" r="6" /></g>
+      <g class="orbit-label" fill="currentColor">
+        <text x="104" y="125">01 / OPERATIONS</text><text x="393" y="360">02 / COMMERCE</text><text x="217" y="464">03 / CAPITAL</text>
+      </g>
+      <path d="M40 40h12m-6-6v12m468 444h12m-6-6v12" stroke="currentColor" opacity=".6" />
+    </svg>
+    <div class="orbit-core"><BrandMark /></div>
+    <span class="orbit-coordinate coordinate-top">35° 40′ N</span>
+    <span class="orbit-coordinate coordinate-bottom">A SHARED CENTRE. A CLEARER COURSE.</span>
+  </div>
+  <figcaption><span>Independent parts.<br />Extraordinary together.</span><span class="figure-index">A—01</span></figcaption>
+</figure>
+
+<style>
+  .orbit-figure { background: var(--surface-clay); color: var(--fg); height: 100%; min-height: 545px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+  .orbit-caption { display: flex; justify-content: space-between; padding: 22px 24px 0; font: 9px var(--font-mono); letter-spacing: .04em; gap: 12px; }
+  .orbit-drawing { position: relative; flex: 1; display: grid; place-items: center; }
+  .orbit-lines { width: 100%; height: auto; }
+  .orbit-label { font: 9px var(--font-mono); letter-spacing: .02em; }
+  .orbit-core { width: 94px; height: 94px; border-radius: 50%; background: var(--fg); color: var(--surface-clay); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; }
+  .orbit-core :global(svg) { width: 49px; }
+  .orbit-coordinate { position: absolute; font: 8px var(--font-mono); letter-spacing: .07em; }
+  .coordinate-top { top: 20px; left: 24px; }
+  .coordinate-bottom { bottom: 16px; left: 24px; }
+  figcaption { display: flex; align-items: end; justify-content: space-between; padding: 8px 24px 24px; font-size: 14px; line-height: 1.35; letter-spacing: -.02em; }
+  .figure-index { font: 11px var(--font-mono); }
+  @media (max-width: 760px) { .orbit-figure { min-height: 0; } .orbit-drawing { max-height: 470px; } .orbit-lines { max-height: 470px; } }
+</style>

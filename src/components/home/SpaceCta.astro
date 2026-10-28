@@ -1,0 +1,315 @@
+---
+---
+
+<section id="trial" class="space-section cta-section" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="cta-box glass spotlight" data-reveal>
+      <div class="cta-glow-halo" aria-hidden="true"></div>
+
+      <div class="cta-header">
+        <span class="eyebrow">Deploy in Seconds</span>
+        <h2 id="cta-title" class="cta-title">
+          Ready to operate with <br />
+          <span class="gradient-text">hyper-scale velocity?</span>
+        </h2>
+        <p class="cta-subtitle">
+          Join leading enterprises and venture syndicates deploying on Andromeda. Zero upfront costs, 14-day unrestricted trial, and instant edge provisioning.
+        </p>
+      </div>
+
+      <!-- Quick Interactive Portal Form -->
+      <div class="portal-card">
+        <div class="portal-tabs">
+          <button type="button" class="portal-tab-btn active" id="tabTrial">
+            <span>Free Enterprise Trial</span>
+          </button>
+          <button type="button" class="portal-tab-btn" id="tabSyndicate">
+            <span>Venture Syndicate Pitch</span>
+          </button>
+        </div>
+
+        <form id="homePortalForm" class="portal-form" novalidate>
+          <div class="form-row-2">
+            <div class="input-wrap">
+              <label for="portalCompany" class="input-lbl">Company / Startup Name</label>
+              <input type="text" id="portalCompany" class="portal-input" placeholder="e.g. NovaScale AI" required />
+            </div>
+            <div class="input-wrap">
+              <label for="portalEmail" class="input-lbl">Work Email</label>
+              <input type="email" id="portalEmail" class="portal-input" placeholder="sarah@novascale.ai" required />
+            </div>
+          </div>
+
+          <div class="form-row-2" id="syndicateFields" style="display: none;">
+            <div class="input-wrap">
+              <label for="portalStage" class="input-lbl">Funding Stage</label>
+              <select id="portalStage" class="portal-select">
+                <option value="Seed">Seed ($1M - $3M)</option>
+                <option value="Series A" selected>Series A ($5M - $12M)</option>
+                <option value="Series B+">Series B+ ($15M+)</option>
+              </select>
+            </div>
+            <div class="input-wrap">
+              <label for="portalAsk" class="input-lbl">Target Ask ($ USD)</label>
+              <input type="text" id="portalAsk" class="portal-input" placeholder="e.g. $5,000,000" />
+            </div>
+          </div>
+
+          <div class="form-submit-row">
+            <button type="submit" class="btn btn-primary btn-lg submit-btn" id="portalSubmitBtn">
+              <span id="btnText">Provision Enterprise Node</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <div class="submit-note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>Instant provisioning &bull; No credit card required</span>
+            </div>
+          </div>
+
+          <div id="portalSuccess" class="portal-success-banner" style="display: none;">
+            <span class="live-dot"></span>
+            <div>
+              <strong>Node Provisioning Initialized!</strong>
+              <p>Welcome to Andromeda. Verification stream dispatched to your work email.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const tabTrial = document.getElementById('tabTrial');
+  const tabSyndicate = document.getElementById('tabSyndicate');
+  const syndicateFields = document.getElementById('syndicateFields');
+  const btnText = document.getElementById('btnText');
+  const form = document.getElementById('homePortalForm') as HTMLFormElement;
+  const successBanner = document.getElementById('portalSuccess');
+
+  if (tabTrial && tabSyndicate && syndicateFields && btnText) {
+    tabTrial.addEventListener('click', () => {
+      tabTrial.classList.add('active');
+      tabSyndicate.classList.remove('active');
+      syndicateFields.style.display = 'none';
+      btnText.textContent = 'Provision Enterprise Node';
+    });
+
+    tabSyndicate.addEventListener('click', () => {
+      tabSyndicate.classList.add('active');
+      tabTrial.classList.remove('active');
+      syndicateFields.style.display = 'grid';
+      btnText.textContent = 'Submit Venture Pitch';
+    });
+  }
+
+  if (form && successBanner) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const submitBtn = document.getElementById('portalSubmitBtn') as HTMLButtonElement;
+      if (submitBtn) submitBtn.disabled = true;
+      
+      // Simulate quick pipeline dispatch
+      setTimeout(() => {
+        successBanner.style.display = 'flex';
+        form.reset();
+        if (submitBtn) submitBtn.disabled = false;
+      }, 600);
+    });
+  }
+</script>
+
+<style>
+  .cta-section {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 8rem;
+  }
+
+  .cta-box {
+    position: relative;
+    padding: 4.5rem 3.5rem;
+    border-radius: 2rem;
+    background: linear-gradient(180deg, rgba(18, 22, 46, 0.7) 0%, rgba(9, 11, 26, 0.95) 100%);
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    box-shadow: 0 40px 100px -30px rgba(0, 0, 0, 0.9), 0 0 50px rgba(124, 58, 237, 0.2);
+    overflow: hidden;
+  }
+
+  .cta-glow-halo {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 180px;
+    background: radial-gradient(ellipse at 50% 0%, rgba(139, 92, 246, 0.35), transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .cta-title {
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+  }
+
+  .cta-subtitle {
+    font-size: 1.05rem;
+    color: var(--ink-300);
+    line-height: 1.65;
+  }
+
+  .portal-card {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    background: rgba(9, 11, 26, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .portal-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+    padding: 0.3rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .portal-tab-btn {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    color: var(--ink-500);
+    font-family: var(--font-space-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .portal-tab-btn.active {
+    background: rgba(99, 102, 241, 0.18);
+    color: #fff;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 14px rgba(99, 102, 241, 0.35);
+  }
+
+  .portal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .input-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .input-lbl {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--ink-300);
+    font-family: var(--font-mono);
+  }
+
+  .portal-input,
+  .portal-select {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border-radius: 0.65rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-family: var(--font-space-display);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .portal-input:focus,
+  .portal-select:focus {
+    border-color: var(--c-indigo);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  }
+
+  .portal-select option {
+    background: #090a0f;
+    color: #fff;
+  }
+
+  .form-submit-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    margin-top: 0.75rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+
+  .submit-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.75rem;
+    color: var(--ink-500);
+  }
+
+  .portal-success-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    background: rgba(99, 102, 241, 0.12);
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    color: #ffffff;
+    font-size: 0.85rem;
+  }
+
+  .portal-success-banner strong {
+    color: #ffffff;
+  }
+
+  .portal-success-banner p {
+    margin: 0.15rem 0 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.78rem;
+  }
+
+  @media (max-width: 640px) {
+    .cta-box {
+      padding: 2.5rem 1.5rem;
+    }
+    .portal-card {
+      padding: 1.25rem;
+    }
+    .form-row-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,64 @@
+---
+import Arrow from '../Arrow.astro';
+const views = [
+  { id: 'operations', label: 'Operations', title: 'Nothing falls between the cracks.', description: 'Give every moving part an owner, a next step, and a place in the bigger picture.', metric: '08', metricLabel: 'active workflows', secondary: '03', secondaryLabel: 'need your attention', columns: ['Workflow', 'Owner', 'Status', 'Next milestone'], rows: [['Partner onboarding', 'Samira A.', 'In progress', 'Contract review'], ['Q4 procurement', 'Daniel K.', 'Needs review', 'Approve suppliers'], ['Customer handover', 'Leila M.', 'On track', 'Team introduction'], ['Monthly reporting', 'Alex R.', 'On track', 'Close & reconcile']] },
+  { id: 'commerce', label: 'Commerce', title: 'Keep business moving.', description: 'Follow each commercial relationship from the first conversation to the next opportunity.', metric: '12', metricLabel: 'open opportunities', secondary: '04', secondaryLabel: 'ready for a follow-up', columns: ['Opportunity', 'Owner', 'Status', 'Next milestone'], rows: [['Atlas distribution', 'Leila M.', 'In progress', 'Send proposal'], ['Northstar renewal', 'Daniel K.', 'Needs review', 'Review terms'], ['Studio partnership', 'Samira A.', 'On track', 'Discovery call'], ['Meridian expansion', 'Alex R.', 'On track', 'Confirm scope']] },
+  { id: 'capital', label: 'Capital', title: 'Make your next move count.', description: 'Bring your fundraising work into focus, from the first draft to the investor conversation.', metric: '06', metricLabel: 'investor conversations', secondary: '02', secondaryLabel: 'meetings to prepare', columns: ['Fundraising work', 'Owner', 'Status', 'Next milestone'], rows: [['Seed round narrative', 'Samira A.', 'In progress', 'Refine the story'], ['Investor shortlist', 'Leila M.', 'On track', 'Warm introductions'], ['Financial model', 'Daniel K.', 'Needs review', 'Validate assumptions'], ['Pitch deck', 'Alex R.', 'On track', 'Practice the pitch']] },
+];
+---
+<section id="workspace" class="workspace-section" aria-labelledby="workspace-title">
+  <div class="container">
+    <div class="section-heading">
+      <span class="kicker">01 / A SHARED PERSPECTIVE</span>
+      <div class="heading-split"><h2 id="workspace-title">The whole picture.<br />The next right move.</h2><p>A business is more than a collection of tools. Connect the work, the relationships, and the decisions that move yours forward.</p></div>
+    </div>
+    <div class="workspace-demo">
+      <div class="workspace-toolbar"><span class="workspace-wordmark">a<span> / </span>workspace</span><span class="sample-label">INTERACTIVE PREVIEW · SAMPLE DATA</span><span class="workspace-avatar" aria-hidden="true">AC</span></div>
+      <div class="workspace-body">
+        <div class="workspace-sidebar"><span class="workspace-company">Acme Studio <span>⌄</span></span><span class="sidebar-label">YOUR BUSINESS</span><div role="tablist" aria-label="Workspace views" aria-orientation="vertical">
+          {views.map((view, index) => <button id={`tab-${view.id}`} class:list={['workspace-tab', { active: index === 0 }]} role="tab" aria-selected={index === 0} aria-controls={`panel-${view.id}`} tabindex={index === 0 ? 0 : -1} data-view={view.id}><span class="tab-index">0{index + 1}</span>{view.label}<Arrow /></button>)}
+        </div><div class="sidebar-bottom"><span class="sidebar-symbol" aria-hidden="true">✳</span><p>Less switching.<br />More perspective.</p></div></div>
+        <div class="workspace-panels">
+          {views.map((view, index) => <div id={`panel-${view.id}`} role="tabpanel" aria-labelledby={`tab-${view.id}`} tabindex="0" hidden={index !== 0}>
+            <div class="panel-heading"><div><span class="panel-overline">OVERVIEW / {view.label.toUpperCase()}</span><h3>{view.title}</h3><p>{view.description}</p></div><span class="panel-date">YOUR WORK, IN VIEW ↗</span></div>
+            <div class="preview-metrics"><div><strong>{view.metric}<span>↗</span></strong><span>{view.metricLabel}</span></div><div><strong>{view.secondary}<span class="metric-dot"></span></strong><span>{view.secondaryLabel}</span></div><div class="preview-spark" aria-hidden="true"><svg viewBox="0 0 240 75" fill="none"><path d="M0 64 22 56 44 60 66 40 88 46 110 28 132 34 154 14 176 22 198 8 220 14 240 2" stroke="currentColor" stroke-width="2" /><path d="M0 74h240" stroke="currentColor" opacity=".15" /></svg><span>Momentum, made visible.</span></div></div>
+            <div class="preview-table-wrap"><table class="preview-table"><caption class="sr-only">Sample {view.label.toLowerCase()} overview</caption><thead><tr>{view.columns.map(column => <th scope="col">{column}</th>)}</tr></thead><tbody>{view.rows.map(row => <tr><th scope="row">{row[0]}</th><td><span class="person-initial" aria-hidden="true">{row[1].slice(0, 1)}</span>{row[1]}</td><td><span class:list={['workflow-status', { review: row[2] === 'Needs review' }]}><i></i>{row[2]}</span></td><td>{row[3]}</td></tr>)}</tbody></table></div>
+          </div>)}
+        </div>
+      </div>
+      <div class="workspace-bottom"><span>ONE WORKSPACE. THREE PERSPECTIVES.</span><span>SELECT A VIEW TO EXPLORE <span aria-hidden="true">↑</span></span></div>
+    </div>
+  </div>
+</section>
+<script>
+  const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.workspace-tab'));
+  const tablist = document.querySelector<HTMLElement>('[aria-label="Workspace views"]');
+  const compact = window.matchMedia('(max-width: 760px)');
+  function updateOrientation() { tablist?.setAttribute('aria-orientation', compact.matches ? 'horizontal' : 'vertical'); }
+  updateOrientation();
+  compact.addEventListener('change', updateOrientation);
+  function selectView(tab: HTMLButtonElement, focus = false) {
+    tabs.forEach(item => {
+      const selected = item === tab;
+      item.classList.toggle('active', selected);
+      item.setAttribute('aria-selected', String(selected));
+      item.tabIndex = selected ? 0 : -1;
+      const panel = document.getElementById(item.getAttribute('aria-controls') || '');
+      if (panel) panel.hidden = !selected;
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => selectView(tab));
+    tab.addEventListener('keydown', event => {
+      let next = index;
+      if (event.key === 'ArrowDown' || event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = tabs.length - 1;
+      else return;
+      event.preventDefault();
+      selectView(tabs[next], true);
+    });
+  });
+</script>

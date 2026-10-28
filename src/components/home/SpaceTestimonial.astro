@@ -1,0 +1,172 @@
+---
+---
+
+<section class="space-section testimonial-section" aria-label="Customer Testimonial">
+  <div class="container">
+    <div class="testimonial-card glass spotlight" data-reveal>
+      <div class="testi-glow" aria-hidden="true"></div>
+
+      <!-- Quote Graphic -->
+      <div class="quote-mark" aria-hidden="true">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+        </svg>
+      </div>
+
+      <blockquote class="testi-quote">
+        &ldquo;Andromeda has transformed our enterprise operations in more ways than one. From orchestrating distributed service nodes to accelerating pilot dealflow, it has become our go-to fabric for everything.&rdquo;
+      </blockquote>
+
+      <div class="testi-author-bar">
+        <div class="author-meta">
+          <div class="author-avatar">
+            <span>MV</span>
+          </div>
+          <div class="author-text">
+            <span class="author-name">Marcus Vance</span>
+            <span class="author-role">Chief Technology Officer &bull; Apex Enterprise Network</span>
+          </div>
+        </div>
+
+        <div class="trust-meter">
+          <div class="stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <span class="trust-lbl">Rated 4.9/5 by 1,420+ Enterprise Operators</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonial-section {
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-card {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3.5rem 3rem 3rem;
+    border-radius: 1.75rem;
+    background: linear-gradient(180deg, rgba(18, 22, 46, 0.6) 0%, rgba(9, 11, 26, 0.8) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    text-align: center;
+    box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.8);
+  }
+
+  .testi-glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 120px;
+    background: radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.25), transparent 70%);
+    pointer-events: none;
+  }
+
+  .quote-mark {
+    display: inline-flex;
+    margin-bottom: 1.5rem;
+    color: var(--c-indigo);
+    opacity: 0.8;
+  }
+
+  .testi-quote {
+    font-family: var(--font-space-display);
+    font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+    color: var(--ink-50);
+    margin-bottom: 2.5rem;
+  }
+
+  .testi-author-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .author-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .author-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--c-indigo);
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-family: var(--font-space-display);
+    box-shadow: 0 0 16px rgba(99, 102, 241, 0.5);
+  }
+
+  .author-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .author-name {
+    font-family: var(--font-space-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink-50);
+  }
+
+  .author-role {
+    font-size: 0.75rem;
+    color: var(--ink-500);
+  }
+
+  .trust-meter {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+  }
+
+  .stars {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(99, 102, 241, 0.8);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+
+  .trust-lbl {
+    font-size: 0.72rem;
+    color: var(--ink-500);
+    font-family: var(--font-mono);
+  }
+
+  @media (max-width: 768px) {
+    .testimonial-card {
+      padding: 2.25rem 1.75rem 2rem;
+    }
+    .testi-author-bar {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      text-align: center;
+    }
+    .author-meta {
+      flex-direction: column;
+      text-align: center;
+    }
+    .trust-meter {
+      align-items: center;
+    }
+  }
+</style>

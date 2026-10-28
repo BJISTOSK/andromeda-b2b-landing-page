@@ -1,24 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Arrow from '../components/Arrow.astro';
 ---
-
-<Layout 
-  title="Startup News | Andromeda"
-  description="Startup News - Andromeda B2B Platform"
-  activePage="news"
->
-  <div class="news-page-wrapper">
-    <div class="container">
-      <!-- Content will be added per your instructions -->
-    </div>
-  </div>
+<Layout title="Field Notes — Andromeda" description="Perspectives on building a business, finding clarity, and taking the next step." activePage="news">
+  <div class="container notes-page"><span class="kicker">ANDROMEDA / FIELD NOTES</span><div class="notes-grid"><div><h1>A little<br /><em>perspective.</em></h1><p>Ideas on building a business.<br />Observations from the journey.</p><div class="notes-status"><span class="kicker">VOLUME 01 / IN THE MAKING</span><p>Our first field notes are taking shape. In the meantime, there’s plenty to explore in the founder’s library.</p><a href="/pitch-deck" class="text-link">Find your next good idea <Arrow diagonal /></a></div></div><div class="notes-cover" aria-hidden="true"><div class="cover-top"><span>ANDROMEDA</span><span>VOL. 01</span></div><div class="cover-orbits"><i></i><i></i><i></i></div><span class="cover-title">Field<br />notes.</span><div class="cover-bottom"><span>INDEPENDENT THINKING.<br />CONNECTED BUSINESS.</span><span>↗</span></div></div></div></div>
 </Layout>
-
 <style>
-  .news-page-wrapper {
-    min-height: 60vh;
-    padding: 4rem 0;
-    position: relative;
-    z-index: 1;
-  }
+  .notes-page { padding-top: 30px; padding-bottom: 80px; }
+  .notes-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; margin-top: 50px; }
+  h1 { font-size: clamp(65px,7vw,100px); line-height: 1; letter-spacing: -.06em; }
+  h1 em { font-family: var(--font-serif); color: var(--accent); font-weight: 400; }
+  h1 + p { font-size: 19px; line-height: 1.5; margin-top: 30px; color: var(--fg-2); }
+  .notes-status { border-top: 1px solid var(--line-strong); padding-top: 25px; margin-top: 55px; max-width: 360px; }
+  .notes-status p { font-size: 13px; color: var(--fg-2); line-height: 1.8; margin-block: 15px 22px; }
+  .notes-cover { background: var(--surface-sage); padding: 24px; position: relative; overflow: hidden; aspect-ratio: .8; display: flex; flex-direction: column; justify-content: space-between; }
+  .cover-top,.cover-bottom { display: flex; justify-content: space-between; font: 9px/1.7 var(--font-mono); z-index: 1; position: relative; }
+  .cover-title { font-size: 85px; line-height: .95; letter-spacing: -.065em; position: relative; z-index: 1; margin-top: auto; margin-bottom: 40px; }
+  .cover-bottom { border-top: 1px solid var(--fg); padding-top: 17px; font-size: 8px; }
+  .cover-bottom > span:last-child { font-size: 35px; }
+  .cover-orbits { position: absolute; width: 310px; height: 310px; top: 25px; right: -80px; }
+  .cover-orbits i { position: absolute; inset: 0; border: 1px solid var(--fg); border-radius: 50%; }
+  .cover-orbits i:nth-child(2) { inset: 30px; }.cover-orbits i:nth-child(3) { inset: 60px; background: var(--surface-clay); }
+  @media(max-width: 760px) { .notes-grid { grid-template-columns: 1fr; gap: 40px; margin-top: 35px; } h1 { font-size: clamp(52px,16vw,70px); }.notes-status { margin-top: 35px; }.notes-cover { max-width: 450px; } }
 </style>

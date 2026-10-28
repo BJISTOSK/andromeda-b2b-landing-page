@@ -1,0 +1,86 @@
+---
+/**
+ * Fixed, pure-CSS parallax starfield. Star positions are generated at build
+ * time with a seeded PRNG so the output is deterministic and ships zero JS.
+ */
+const FIELD = 2400;
+
+function makeRng(seed: number) {
+  let s = seed;
+  return () => {
+    s = (s * 16807) % 2147483647;
+    return (s - 1) / 2147483646;
+  };
+}
+
+function stars(count: number, seed: number, palette: string[]) {
+  const rand = makeRng(seed);
+  return Array.from({ length: count }, () => {
+    const x = Math.round(rand() * FIELD);
+    const y = Math.round(rand() * FIELD);
+    const color = palette[Math.floor(rand() * palette.length)];
+    return `${x}px ${y}px ${color}`;
+  }).join(', ');
+}
+
+const small = stars(260, 7, ['rgba(255,255,255,0.55)', 'rgba(99,102,241,0.45)', 'rgba(255,255,255,0.25)']);
+const medium = stars(90, 42, ['rgba(255,255,255,0.85)', 'rgba(99,102,241,0.65)', 'rgba(255,255,255,0.4)']);
+const large = stars(28, 1337, ['#ffffff', 'rgba(99,102,241,0.9)', '#ffffff']);
+---
+
+<div class="starfield" aria-hidden="true">
+  <div class="stars stars-sm" style={`--shadows: ${small}`}></div>
+  <div class="stars stars-md" style={`--shadows: ${medium}`}></div>
+  <div class="stars stars-lg" style={`--shadows: ${large}`}></div>
+</div>
+
+<style>
+  .starfield {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    mask-image: linear-gradient(180deg, #000 0%, #000 70%, rgba(0, 0, 0, 0.4) 100%);
+  }
+
+  .stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: var(--shadows);
+    animation: drift linear infinite;
+  }
+
+  /* Duplicate layer stacked below for a seamless vertical loop */
+  .stars::after {
+    content: '';
+    position: absolute;
+    top: 2400px;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    box-shadow: var(--shadows);
+  }
+
+  .stars-sm { width: 1px; height: 1px; animation-duration: 260s; }
+  .stars-md { width: 1.5px; height: 1.5px; animation-duration: 180s; }
+  .stars-lg {
+    width: 2px;
+    height: 2px;
+    animation: drift 120s linear infinite, twinkle 4s ease-in-out infinite alternate;
+  }
+
+  @keyframes drift {
+    from { transform: translateY(0); }
+    to { transform: translateY(-2400px); }
+  }
+
+  @keyframes twinkle {
+    from { opacity: 1; }
+    to { opacity: 0.45; }
+  }
+</style>

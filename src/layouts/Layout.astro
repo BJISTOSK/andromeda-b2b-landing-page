@@ -2,66 +2,38 @@
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-
 interface Props {
   title?: string;
   description?: string;
   activePage?: 'home' | 'pitch' | 'bos' | 'news' | 'pitch-deck';
 }
-
 const {
-  title = "Andromeda | The Next-Gen B2B Operating System",
-  description = "Andromeda B2B Platform - High-velocity B2B commerce, venture dealflow syndication, and autonomous enterprise orchestration with decoupled speed.",
-  activePage = 'home'
+  title = "Andromeda — A clearer perspective on business",
+  description = "Connected operations, commercial relationships, and practical resources for your next stage.",
+  activePage = 'home',
 } = Astro.props;
 ---
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f3ed" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-
-    <!-- SEO Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-
-    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
-  <body class="cruip-body">
-    <!-- Clean Simple Background -->
-    <div class="site-background" aria-hidden="true"></div>
-    
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <Navbar activePage={activePage} />
-    
-    <main id="main-content">
-      <slot />
-    </main>
-
+    <main id="main-content"><slot /></main>
     <Footer />
-
-    <style>
-      .cruip-body {
-        position: relative;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
-
-      #main-content {
-        flex: 1;
-        position: relative;
-        z-index: 1;
-        padding-top: 5rem; /* Space for floating navbar */
-      }
-    </style>
   </body>
 </html>

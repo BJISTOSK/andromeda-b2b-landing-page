@@ -1,0 +1,292 @@
+/* ==========================================================================
+   Andromeda "Cosmic Indigo" 4-Color Theme System
+   Disciplined, world-class 4-color palette:
+   1. Canvas Base: #090A0F (Obsidian Canvas)
+   2. Typography / Ink: #FFFFFF (Crisp Starlight White & Opacities)
+   3. Signature Accent: #6366F1 (Electric Indigo)
+   4. Surface / Structure: #131726 (Titanium Slate Glass & Hairlines)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+.theme-space {
+  /* THE 4 PILLARS */
+  --c-base: #090a0f;
+  --c-white: #ffffff;
+  --c-indigo: #6366f1;
+  --c-indigo-hover: #4f46e5;
+  --c-slate: #131726;
+
+  /* 1. Base Canvas & Tonal Surface Layers */
+  --space-950: #090a0f;
+  --space-900: #0d0f17;
+  --space-850: #10131e;
+  --space-800: #131726;
+  --space-700: #191e32;
+
+  /* 2. Crisp White Typography & Contrast Tiers */
+  --ink-50: #ffffff;
+  --ink-200: rgba(255, 255, 255, 0.88);
+  --ink-300: rgba(255, 255, 255, 0.70);
+  --ink-500: rgba(255, 255, 255, 0.46);
+  --ink-600: rgba(255, 255, 255, 0.28);
+
+  /* 3. Electric Indigo Signature Accent (Unified across all accents) */
+  --nebula-violet: var(--c-indigo);
+  --nebula-purple: var(--c-indigo-hover);
+  --nebula-indigo: var(--c-indigo);
+  --nebula-blue: var(--c-indigo);
+  --nebula-cyan: var(--c-indigo);
+  --nebula-pink: var(--c-indigo);
+  --star-gold: var(--c-white);
+  --signal-green: var(--c-indigo);
+
+  /* 4. Titanium Slate Glass & Structural Hairlines */
+  --glass-bg: rgba(19, 23, 38, 0.65);
+  --glass-bg-strong: rgba(19, 23, 38, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-strong: rgba(99, 102, 241, 0.35);
+  --glass-blur: blur(16px);
+
+  /* Gradients strictly using Starlight White, Electric Indigo, and Obsidian */
+  --grad-aurora: linear-gradient(135deg, #ffffff 0%, #c7d2fe 50%, #6366f1 100%);
+  --grad-core: linear-gradient(135deg, #ffffff 0%, #818cf8 60%, #6366f1 100%);
+  --grad-headline: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.72) 100%);
+  --grad-button: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+
+  /* Glows */
+  --glow-violet: 0 0 0 1px rgba(99, 102, 241, 0.4), 0 10px 35px -10px rgba(99, 102, 241, 0.6);
+  --glow-soft: 0 25px 70px -15px rgba(99, 102, 241, 0.3);
+
+  /* Type */
+  --font-space-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  color-scheme: dark;
+  background-color: var(--space-950);
+  color: var(--ink-300);
+}
+
+.theme-space body {
+  background-color: var(--space-950);
+}
+
+.theme-space ::selection {
+  background: rgba(99, 102, 241, 0.45);
+  color: #fff;
+}
+
+/* Ambient single-accent cosmic wash - pure Electric Indigo on Obsidian */
+.theme-space .site-background {
+  background-color: var(--space-950);
+  background-image:
+    radial-gradient(ellipse 70% 45% at 50% -5%, rgba(99, 102, 241, 0.22), transparent 65%),
+    radial-gradient(ellipse 50% 30% at 50% 40%, rgba(99, 102, 241, 0.08), transparent 70%);
+}
+
+/* Typography */
+.theme-space h1,
+.theme-space h2,
+.theme-space h3,
+.theme-space h4 {
+  font-family: var(--font-space-display);
+  color: var(--ink-50);
+  letter-spacing: -0.03em;
+}
+
+.theme-space .gradient-text {
+  background: var(--grad-aurora);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.theme-space .text-core {
+  background: var(--grad-core);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Buttons */
+.theme-space .btn {
+  border-radius: 999px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  transition: all 0.25s var(--ease-out-expo);
+}
+
+.theme-space .btn-primary {
+  position: relative;
+  background: var(--grad-button);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), var(--glow-violet);
+}
+
+.theme-space .btn-primary:hover {
+  background: var(--grad-button);
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0 0 1px rgba(99, 102, 241, 0.6), 0 14px 45px -10px rgba(99, 102, 241, 0.85);
+}
+
+.theme-space .btn-secondary {
+  background: var(--glass-bg);
+  color: var(--ink-50);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.theme-space .btn-secondary:hover {
+  background: var(--glass-bg-strong);
+  border-color: rgba(99, 102, 241, 0.4);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.theme-space .btn-lg {
+  padding: 0.875rem 1.6rem;
+  font-size: 1rem;
+}
+
+/* Shared section primitives */
+.theme-space .space-section {
+  position: relative;
+  z-index: 1;
+  padding: 7rem 0;
+}
+
+.theme-space .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--nebula-violet);
+}
+
+.theme-space .eyebrow::before {
+  content: '';
+  width: 1.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--nebula-violet));
+}
+
+.theme-space .section-head {
+  max-width: 720px;
+  margin: 0 auto 4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.theme-space .section-title {
+  font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.theme-space .section-lead {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink-300);
+  max-width: 600px;
+}
+
+/* Glass surface with cursor-tracking spotlight (see --mx / --my set in JS) */
+.theme-space .glass {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.015) 100%);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.5rem;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  isolation: isolate;
+}
+
+.theme-space .spotlight {
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.4s var(--ease-out-expo);
+}
+
+.theme-space .spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, -20%), rgba(99, 102, 241, 0.16), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.theme-space .spotlight:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+.theme-space .spotlight:hover::before {
+  opacity: 1;
+}
+
+/* Scroll reveal */
+.theme-space [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.theme-space [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.theme-space .live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--c-indigo);
+  box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.6);
+  animation: live-ping 2s ease-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes live-ping {
+  0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.55); }
+  80%, 100% { box-shadow: 0 0 0 8px rgba(99, 102, 241, 0); }
+}
+
+@media (max-width: 768px) {
+  .theme-space .space-section {
+    padding: 5rem 0;
+  }
+  .theme-space .section-head {
+    margin-bottom: 3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-space *,
+  .theme-space *::before,
+  .theme-space *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .theme-space [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}

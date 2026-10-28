@@ -1,0 +1,230 @@
+---
+const features = [
+  {
+    title: "Built for developers",
+    description: "Built for engineers, developers, dreamers, thinkers, and enterprise architects.",
+    icon: "terminal",
+    tag: "SDK & APIs",
+    color: "violet"
+  },
+  {
+    title: "Intuitive Orchestration",
+    description: "Frictionless DX. Declarative node deployment and instant pipeline synchronization with zero setup.",
+    icon: "ease",
+    tag: "Zero Friction",
+    color: "cyan"
+  },
+  {
+    title: "Unmatched Unit Economics",
+    description: "Best-in-market pricing. Transparent metering, no vendor lock-in, and zero hidden egress fees.",
+    icon: "dollar",
+    tag: "Cost Efficiency",
+    color: "green"
+  },
+  {
+    title: "100% Uptime Guarantee",
+    description: "Deterministic reliability with automated multi-region failover and self-healing consensus.",
+    icon: "cloud",
+    tag: "High Availability",
+    color: "blue"
+  },
+  {
+    title: "Multi-tenant Architecture",
+    description: "Strict isolation boundaries with granular role-based access control and sovereign namespaces.",
+    icon: "route",
+    tag: "Enterprise RBAC",
+    color: "pink"
+  },
+  {
+    title: "24/7 Mission-Critical Support",
+    description: "Direct Slack & Discord bridges to senior infrastructure engineers and autonomous triage bots.",
+    icon: "help",
+    tag: "Always On",
+    color: "amber"
+  },
+  {
+    title: "Deterministic Guarantees",
+    description: "Ironclad enterprise SLAs with cryptographic delivery receipts and auditable settlement trails.",
+    icon: "bolt",
+    tag: "Audit Grade",
+    color: "violet"
+  },
+  {
+    title: "Extensible Plugin Fabric",
+    description: "Modular adapters for ERPs, CRMs, legacy SQL, and high-frequency webhook pipelines.",
+    icon: "heart",
+    tag: "Ecosystem",
+    color: "cyan"
+  },
+];
+---
+
+<section id="features" class="space-section features-section" aria-labelledby="features-title">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Enterprise Capabilities</span>
+      <h2 id="features-title" class="section-title">
+        Engineered for scale. <span class="gradient-text">Built without compromise.</span>
+      </h2>
+      <p class="section-lead">
+        Every layer of Andromeda is optimized for performance, security, and developer joy. Experience the modern enterprise standard.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      {features.map((feat, index) => (
+        <div class="feature-card glass spotlight" data-reveal style={`--reveal-delay: ${(index % 4) * 80}ms`}>
+          <div class="card-glow-pill"></div>
+
+          <div class="feat-header">
+            <div class={`feat-icon-box icon-${feat.color}`}>
+              {feat.icon === 'terminal' && (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 17l6-6-6-6M12 19h8"/>
+                </svg>
+              )}
+              {feat.icon === 'ease' && (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                </svg>
+              )}
+              {feat.icon === 'dollar' && (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="1" x2="12" y2="23"></line>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              )}
+              {feat.icon === 'cloud' && (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+                </svg>
+              )}
+              {feat.icon === 'route' && (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="6" cy="19" r="3"/>
+                  <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/>
+                  <circle cx="18" cy="5" r="3"/>
+                </svg>
+              )}
+              {feat.icon === 'help' && (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                </svg>
+              )}
+              {feat.icon === 'bolt' && (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              )}
+              {feat.icon === 'heart' && (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              )}
+            </div>
+            <span class="feat-tag">{feat.tag}</span>
+          </div>
+
+          <h3 class="feat-title">{feat.title}</h3>
+          <p class="feat-desc">{feat.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features-section {
+    position: relative;
+    z-index: 1;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+
+  .feature-card {
+    border-radius: 1.25rem;
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    background: rgba(18, 22, 46, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+    position: relative;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(167, 139, 250, 0.35);
+  }
+
+  .feat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .feat-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 0.75rem;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .icon-violet,
+  .icon-cyan,
+  .icon-green,
+  .icon-blue,
+  .icon-pink,
+  .icon-amber {
+    color: var(--c-indigo);
+    background: rgba(99, 102, 241, 0.12);
+    border-color: rgba(99, 102, 241, 0.28);
+    transition: all 0.3s ease;
+  }
+
+  .feat-tag {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--ink-500);
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .feat-title {
+    font-family: var(--font-space-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--ink-50);
+    margin-bottom: 0.65rem;
+    letter-spacing: -0.015em;
+  }
+
+  .feat-desc {
+    font-size: 0.88rem;
+    color: var(--ink-300);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 1024px) {
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
