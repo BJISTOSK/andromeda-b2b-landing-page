@@ -29,15 +29,15 @@ const { article, totalArticles } = Astro.props;
 </script>
 <style>
   .reader-top-bar { position: sticky; top: var(--nav-h); z-index: 40; background: var(--bg); }
-  .reader-bar-content { display: flex; align-items: center; gap: 25px; min-height: 57px; }
-  .reader-back { display: flex; gap: 15px; text-decoration: none; font-size: 11px; }
+  .reader-bar-content { display: flex; align-items: center; gap: 24px; min-height: 56px; }
+  .reader-back { display: flex; gap: 8px; text-decoration: none; font-size: 13px; color: var(--fg-2); }
   .reader-back:hover { color: var(--accent); }
-  .reader-position { font-size: 12px; color: var(--fg-3); margin-right: auto; font-variant-numeric: tabular-nums; }
-  .reader-position > span { padding-inline: 10px; }
-  .reader-time { font-size: 12px; color: var(--fg-3); font-variant-numeric: tabular-nums; }
-  .reader-share-btn { background: transparent; border: 0; font-size: 11px; display: flex; gap: 16px; padding: 8px 0; }
+  .reader-position { font-size: 13px; color: var(--fg-3); margin-right: auto; font-variant-numeric: tabular-nums; }
+  .reader-position > span { padding-inline: 8px; }
+  .reader-time { font-size: 13px; color: var(--fg-3); font-variant-numeric: tabular-nums; }
+  .reader-share-btn { background: transparent; border: 0; font-size: 13px; color: var(--fg-2); display: flex; gap: 8px; padding: 8px 0; cursor: pointer; }
   .reader-share-btn:hover { color: var(--accent); }
-  .reading-progress-track { position: absolute; bottom: -1px; height: 2px; width: 100%; pointer-events: none; }
+  .reading-progress-track { position: absolute; bottom: -1px; height: 2px; width: 100%; pointer-events: none; background: var(--line); }
   #reading-progress-bar { background: var(--accent); height: 100%; width: 0; }
-  @media(max-width: 760px) { .reader-position { display: none; }.reader-time { margin-left: auto; }.reader-bar-content { gap: 18px; min-height: 53px; } }
+  @media(max-width: 760px) { .reader-position { display: none; }.reader-time { margin-left: auto; }.reader-bar-content { gap: 18px; min-height: 52px; } }
 </style>

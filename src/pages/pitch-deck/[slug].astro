@@ -62,6 +62,20 @@ const ActiveArticleComponent = articlesList[articleIndex] || Article1;
 
   <div class="pitch-page-wrapper single-article-view">
     <div class="container article-single-container">
+      <div class="reader-plate-wrap">
+        <img 
+          src="/images/the-wonderful-universe-explorer-the-great-36.jpg" 
+          alt="1902 Lick Observatory 36-inch Great Equatorial Telescope" 
+          width="920" 
+          height="320" 
+          loading="eager" 
+          class="reader-plate-img"
+        />
+        <div class="reader-plate-caption">
+          <span>Archival Plate · Lick Observatory Great Equatorial Telescope (1902). Framework intelligence under high magnification.</span>
+        </div>
+      </div>
+
       {ActiveArticleComponent && <ActiveArticleComponent />}
 
       <!-- Article Navigation Footer (Prev / Hub / Next) -->
@@ -71,6 +85,24 @@ const ActiveArticleComponent = articlesList[articleIndex] || Article1;
       />
     </div>
   </div>
+
+  <script>
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const targets = document.querySelectorAll(
+        '.reader-plate-wrap, .article-header, .toc-nav, .summary-cards-section, ' +
+        '.slide-deep-dive, .analysis-section, .reader-footer-nav'
+      );
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      targets.forEach((el) => observer.observe(el));
+    }
+  </script>
 </Layout>
 
 <style>
@@ -81,5 +113,26 @@ const ActiveArticleComponent = articlesList[articleIndex] || Article1;
   .article-single-container {
     max-width: 920px;
     margin: 0 auto;
+  }
+
+  .reader-plate-wrap {
+    margin-bottom: 32px;
+    background: var(--bg-raised);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .reader-plate-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: center 35%;
+    display: block;
+    filter: contrast(1.05) brightness(0.85);
+  }
+  .reader-plate-caption {
+    padding: 12px 20px;
+    background: #0f1110;
+    font-size: 13px;
+    color: var(--fg-3);
   }
 </style>
