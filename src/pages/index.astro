@@ -4,28 +4,209 @@ import Arrow from '../components/Arrow.astro';
 import OrbitDiagram from '../components/home/OrbitDiagram.astro';
 import ProductPreview from '../components/home/ProductPreview.astro';
 import '../styles/home.css';
-const perspectives = [
-  { num: '01', title: 'The work.', text: 'Know what matters, who owns it, and what comes next.', tag: 'OPERATIONS' },
-  { num: '02', title: 'The relationships.', text: 'Turn a network of partners into a connected business.', tag: 'COMMERCE' },
-  { num: '03', title: 'The next chapter.', text: 'Build the story and the structure for your next stage.', tag: 'CAPITAL' },
+
+const realms = [
+  { 
+    title: 'Operations', 
+    summary: 'The execution layer.', 
+    detail: 'Give every active workflow an owner, an SLA, and a visible place in your operational trajectory.',
+    image: '/images/1750-star-chart-of-the-constellations-libra.jpg',
+    imageAlt: 'Archival celestial atlas coordinates and star chart from 1750'
+  },
+  { 
+    title: 'Commerce', 
+    summary: 'The network layer.', 
+    detail: 'Turn enterprise supplier and distributor agreements into live, trackable commercial channels.',
+    image: '/images/kitt-peak-national-observatory-beneath-star-trails.jpg',
+    imageAlt: 'Observatory beneath long exposure star trails showing connected paths'
+  },
+  { 
+    title: 'Capital', 
+    summary: 'The syndication layer.', 
+    detail: 'Equip your leadership with 12 structured venture frameworks, from seed narrative to partner review.',
+    image: '/images/the-wonderful-universe-explorer-the-great-36.jpg',
+    imageAlt: '1902 archival photograph of the Great Equatorial Telescope at Lick Observatory'
+  },
 ];
-const readings = [
-  { num: '01', category: 'THE FOUNDATIONS', title: 'A stronger pitch starts with six clear answers.', text: 'The core structure behind an investor-ready story.', href: '6-slides-core-structure', shape: 'foundation', time: '10 MIN READ' },
-  { num: '03', category: 'SEQUOIA CAPITAL', title: 'Clarity is your most valuable slide.', text: 'A closer look at the ten-slide Sequoia framework.', href: 'sequoia-capital-framework', shape: 'sequoia', time: '9 MIN READ' },
-  { num: '04', category: 'Y COMBINATOR', title: 'Make the opportunity obvious.', text: 'The essentials of a convincing seed-stage deck.', href: 'y-combinator-seed-deck', shape: 'combinator', time: '8 MIN READ' },
+
+const featuredFrameworks = [
+  { 
+    slug: '6-slides-core-structure', 
+    category: 'The Foundations', 
+    title: 'A stronger pitch starts with six clear answers.', 
+    summary: 'The core structure behind an investor-ready narrative with clear commercial proof.', 
+    readTime: '10 min read' 
+  },
+  { 
+    slug: 'sequoia-capital-framework', 
+    category: 'Sequoia Capital', 
+    title: 'Clarity is your most valuable slide.', 
+    summary: 'A comprehensive dissection of the ten-slide Sequoia venture capital deck.', 
+    readTime: '9 min read' 
+  },
+  { 
+    slug: 'y-combinator-seed-deck', 
+    category: 'Y Combinator', 
+    title: 'Make the opportunity obvious.', 
+    summary: 'The essential components and slide rhythm of an undeniable seed-stage pitch.', 
+    readTime: '8 min read' 
+  },
 ];
 ---
-<Layout title="Andromeda — Bring it all into orbit" description="A clearer perspective on your business. Explore connected operations, commercial relationships, and practical resources for your next stage." activePage="home">
+<Layout 
+  title="Andromeda — Bring it all into orbit" 
+  description="Connected operations, commercial networks, and venture capital resources in one continuous operating layer." 
+  activePage="home"
+>
   <section class="home-hero container" aria-labelledby="hero-title">
-    <div class="hero-topline"><span class="kicker">A NEW PERSPECTIVE ON BUSINESS</span><span class="hero-edition">OPERATIONS / COMMERCE / CAPITAL</span></div>
+    <div class="hero-topline">
+      <span class="hero-status">Autonomous B2B Operating Fabric</span>
+      <span class="hero-region">Operations · Commerce · Capital</span>
+    </div>
+
     <div class="hero-grid">
-      <div class="hero-copy"><h1 id="hero-title">Bring it all<br />into <span>orbit.</span></h1><p>Your work. Your relationships. Your next big move. A connected perspective for businesses going somewhere.</p><div class="hero-actions"><a class="btn btn-primary" href="#workspace">Explore the platform <Arrow diagonal /></a><a class="text-link" href="/pitch-deck">For the founders <Arrow /></a></div><div class="hero-footnote"><span class="crosshair" aria-hidden="true">+</span><span>LESS FRICTION.<br />MORE FORWARD.</span></div></div>
+      <div class="hero-copy">
+        <h1 id="hero-title">Bring it all into orbit.</h1>
+        <p>Your work, your commercial relationships, and your next strategic move. A connected operating layer for modern enterprise.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#workspace">Explore the platform <Arrow diagonal /></a>
+          <a class="text-link" href="/pitch-deck">Pitch deck library <Arrow /></a>
+        </div>
+        <div class="hero-quote">
+          <p>Structured for businesses that require precision and transparency across every department.</p>
+        </div>
+      </div>
       <OrbitDiagram />
     </div>
-    <div class="hero-bottomline"><span>BIG AMBITIONS NEED A CLEAR CENTRE.</span><a href="#approach">A different way to see your business <span aria-hidden="true">↓</span></a></div>
   </section>
-  <section id="approach" class="approach-section container" aria-labelledby="approach-title"><div class="approach-intro"><span class="kicker">THE ANDROMEDA APPROACH</span><h2 id="approach-title">Good things happen<br />when things connect.</h2></div><div class="perspective-grid">{perspectives.map(item => <div class="perspective"><span class="perspective-number">{item.num} <span>↗</span></span><h3>{item.title}</h3><p>{item.text}</p><span class="perspective-tag">{item.tag}</span></div>)}</div></section>
+
+  <!-- Photographic Moment: Andromeda Galaxy Real Archival Plate -->
+  <section class="observatory-plate-section container" aria-label="Observatory plate photograph">
+    <div class="plate-card">
+      <img 
+        src="/images/andromeda-galaxy.jpg" 
+        alt="Archival astronomical plate of the Andromeda galaxy" 
+        class="plate-image" 
+        loading="lazy" 
+        width="1344" 
+        height="560" 
+      />
+      <div class="plate-caption">
+        <span>Archival astronomical plate of M31 (Andromeda). Two million light-years of connected matter in equilibrium.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach / The Three Connected Realms -->
+  <section id="approach" class="approach-section container" aria-labelledby="approach-title">
+    <div class="approach-intro">
+      <h2 id="approach-title">Good things happen when things connect.</h2>
+      <p>Independent systems create blind spots. Andromeda links execution, distribution, and venture milestones into a continuous operating loop.</p>
+    </div>
+    <div class="realms-list">
+      {realms.map(realm => (
+        <article class="realm-row">
+          <div class="realm-image-wrap">
+            <img 
+              src={realm.image} 
+              alt={realm.imageAlt} 
+              loading="lazy" 
+              width="640" 
+              height="400" 
+              class="realm-image"
+            />
+          </div>
+          <div class="realm-content">
+            <header class="realm-card-header">
+              <h3>{realm.title}</h3>
+              <span class="realm-summary">{realm.summary}</span>
+            </header>
+            <p>{realm.detail}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Interactive Platform Preview Workspace -->
   <ProductPreview />
-  <section class="library-section container" aria-labelledby="library-title"><div class="section-heading"><span class="kicker">02 / THE FOUNDER'S LIBRARY</span><div class="heading-split"><h2 id="library-title">Big ideas.<br />Well articulated.</h2><div><p>Practical thinking for your next raise. Twelve pitch frameworks, unpacked and ready to put to work.</p><a href="/pitch-deck" class="text-link">Explore the full library <Arrow diagonal /></a></div></div></div><div class="reading-grid">{readings.map(article => <a href={`/pitch-deck/${article.href}`} class="reading-card"><div class:list={['reading-art', article.shape]} aria-hidden="true"><span>{article.num}</span><div class="art-geometry"></div><span>ANDROMEDA / FIELD GUIDE</span></div><div class="reading-meta"><span>{article.category}</span><span>{article.time}</span></div><h3>{article.title}</h3><p>{article.text}</p><span class="reading-arrow"><Arrow diagonal /></span></a>)}</div></section>
-  <section id="explore" class="explore-section" aria-labelledby="explore-title"><div class="container explore-inner"><div><span class="kicker">THERE'S A NEXT CHAPTER IN EVERY BUSINESS.</span><h2 id="explore-title">Make room<br />for <em>yours.</em></h2></div><div class="explore-links"><a href="#workspace"><span><small>FOR THE OPERATORS</small>See the bigger picture</span><Arrow diagonal /></a><a href="/pitch-deck"><span><small>FOR THE FOUNDERS</small>Build a better pitch</span><Arrow diagonal /></a></div></div></section>
+
+  <!-- The Founder's Library Showcase -->
+  <section class="library-highlight container" aria-labelledby="library-showcase-title">
+    <div class="heading-split">
+      <div>
+        <h2 id="library-showcase-title">Big ideas, articulated with clarity.</h2>
+        <p>Behind every resilient enterprise is a story worth backing. Twelve battle-tested pitch frameworks unpacked and ready to put to work.</p>
+      </div>
+      <div>
+        <a href="/pitch-deck" class="text-link">Explore all 12 frameworks <Arrow diagonal /></a>
+      </div>
+    </div>
+
+    <div class="frameworks-editorial-list">
+      {featuredFrameworks.map(item => (
+        <a href={`/pitch-deck/${item.slug}`} class="editorial-framework-item">
+          <div class="framework-col-meta">
+            <span class="framework-cat-tag">{item.category}</span>
+            <span class="framework-time-tag">{item.readTime}</span>
+          </div>
+          <div class="framework-col-content">
+            <h3>{item.title}</h3>
+            <p>{item.summary}</p>
+          </div>
+          <div class="framework-col-action">
+            <span class="read-prompt">Read framework</span>
+            <Arrow diagonal />
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Closing Field: Contrast Moment in Pale Concrete Tone -->
+  <section id="explore" class="explore-section" aria-labelledby="explore-title">
+    <div class="container explore-inner">
+      <div class="explore-copy">
+        <h2 id="explore-title">Make room for your next chapter.</h2>
+        <p>Whether orchestrating complex vendor routes or preparing your leadership team for an institutional fundraise, bring every moving part into focus.</p>
+      </div>
+      <div class="explore-actions">
+        <a href="#workspace" class="explore-action-item">
+          <div class="action-text-group">
+            <span class="action-aud">For operators</span>
+            <strong class="action-heading">Explore platform capabilities</strong>
+          </div>
+          <Arrow diagonal />
+        </a>
+        <a href="/pitch-deck" class="explore-action-item">
+          <div class="action-text-group">
+            <span class="action-aud">For founders</span>
+            <strong class="action-heading">Study the pitch library</strong>
+          </div>
+          <Arrow diagonal />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Choreographed entrance and scroll motion layer
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const targets = document.querySelectorAll(
+        '.hero-topline, .hero-copy h1, .hero-copy p, .hero-actions, .hero-quote, ' +
+        '.orbit-figure, .plate-card, .approach-intro, .realm-row, .heading-split, ' +
+        '.workspace-demo, .editorial-framework-item, .explore-inner, .explore-action-item'
+      );
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      targets.forEach((el) => observer.observe(el));
+    }
+  </script>
 </Layout>

@@ -1,46 +1,224 @@
 ---
 import BrandMark from '../BrandMark.astro';
 ---
-<figure class="orbit-figure" aria-label="Andromeda connects operations, commerce, and capital in one system">
-  <div class="orbit-caption"><span>FIG. 01 — THE CONNECTED BUSINESS</span><span>ANDROMEDA®</span></div>
+<figure class="orbit-figure" aria-label="Interactive Andromeda orbital model connecting operations, commerce, and capital" data-ui>
+  <div class="orbit-caption">
+    <span>ORBITAL OBSERVATORY</span>
+    <span class="orbit-live-badge">TELEMETRY ACTIVE</span>
+  </div>
   <div class="orbit-drawing">
     <svg viewBox="0 0 560 530" fill="none" class="orbit-lines" aria-hidden="true">
       <defs>
-        <pattern id="orbit-grid" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.7" fill="currentColor" opacity=".16" /></pattern>
+        <pattern id="orbit-stars" width="40" height="40" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="3" r="0.6" fill="#f2f4f0" opacity="0.2" />
+          <circle cx="28" cy="19" r="0.8" fill="#8fa68e" opacity="0.25" />
+          <circle cx="15" cy="34" r="0.5" fill="#f2f4f0" opacity="0.15" />
+        </pattern>
       </defs>
-      <rect width="560" height="530" fill="url(#orbit-grid)" />
-      <g stroke="currentColor" stroke-width=".8">
-        <path d="M280 38v454M53 265h454" opacity=".15" />
-        <circle cx="280" cy="265" r="186" opacity=".3" />
-        <circle cx="280" cy="265" r="126" opacity=".3" stroke-dasharray="2 6" />
-        <ellipse cx="280" cy="265" rx="218" ry="81" transform="rotate(-38 280 265)" />
-        <ellipse cx="280" cy="265" rx="218" ry="81" transform="rotate(38 280 265)" />
+      <rect width="560" height="530" fill="url(#orbit-stars)" />
+      
+      <!-- Celestial Orbits -->
+      <g stroke="currentColor" stroke-width="1.2">
+        <circle cx="280" cy="265" r="190" opacity="0.2" stroke-dasharray="3 6" />
+        <circle cx="280" cy="265" r="130" opacity="0.25" />
+        <ellipse id="orbit-ops" class="orbit-path active" cx="280" cy="265" rx="220" ry="85" transform="rotate(-36 280 265)" opacity="0.6" stroke="var(--accent)" />
+        <ellipse id="orbit-com" class="orbit-path" cx="280" cy="265" rx="220" ry="85" transform="rotate(36 280 265)" opacity="0.3" stroke="currentColor" />
+        <ellipse id="orbit-cap" class="orbit-path" cx="280" cy="265" rx="200" ry="110" transform="rotate(90 280 265)" opacity="0.3" stroke="currentColor" />
       </g>
-      <g fill="currentColor"><circle cx="137" cy="148" r="6" /><circle cx="453" cy="332" r="6" /><circle cx="208" cy="436" r="6" /></g>
-      <g class="orbit-label" fill="currentColor">
-        <text x="104" y="125">01 / OPERATIONS</text><text x="393" y="360">02 / COMMERCE</text><text x="217" y="464">03 / CAPITAL</text>
+
+      <!-- Nodes -->
+      <g class="orbit-nodes">
+        <g class="node-group" data-realm="operations" tabindex="0" role="button" aria-label="View Operations Realm">
+          <circle cx="140" cy="150" r="14" fill="var(--bg-elevated)" stroke="var(--accent)" stroke-width="2" />
+          <circle cx="140" cy="150" r="5" fill="var(--accent)" />
+          <text x="140" y="125" text-anchor="middle" fill="var(--fg)" font-size="13" font-weight="500">Operations</text>
+        </g>
+        <g class="node-group" data-realm="commerce" tabindex="0" role="button" aria-label="View Commerce Realm">
+          <circle cx="450" cy="330" r="14" fill="var(--bg-elevated)" stroke="currentColor" stroke-width="1.5" opacity="0.85" />
+          <circle cx="450" cy="330" r="5" fill="currentColor" />
+          <text x="450" y="362" text-anchor="middle" fill="var(--fg)" font-size="13" font-weight="500">Commerce</text>
+        </g>
+        <g class="node-group" data-realm="capital" tabindex="0" role="button" aria-label="View Capital Realm">
+          <circle cx="210" cy="430" r="14" fill="var(--bg-elevated)" stroke="currentColor" stroke-width="1.5" opacity="0.85" />
+          <circle cx="210" cy="430" r="5" fill="currentColor" />
+          <text x="210" y="462" text-anchor="middle" fill="var(--fg)" font-size="13" font-weight="500">Capital</text>
+        </g>
       </g>
-      <path d="M40 40h12m-6-6v12m468 444h12m-6-6v12" stroke="currentColor" opacity=".6" />
     </svg>
-    <div class="orbit-core"><BrandMark /></div>
-    <span class="orbit-coordinate coordinate-top">35° 40′ N</span>
-    <span class="orbit-coordinate coordinate-bottom">A SHARED CENTRE. A CLEARER COURSE.</span>
+
+    <div class="orbit-core" aria-label="Andromeda core hub">
+      <BrandMark />
+    </div>
+
+    <div class="orbit-telemetry-pill" id="orbit-status-display">
+      <span class="telemetry-label">Active Node</span>
+      <strong id="telemetry-node-name">Operations Core</strong>
+      <span class="telemetry-sub" id="telemetry-node-desc">Workflows, owners, and milestones aligned</span>
+    </div>
   </div>
-  <figcaption><span>Independent parts.<br />Extraordinary together.</span><span class="figure-index">A—01</span></figcaption>
+
+  <figcaption>
+    <span>Select an orbital node to route live telemetry.</span>
+    <span class="figure-status">STABLE RUN</span>
+  </figcaption>
 </figure>
 
+<script>
+  const nodes = document.querySelectorAll('.node-group');
+  const nameEl = document.getElementById('telemetry-node-name');
+  const descEl = document.getElementById('telemetry-node-desc');
+  const paths: Record<string, string> = {
+    operations: 'orbit-ops',
+    commerce: 'orbit-com',
+    capital: 'orbit-cap'
+  };
+  const data: Record<string, { name: string; desc: string }> = {
+    operations: { name: 'Operations Core', desc: 'Workflows, owners, and milestones aligned' },
+    commerce: { name: 'Commerce Network', desc: 'Enterprise suppliers and active distribution routes' },
+    capital: { name: 'Capital Syndicate', desc: '12 pitch frameworks ready for investor scrutiny' }
+  };
+
+  function activateRealm(realm: string) {
+    if (!data[realm]) return;
+    if (nameEl) nameEl.textContent = data[realm].name;
+    if (descEl) descEl.textContent = data[realm].desc;
+
+    document.querySelectorAll('.orbit-path').forEach(p => {
+      p.setAttribute('opacity', '0.25');
+      p.setAttribute('stroke', 'currentColor');
+    });
+
+    const activePath = document.getElementById(paths[realm]);
+    if (activePath) {
+      activePath.setAttribute('opacity', '0.85');
+      activePath.setAttribute('stroke', 'var(--accent)');
+    }
+
+    nodes.forEach(n => {
+      const isTarget = n.getAttribute('data-realm') === realm;
+      const ring = n.querySelector('circle:first-child');
+      if (ring) {
+        ring.setAttribute('stroke', isTarget ? 'var(--accent)' : 'currentColor');
+        ring.setAttribute('stroke-width', isTarget ? '2.5' : '1.5');
+      }
+    });
+  }
+
+  nodes.forEach(node => {
+    const realm = node.getAttribute('data-realm') || '';
+    node.addEventListener('click', () => activateRealm(realm));
+    node.addEventListener('keydown', (e: any) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        activateRealm(realm);
+      }
+    });
+  });
+</script>
+
 <style>
-  .orbit-figure { background: var(--surface-clay); color: var(--fg); height: 100%; min-height: 545px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
-  .orbit-caption { display: flex; justify-content: space-between; padding: 22px 24px 0; font: 9px var(--font-mono); letter-spacing: .04em; gap: 12px; }
-  .orbit-drawing { position: relative; flex: 1; display: grid; place-items: center; }
-  .orbit-lines { width: 100%; height: auto; }
-  .orbit-label { font: 9px var(--font-mono); letter-spacing: .02em; }
-  .orbit-core { width: 94px; height: 94px; border-radius: 50%; background: var(--fg); color: var(--surface-clay); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; }
-  .orbit-core :global(svg) { width: 49px; }
-  .orbit-coordinate { position: absolute; font: 8px var(--font-mono); letter-spacing: .07em; }
-  .coordinate-top { top: 20px; left: 24px; }
-  .coordinate-bottom { bottom: 16px; left: 24px; }
-  figcaption { display: flex; align-items: end; justify-content: space-between; padding: 8px 24px 24px; font-size: 14px; line-height: 1.35; letter-spacing: -.02em; }
-  .figure-index { font: 11px var(--font-mono); }
-  @media (max-width: 760px) { .orbit-figure { min-height: 0; } .orbit-drawing { max-height: 470px; } .orbit-lines { max-height: 470px; } }
+  .orbit-figure {
+    background: var(--bg-raised);
+    color: var(--fg);
+    height: 100%;
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+  }
+  .orbit-caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 28px 0;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: var(--fg-3);
+  }
+  .orbit-live-badge {
+    color: var(--accent);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+  }
+  .orbit-drawing {
+    position: relative;
+    flex: 1;
+    display: grid;
+    place-items: center;
+  }
+  .orbit-lines {
+    width: 100%;
+    height: auto;
+  }
+  .node-group {
+    cursor: pointer;
+    transition: transform 0.2s var(--ease);
+    outline: none;
+  }
+  .node-group:hover, .node-group:focus-visible {
+    transform: scale(1.05);
+  }
+  .orbit-core {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: #0e100f;
+    color: var(--accent);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+  }
+  .orbit-core :global(svg) {
+    width: 44px;
+  }
+  .orbit-telemetry-pill {
+    position: absolute;
+    bottom: 16px;
+    left: 24px;
+    background: #141615;
+    padding: 12px 18px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .telemetry-label {
+    font-size: 13px;
+    color: var(--fg-3);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  #telemetry-node-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--fg);
+  }
+  .telemetry-sub {
+    font-size: 13px;
+    color: var(--fg-2);
+  }
+  figcaption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 28px 24px;
+    font-size: 13px;
+    color: var(--fg-2);
+    background: #141615;
+  }
+  .figure-status {
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+  @media (max-width: 760px) {
+    .orbit-figure { min-height: 0; }
+    .orbit-telemetry-pill { position: relative; bottom: auto; left: auto; margin: 12px 20px; }
+  }
 </style>

@@ -7,17 +7,111 @@ const categories = ['All', 'Foundations', 'Top Tier VCs', 'Data & Metrics', 'Sta
 ---
 <Layout title="The Pitch Library — Andromeda" description="Twelve practical pitch-deck frameworks. Explore the structure, storytelling, and metrics behind a clearer investor pitch." activePage="pitch-deck">
   <div class="container library-page">
-    <div class="library-eyebrow"><span class="kicker">ANDROMEDA / THE FOUNDER'S LIBRARY</span><span class="kicker">12 FRAMEWORKS. ONE NEXT CHAPTER.</span></div>
-    <header class="library-header"><h1>Ideas worth<br /><em>backing.</em></h1><div><p>Behind every great business is a story worth telling. Find the structure for yours.</p><span>Pitch frameworks from leading investors and accelerators, broken down into practical guides.</span><a href="/pitch-deck/6-slides-core-structure" class="text-link">New here? Start with the six essentials <Arrow diagonal /></a></div></header>
-    <section class="framework-directory" aria-labelledby="directory-title">
-      <div class="directory-top"><h2 id="directory-title">The frameworks <span>01—12</span></h2><div class="directory-search"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="m12 12 5 5"/></svg><label for="article-search-input" class="sr-only">Search pitch frameworks</label><input type="search" id="article-search-input" placeholder="Search by name, stage, or topic" autocomplete="off" /><button id="search-clear-btn" aria-label="Clear search" hidden>×</button></div></div>
-      <div class="directory-controls"><div class="category-filters" role="group" aria-label="Filter frameworks by category">{categories.map((category,index) => <button class:list={['filter-button', { active: index === 0 }]} aria-pressed={index === 0} data-category={category}>{category === 'All' ? 'All frameworks' : category}<span>{category === 'All' ? pitchDeckArticles.length : pitchDeckArticles.filter(article => article.category === category).length}</span></button>)}</div><p id="result-count" aria-live="polite" aria-atomic="true">12 frameworks</p></div>
-      <div class="directory-grid" id="articles-grid">{pitchDeckArticles.map((article,index) => <a href={`/pitch-deck/${article.slug}`} class="framework-card" data-category={article.category} data-search={`${article.title} ${article.subtitle} ${article.desc} ${article.tags.join(' ')} ${article.stage}`.toLowerCase()}><div class="framework-card-top"><span class="framework-number">{article.num}</span><span class="framework-category">{article.category}</span><span class:list={['framework-motif', `motif-${index % 3}`]} aria-hidden="true"></span></div><div class="framework-card-body"><span class="framework-stage">{article.stage}</span><h3>{article.title}</h3><p>{article.desc}</p><div class="framework-card-foot"><span>{article.readTime}</span><Arrow diagonal /></div></div></a>)}</div>
-      <div id="no-results-box" class="empty-results" hidden><span class="kicker">NO MATCHES THIS TIME</span><h3>A different angle?</h3><p>Try another name, stage, or topic.</p><button id="reset-filters-btn" class="btn btn-primary">Reset filters <Arrow /></button></div>
+    <header class="library-header">
+      <h1>Ideas worth backing.</h1>
+      <div>
+        <p>Behind every great business is a story worth telling. Find the structure for yours.</p>
+        <span>Pitch frameworks from leading investors and accelerators, broken down into practical guides.</span>
+        <a href="/pitch-deck/6-slides-core-structure" class="text-link">Start with the six essentials <Arrow diagonal /></a>
+      </div>
+    </header>
+
+    <div class="library-plate-card">
+      <img 
+        src="/images/the-wonderful-universe-explorer-the-great-36.jpg" 
+        alt="1902 archival photograph of the Great Equatorial Telescope at Lick Observatory" 
+        class="library-hero-image"
+        width="1344"
+        height="440"
+        loading="lazy"
+      />
+      <div class="library-plate-caption">
+        <span>Archival plate · The 36-inch Great Equatorial instrument, Lick Observatory (1902). Twelve frameworks for deep perspective.</span>
+      </div>
+    </div>
+
+    <section class="archive-plates-row" aria-label="Observatory reference plates">
+      <div class="archive-plate-item">
+        <img src="/images/1750-star-chart-of-the-constellations-libra.jpg" alt="1750 Celestial Atlas by John Bevis" width="420" height="260" loading="lazy" />
+        <span>Celestial Atlas · Structural Foundations</span>
+      </div>
+      <div class="archive-plate-item">
+        <img src="/images/kitt-peak-national-observatory-beneath-star-trails.jpg" alt="Kitt Peak Observatory beneath star trails" width="420" height="260" loading="lazy" />
+        <span>Kitt Peak Telemetry · Top Tier VC Trajectories</span>
+      </div>
+      <div class="archive-plate-item">
+        <img src="/images/andromeda-galaxy.jpg" alt="M31 Andromeda galaxy archival plate" width="420" height="260" loading="lazy" />
+        <span>Deep Space Plate · Stage-Specific Horizons</span>
+      </div>
     </section>
-    <aside class="library-closing"><span class="kicker">A NOTE FOR THE FOUNDER</span><p>The framework is a starting point.<br /><em>The story is yours.</em></p><a href="/#explore" class="text-link">Find your next move <Arrow diagonal /></a></aside>
+
+    <section class="framework-directory" aria-labelledby="directory-title">
+      <div class="directory-top">
+        <h2 id="directory-title">The frameworks <span>12 guides</span></h2>
+        <div class="directory-search">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="m12 12 5 5"/></svg>
+          <label for="article-search-input" class="sr-only">Search pitch frameworks</label>
+          <input type="search" id="article-search-input" placeholder="Search by name, stage, or topic" autocomplete="off" />
+          <button id="search-clear-btn" aria-label="Clear search" hidden>×</button>
+        </div>
+      </div>
+      <div class="directory-controls">
+        <div class="category-filters" role="group" aria-label="Filter frameworks by category">
+          {categories.map((category,index) => (
+            <button class:list={['filter-button', { active: index === 0 }]} aria-pressed={index === 0} data-category={category}>
+              {category === 'All' ? 'All frameworks' : category}
+              <span>{category === 'All' ? pitchDeckArticles.length : pitchDeckArticles.filter(article => article.category === category).length}</span>
+            </button>
+          ))}
+        </div>
+        <p id="result-count" aria-live="polite" aria-atomic="true">12 frameworks</p>
+      </div>
+      <div class="directory-grid" id="articles-grid">
+        {pitchDeckArticles.map(article => (
+          <a href={`/pitch-deck/${article.slug}`} class="framework-card" data-category={article.category} data-search={`${article.title} ${article.subtitle} ${article.desc} ${article.tags.join(' ')} ${article.stage}`.toLowerCase()}>
+            <div class="framework-card-top">
+              <span class="framework-category">{article.category}</span>
+              <span class="framework-stage">{article.stage}</span>
+            </div>
+            <div class="framework-card-body">
+              <h3>{article.title}</h3>
+              <p>{article.desc}</p>
+              <div class="framework-card-foot">
+                <span>{article.readTime}</span>
+                <Arrow diagonal />
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div id="no-results-box" class="empty-results" hidden>
+        <h3>No matching frameworks</h3>
+        <p>Try searching another firm name, venture stage, or topic.</p>
+        <button id="reset-filters-btn" class="btn btn-primary">Reset filters <Arrow /></button>
+      </div>
+    </section>
+    <aside class="library-closing">
+      <span class="library-closing-note">A note for the founder</span>
+      <p>The framework is a starting point. The story is yours.</p>
+      <a href="/#explore" class="text-link">Find your next move <Arrow diagonal /></a>
+    </aside>
   </div>
 </Layout>
+
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const targets = document.querySelectorAll('.library-header, .library-plate-card, .framework-directory, .framework-card, .library-closing');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    targets.forEach((el) => observer.observe(el));
+  }
+</script>
 <script>
   const input = document.querySelector<HTMLInputElement>('#article-search-input');
   const clear = document.querySelector<HTMLButtonElement>('#search-clear-btn');

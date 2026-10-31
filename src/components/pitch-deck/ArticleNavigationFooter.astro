@@ -9,10 +9,10 @@ const { prevArticle, nextArticle } = Astro.props;
   {nextArticle ? <a href={`/pitch-deck/${nextArticle.slug}`}><span>NEXT / {nextArticle.num} <Arrow /></span><strong>{nextArticle.title}</strong></a> : <a href="/pitch-deck"><span>BACK TO THE LIBRARY <Arrow /></span><strong>Your next chapter starts here.</strong></a>}
 </nav>
 <style>
-  .reader-footer-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; border-top: 1px solid var(--fg); padding-top: 27px; margin-top: 64px; }
+  .reader-footer-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding-top: 27px; margin-top: 64px; }
   a { text-decoration: none; display: flex; flex-direction: column; gap: 15px; }
-  a > span { font: 9px var(--font-mono); color: var(--fg-3); display: flex; align-items: center; justify-content: space-between; }
+  a > span { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--fg-3); display: flex; align-items: center; justify-content: space-between; font-variant-numeric: tabular-nums; }
   strong { font-weight: 500; font-size: 22px; letter-spacing: -.035em; line-height: 1.2; }
   a:hover strong { color: var(--accent); }
-  @media(max-width: 600px) { .reader-footer-nav { grid-template-columns: 1fr; gap: 30px; } strong { font-size: 23px; } a + a { border-top: 1px solid var(--line); padding-top: 23px; } }
+  @media(max-width: 600px) { .reader-footer-nav { grid-template-columns: 1fr; gap: 30px; } strong { font-size: 23px; } a + a { padding-top: 23px; } }
 </style>

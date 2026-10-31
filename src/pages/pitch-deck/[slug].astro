@@ -47,22 +47,9 @@ interface Props {
 const { article, prevArticle, nextArticle, totalArticles } = Astro.props;
 
 // Map article num to component
-const articleComponents: Record<string, any> = {
-  "01": Article1,
-  "02": Article2,
-  "03": Article3,
-  "04": Article4,
-  "05": Article5,
-  "06": Article6,
-  "07": Article7,
-  "08": Article8,
-  "09": Article9,
-  "10": Article10,
-  "11": Article11,
-  "12": Article12,
-};
-
-const ActiveArticleComponent = articleComponents[article.num];
+const articlesList = [Article1, Article2, Article3, Article4, Article5, Article6, Article7, Article8, Article9, Article10, Article11, Article12];
+const articleIndex = parseInt(article.num, 10) - 1;
+const ActiveArticleComponent = articlesList[articleIndex] || Article1;
 ---
 
 <Layout 
