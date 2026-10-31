@@ -1,0 +1,600 @@
+---
+import Arrow from '../Arrow.astro';
+
+const frameworksDeepScan = [
+  {
+    slug: '6-slides-core-structure',
+    name: '6-Slide Core Structure',
+    origin: 'Universal Consensus',
+    stage: 'Universal / All Stages',
+    slides: '6 slides',
+    focus: 'Universal Foundations',
+    vcTest: 'Can the founder articulate a complete, viable venture thesis answering the 6 fundamental questions without fluff?',
+    fatalFlaw: 'Overcomplicating the narrative before proving basic problem-solution fit and customer willingness to pay.',
+    slideList: ['Problem / Opportunity', 'Solution & Value Prop', 'Business Model & Unit Economics', 'Competition & Defensibility', 'Founding Team', 'The Ask & Milestones']
+  },
+  {
+    slug: 'anatomy-of-a-winning-pitch',
+    name: 'Anatomy of a Winning Pitch',
+    origin: 'Cross-VC Synthesis',
+    stage: 'Seed to Series A',
+    slides: '8–12 slides',
+    focus: 'Comparative VC Dynamics',
+    vcTest: 'Does the founder understand the strategic divergence between metric-heavy investors versus story-driven investors?',
+    fatalFlaw: 'Pitching a pure visionary story to a metric-driven fund (Point Nine) or dumping spreadsheets on a visionary fund (YC).',
+    slideList: ['The Hook', 'Problem & Workaround', 'Solution & Architecture', 'Market Sizing & TAM', 'Business Model', 'Traction Slope', 'Competition', 'Team & Ask']
+  },
+  {
+    slug: 'sequoia-capital-framework',
+    name: 'Sequoia Capital Standard',
+    origin: 'Sequoia Capital',
+    stage: 'Seed to Growth',
+    slides: '10 slides',
+    focus: 'Clarity & Scope of Ambition',
+    vcTest: 'Can the founder demonstrate profound clarity of thought, customer pain workarounds, and a bottom-up path to a billion-dollar outcome?',
+    fatalFlaw: 'Top-down TAM calculations (e.g. "1% of a $50B market") and vague, missionless feature bullet points.',
+    slideList: ['Company Purpose', 'Problem & Workarounds', 'Solution & Eureka Moment', 'Why Now?', 'Market Potential (Bottom-up TAM)', 'Competition / Alternatives', 'Business Model', 'Team', 'Financials & Capital Deployment', 'Vision (5-Year Horizon)']
+  },
+  {
+    slug: 'y-combinator-seed-deck',
+    name: 'Y Combinator Seed Deck',
+    origin: 'Y Combinator (Kevin Hale)',
+    stage: 'Pre-Seed to Seed',
+    slides: '9 slides',
+    focus: 'Legible, Simple, Obvious',
+    vcTest: 'Can the partner understand what the company does within 10 seconds, and is there an undeniable growth slope?',
+    fatalFlaw: 'Unreadable diagram spaghetti, cluttered feature grids, and listing non-operational advisors instead of core builders.',
+    slideList: ['Title & One-Liner', 'Problem (Unmet Need)', 'Solution (Direct Benefit)', 'Traction (Execution Slope)', 'Unique Asymmetric Insight', 'Business Model', 'Market Size', 'Team', 'The Ask']
+  },
+  {
+    slug: 'docsend-framework',
+    name: 'DocSend Behavioral Data',
+    origin: 'DocSend Research',
+    stage: 'Pre-Seed to Series A',
+    slides: '18 pages',
+    focus: 'Cognitive Load Distribution',
+    vcTest: 'Does the deck respect investor reading patterns by distributing heavy product workflows across airy pages rather than cramming?',
+    fatalFlaw: 'Cramming 10 dense slides with 8pt text that causes instant investor reading fatigue and drop-off.',
+    slideList: ['Company Purpose', 'Problem', 'Solution', 'Why Now?', 'Product UX (3-4 pages)', 'Market Size', 'Business Model (Heavy attention)', 'Traction', 'Go-To-Market', 'Competition', 'Team', 'The Ask']
+  },
+  {
+    slug: 'get-backed-narrative-framework',
+    name: 'Get Backed Narrative',
+    origin: 'Evan Baehr & Evan Loomis',
+    stage: 'Early Stage',
+    slides: '10 slides',
+    focus: 'Relationship & Origin Arc',
+    vcTest: 'Does the founder create an emotional connection and establish undeniable founder-problem resonance through story arcs?',
+    fatalFlaw: 'Pitching cold transactional numbers without building relational rapport or explaining why the founder cares about this problem.',
+    slideList: ['Overview', 'Opportunity', 'Problem', 'Solution', 'Traction', 'Customer Voice', 'Business Model', 'Market Landscape', 'Team Origin', 'The Ask']
+  },
+  {
+    slug: 'guy-kawasaki-10-20-30-rule',
+    name: 'Guy Kawasaki 10/20/30',
+    origin: 'Silicon Valley Classic',
+    stage: 'Universal Pitching',
+    slides: '10 slides',
+    focus: 'Radical Constraint Model',
+    vcTest: 'Can the presenter hold the room for 20 minutes with 30-point font and preserve 40 minutes for interactive dialogue?',
+    fatalFlaw: 'Reading 45 slides of fine print aloud from the projector while investors check their phones.',
+    slideList: ['Title', 'Problem / Opportunity', 'Value Proposition', 'Underlying Magic', 'Business Model', 'Go-To-Market Plan', 'Competitive Analysis', 'Management Team', 'Financial Projections & Metrics', 'Current Status & Milestones']
+  },
+  {
+    slug: 'first-round-capital-framework',
+    name: 'First Round Capital',
+    origin: 'First Round Capital',
+    stage: 'Seed / Partner Meeting',
+    slides: '12 slides',
+    focus: 'Internal Champion Advocacy',
+    vcTest: 'Does this deck arm your internal sponsor with defensible proof to win the full partnership vote on Monday morning?',
+    fatalFlaw: 'Decks that crumble under hostile partner cross-examination because unit metrics and competitive claims lack supporting citations.',
+    slideList: ['Executive Summary', 'Problem Urgency', 'The Wedge & Secret', 'Product Demonstration', 'Market Anatomy', 'Commercial Engine', 'Traction Velocity', 'Competitive Matrix', 'Team Pedigree', 'Financial Model', '18-Month Milestones', 'The Deal Terms']
+  },
+  {
+    slug: 'nextview-ventures-framework',
+    name: 'NextView Ventures',
+    origin: 'NextView Ventures',
+    stage: 'Seed Stage',
+    slides: '8 + Kitchen Sink',
+    focus: 'Conversational Deck Architecture',
+    vcTest: 'Can the founder lead a high-level strategic discussion in 8 slides while holding a comprehensive data appendix for deep dives?',
+    fatalFlaw: 'Forcing a rigid monologue flipbook when the venture partner wants an exploratory conversation.',
+    slideList: ['Core Deck (8 Slides: Narrative Beachhead)', 'Appendix: Full Financial Model', 'Appendix: Technical Architecture', 'Appendix: Customer Cohort Curves', 'Appendix: Detailed Regulatory Analysis']
+  },
+  {
+    slug: 'point-nine-capital-framework',
+    name: 'Point Nine Capital',
+    origin: 'Point Nine (Christoph Janz)',
+    stage: 'Seed to Series A',
+    slides: '10 slides',
+    focus: 'Hardcore SaaS Unit Economics',
+    vcTest: 'Do customer cohorts, Net Dollar Retention (NDR > 120%), and CAC payback match SaaS top-decile benchmarks?',
+    fatalFlaw: 'Concealing logo churn, presenting gross revenue instead of net revenue, or failing to categorize target customer animal sizes.',
+    slideList: ['Overview & SaaS Metrics', 'Customer Animal Sizing', 'Problem & Workflow Bottleneck', 'Solution & Product Defensibility', 'Cohort Retention Curves', 'Unit Economics & CAC Payback', 'Go-To-Market Velocity', 'Competitive Moat', 'Founders', 'Capital Runway & Series A Target']
+  },
+  {
+    slug: '500-global-framework',
+    name: '500 Global (Dave McClure)',
+    origin: '500 Global',
+    stage: 'Pre-Seed / Seed',
+    slides: '10 slides',
+    focus: 'Startup Viagra Syntax',
+    vcTest: 'Can the founder pitch with strict fill-in-the-blank precision, prove TAM > $1B, and show explosive user acquisition velocity?',
+    fatalFlaw: 'Vague adjectives ("revolutionary platform") instead of strict, structured syntax: "We help X do Y by Z".',
+    slideList: ['Elevator Pitch Hook', 'Problem (Acute & Quantified)', 'Solution (Simple Benefit)', 'Market Size (TAM > $1B)', 'Business Model (Monetization)', 'Defensible Edge (Secret Sauce)', 'Competition (2x2 Matrix)', 'Marketing & Acquisition Channels', 'Team', 'Traction & Fundraise']
+  },
+  {
+    slug: 'founder-institute-framework',
+    name: 'Founder Institute Standard',
+    origin: 'Founder Institute',
+    stage: 'Idea to Pre-Seed',
+    slides: '10 slides',
+    focus: 'Systematic Risk De-risking',
+    vcTest: 'Has the founder systematically mitigated Market Risk, Product Risk, and Execution Risk with verifiable evidence?',
+    fatalFlaw: 'Using forbidden superlatives ("we are the best/first/only") without objective, empirical verification.',
+    slideList: ['Title & One-Sentence Pitch', 'The Real Problem', 'The Curing Solution', 'Market Size (TAM/SAM/SOM)', 'Business Model & Unit Margins', 'Underlying Technology / Moat', 'Competition & Direct Rivals', 'Marketing & Customer Acquisition', 'Founding Team', 'Current Milestones & The Ask']
+  }
+];
+---
+
+<div class="deep-scan-component">
+  <div class="deep-scan-header">
+    <div>
+      <h3>12-Framework Deep Scan Matrix</h3>
+      <p>Compare structures, investor psychological tests, and fatal rejection traps across all 12 venture models.</p>
+    </div>
+    <div class="scanner-meta-pill">
+      <span>12 Models Scanned</span>
+      <span>Seed to Growth</span>
+    </div>
+  </div>
+
+  <div class="deep-scan-layout">
+    <!-- Framework Selector List -->
+    <div class="framework-selector-list" role="tablist" aria-label="Select framework for deep scan">
+      {frameworksDeepScan.map((fw, index) => (
+        <button 
+          class:list={['scan-select-item', { active: index === 0 }]}
+          data-slug={fw.slug}
+          role="tab"
+          aria-selected={index === 0}
+          id={`tab-fw-${fw.slug}`}
+          aria-controls="deep-scan-display"
+        >
+          <div class="item-left">
+            <div>
+              <strong class="item-title">{fw.name}</strong>
+              <span class="item-sub">{fw.stage} · {fw.slides}</span>
+            </div>
+          </div>
+          <span class="item-focus-badge">{fw.focus}</span>
+        </button>
+      ))}
+    </div>
+
+    <!-- Active Deep Scan Diagnostic Sheet -->
+    <div class="deep-scan-display" id="deep-scan-display" role="tabpanel" data-ui aria-labelledby="tab-fw-6-slides-core-structure">
+      <div class="sheet-topline">
+        <div class="sheet-meta-tags">
+          <span class="sheet-badge" id="sheet-stage">{frameworksDeepScan[0].stage}</span>
+          <span class="sheet-badge" id="sheet-slides">{frameworksDeepScan[0].slides}</span>
+          <span class="sheet-badge origin" id="sheet-origin">{frameworksDeepScan[0].origin}</span>
+        </div>
+        <h4 id="sheet-title">{frameworksDeepScan[0].name}</h4>
+      </div>
+
+      <div class="sheet-sections">
+        <div class="diagnostic-card">
+          <span class="card-label">The Core VC Evaluation Test</span>
+          <p id="sheet-vc-test">{frameworksDeepScan[0].vcTest}</p>
+        </div>
+
+        <div class="diagnostic-card fatal-card">
+          <span class="card-label fatal">The #1 Fatal Rejection Trap</span>
+          <p id="sheet-fatal-flaw">{frameworksDeepScan[0].fatalFlaw}</p>
+        </div>
+
+        <div class="slide-architecture-block">
+          <span class="card-label">Mandated Slide Sequence</span>
+          <ol class="slide-seq-list" id="sheet-slide-list">
+            {frameworksDeepScan[0].slideList.map(slide => (
+              <li><span>{slide}</span></li>
+            ))}
+          </ol>
+        </div>
+      </div>
+
+      <div class="sheet-action-footer">
+        <span class="sheet-footnote">Complete framework analysis & source commentary</span>
+        <a id="sheet-article-link" href={`/pitch-deck/${frameworksDeepScan[0].slug}`} class="btn btn-primary">
+          Open Complete Guide <Arrow diagonal />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const scanData = [
+    {
+      slug: '6-slides-core-structure',
+      name: '6-Slide Core Structure',
+      origin: 'Universal Consensus',
+      stage: 'Universal / All Stages',
+      slides: '6 slides',
+      vcTest: 'Can the founder articulate a complete, viable venture thesis answering the 6 fundamental questions without fluff?',
+      fatalFlaw: 'Overcomplicating the narrative before proving basic problem-solution fit and customer willingness to pay.',
+      slideList: ['Problem / Opportunity', 'Solution & Value Prop', 'Business Model & Unit Economics', 'Competition & Defensibility', 'Founding Team', 'The Ask & Milestones']
+    },
+    {
+      slug: 'anatomy-of-a-winning-pitch',
+      name: 'Anatomy of a Winning Pitch',
+      origin: 'Cross-VC Synthesis',
+      stage: 'Seed to Series A',
+      slides: '8–12 slides',
+      vcTest: 'Does the founder understand the strategic divergence between metric-heavy investors versus story-driven investors?',
+      fatalFlaw: 'Pitching a pure visionary story to a metric-driven fund (Point Nine) or dumping spreadsheets on a visionary fund (YC).',
+      slideList: ['The Hook', 'Problem & Workaround', 'Solution & Architecture', 'Market Sizing & TAM', 'Business Model', 'Traction Slope', 'Competition', 'Team & Ask']
+    },
+    {
+      slug: 'sequoia-capital-framework',
+      name: 'Sequoia Capital Standard',
+      origin: 'Sequoia Capital',
+      stage: 'Seed to Growth',
+      slides: '10 slides',
+      vcTest: 'Can the founder demonstrate profound clarity of thought, customer pain workarounds, and a bottom-up path to a billion-dollar outcome?',
+      fatalFlaw: 'Top-down TAM calculations (e.g. "1% of a $50B market") and vague, missionless feature bullet points.',
+      slideList: ['Company Purpose', 'Problem & Workarounds', 'Solution & Eureka Moment', 'Why Now?', 'Market Potential (Bottom-up TAM)', 'Competition / Alternatives', 'Business Model', 'Team', 'Financials & Capital Deployment', 'Vision (5-Year Horizon)']
+    },
+    {
+      slug: 'y-combinator-seed-deck',
+      name: 'Y Combinator Seed Deck',
+      origin: 'Y Combinator (Kevin Hale)',
+      stage: 'Pre-Seed to Seed',
+      slides: '9 slides',
+      vcTest: 'Can the partner understand what the company does within 10 seconds, and is there an undeniable growth slope?',
+      fatalFlaw: 'Unreadable diagram spaghetti, cluttered feature grids, and listing non-operational advisors instead of core builders.',
+      slideList: ['Title & One-Liner', 'Problem (Unmet Need)', 'Solution (Direct Benefit)', 'Traction (Execution Slope)', 'Unique Asymmetric Insight', 'Business Model', 'Market Size', 'Team', 'The Ask']
+    },
+    {
+      slug: 'docsend-framework',
+      name: 'DocSend Behavioral Data',
+      origin: 'DocSend Research',
+      stage: 'Pre-Seed to Series A',
+      slides: '18 pages',
+      vcTest: 'Does the deck respect investor reading patterns by distributing heavy product workflows across airy pages rather than cramming?',
+      fatalFlaw: 'Cramming 10 dense slides with 8pt text that causes instant investor reading fatigue and drop-off.',
+      slideList: ['Company Purpose', 'Problem', 'Solution', 'Why Now?', 'Product UX (3-4 pages)', 'Market Size', 'Business Model (Heavy attention)', 'Traction', 'Go-To-Market', 'Competition', 'Team', 'The Ask']
+    },
+    {
+      slug: 'get-backed-narrative-framework',
+      name: 'Get Backed Narrative',
+      origin: 'Evan Baehr & Evan Loomis',
+      stage: 'Early Stage',
+      slides: '10 slides',
+      vcTest: 'Does the founder create an emotional connection and establish undeniable founder-problem resonance through story arcs?',
+      fatalFlaw: 'Pitching cold transactional numbers without building relational rapport or explaining why the founder cares about this problem.',
+      slideList: ['Overview', 'Opportunity', 'Problem', 'Solution', 'Traction', 'Customer Voice', 'Business Model', 'Market Landscape', 'Team Origin', 'The Ask']
+    },
+    {
+      slug: 'guy-kawasaki-10-20-30-rule',
+      name: 'Guy Kawasaki 10/20/30',
+      origin: 'Silicon Valley Classic',
+      stage: 'Universal Pitching',
+      slides: '10 slides',
+      vcTest: 'Can the presenter hold the room for 20 minutes with 30-point font and preserve 40 minutes for interactive dialogue?',
+      fatalFlaw: 'Reading 45 slides of fine print aloud from the projector while investors check their phones.',
+      slideList: ['Title', 'Problem / Opportunity', 'Value Proposition', 'Underlying Magic', 'Business Model', 'Go-To-Market Plan', 'Competitive Analysis', 'Management Team', 'Financial Projections & Metrics', 'Current Status & Milestones']
+    },
+    {
+      slug: 'first-round-capital-framework',
+      name: 'First Round Capital',
+      origin: 'First Round Capital',
+      stage: 'Seed / Partner Meeting',
+      slides: '12 slides',
+      vcTest: 'Does this deck arm your internal sponsor with defensible proof to win the full partnership vote on Monday morning?',
+      fatalFlaw: 'Decks that crumble under hostile partner cross-examination because unit metrics and competitive claims lack supporting citations.',
+      slideList: ['Executive Summary', 'Problem Urgency', 'The Wedge & Secret', 'Product Demonstration', 'Market Anatomy', 'Commercial Engine', 'Traction Velocity', 'Competitive Matrix', 'Team Pedigree', 'Financial Model', '18-Month Milestones', 'The Deal Terms']
+    },
+    {
+      slug: 'nextview-ventures-framework',
+      name: 'NextView Ventures',
+      origin: 'NextView Ventures',
+      stage: 'Seed Stage',
+      slides: '8 + Kitchen Sink',
+      vcTest: 'Can the founder lead a high-level strategic discussion in 8 slides while holding a comprehensive data appendix for deep dives?',
+      fatalFlaw: 'Forcing a rigid monologue flipbook when the venture partner wants an exploratory conversation.',
+      slideList: ['Core Deck (8 Slides: Narrative Beachhead)', 'Appendix: Full Financial Model', 'Appendix: Technical Architecture', 'Appendix: Customer Cohort Curves', 'Appendix: Detailed Regulatory Analysis']
+    },
+    {
+      slug: 'point-nine-capital-framework',
+      name: 'Point Nine Capital',
+      origin: 'Point Nine (Christoph Janz)',
+      stage: 'Seed to Series A',
+      slides: '10 slides',
+      vcTest: 'Do customer cohorts, Net Dollar Retention (NDR > 120%), and CAC payback match SaaS top-decile benchmarks?',
+      fatalFlaw: 'Concealing logo churn, presenting gross revenue instead of net revenue, or failing to categorize target customer animal sizes.',
+      slideList: ['Overview & SaaS Metrics', 'Customer Animal Sizing', 'Problem & Workflow Bottleneck', 'Solution & Product Defensibility', 'Cohort Retention Curves', 'Unit Economics & CAC Payback', 'Go-To-Market Velocity', 'Competitive Moat', 'Founders', 'Capital Runway & Series A Target']
+    },
+    {
+      slug: '500-global-framework',
+      name: '500 Global (Dave McClure)',
+      origin: '500 Global',
+      stage: 'Pre-Seed / Seed',
+      slides: '10 slides',
+      vcTest: 'Can the founder pitch with strict fill-in-the-blank precision, prove TAM > $1B, and show explosive user acquisition velocity?',
+      fatalFlaw: 'Vague adjectives ("revolutionary platform") instead of strict, structured syntax: "We help X do Y by Z".',
+      slideList: ['Elevator Pitch Hook', 'Problem (Acute & Quantified)', 'Solution (Simple Benefit)', 'Market Size (TAM > $1B)', 'Business Model (Monetization)', 'Defensible Edge (Secret Sauce)', 'Competition (2x2 Matrix)', 'Marketing & Acquisition Channels', 'Team', 'Traction & Fundraise']
+    },
+    {
+      slug: 'founder-institute-framework',
+      name: 'Founder Institute Standard',
+      origin: 'Founder Institute',
+      stage: 'Idea to Pre-Seed',
+      slides: '10 slides',
+      vcTest: 'Has the founder systematically mitigated Market Risk, Product Risk, and Execution Risk with verifiable evidence?',
+      fatalFlaw: 'Using forbidden superlatives ("we are the best/first/only") without objective, empirical verification.',
+      slideList: ['Title & One-Sentence Pitch', 'The Real Problem', 'The Curing Solution', 'Market Size (TAM/SAM/SOM)', 'Business Model & Unit Margins', 'Underlying Technology / Moat', 'Competition & Direct Rivals', 'Marketing & Customer Acquisition', 'Founding Team', 'Current Milestones & The Ask']
+    }
+  ];
+
+  const items = document.querySelectorAll<HTMLButtonElement>('.scan-select-item');
+  const sheetStage = document.getElementById('sheet-stage');
+  const sheetSlides = document.getElementById('sheet-slides');
+  const sheetOrigin = document.getElementById('sheet-origin');
+  const sheetTitle = document.getElementById('sheet-title');
+  const sheetVcTest = document.getElementById('sheet-vc-test');
+  const sheetFatal = document.getElementById('sheet-fatal-flaw');
+  const sheetSlideList = document.getElementById('sheet-slide-list');
+  const sheetLink = document.getElementById('sheet-article-link') as HTMLAnchorElement | null;
+  const sheetDisplay = document.getElementById('deep-scan-display');
+
+  function selectFramework(slug: string) {
+    const fw = scanData.find(f => f.slug === slug);
+    if (!fw) return;
+
+    items.forEach(btn => {
+      const match = btn.getAttribute('data-slug') === slug;
+      btn.classList.toggle('active', match);
+      btn.setAttribute('aria-selected', String(match));
+    });
+
+    if (sheetDisplay) sheetDisplay.setAttribute('aria-labelledby', `tab-fw-${slug}`);
+    if (sheetStage) sheetStage.textContent = fw.stage;
+    if (sheetSlides) sheetSlides.textContent = fw.slides;
+    if (sheetOrigin) sheetOrigin.textContent = fw.origin;
+    if (sheetTitle) sheetTitle.textContent = fw.name;
+    if (sheetVcTest) sheetVcTest.textContent = fw.vcTest;
+    if (sheetFatal) sheetFatal.textContent = fw.fatalFlaw;
+    if (sheetLink) sheetLink.href = `/pitch-deck/${fw.slug}`;
+
+    if (sheetSlideList) {
+      sheetSlideList.innerHTML = fw.slideList.map(slide => `<li><span>${slide}</span></li>`).join('');
+    }
+  }
+
+  items.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const slug = btn.getAttribute('data-slug');
+      if (slug) selectFramework(slug);
+    });
+  });
+</script>
+
+<style>
+  .deep-scan-component {
+    background: var(--bg-raised);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    margin-block: 48px;
+    color: var(--fg);
+  }
+  .deep-scan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+    padding-bottom: 24px;
+  }
+  .deep-scan-kicker {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .deep-scan-header h3 {
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .deep-scan-header p {
+    font-size: 15px;
+    color: var(--fg-2);
+    max-width: 58ch;
+    line-height: 1.5;
+  }
+  .scanner-meta-pill {
+    display: flex;
+    gap: 16px;
+    background: #141615;
+    padding: 10px 16px;
+    border-radius: var(--radius-xs);
+    font-size: 13px;
+    color: var(--fg-2);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .deep-scan-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 32px;
+    padding-top: 32px;
+  }
+
+  /* Framework Selector List */
+  .framework-selector-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 640px;
+    overflow-y: auto;
+    padding-right: 8px;
+  }
+  .scan-select-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #141615;
+    border: 0;
+    border-radius: var(--radius-xs);
+    padding: 12px 14px;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+  }
+  .scan-select-item:hover {
+    background: #202422;
+  }
+  .scan-select-item.active {
+    background: #272d2a;
+    color: var(--fg);
+  }
+  .item-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .item-num {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .item-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--fg);
+    display: block;
+    line-height: 1.3;
+  }
+  .item-sub {
+    font-size: 13px;
+    color: var(--fg-3);
+  }
+  .item-focus-badge {
+    font-size: 13px;
+    color: var(--fg-3);
+    background: var(--bg-raised);
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  /* Diagnostic Display Sheet */
+  .deep-scan-display {
+    background: #141615;
+    border-radius: var(--radius-sm);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .sheet-topline {
+    padding-bottom: 20px;
+  }
+  .sheet-meta-tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .sheet-badge {
+    font-size: 13px;
+    background: var(--bg-raised);
+    padding: 4px 10px;
+    border-radius: 4px;
+    color: var(--fg-2);
+  }
+  .sheet-badge.origin {
+    color: var(--accent);
+  }
+  .sheet-topline h4 {
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+  }
+
+  .sheet-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-block: 24px;
+  }
+  .diagnostic-card {
+    background: var(--bg-raised);
+    padding: 18px;
+    border-radius: var(--radius-xs);
+  }
+  .card-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .card-label.fatal {
+    color: #e28a7e;
+  }
+  .diagnostic-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--fg-2);
+  }
+
+  .slide-architecture-block {
+    background: var(--bg-raised);
+    padding: 18px;
+    border-radius: var(--radius-xs);
+  }
+  .slide-seq-list {
+    margin: 10px 0 0 18px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 16px;
+  }
+  .slide-seq-list li {
+    font-size: 13px;
+    color: var(--fg-2);
+    line-height: 1.4;
+  }
+
+  .sheet-action-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+  }
+  .sheet-footnote {
+    font-size: 13px;
+    color: var(--fg-3);
+  }
+
+  @media (max-width: 960px) {
+    .deep-scan-layout {
+      grid-template-columns: 1fr;
+    }
+    .deep-scan-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .slide-seq-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

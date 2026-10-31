@@ -1,0 +1,635 @@
+---
+import Arrow from '../Arrow.astro';
+
+const mindMapNodes = [
+  {
+    id: 'hook',
+    phase: 'Phase 1: The Thesis',
+    name: 'Purpose & Thesis',
+    category: 'Context',
+    question: 'What is your one-sentence reason for existing?',
+    sequoiaRule: 'Communicate a durable company mission in 10 words or fewer, not a list of software features.',
+    ycRule: 'Kevin Hale rule: Explain what you do so simply that an eighth-grader understands the commercial premise instantly.',
+    fatalMistake: 'Jargon salad and buzzwords ("AI-powered cloud platform") that mask an ambiguous value proposition.',
+    docsendTime: '33 seconds avg attention'
+  },
+  {
+    id: 'problem',
+    phase: 'Phase 1: The Thesis',
+    name: 'Acute Problem & Pain',
+    category: 'Tension',
+    question: 'What is broken, and what is the cost of inaction?',
+    sequoiaRule: 'Detail the current workaround. If customers are not hacking together messy spreadsheets or losing money, the pain is not acute enough.',
+    ycRule: 'State the problem without industry jargon. Frame it through real human frustration or direct balance sheet leakage.',
+    fatalMistake: 'Inventing an imaginary problem or presenting a "nice-to-have" vitamin instead of a mission-critical painkiller.',
+    docsendTime: '41 seconds avg attention'
+  },
+  {
+    id: 'why-now',
+    phase: 'Phase 1: The Thesis',
+    name: 'The "Why Now?" Inflection',
+    category: 'Catalyst',
+    question: 'Why wasn’t this built 5 years ago, and why can’t it wait 2 years?',
+    sequoiaRule: 'Identify the structural catalyst: an API emergence, regulatory mandate, or irreversible behavioral shift.',
+    ycRule: 'Prove the window of opportunity is wide open right now, but will slam shut for late entrants.',
+    fatalMistake: 'Claiming "cloud and mobile adoption" without pointing to a specific 12-to-18-month technology inflection.',
+    docsendTime: '36 seconds avg attention'
+  },
+  {
+    id: 'solution',
+    phase: 'Phase 2: The Invention',
+    name: 'The Solution & Secret',
+    category: 'Product',
+    question: 'What is your asymmetric advantage?',
+    sequoiaRule: 'Present the eureka moment and show visual proof of the solution directly neutralizing the problem.',
+    ycRule: 'Focus strictly on concrete user outcome: 10x faster, 80% cheaper, or generating net new revenue.',
+    fatalMistake: 'Showing 15 screenshots of a generic dashboard instead of the single core workflow that creates magic.',
+    docsendTime: '77 seconds avg attention (High scrutiny)'
+  },
+  {
+    id: 'tam',
+    phase: 'Phase 2: The Invention',
+    name: 'Market Size & Bottom-Up TAM',
+    category: 'Opportunity',
+    question: 'How big is the prize if you win the beachhead?',
+    sequoiaRule: 'Strictly bottom-up calculation: Number of realistic target buyers multiplied by realistic ACV. Never top-down Gartner slices.',
+    ycRule: 'Target an initial fast-growing niche you can monopolize before expanding into adjacent multi-billion dollar categories.',
+    fatalMistake: 'Quoting "the global healthcare market is $4 trillion, and if we get 1% we make $40B". VCs disqualify this immediately.',
+    docsendTime: '32 seconds avg attention'
+  },
+  {
+    id: 'business-model',
+    phase: 'Phase 3: The Engine',
+    name: 'Business Model & Payback',
+    category: 'Economics',
+    question: 'How do the unit economics compound?',
+    sequoiaRule: 'Clarify gross margins, target ACV, and the customer acquisition channel mechanics.',
+    ycRule: 'Pick one transparent monetization model and own it. Avoid speculative secondary revenue streams.',
+    fatalMistake: 'Concealing churn, hiding high cost of goods, or projecting CAC payback longer than 18 months.',
+    docsendTime: '83 seconds avg attention (Highest scrutiny)'
+  },
+  {
+    id: 'traction',
+    phase: 'Phase 3: The Engine',
+    name: 'Traction Velocity & Proof',
+    category: 'Evidence',
+    question: 'What have you accomplished per unit of time and capital?',
+    sequoiaRule: 'Chart execution slope over time. Milestone acceleration signals compounding organizational capability.',
+    ycRule: 'Show week-over-week or month-over-month active usage growth. If pre-revenue, prove signed LOIs or pilot velocity.',
+    fatalMistake: 'Cumulative vanity metrics (e.g. "total registered signups since 2022") that hide flatlined daily engagement.',
+    docsendTime: '64 seconds avg attention'
+  },
+  {
+    id: 'competition',
+    phase: 'Phase 4: The Defense',
+    name: 'Defensible Moat & Rivals',
+    category: 'Moat',
+    question: 'Why won’t incumbents crush you?',
+    sequoiaRule: 'Proactively map direct and indirect incumbents. Define your defensibility: proprietary data, switching costs, or network density.',
+    ycRule: 'Don’t use a lazy 2x2 matrix where you have every checkmark and competitors have none. Be honest about trade-offs.',
+    fatalMistake: 'Saying "we have no competitors". Investors interpret this as either extreme ignorance or no commercial market.',
+    docsendTime: '24 seconds avg attention (Absence is a red flag)'
+  },
+  {
+    id: 'the-ask',
+    phase: 'Phase 4: The Defense',
+    name: 'Team & Capital Milestones',
+    category: 'Execution',
+    question: 'What specific milestones will this capital achieve?',
+    sequoiaRule: 'Link use of funds directly to tangible milestones: "This $3M provides 18 months to reach $1.5M ARR and Series A readiness".',
+    ycRule: 'Only showcase founding builders and their unique unfair domain edge. Remove non-operational advisors and vanity logos.',
+    fatalMistake: 'Asking for capital for "marketing and general corporate purposes" without a milestone-driven 18-month roadmap.',
+    docsendTime: '48 seconds avg attention'
+  }
+];
+---
+
+<div class="pitch-mindmap-component">
+  <div class="mindmap-header">
+    <div>
+      <h3>The Universal Pitch Deck Mind Map</h3>
+      <p>Click any node in the narrative sequence to inspect investor psychological expectations, VC rules, and fatal pitfalls.</p>
+    </div>
+    <div class="mindmap-meta">
+      <span class="meta-label">Structural standards</span>
+      <strong>4 Narrative Phases · 9 Core Nodes</strong>
+    </div>
+  </div>
+
+  <div class="mindmap-workspace">
+    <!-- Visual Node Canvas -->
+    <div class="mindmap-canvas" role="tablist" aria-label="Pitch Deck Slide Flow">
+      <div class="canvas-phase-track">
+        <div class="phase-group">
+          <span class="phase-badge">Phase 1: Thesis</span>
+          <div class="phase-nodes">
+            {mindMapNodes.slice(0, 3).map((node, index) => (
+              <button 
+                class:list={['map-node-btn', { active: index === 0 }]} 
+                data-node-id={node.id}
+                role="tab"
+                aria-selected={index === 0}
+                aria-controls="node-detail-panel"
+                id={`tab-${node.id}`}
+              >
+                <span class="node-tag">{node.category}</span>
+                <strong class="node-name">{node.name}</strong>
+                <span class="node-sub">{node.docsendTime}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div class="canvas-connector" aria-hidden="true">
+          <svg width="24" height="60" viewBox="0 0 24 60" fill="none"><path d="M12 0v60M6 50l6 10 6-10" stroke="var(--accent)" stroke-width="1.5"/></svg>
+        </div>
+
+        <div class="phase-group">
+          <span class="phase-badge">Phase 2: Invention</span>
+          <div class="phase-nodes">
+            {mindMapNodes.slice(3, 5).map(node => (
+              <button 
+                class="map-node-btn" 
+                data-node-id={node.id}
+                role="tab"
+                aria-selected="false"
+                aria-controls="node-detail-panel"
+                id={`tab-${node.id}`}
+              >
+                <span class="node-tag">{node.category}</span>
+                <strong class="node-name">{node.name}</strong>
+                <span class="node-sub">{node.docsendTime}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div class="canvas-connector" aria-hidden="true">
+          <svg width="24" height="60" viewBox="0 0 24 60" fill="none"><path d="M12 0v60M6 50l6 10 6-10" stroke="var(--accent)" stroke-width="1.5"/></svg>
+        </div>
+
+        <div class="phase-group">
+          <span class="phase-badge">Phase 3: Economic Engine</span>
+          <div class="phase-nodes">
+            {mindMapNodes.slice(5, 7).map(node => (
+              <button 
+                class="map-node-btn" 
+                data-node-id={node.id}
+                role="tab"
+                aria-selected="false"
+                aria-controls="node-detail-panel"
+                id={`tab-${node.id}`}
+              >
+                <span class="node-tag">{node.category}</span>
+                <strong class="node-name">{node.name}</strong>
+                <span class="node-sub">{node.docsendTime}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div class="canvas-connector" aria-hidden="true">
+          <svg width="24" height="60" viewBox="0 0 24 60" fill="none"><path d="M12 0v60M6 50l6 10 6-10" stroke="var(--accent)" stroke-width="1.5"/></svg>
+        </div>
+
+        <div class="phase-group">
+          <span class="phase-badge">Phase 4: Defensibility & Ask</span>
+          <div class="phase-nodes">
+            {mindMapNodes.slice(7, 9).map(node => (
+              <button 
+                class="map-node-btn" 
+                data-node-id={node.id}
+                role="tab"
+                aria-selected="false"
+                aria-controls="node-detail-panel"
+                id={`tab-${node.id}`}
+              >
+                <span class="node-tag">{node.category}</span>
+                <strong class="node-name">{node.name}</strong>
+                <span class="node-sub">{node.docsendTime}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Node Deep Scan Panel -->
+    <div class="node-detail-panel" id="node-detail-panel" role="tabpanel" data-ui aria-labelledby="tab-hook">
+      <div class="detail-header">
+        <span class="detail-phase" id="disp-node-phase">{mindMapNodes[0].phase}</span>
+        <h4 id="disp-node-name">{mindMapNodes[0].name}</h4>
+        <p class="detail-question" id="disp-node-question">{mindMapNodes[0].question}</p>
+      </div>
+
+      <div class="detail-body">
+        <div class="rule-block sequoia">
+          <div class="rule-title">
+            <span>Sequoia Capital Lens</span>
+          </div>
+          <p id="disp-node-sequoia">{mindMapNodes[0].sequoiaRule}</p>
+        </div>
+
+        <div class="rule-block yc">
+          <div class="rule-title">
+            <span>Y Combinator Lens</span>
+          </div>
+          <p id="disp-node-yc">{mindMapNodes[0].ycRule}</p>
+        </div>
+
+        <div class="rule-block fatal">
+          <div class="rule-title">
+            <span>Fatal Rejection Trap</span>
+          </div>
+          <p id="disp-node-fatal">{mindMapNodes[0].fatalMistake}</p>
+        </div>
+      </div>
+
+      <div class="detail-footer">
+        <span class="attention-stat" id="disp-node-time">{mindMapNodes[0].docsendTime}</span>
+        <a href="/pitch-deck/6-slides-core-structure" class="node-read-link">Read framework guide <Arrow diagonal /></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const nodeData = [
+    {
+      id: 'hook',
+      phase: 'Phase 1: The Thesis',
+      name: 'Purpose & Thesis',
+      question: 'What is your one-sentence reason for existing?',
+      sequoiaRule: 'Communicate a durable company mission in 10 words or fewer, not a list of software features.',
+      ycRule: 'Kevin Hale rule: Explain what you do so simply that an eighth-grader understands the commercial premise instantly.',
+      fatalMistake: 'Jargon salad and buzzwords ("AI-powered cloud platform") that mask an ambiguous value proposition.',
+      docsendTime: '33 seconds avg attention'
+    },
+    {
+      id: 'problem',
+      phase: 'Phase 1: The Thesis',
+      name: 'Acute Problem & Pain',
+      question: 'What is broken, and what is the cost of inaction?',
+      sequoiaRule: 'Detail the current workaround. If customers are not hacking together messy spreadsheets or losing money, the pain is not acute enough.',
+      ycRule: 'State the problem without industry jargon. Frame it through real human frustration or direct balance sheet leakage.',
+      fatalMistake: 'Inventing an imaginary problem or presenting a "nice-to-have" vitamin instead of a mission-critical painkiller.',
+      docsendTime: '41 seconds avg attention'
+    },
+    {
+      id: 'why-now',
+      phase: 'Phase 1: The Thesis',
+      name: 'The "Why Now?" Inflection',
+      question: 'Why wasn’t this built 5 years ago, and why can’t it wait 2 years?',
+      sequoiaRule: 'Identify the structural catalyst: an API emergence, regulatory mandate, or irreversible behavioral shift.',
+      ycRule: 'Prove the window of opportunity is wide open right now, but will slam shut for late entrants.',
+      fatalMistake: 'Claiming "cloud and mobile adoption" without pointing to a specific 12-to-18-month technology inflection.',
+      docsendTime: '36 seconds avg attention'
+    },
+    {
+      id: 'solution',
+      phase: 'Phase 2: The Invention',
+      name: 'The Solution & Secret',
+      question: 'What is your asymmetric advantage?',
+      sequoiaRule: 'Present the eureka moment and show visual proof of the solution directly neutralizing the problem.',
+      ycRule: 'Focus strictly on concrete user outcome: 10x faster, 80% cheaper, or generating net new revenue.',
+      fatalMistake: 'Showing 15 screenshots of a generic dashboard instead of the single core workflow that creates magic.',
+      docsendTime: '77 seconds avg attention (High scrutiny)'
+    },
+    {
+      id: 'tam',
+      phase: 'Phase 2: The Invention',
+      name: 'Market Size & Bottom-Up TAM',
+      question: 'How big is the prize if you win the beachhead?',
+      sequoiaRule: 'Strictly bottom-up calculation: Number of realistic target buyers multiplied by realistic ACV. Never top-down Gartner slices.',
+      ycRule: 'Target an initial fast-growing niche you can monopolize before expanding into adjacent multi-billion dollar categories.',
+      fatalMistake: 'Quoting "the global healthcare market is $4 trillion, and if we get 1% we make $40B". VCs disqualify this immediately.',
+      docsendTime: '32 seconds avg attention'
+    },
+    {
+      id: 'business-model',
+      phase: 'Phase 3: The Engine',
+      name: 'Business Model & Payback',
+      question: 'How do the unit economics compound?',
+      sequoiaRule: 'Clarify gross margins, target ACV, and the customer acquisition channel mechanics.',
+      ycRule: 'Pick one transparent monetization model and own it. Avoid speculative secondary revenue streams.',
+      fatalMistake: 'Concealing churn, hiding high cost of goods, or projecting CAC payback longer than 18 months.',
+      docsendTime: '83 seconds avg attention (Highest scrutiny)'
+    },
+    {
+      id: 'traction',
+      phase: 'Phase 3: The Engine',
+      name: 'Traction Velocity & Proof',
+      question: 'What have you accomplished per unit of time and capital?',
+      sequoiaRule: 'Chart execution slope over time. Milestone acceleration signals compounding organizational capability.',
+      ycRule: 'Show week-over-week or month-over-month active usage growth. If pre-revenue, prove signed LOIs or pilot velocity.',
+      fatalMistake: 'Cumulative vanity metrics (e.g. "total registered signups since 2022") that hide flatlined daily engagement.',
+      docsendTime: '64 seconds avg attention'
+    },
+    {
+      id: 'competition',
+      phase: 'Phase 4: The Defense',
+      name: 'Defensible Moat & Rivals',
+      question: 'Why won’t incumbents crush you?',
+      sequoiaRule: 'Proactively map direct and indirect incumbents. Define your defensibility: proprietary data, switching costs, or network density.',
+      ycRule: 'Don’t use a lazy 2x2 matrix where you have every checkmark and competitors have none. Be honest about trade-offs.',
+      fatalMistake: 'Saying "we have no competitors". Investors interpret this as either extreme ignorance or no commercial market.',
+      docsendTime: '24 seconds avg attention (Absence is a red flag)'
+    },
+    {
+      id: 'the-ask',
+      phase: 'Phase 4: The Defense',
+      name: 'Team & Capital Milestones',
+      question: 'What specific milestones will this capital achieve?',
+      sequoiaRule: 'Link use of funds directly to tangible milestones: "This $3M provides 18 months to reach $1.5M ARR and Series A readiness".',
+      ycRule: 'Only showcase founding builders and their unique unfair domain edge. Remove non-operational advisors and vanity logos.',
+      fatalMistake: 'Asking for capital for "marketing and general corporate purposes" without a milestone-driven 18-month roadmap.',
+      docsendTime: '48 seconds avg attention'
+    }
+  ];
+
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.map-node-btn');
+  const panel = document.getElementById('node-detail-panel');
+  const dispPhase = document.getElementById('disp-node-phase');
+  const dispName = document.getElementById('disp-node-name');
+  const dispQuestion = document.getElementById('disp-node-question');
+  const dispSequoia = document.getElementById('disp-node-sequoia');
+  const dispYc = document.getElementById('disp-node-yc');
+  const dispFatal = document.getElementById('disp-node-fatal');
+  const dispTime = document.getElementById('disp-node-time');
+
+  function selectNode(id: string) {
+    const item = nodeData.find(n => n.id === id);
+    if (!item) return;
+
+    buttons.forEach(btn => {
+      const match = btn.getAttribute('data-node-id') === id;
+      btn.classList.toggle('active', match);
+      btn.setAttribute('aria-selected', String(match));
+      btn.tabIndex = match ? 0 : -1;
+    });
+
+    if (panel) panel.setAttribute('aria-labelledby', `tab-${id}`);
+    if (dispPhase) dispPhase.textContent = item.phase;
+    if (dispName) dispName.textContent = item.name;
+    if (dispQuestion) dispQuestion.textContent = item.question;
+    if (dispSequoia) dispSequoia.textContent = item.sequoiaRule;
+    if (dispYc) dispYc.textContent = item.ycRule;
+    if (dispFatal) dispFatal.textContent = item.fatalMistake;
+    if (dispTime) dispTime.textContent = item.docsendTime;
+  }
+
+  buttons.forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-node-id');
+      if (id) selectNode(id);
+    });
+
+    btn.addEventListener('keydown', (e) => {
+      let nextIdx = idx;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextIdx = (idx + 1) % buttons.length;
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') nextIdx = (idx + buttons.length - 1) % buttons.length;
+      else if (e.key === 'Home') nextIdx = 0;
+      else if (e.key === 'End') nextIdx = buttons.length - 1;
+      else return;
+
+      e.preventDefault();
+      const nextBtn = buttons[nextIdx];
+      const nextId = nextBtn.getAttribute('data-node-id');
+      if (nextId) {
+        selectNode(nextId);
+        nextBtn.focus();
+      }
+    });
+  });
+</script>
+
+<style>
+  .pitch-mindmap-component {
+    background: var(--bg-raised);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    margin-block: 48px;
+    color: var(--fg);
+  }
+  .mindmap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    padding-bottom: 24px;
+  }
+  .mindmap-kicker {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .mindmap-header h3 {
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .mindmap-header p {
+    font-size: 15px;
+    color: var(--fg-2);
+    max-width: 60ch;
+    line-height: 1.5;
+  }
+  .mindmap-meta {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .meta-label {
+    font-size: 13px;
+    color: var(--fg-3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .mindmap-meta strong {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--fg);
+  }
+
+  .mindmap-workspace {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 32px;
+    padding-top: 32px;
+    min-height: 520px;
+  }
+
+  .mindmap-canvas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .canvas-phase-track {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .phase-group {
+    background: #141615;
+    padding: 16px;
+    border-radius: var(--radius-sm);
+  }
+  .phase-badge {
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .phase-nodes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+  }
+  .map-node-btn {
+    background: var(--bg-raised);
+    border: 0;
+    padding: 12px 14px;
+    border-radius: var(--radius-xs);
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: background 0.18s, color 0.18s, transform 0.18s;
+  }
+  .map-node-btn:hover {
+    background: #242926;
+    transform: translateY(-1px);
+  }
+  .map-node-btn.active {
+    background: #272d2a;
+    color: var(--fg);
+  }
+  .node-tag {
+    font-size: 13px;
+    color: var(--fg-3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .node-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--fg);
+    line-height: 1.3;
+  }
+  .node-sub {
+    font-size: 13px;
+    color: var(--fg-3);
+    font-variant-numeric: tabular-nums;
+  }
+  .canvas-connector {
+    display: grid;
+    place-items: center;
+    opacity: 0.7;
+    margin-block: -4px;
+  }
+
+  .node-detail-panel {
+    background: #141615;
+    border-radius: var(--radius-sm);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .detail-header {
+    padding-bottom: 20px;
+  }
+  .detail-phase {
+    font-size: 13px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+  .detail-header h4 {
+    font-size: 24px;
+    letter-spacing: -0.02em;
+    margin-block: 6px 8px;
+    color: var(--fg);
+  }
+  .detail-question {
+    font-size: 15px;
+    color: var(--fg-2);
+    font-style: italic;
+    line-height: 1.45;
+  }
+
+  .detail-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-block: 20px;
+  }
+  .rule-block {
+    background: var(--bg-raised);
+    padding: 16px;
+    border-radius: var(--radius-xs);
+  }
+  .rule-title span {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .rule-block.sequoia .rule-title span { color: #8fa68e; }
+  .rule-block.yc .rule-title span { color: #dcd9d0; }
+  .rule-block.fatal .rule-title span { color: #e28a7e; }
+
+  .rule-block p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--fg-2);
+  }
+
+  .detail-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 18px;
+  }
+  .attention-stat {
+    font-size: 13px;
+    color: var(--fg-3);
+    font-variant-numeric: tabular-nums;
+  }
+  .node-read-link {
+    font-size: 13px;
+    color: var(--fg);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    transition: color 0.18s;
+  }
+  .node-read-link:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 960px) {
+    .mindmap-workspace {
+      grid-template-columns: 1fr;
+    }
+    .mindmap-header {
+      flex-direction: column;
+      gap: 16px;
+    }
+    .mindmap-meta {
+      text-align: left;
+    }
+  }
+</style>

@@ -44,6 +44,16 @@
   margin-top: 24px;
   font-size: 13px;
 }
+.library-quick-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  margin-top: 24px;
+}
+.library-quick-jump .text-link {
+  margin-top: 0;
+  font-size: 13px;
+}
 
 .framework-directory {
   padding-top: 40px;
