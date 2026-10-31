@@ -1,9 +1,9 @@
 ---
 import BrandMark from '../BrandMark.astro';
 ---
-<figure class="orbit-figure" aria-label="Interactive Andromeda orbital model connecting operations, commerce, and capital" data-ui>
+<figure class="orbit-figure" aria-label="Interactive Andromeda orbital model connecting narrative architecture, venture telemetry, and investor syndication" data-ui>
   <div class="orbit-caption">
-    <span>ORBITAL OBSERVATORY</span>
+    <span>PITCH DECK OBSERVATORY</span>
     <span class="orbit-live-badge">TELEMETRY ACTIVE</span>
   </div>
   <div class="orbit-drawing">
@@ -21,27 +21,27 @@ import BrandMark from '../BrandMark.astro';
       <g stroke="currentColor" stroke-width="1.2">
         <circle cx="280" cy="265" r="190" opacity="0.2" stroke-dasharray="3 6" />
         <circle cx="280" cy="265" r="130" opacity="0.25" />
-        <ellipse id="orbit-ops" class="orbit-path active" cx="280" cy="265" rx="220" ry="85" transform="rotate(-36 280 265)" opacity="0.6" stroke="var(--accent)" />
-        <ellipse id="orbit-com" class="orbit-path" cx="280" cy="265" rx="220" ry="85" transform="rotate(36 280 265)" opacity="0.3" stroke="currentColor" />
-        <ellipse id="orbit-cap" class="orbit-path" cx="280" cy="265" rx="200" ry="110" transform="rotate(90 280 265)" opacity="0.3" stroke="currentColor" />
+        <ellipse id="orbit-nar" class="orbit-path active" cx="280" cy="265" rx="220" ry="85" transform="rotate(-36 280 265)" opacity="0.6" stroke="var(--accent)" />
+        <ellipse id="orbit-tel" class="orbit-path" cx="280" cy="265" rx="220" ry="85" transform="rotate(36 280 265)" opacity="0.3" stroke="currentColor" />
+        <ellipse id="orbit-syn" class="orbit-path" cx="280" cy="265" rx="200" ry="110" transform="rotate(90 280 265)" opacity="0.3" stroke="currentColor" />
       </g>
 
       <!-- Nodes -->
       <g class="orbit-nodes">
-        <g class="node-group" data-realm="operations" tabindex="0" role="button" aria-label="View Operations Realm">
+        <g class="node-group" data-realm="narrative" tabindex="0" role="button" aria-label="View Narrative Architecture">
           <circle cx="140" cy="150" r="14" fill="var(--bg-elevated)" stroke="var(--accent)" stroke-width="2" />
           <circle cx="140" cy="150" r="5" fill="var(--accent)" />
-          <text x="140" y="125" text-anchor="middle" fill="var(--fg)" font-size="13" font-weight="500">Operations</text>
+          <text x="140" y="125" text-anchor="middle" fill="var(--fg)" font-size="13" font-weight="500">Narrative</text>
         </g>
-        <g class="node-group" data-realm="commerce" tabindex="0" role="button" aria-label="View Commerce Realm">
+        <g class="node-group" data-realm="telemetry" tabindex="0" role="button" aria-label="View Venture Telemetry">
           <circle cx="450" cy="330" r="14" fill="var(--bg-elevated)" stroke="currentColor" stroke-width="1.5" opacity="0.85" />
           <circle cx="450" cy="330" r="5" fill="currentColor" />
-          <text x="450" y="362" text-anchor="middle" fill="var(--fg)" font-size="13" font-weight="500">Commerce</text>
+          <text x="450" y="362" text-anchor="middle" fill="var(--fg)" font-size="13" font-weight="500">Telemetry</text>
         </g>
-        <g class="node-group" data-realm="capital" tabindex="0" role="button" aria-label="View Capital Realm">
+        <g class="node-group" data-realm="syndicate" tabindex="0" role="button" aria-label="View Investor Syndicate">
           <circle cx="210" cy="430" r="14" fill="var(--bg-elevated)" stroke="currentColor" stroke-width="1.5" opacity="0.85" />
           <circle cx="210" cy="430" r="5" fill="currentColor" />
-          <text x="210" y="462" text-anchor="middle" fill="var(--fg)" font-size="13" font-weight="500">Capital</text>
+          <text x="210" y="462" text-anchor="middle" fill="var(--fg)" font-size="13" font-weight="500">Syndicate</text>
         </g>
       </g>
     </svg>
@@ -51,9 +51,9 @@ import BrandMark from '../BrandMark.astro';
     </div>
 
     <div class="orbit-telemetry-pill" id="orbit-status-display">
-      <span class="telemetry-label">Active Node</span>
-      <strong id="telemetry-node-name">Operations Core</strong>
-      <span class="telemetry-sub" id="telemetry-node-desc">Workflows, owners, and milestones aligned</span>
+      <span class="telemetry-label">Active Engine</span>
+      <strong id="telemetry-node-name">Narrative Architecture</strong>
+      <span class="telemetry-sub" id="telemetry-node-desc">Storyline, problem urgency, and defensible moat</span>
     </div>
   </div>
 
@@ -68,14 +68,14 @@ import BrandMark from '../BrandMark.astro';
   const nameEl = document.getElementById('telemetry-node-name');
   const descEl = document.getElementById('telemetry-node-desc');
   const paths: Record<string, string> = {
-    operations: 'orbit-ops',
-    commerce: 'orbit-com',
-    capital: 'orbit-cap'
+    narrative: 'orbit-nar',
+    telemetry: 'orbit-tel',
+    syndicate: 'orbit-syn'
   };
   const data: Record<string, { name: string; desc: string }> = {
-    operations: { name: 'Operations Core', desc: 'Workflows, owners, and milestones aligned' },
-    commerce: { name: 'Commerce Network', desc: 'Enterprise suppliers and active distribution routes' },
-    capital: { name: 'Capital Syndicate', desc: '12 pitch frameworks ready for investor scrutiny' }
+    narrative: { name: 'Narrative Architecture', desc: 'Storyline, problem urgency, and defensible moat' },
+    telemetry: { name: 'Venture Telemetry', desc: 'Verified ARR, unit economics, and growth metrics' },
+    syndicate: { name: 'Investor Syndicate', desc: 'Deal room tracking, slide heatmaps, and partner review' }
   };
 
   function activateRealm(realm: string) {

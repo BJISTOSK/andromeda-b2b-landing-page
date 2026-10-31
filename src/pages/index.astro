@@ -7,23 +7,23 @@ import '../styles/home.css';
 
 const realms = [
   { 
-    title: 'Operations', 
-    summary: 'The execution layer.', 
-    detail: 'Give every active workflow an owner, an SLA, and a visible place in your operational trajectory.',
+    title: 'Narrative Architecture', 
+    summary: 'The storyline layer.', 
+    detail: 'Structure your problem, solution, and market urgency around the frameworks top venture partners expect to see.',
     image: '/images/1750-star-chart-of-the-constellations-libra.jpg',
     imageAlt: 'Archival celestial atlas coordinates and star chart from 1750'
   },
   { 
-    title: 'Commerce', 
-    summary: 'The network layer.', 
-    detail: 'Turn enterprise supplier and distributor agreements into live, trackable commercial channels.',
+    title: 'Venture Telemetry', 
+    summary: 'The evidence layer.', 
+    detail: 'Back every claim with defensible unit economics, growth velocity, and verified traction metrics that withstand diligence.',
     image: '/images/kitt-peak-national-observatory-beneath-star-trails.jpg',
     imageAlt: 'Observatory beneath long exposure star trails showing connected paths'
   },
   { 
-    title: 'Capital', 
-    summary: 'The syndication layer.', 
-    detail: 'Equip your leadership with 12 structured venture frameworks, from seed narrative to partner review.',
+    title: 'Investor Syndication', 
+    summary: 'The distribution layer.', 
+    detail: 'Share secure, interactive pitch decks, monitor slide-by-slide engagement, and identify high-conviction partners.',
     image: '/images/the-wonderful-universe-explorer-the-great-36.jpg',
     imageAlt: '1902 archival photograph of the Great Equatorial Telescope at Lick Observatory'
   },
@@ -54,26 +54,26 @@ const featuredFrameworks = [
 ];
 ---
 <Layout 
-  title="Andromeda — Bring it all into orbit" 
-  description="Connected operations, commercial networks, and venture capital resources in one continuous operating layer." 
+  title="Andromeda — The Pitch Deck Operating System" 
+  description="The operating system that guides founders from raw concept to an investor-ready pitch deck with proven frameworks and live venture telemetry." 
   activePage="home"
 >
   <section class="home-hero container" aria-labelledby="hero-title">
     <div class="hero-topline">
-      <span class="hero-status">Autonomous B2B Operating Fabric</span>
-      <span class="hero-region">Operations · Commerce · Capital</span>
+      <span class="hero-status">The Pitch Deck Operating System</span>
+      <span class="hero-region">Narrative · Telemetry · Syndicate</span>
     </div>
 
     <div class="hero-grid">
       <div class="hero-copy">
-        <h1 id="hero-title">Bring it all into orbit.</h1>
-        <p>Your work, your commercial relationships, and your next strategic move. A connected operating layer for modern enterprise.</p>
+        <h1 id="hero-title">Bring your pitch into orbit.</h1>
+        <p>The Pitch Deck Operating System that guides founders from blank canvas to investor-ready narrative with battle-tested frameworks and live telemetry.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#workspace">Explore the platform <Arrow diagonal /></a>
           <a class="text-link" href="/pitch-deck">Pitch deck library <Arrow /></a>
         </div>
         <div class="hero-quote">
-          <p>Structured for businesses that require precision and transparency across every department.</p>
+          <p>Engineered for founders who require narrative precision and verifiable proof for every slide.</p>
         </div>
       </div>
       <OrbitDiagram />
@@ -92,7 +92,7 @@ const featuredFrameworks = [
         height="560" 
       />
       <div class="plate-caption">
-        <span>Archival astronomical plate of M31 (Andromeda). Two million light-years of connected matter in equilibrium.</span>
+        <span>Archival astronomical plate of M31 (Andromeda). Great venture stories bring complex market forces into clear alignment.</span>
       </div>
     </div>
   </section>
@@ -100,8 +100,8 @@ const featuredFrameworks = [
   <!-- Approach / The Three Connected Realms -->
   <section id="approach" class="approach-section container" aria-labelledby="approach-title">
     <div class="approach-intro">
-      <h2 id="approach-title">Good things happen when things connect.</h2>
-      <p>Independent systems create blind spots. Andromeda links execution, distribution, and venture milestones into a continuous operating loop.</p>
+      <h2 id="approach-title">Three pillars of an undeniable pitch.</h2>
+      <p>A winning deck is not a graphic design exercise. Andromeda links your narrative architecture, verified telemetry, and investor pipeline into one continuous operating loop.</p>
     </div>
     <div class="realms-list">
       {realms.map(realm => (
@@ -110,7 +110,7 @@ const featuredFrameworks = [
             <img 
               src={realm.image} 
               alt={realm.imageAlt} 
-              loading="lazy" 
+              loading="eager" 
               width="640" 
               height="400" 
               class="realm-image"
@@ -135,8 +135,8 @@ const featuredFrameworks = [
   <section class="library-highlight container" aria-labelledby="library-showcase-title">
     <div class="heading-split">
       <div>
-        <h2 id="library-showcase-title">Big ideas, articulated with clarity.</h2>
-        <p>Behind every resilient enterprise is a story worth backing. Twelve battle-tested pitch frameworks unpacked and ready to put to work.</p>
+        <h2 id="library-showcase-title">Built on 12 battle-tested frameworks.</h2>
+        <p>Every deck created in Andromeda is powered by the foundational structures of Sequoia Capital, Y Combinator, and leading venture firms.</p>
       </div>
       <div>
         <a href="/pitch-deck" class="text-link">Explore all 12 frameworks <Arrow diagonal /></a>
@@ -167,21 +167,21 @@ const featuredFrameworks = [
   <section id="explore" class="explore-section" aria-labelledby="explore-title">
     <div class="container explore-inner">
       <div class="explore-copy">
-        <h2 id="explore-title">Make room for your next chapter.</h2>
-        <p>Whether orchestrating complex vendor routes or preparing your leadership team for an institutional fundraise, bring every moving part into focus.</p>
+        <h2 id="explore-title">Make room for your next round.</h2>
+        <p>Whether preparing for your seed round or leading an institutional Series A, build a pitch deck that withstands diligence and commands conviction.</p>
       </div>
       <div class="explore-actions">
         <a href="#workspace" class="explore-action-item">
           <div class="action-text-group">
-            <span class="action-aud">For operators</span>
-            <strong class="action-heading">Explore platform capabilities</strong>
+            <span class="action-aud">For founders</span>
+            <strong class="action-heading">Launch Pitch Deck OS</strong>
           </div>
           <Arrow diagonal />
         </a>
         <a href="/pitch-deck" class="explore-action-item">
           <div class="action-text-group">
             <span class="action-aud">For founders</span>
-            <strong class="action-heading">Study the pitch library</strong>
+            <strong class="action-heading">Study the 12 frameworks</strong>
           </div>
           <Arrow diagonal />
         </a>

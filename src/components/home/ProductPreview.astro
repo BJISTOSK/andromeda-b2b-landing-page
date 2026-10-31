@@ -2,54 +2,55 @@
 import Arrow from '../Arrow.astro';
 const views = [
   { 
-    id: 'operations', 
-    label: 'Operations', 
-    title: 'Nothing falls between the cracks.', 
-    description: 'Give every moving part an owner, a next step, and a place in the bigger picture.', 
-    metric: '8', 
-    metricLabel: 'active workflows', 
-    secondary: '3', 
-    secondaryLabel: 'scheduled for review', 
-    columns: ['Workflow', 'Owner', 'Status', 'Next milestone'], 
+    id: 'builder', 
+    label: 'Deck Builder', 
+    title: 'Every slide has an undeniable purpose.', 
+    description: 'Structured narrative progression built on the 6-Slide Core, Sequoia, and YC standards.', 
+    metric: '10/12', 
+    metricLabel: 'slides completed', 
+    secondary: '94%', 
+    secondaryLabel: 'narrative readiness', 
+    columns: ['Slide & section', 'Framework standard', 'Status', 'Investor readiness'], 
     rows: [
-      ['Partner onboarding', 'Samira A.', 'In progress', 'Contract review'], 
-      ['Q4 procurement', 'Daniel K.', 'Needs review', 'Approve suppliers'], 
-      ['Customer handover', 'Leila M.', 'On track', 'Team introduction'], 
-      ['Monthly reporting', 'Alex R.', 'On track', 'Close & reconcile']
+      ['01. Problem & Urgency', 'Sequoia Capital', 'Complete', '10-second hook approved'], 
+      ['02. Solution & Secret', 'Y Combinator', 'Complete', 'Defensible moat validated'], 
+      ['03. Market Sizing (TAM)', '6-Slide Core', 'In progress', 'Bottom-up model synced'], 
+      ['04. Business Model & GTM', 'Venture Dissection', 'Needs review', 'Refine CAC/LTV payback'], 
+      ['05. Traction & Milestones', 'Data Room Sync', 'On track', 'Telemetry verified']
     ] 
   },
   { 
-    id: 'commerce', 
-    label: 'Commerce', 
-    title: 'Keep commercial velocity moving.', 
-    description: 'Follow each enterprise partner relationship from qualification to completed delivery.', 
-    metric: '12', 
-    metricLabel: 'open opportunities', 
-    secondary: '4', 
-    secondaryLabel: 'ready for follow-up', 
-    columns: ['Opportunity', 'Owner', 'Status', 'Next milestone'], 
+    id: 'telemetry', 
+    label: 'Venture Telemetry', 
+    title: 'Back your claims with defensible data.', 
+    description: 'Link live financial telemetry, cohort retention, and verified metrics directly into your slides.', 
+    metric: '$2.8M', 
+    metricLabel: 'annual recurring revenue', 
+    secondary: '3.4x', 
+    secondaryLabel: 'YoY growth velocity', 
+    columns: ['Venture metric', 'Verified benchmark', 'Status', 'Slide allocation'], 
     rows: [
-      ['Atlas distribution', 'Leila M.', 'In progress', 'Send proposal'], 
-      ['Northstar renewal', 'Daniel K.', 'Needs review', 'Review terms'], 
-      ['Studio partnership', 'Samira A.', 'On track', 'Discovery call'], 
-      ['Meridian expansion', 'Alex R.', 'On track', 'Confirm scope']
+      ['Annual Recurring Revenue', '$2.84M ARR (Live)', 'Complete', 'Slide 05 · Traction'], 
+      ['Net Revenue Retention', '124% NRR Cohort', 'Complete', 'Slide 05 · Expansion'], 
+      ['LTV / CAC Efficiency', '4.2x ratio benchmark', 'On track', 'Slide 04 · Unit Economics'], 
+      ['Gross Margin Profile', '82% SaaS Margin', 'Complete', 'Slide 04 · Financials']
     ] 
   },
   { 
-    id: 'capital', 
-    label: 'Capital', 
-    title: 'Make your investor story decisive.', 
-    description: 'Bring your fundraising syndicate into focus, from narrative synthesis to term sheet execution.', 
-    metric: '6', 
-    metricLabel: 'investor conversations', 
-    secondary: '2', 
-    secondaryLabel: 'partner meetings', 
-    columns: ['Fundraising milestone', 'Owner', 'Status', 'Next milestone'], 
+    id: 'dealroom', 
+    label: 'Deal Room & Analytics', 
+    title: 'Track partner attention in real time.', 
+    description: 'Know exactly which slides investors read, where they linger, and when conviction builds.', 
+    metric: '16', 
+    metricLabel: 'institutional reviews', 
+    secondary: '4m 18s', 
+    secondaryLabel: 'average deck engagement', 
+    columns: ['Venture firm', 'Partner contact', 'Status', 'Slide engagement'], 
     rows: [
-      ['Seed round narrative', 'Samira A.', 'In progress', 'Refine the story'], 
-      ['Investor shortlist', 'Leila M.', 'On track', 'Warm introductions'], 
-      ['Financial model', 'Daniel K.', 'Needs review', 'Validate assumptions'], 
-      ['Pitch deck structure', 'Alex R.', 'On track', 'Practice the pitch']
+      ['Sequoia Capital', 'Michael C.', 'Complete', '5m 40s · Re-read Slide 05'], 
+      ['Benchmark', 'Sarah T.', 'In progress', '4m 15s · Shared with team'], 
+      ['Founders Fund', 'David H.', 'On track', '6m 12s · Diligence unlocked'], 
+      ['Y Combinator Network', 'Jessica L.', 'Needs review', '3m 50s · Financials verified']
     ] 
   },
 ];
@@ -57,19 +58,19 @@ const views = [
 <section id="workspace" class="workspace-section" aria-labelledby="workspace-title">
   <div class="container">
     <div class="heading-split">
-      <h2 id="workspace-title">The whole picture.</h2>
-      <p>Connect your workflows, trading relationships, and strategic capital decisions in one continuous command layer.</p>
+      <h2 id="workspace-title">The Pitch Deck Workspace.</h2>
+      <p>Structure your narrative, verify your metrics, and track investor engagement in one continuous command layer.</p>
     </div>
 
     <div class="workspace-demo" data-ui>
       <div class="workspace-toolbar">
-        <span class="workspace-wordmark">andromeda / workspace</span>
-        <span class="sample-label">Interactive Platform Preview</span>
-        <span class="workspace-avatar" aria-hidden="true">AC</span>
+        <span class="workspace-wordmark">andromeda / pitch deck os</span>
+        <span class="sample-label">Interactive Deck OS Preview</span>
+        <span class="workspace-avatar" aria-hidden="true">OS</span>
       </div>
       <div class="workspace-body">
         <div class="workspace-sidebar">
-          <div class="workspace-company">Acme Enterprise <span>⌄</span></div>
+          <div class="workspace-company">Acme AI — Seed Round <span>⌄</span></div>
           <div role="tablist" aria-label="Workspace views" class="tab-container" aria-orientation="vertical">
             {views.map((view, index) => (
               <button 
@@ -87,8 +88,8 @@ const views = [
             ))}
           </div>
           <div class="sidebar-bottom">
-            <span class="sidebar-note">Connected Operations</span>
-            <p>Real-time routing across teams and venture syndicates.</p>
+            <span class="sidebar-note">Pitch Deck OS</span>
+            <p>Guided slide creation, verified financial telemetry, and live investor engagement.</p>
           </div>
         </div>
         <div class="workspace-panels">
@@ -141,7 +142,7 @@ const views = [
         </div>
       </div>
       <div class="workspace-bottom">
-        <span>One workspace. Three connected perspectives.</span>
+        <span>One workspace. From blank canvas to institutional conviction.</span>
         <span>Keyboard: Arrow keys switch views</span>
       </div>
     </div>
