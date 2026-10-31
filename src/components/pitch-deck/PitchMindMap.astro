@@ -1,613 +1,560 @@
 ---
 import Arrow from '../Arrow.astro';
 
-const mindMapNodes = [
+const coreSlides = [
   {
-    id: 'hook',
-    phase: 'Phase 1: The Thesis',
-    name: 'Purpose & Thesis',
-    category: 'Context',
-    question: 'What is your one-sentence reason for existing?',
-    sequoiaRule: 'Communicate a durable company mission in 10 words or fewer, not a list of software features.',
-    ycRule: 'Kevin Hale rule: Explain what you do so simply that an eighth-grader understands the commercial premise instantly.',
-    fatalMistake: 'Jargon salad and buzzwords ("AI-powered cloud platform") that mask an ambiguous value proposition.',
-    docsendTime: '33 seconds avg attention'
+    num: '1',
+    phase: 'Thesis',
+    name: 'Problem / Opportunity',
+    question: 'What is broken in the real world?',
+    subtitle: 'Market Urgency & Customer Pain',
+    rule: 'Define an acute, quantifiable pain point. Show the patchwork workarounds customers currently hack together and the financial leakage it causes.',
+    sequoiaBrief: 'Sequoia expects customer pain so acute that inaction has a clear, compounding cost. Avoid synthetic problems or speculative vitamins.',
+    ycBrief: 'Kevin Hale principle: State the problem without jargon. If an eighth-grader cannot understand the pain within 10 seconds, the framing is broken.',
+    fatalTrap: 'Presenting a "nice-to-have" tool rather than a mission-critical painkiller. If buyers are not losing money today, they will not pay tomorrow.',
+    timeMetric: '41s average partner review',
+    hotspot: 'Foundation'
   },
   {
-    id: 'problem',
-    phase: 'Phase 1: The Thesis',
-    name: 'Acute Problem & Pain',
-    category: 'Tension',
-    question: 'What is broken, and what is the cost of inaction?',
-    sequoiaRule: 'Detail the current workaround. If customers are not hacking together messy spreadsheets or losing money, the pain is not acute enough.',
-    ycRule: 'State the problem without industry jargon. Frame it through real human frustration or direct balance sheet leakage.',
-    fatalMistake: 'Inventing an imaginary problem or presenting a "nice-to-have" vitamin instead of a mission-critical painkiller.',
-    docsendTime: '41 seconds avg attention'
+    num: '2',
+    phase: 'Invention',
+    name: 'Solution & Value Prop',
+    question: 'How do you directly neutralize the pain?',
+    subtitle: 'The Asymmetric Wedge & Eureka Moment',
+    rule: 'Show the eureka moment. Demonstrate visual proof of the solution curing the established problem with outcome-focused evidence.',
+    sequoiaBrief: 'Focus on the structural breakthrough. Map the product architecture directly back to the pain points identified in Slide 1.',
+    ycBrief: 'Radical clarity: 10x faster, 80% cheaper, or generating net new revenue. Avoid sprawling feature lists; prove the core magic.',
+    fatalTrap: 'Showing 15 screenshots of a generic dashboard instead of the single proprietary workflow that creates undeniable value.',
+    timeMetric: '77s heavy investor scrutiny',
+    hotspot: 'High Scrutiny'
   },
   {
-    id: 'why-now',
-    phase: 'Phase 1: The Thesis',
-    name: 'The "Why Now?" Inflection',
-    category: 'Catalyst',
-    question: 'Why wasn’t this built 5 years ago, and why can’t it wait 2 years?',
-    sequoiaRule: 'Identify the structural catalyst: an API emergence, regulatory mandate, or irreversible behavioral shift.',
-    ycRule: 'Prove the window of opportunity is wide open right now, but will slam shut for late entrants.',
-    fatalMistake: 'Claiming "cloud and mobile adoption" without pointing to a specific 12-to-18-month technology inflection.',
-    docsendTime: '36 seconds avg attention'
+    num: '3',
+    phase: 'Engine',
+    name: 'Business Model & Unit Economics',
+    question: 'How do the economics scale and compound?',
+    subtitle: 'Pricing Engine & Gross Margins',
+    rule: 'Detail your pricing architecture, average contract value (ACV), payback period, and sustainable gross margin profile.',
+    sequoiaBrief: 'Prove that revenue scales non-linearly with headcount. Clarify sales velocity, customer payback cycles, and expansion potential.',
+    ycBrief: 'Pick one transparent monetization model and own it. Avoid speculative multi-sided monetization schemes before achieving $1M ARR.',
+    fatalTrap: 'Concealing churn, ignoring customer onboarding costs, or assuming enterprise deals close without an SDR team.',
+    timeMetric: '83s top investor scrutiny',
+    hotspot: 'Top Attention'
   },
   {
-    id: 'solution',
-    phase: 'Phase 2: The Invention',
-    name: 'The Solution & Secret',
-    category: 'Product',
-    question: 'What is your asymmetric advantage?',
-    sequoiaRule: 'Present the eureka moment and show visual proof of the solution directly neutralizing the problem.',
-    ycRule: 'Focus strictly on concrete user outcome: 10x faster, 80% cheaper, or generating net new revenue.',
-    fatalMistake: 'Showing 15 screenshots of a generic dashboard instead of the single core workflow that creates magic.',
-    docsendTime: '77 seconds avg attention (High scrutiny)'
-  },
-  {
-    id: 'tam',
-    phase: 'Phase 2: The Invention',
-    name: 'Market Size & Bottom-Up TAM',
-    category: 'Opportunity',
+    num: '4',
+    phase: 'Opportunity',
+    name: 'Market Sizing & Bottom-Up TAM',
     question: 'How big is the prize if you win the beachhead?',
-    sequoiaRule: 'Strictly bottom-up calculation: Number of realistic target buyers multiplied by realistic ACV. Never top-down Gartner slices.',
-    ycRule: 'Target an initial fast-growing niche you can monopolize before expanding into adjacent multi-billion dollar categories.',
-    fatalMistake: 'Quoting "the global healthcare market is $4 trillion, and if we get 1% we make $40B". VCs disqualify this immediately.',
-    docsendTime: '32 seconds avg attention'
+    subtitle: 'Defensible Bottom-Up Math',
+    rule: 'Calculate target market size from the bottom up: actual countable buyers multiplied by verified ACV. Great startups often invent new categories.',
+    sequoiaBrief: 'Never use top-down market slices (e.g. "Gartner says $50B, we will take 1%"). Calculate actual account density and realistic addressability.',
+    ycBrief: 'Monopolize a fast-growing niche first. A 90% share of an exploding $500M market is vastly superior to 0.01% of a stagnant $50B market.',
+    fatalTrap: 'Quoting trillion-dollar industry sizes without proving an initial accessible beachhead customer segment.',
+    timeMetric: '32s sanity check',
+    hotspot: 'Sanity Check'
   },
   {
-    id: 'business-model',
-    phase: 'Phase 3: The Engine',
-    name: 'Business Model & Payback',
-    category: 'Economics',
-    question: 'How do the unit economics compound?',
-    sequoiaRule: 'Clarify gross margins, target ACV, and the customer acquisition channel mechanics.',
-    ycRule: 'Pick one transparent monetization model and own it. Avoid speculative secondary revenue streams.',
-    fatalMistake: 'Concealing churn, hiding high cost of goods, or projecting CAC payback longer than 18 months.',
-    docsendTime: '83 seconds avg attention (Highest scrutiny)'
+    num: '5',
+    phase: 'Fortress',
+    name: 'Competition & Defensible Moat',
+    question: 'Why won’t well-funded incumbents crush you?',
+    subtitle: 'Asymmetric Advantage & Switching Costs',
+    rule: 'Proactively map incumbents and direct alternatives. Explain your defensibility: proprietary data loops, workflow lock-in, or network effects.',
+    sequoiaBrief: 'Acknowledge competitor strengths honestly. True defensibility comes from structural advantages incumbents cannot copy without cannibalization.',
+    ycBrief: 'Never use a lazy 2x2 matrix where your logo has every checkmark and competitors have none. Investors find this naive and disqualifying.',
+    fatalTrap: 'Saying "we have no competitors". VCs interpret this as either extreme founder ignorance or an absence of commercial demand.',
+    timeMetric: '24s skimmed (absence is fatal)',
+    hotspot: 'Red Flag Risk'
   },
   {
-    id: 'traction',
-    phase: 'Phase 3: The Engine',
-    name: 'Traction Velocity & Proof',
-    category: 'Evidence',
-    question: 'What have you accomplished per unit of time and capital?',
-    sequoiaRule: 'Chart execution slope over time. Milestone acceleration signals compounding organizational capability.',
-    ycRule: 'Show week-over-week or month-over-month active usage growth. If pre-revenue, prove signed LOIs or pilot velocity.',
-    fatalMistake: 'Cumulative vanity metrics (e.g. "total registered signups since 2022") that hide flatlined daily engagement.',
-    docsendTime: '64 seconds avg attention'
-  },
-  {
-    id: 'competition',
-    phase: 'Phase 4: The Defense',
-    name: 'Defensible Moat & Rivals',
-    category: 'Moat',
-    question: 'Why won’t incumbents crush you?',
-    sequoiaRule: 'Proactively map direct and indirect incumbents. Define your defensibility: proprietary data, switching costs, or network density.',
-    ycRule: 'Don’t use a lazy 2x2 matrix where you have every checkmark and competitors have none. Be honest about trade-offs.',
-    fatalMistake: 'Saying "we have no competitors". Investors interpret this as either extreme ignorance or no commercial market.',
-    docsendTime: '24 seconds avg attention (Absence is a red flag)'
-  },
-  {
-    id: 'the-ask',
-    phase: 'Phase 4: The Defense',
-    name: 'Team & Capital Milestones',
-    category: 'Execution',
-    question: 'What specific milestones will this capital achieve?',
-    sequoiaRule: 'Link use of funds directly to tangible milestones: "This $3M provides 18 months to reach $1.5M ARR and Series A readiness".',
-    ycRule: 'Only showcase founding builders and their unique unfair domain edge. Remove non-operational advisors and vanity logos.',
-    fatalMistake: 'Asking for capital for "marketing and general corporate purposes" without a milestone-driven 18-month roadmap.',
-    docsendTime: '48 seconds avg attention'
+    num: '6',
+    phase: 'Execution',
+    name: 'Founding Team & Capital Ask',
+    question: 'Why this team, and what does this capital achieve?',
+    subtitle: 'Founder-Market Fit & 18-Month Milestones',
+    rule: 'Highlight specific technical pedigree and domain experience. State exact capital sought and map the 18-month trajectory to Series A readiness.',
+    sequoiaBrief: 'Connect capital deployment directly to milestone inflection: "This $3M provides 18 months of runway to reach $2M ARR and 15 enterprise logos".',
+    ycBrief: 'Showcase founding builders only. Remove advisory boards, university logos, and vanity endorsements that distract from execution capability.',
+    fatalTrap: 'Vague funding allocations like "60% marketing, 40% general corporate". Capital must be bound to verifiable de-risking milestones.',
+    timeMetric: '48s pedigree & terms review',
+    hotspot: 'Deal Terms'
   }
 ];
 ---
 
-<div class="pitch-mindmap-component">
-  <div class="mindmap-header">
-    <div>
-      <h3>The Universal Pitch Deck Mind Map</h3>
-      <p>Click any node in the narrative sequence to inspect investor psychological expectations, VC rules, and fatal pitfalls.</p>
+<div class="pitch-blueprint-section">
+  <div class="blueprint-intro">
+    <div class="blueprint-copy">
+      <h3>The 6-Slide Universal Architecture</h3>
+      <p>The core structure duplicated across Sequoia Capital, Y Combinator, and leading venture firms. Select any slide anchor to inspect the partner evaluation criteria and fatal traps.</p>
     </div>
-    <div class="mindmap-meta">
-      <span class="meta-label">Structural standards</span>
-      <strong>4 Narrative Phases · 9 Core Nodes</strong>
+    <div class="blueprint-telemetry-badge">
+      <span>Framework standard</span>
+      <strong>Universal 6-Slide Core</strong>
     </div>
   </div>
 
-  <div class="mindmap-workspace">
-    <!-- Visual Node Canvas -->
-    <div class="mindmap-canvas" role="tablist" aria-label="Pitch Deck Slide Flow">
-      <div class="canvas-phase-track">
-        <div class="phase-group">
-          <span class="phase-badge">Phase 1: Thesis</span>
-          <div class="phase-nodes">
-            {mindMapNodes.slice(0, 3).map((node, index) => (
-              <button 
-                class:list={['map-node-btn', { active: index === 0 }]} 
-                data-node-id={node.id}
-                role="tab"
-                aria-selected={index === 0}
-                aria-controls="node-detail-panel"
-                id={`tab-${node.id}`}
-              >
-                <span class="node-tag">{node.category}</span>
-                <strong class="node-name">{node.name}</strong>
-                <span class="node-sub">{node.docsendTime}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div class="canvas-connector" aria-hidden="true">
-          <svg width="24" height="60" viewBox="0 0 24 60" fill="none"><path d="M12 0v60M6 50l6 10 6-10" stroke="var(--accent)" stroke-width="1.5"/></svg>
-        </div>
-
-        <div class="phase-group">
-          <span class="phase-badge">Phase 2: Invention</span>
-          <div class="phase-nodes">
-            {mindMapNodes.slice(3, 5).map(node => (
-              <button 
-                class="map-node-btn" 
-                data-node-id={node.id}
-                role="tab"
-                aria-selected="false"
-                aria-controls="node-detail-panel"
-                id={`tab-${node.id}`}
-              >
-                <span class="node-tag">{node.category}</span>
-                <strong class="node-name">{node.name}</strong>
-                <span class="node-sub">{node.docsendTime}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div class="canvas-connector" aria-hidden="true">
-          <svg width="24" height="60" viewBox="0 0 24 60" fill="none"><path d="M12 0v60M6 50l6 10 6-10" stroke="var(--accent)" stroke-width="1.5"/></svg>
-        </div>
-
-        <div class="phase-group">
-          <span class="phase-badge">Phase 3: Economic Engine</span>
-          <div class="phase-nodes">
-            {mindMapNodes.slice(5, 7).map(node => (
-              <button 
-                class="map-node-btn" 
-                data-node-id={node.id}
-                role="tab"
-                aria-selected="false"
-                aria-controls="node-detail-panel"
-                id={`tab-${node.id}`}
-              >
-                <span class="node-tag">{node.category}</span>
-                <strong class="node-name">{node.name}</strong>
-                <span class="node-sub">{node.docsendTime}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div class="canvas-connector" aria-hidden="true">
-          <svg width="24" height="60" viewBox="0 0 24 60" fill="none"><path d="M12 0v60M6 50l6 10 6-10" stroke="var(--accent)" stroke-width="1.5"/></svg>
-        </div>
-
-        <div class="phase-group">
-          <span class="phase-badge">Phase 4: Defensibility & Ask</span>
-          <div class="phase-nodes">
-            {mindMapNodes.slice(7, 9).map(node => (
-              <button 
-                class="map-node-btn" 
-                data-node-id={node.id}
-                role="tab"
-                aria-selected="false"
-                aria-controls="node-detail-panel"
-                id={`tab-${node.id}`}
-              >
-                <span class="node-tag">{node.category}</span>
-                <strong class="node-name">{node.name}</strong>
-                <span class="node-sub">{node.docsendTime}</span>
-              </button>
-            ))}
-          </div>
-        </div>
+  <div class="blueprint-workspace">
+    <!-- Slide Filmstrip / Waypoint Strip -->
+    <div class="blueprint-strip-wrap" role="tablist" aria-label="Universal 6-Slide Architecture">
+      <div class="blueprint-strip">
+        {coreSlides.map((slide, index) => (
+          <button 
+            class:list={['slide-waypoint-card', { active: index === 0 }]}
+            data-slide-index={index}
+            role="tab"
+            aria-selected={index === 0}
+            id={`tab-slide-${index}`}
+            aria-controls="blueprint-dossier"
+            tabindex={index === 0 ? 0 : -1}
+          >
+            <div class="waypoint-top">
+              <span class="waypoint-phase">{slide.phase}</span>
+              <span class="waypoint-hotspot">{slide.hotspot}</span>
+            </div>
+            <strong class="waypoint-num">{slide.num}</strong>
+            <span class="waypoint-title">{slide.name}</span>
+            <span class="waypoint-time">{slide.timeMetric}</span>
+          </button>
+        ))}
       </div>
     </div>
 
-    <!-- Active Node Deep Scan Panel -->
-    <div class="node-detail-panel" id="node-detail-panel" role="tabpanel" data-ui aria-labelledby="tab-hook">
-      <div class="detail-header">
-        <span class="detail-phase" id="disp-node-phase">{mindMapNodes[0].phase}</span>
-        <h4 id="disp-node-name">{mindMapNodes[0].name}</h4>
-        <p class="detail-question" id="disp-node-question">{mindMapNodes[0].question}</p>
+    <!-- Active Slide Dossier -->
+    <div class="blueprint-dossier" id="blueprint-dossier" role="tabpanel" aria-labelledby="tab-slide-0">
+      <div class="dossier-masthead">
+        <div class="dossier-header-row">
+          <h4 id="disp-slide-title">Problem / Opportunity</h4>
+          <span class="dossier-time-tag" id="disp-slide-time">41s average partner review</span>
+        </div>
+        <div class="dossier-meta">
+          <span class="dossier-step-tag" id="disp-slide-step">Slide 1 of 6 · Phase: Thesis</span>
+        </div>
+        <p class="dossier-question" id="disp-slide-question">"What is broken in the real world?"</p>
+        <p class="dossier-rule" id="disp-slide-rule">
+          Define an acute, quantifiable pain point. Show the patchwork workarounds customers currently hack together and the financial leakage it causes.
+        </p>
       </div>
 
-      <div class="detail-body">
-        <div class="rule-block sequoia">
-          <div class="rule-title">
+      <div class="dossier-grid">
+        <div class="dossier-card sequoia-card">
+          <div class="card-header-bar">
             <span>Sequoia Capital Lens</span>
           </div>
-          <p id="disp-node-sequoia">{mindMapNodes[0].sequoiaRule}</p>
+          <p id="disp-slide-sequoia">
+            Sequoia expects customer pain so acute that inaction has a clear, compounding cost. Avoid synthetic problems or speculative vitamins.
+          </p>
         </div>
 
-        <div class="rule-block yc">
-          <div class="rule-title">
+        <div class="dossier-card yc-card">
+          <div class="card-header-bar">
             <span>Y Combinator Lens</span>
           </div>
-          <p id="disp-node-yc">{mindMapNodes[0].ycRule}</p>
-        </div>
-
-        <div class="rule-block fatal">
-          <div class="rule-title">
-            <span>Fatal Rejection Trap</span>
-          </div>
-          <p id="disp-node-fatal">{mindMapNodes[0].fatalMistake}</p>
+          <p id="disp-slide-yc">
+            Kevin Hale principle: State the problem without jargon. If an eighth-grader cannot understand the pain within 10 seconds, the framing is broken.
+          </p>
         </div>
       </div>
 
-      <div class="detail-footer">
-        <span class="attention-stat" id="disp-node-time">{mindMapNodes[0].docsendTime}</span>
-        <a href="/pitch-deck/6-slides-core-structure" class="node-read-link">Read framework guide <Arrow diagonal /></a>
+      <div class="dossier-fatal-banner">
+        <div class="fatal-icon" aria-hidden="true">!</div>
+        <div class="fatal-text-group">
+          <strong>The fatal rejection trap</strong>
+          <p id="disp-slide-fatal">
+            Presenting a "nice-to-have" tool rather than a mission-critical painkiller. If buyers are not losing money today, they will not pay tomorrow.
+          </p>
+        </div>
+      </div>
+
+      <div class="dossier-footer">
+        <div class="dossier-pagers">
+          <button id="btn-prev-slide" class="pager-btn" aria-label="Previous slide">← Previous slide</button>
+          <button id="btn-next-slide" class="pager-btn" aria-label="Next slide">Next slide →</button>
+        </div>
+        <a href="/pitch-deck/6-slides-core-structure" class="dossier-guide-link">
+          Read full 6-slide dissection <Arrow diagonal />
+        </a>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-  const nodeData = [
+  const slidesData = [
     {
-      id: 'hook',
-      phase: 'Phase 1: The Thesis',
-      name: 'Purpose & Thesis',
-      question: 'What is your one-sentence reason for existing?',
-      sequoiaRule: 'Communicate a durable company mission in 10 words or fewer, not a list of software features.',
-      ycRule: 'Kevin Hale rule: Explain what you do so simply that an eighth-grader understands the commercial premise instantly.',
-      fatalMistake: 'Jargon salad and buzzwords ("AI-powered cloud platform") that mask an ambiguous value proposition.',
-      docsendTime: '33 seconds avg attention'
+      num: '1',
+      phase: 'Thesis',
+      name: 'Problem / Opportunity',
+      question: '"What is broken in the real world?"',
+      rule: 'Define an acute, quantifiable pain point. Show the patchwork workarounds customers currently hack together and the financial leakage it causes.',
+      sequoia: 'Sequoia expects customer pain so acute that inaction has a clear, compounding cost. Avoid synthetic problems or speculative vitamins.',
+      yc: 'Kevin Hale principle: State the problem without jargon. If an eighth-grader cannot understand the pain within 10 seconds, the framing is broken.',
+      fatal: 'Presenting a "nice-to-have" tool rather than a mission-critical painkiller. If buyers are not losing money today, they will not pay tomorrow.',
+      time: '41s average partner review'
     },
     {
-      id: 'problem',
-      phase: 'Phase 1: The Thesis',
-      name: 'Acute Problem & Pain',
-      question: 'What is broken, and what is the cost of inaction?',
-      sequoiaRule: 'Detail the current workaround. If customers are not hacking together messy spreadsheets or losing money, the pain is not acute enough.',
-      ycRule: 'State the problem without industry jargon. Frame it through real human frustration or direct balance sheet leakage.',
-      fatalMistake: 'Inventing an imaginary problem or presenting a "nice-to-have" vitamin instead of a mission-critical painkiller.',
-      docsendTime: '41 seconds avg attention'
+      num: '2',
+      phase: 'Invention',
+      name: 'Solution & Value Prop',
+      question: '"How do you directly neutralize the pain?"',
+      rule: 'Show the eureka moment. Demonstrate visual proof of the solution curing the established problem with outcome-focused evidence.',
+      sequoia: 'Focus on the structural breakthrough. Map the product architecture directly back to the pain points identified in Slide 1.',
+      yc: 'Radical clarity: 10x faster, 80% cheaper, or generating net new revenue. Avoid sprawling feature lists; prove the core magic.',
+      fatal: 'Showing 15 screenshots of a generic dashboard instead of the single proprietary workflow that creates undeniable value.',
+      time: '77s heavy investor scrutiny'
     },
     {
-      id: 'why-now',
-      phase: 'Phase 1: The Thesis',
-      name: 'The "Why Now?" Inflection',
-      question: 'Why wasn’t this built 5 years ago, and why can’t it wait 2 years?',
-      sequoiaRule: 'Identify the structural catalyst: an API emergence, regulatory mandate, or irreversible behavioral shift.',
-      ycRule: 'Prove the window of opportunity is wide open right now, but will slam shut for late entrants.',
-      fatalMistake: 'Claiming "cloud and mobile adoption" without pointing to a specific 12-to-18-month technology inflection.',
-      docsendTime: '36 seconds avg attention'
+      num: '3',
+      phase: 'Engine',
+      name: 'Business Model & Unit Economics',
+      question: '"How do the economics scale and compound?"',
+      rule: 'Detail your pricing architecture, average contract value (ACV), payback period, and sustainable gross margin profile.',
+      sequoia: 'Prove that revenue scales non-linearly with headcount. Clarify sales velocity, customer payback cycles, and expansion potential.',
+      yc: 'Pick one transparent monetization model and own it. Avoid speculative multi-sided monetization schemes before achieving $1M ARR.',
+      fatal: 'Concealing churn, ignoring customer onboarding costs, or assuming enterprise deals close without an SDR team.',
+      time: '83s top investor scrutiny'
     },
     {
-      id: 'solution',
-      phase: 'Phase 2: The Invention',
-      name: 'The Solution & Secret',
-      question: 'What is your asymmetric advantage?',
-      sequoiaRule: 'Present the eureka moment and show visual proof of the solution directly neutralizing the problem.',
-      ycRule: 'Focus strictly on concrete user outcome: 10x faster, 80% cheaper, or generating net new revenue.',
-      fatalMistake: 'Showing 15 screenshots of a generic dashboard instead of the single core workflow that creates magic.',
-      docsendTime: '77 seconds avg attention (High scrutiny)'
+      num: '4',
+      phase: 'Opportunity',
+      name: 'Market Sizing & Bottom-Up TAM',
+      question: '"How big is the prize if you win the beachhead?"',
+      rule: 'Calculate target market size from the bottom up: actual countable buyers multiplied by verified ACV. Great startups often invent new categories.',
+      sequoia: 'Never use top-down market slices (e.g. "Gartner says $50B, we will take 1%"). Calculate actual account density and realistic addressability.',
+      yc: 'Monopolize a fast-growing niche first. A 90% share of an exploding $500M market is vastly superior to 0.01% of a stagnant $50B market.',
+      fatal: 'Quoting trillion-dollar industry sizes without proving an initial accessible beachhead customer segment.',
+      time: '32s sanity check'
     },
     {
-      id: 'tam',
-      phase: 'Phase 2: The Invention',
-      name: 'Market Size & Bottom-Up TAM',
-      question: 'How big is the prize if you win the beachhead?',
-      sequoiaRule: 'Strictly bottom-up calculation: Number of realistic target buyers multiplied by realistic ACV. Never top-down Gartner slices.',
-      ycRule: 'Target an initial fast-growing niche you can monopolize before expanding into adjacent multi-billion dollar categories.',
-      fatalMistake: 'Quoting "the global healthcare market is $4 trillion, and if we get 1% we make $40B". VCs disqualify this immediately.',
-      docsendTime: '32 seconds avg attention'
+      num: '5',
+      phase: 'Fortress',
+      name: 'Competition & Defensible Moat',
+      question: '"Why won’t well-funded incumbents crush you?"',
+      rule: 'Proactively map incumbents and direct alternatives. Explain your defensibility: proprietary data loops, workflow lock-in, or network effects.',
+      sequoia: 'Acknowledge competitor strengths honestly. True defensibility comes from structural advantages incumbents cannot copy without cannibalization.',
+      yc: 'Never use a lazy 2x2 matrix where your logo has every checkmark and competitors have none. Investors find this naive and disqualifying.',
+      fatal: 'Saying "we have no competitors". VCs interpret this as either extreme founder ignorance or an absence of commercial demand.',
+      time: '24s skimmed (absence is fatal)'
     },
     {
-      id: 'business-model',
-      phase: 'Phase 3: The Engine',
-      name: 'Business Model & Payback',
-      question: 'How do the unit economics compound?',
-      sequoiaRule: 'Clarify gross margins, target ACV, and the customer acquisition channel mechanics.',
-      ycRule: 'Pick one transparent monetization model and own it. Avoid speculative secondary revenue streams.',
-      fatalMistake: 'Concealing churn, hiding high cost of goods, or projecting CAC payback longer than 18 months.',
-      docsendTime: '83 seconds avg attention (Highest scrutiny)'
-    },
-    {
-      id: 'traction',
-      phase: 'Phase 3: The Engine',
-      name: 'Traction Velocity & Proof',
-      question: 'What have you accomplished per unit of time and capital?',
-      sequoiaRule: 'Chart execution slope over time. Milestone acceleration signals compounding organizational capability.',
-      ycRule: 'Show week-over-week or month-over-month active usage growth. If pre-revenue, prove signed LOIs or pilot velocity.',
-      fatalMistake: 'Cumulative vanity metrics (e.g. "total registered signups since 2022") that hide flatlined daily engagement.',
-      docsendTime: '64 seconds avg attention'
-    },
-    {
-      id: 'competition',
-      phase: 'Phase 4: The Defense',
-      name: 'Defensible Moat & Rivals',
-      question: 'Why won’t incumbents crush you?',
-      sequoiaRule: 'Proactively map direct and indirect incumbents. Define your defensibility: proprietary data, switching costs, or network density.',
-      ycRule: 'Don’t use a lazy 2x2 matrix where you have every checkmark and competitors have none. Be honest about trade-offs.',
-      fatalMistake: 'Saying "we have no competitors". Investors interpret this as either extreme ignorance or no commercial market.',
-      docsendTime: '24 seconds avg attention (Absence is a red flag)'
-    },
-    {
-      id: 'the-ask',
-      phase: 'Phase 4: The Defense',
-      name: 'Team & Capital Milestones',
-      question: 'What specific milestones will this capital achieve?',
-      sequoiaRule: 'Link use of funds directly to tangible milestones: "This $3M provides 18 months to reach $1.5M ARR and Series A readiness".',
-      ycRule: 'Only showcase founding builders and their unique unfair domain edge. Remove non-operational advisors and vanity logos.',
-      fatalMistake: 'Asking for capital for "marketing and general corporate purposes" without a milestone-driven 18-month roadmap.',
-      docsendTime: '48 seconds avg attention'
+      num: '6',
+      phase: 'Execution',
+      name: 'Founding Team & Capital Ask',
+      question: '"Why this team, and what does this capital achieve?"',
+      rule: 'Highlight specific technical pedigree and domain experience. State exact capital sought and map the 18-month trajectory to Series A readiness.',
+      sequoia: 'Connect capital deployment directly to milestone inflection: "This $3M provides 18 months of runway to reach $2M ARR and 15 enterprise logos".',
+      yc: 'Showcase founding builders only. Remove advisory boards, university logos, and vanity endorsements that distract from execution capability.',
+      fatal: 'Vague funding allocations like "60% marketing, 40% general corporate". Capital must be bound to verifiable de-risking milestones.',
+      time: '48s pedigree & terms review'
     }
   ];
 
-  const buttons = document.querySelectorAll<HTMLButtonElement>('.map-node-btn');
-  const panel = document.getElementById('node-detail-panel');
-  const dispPhase = document.getElementById('disp-node-phase');
-  const dispName = document.getElementById('disp-node-name');
-  const dispQuestion = document.getElementById('disp-node-question');
-  const dispSequoia = document.getElementById('disp-node-sequoia');
-  const dispYc = document.getElementById('disp-node-yc');
-  const dispFatal = document.getElementById('disp-node-fatal');
-  const dispTime = document.getElementById('disp-node-time');
+  let activeIndex = 0;
+  const cards = document.querySelectorAll<HTMLButtonElement>('.slide-waypoint-card');
+  const dispStep = document.getElementById('disp-slide-step');
+  const dispTime = document.getElementById('disp-slide-time');
+  const dispTitle = document.getElementById('disp-slide-title');
+  const dispQuestion = document.getElementById('disp-slide-question');
+  const dispRule = document.getElementById('disp-slide-rule');
+  const dispSequoia = document.getElementById('disp-slide-sequoia');
+  const dispYc = document.getElementById('disp-slide-yc');
+  const dispFatal = document.getElementById('disp-slide-fatal');
+  const btnPrev = document.getElementById('btn-prev-slide');
+  const btnNext = document.getElementById('btn-next-slide');
 
-  function selectNode(id: string) {
-    const item = nodeData.find(n => n.id === id);
-    if (!item) return;
+  function renderSlide(index: number) {
+    activeIndex = (index + slidesData.length) % slidesData.length;
+    const slide = slidesData[activeIndex];
 
-    buttons.forEach(btn => {
-      const match = btn.getAttribute('data-node-id') === id;
-      btn.classList.toggle('active', match);
-      btn.setAttribute('aria-selected', String(match));
-      btn.tabIndex = match ? 0 : -1;
+    cards.forEach((card, idx) => {
+      const isSelected = idx === activeIndex;
+      card.classList.toggle('active', isSelected);
+      card.setAttribute('aria-selected', String(isSelected));
+      card.tabIndex = isSelected ? 0 : -1;
     });
 
-    if (panel) panel.setAttribute('aria-labelledby', `tab-${id}`);
-    if (dispPhase) dispPhase.textContent = item.phase;
-    if (dispName) dispName.textContent = item.name;
-    if (dispQuestion) dispQuestion.textContent = item.question;
-    if (dispSequoia) dispSequoia.textContent = item.sequoiaRule;
-    if (dispYc) dispYc.textContent = item.ycRule;
-    if (dispFatal) dispFatal.textContent = item.fatalMistake;
-    if (dispTime) dispTime.textContent = item.docsendTime;
+    if (dispStep) dispStep.textContent = `Slide ${slide.num} of 6 · Phase: ${slide.phase}`;
+    if (dispTime) dispTime.textContent = slide.time;
+    if (dispTitle) dispTitle.textContent = slide.name;
+    if (dispQuestion) dispQuestion.textContent = slide.question;
+    if (dispRule) dispRule.textContent = slide.rule;
+    if (dispSequoia) dispSequoia.textContent = slide.sequoia;
+    if (dispYc) dispYc.textContent = slide.yc;
+    if (dispFatal) dispFatal.textContent = slide.fatal;
   }
 
-  buttons.forEach((btn, idx) => {
-    btn.addEventListener('click', () => {
-      const id = btn.getAttribute('data-node-id');
-      if (id) selectNode(id);
-    });
-
-    btn.addEventListener('keydown', (e) => {
-      let nextIdx = idx;
-      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextIdx = (idx + 1) % buttons.length;
-      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') nextIdx = (idx + buttons.length - 1) % buttons.length;
-      else if (e.key === 'Home') nextIdx = 0;
-      else if (e.key === 'End') nextIdx = buttons.length - 1;
-      else return;
-
-      e.preventDefault();
-      const nextBtn = buttons[nextIdx];
-      const nextId = nextBtn.getAttribute('data-node-id');
-      if (nextId) {
-        selectNode(nextId);
-        nextBtn.focus();
+  cards.forEach((card, idx) => {
+    card.addEventListener('click', () => renderSlide(idx));
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        const next = (idx + 1) % cards.length;
+        renderSlide(next);
+        cards[next].focus();
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        const prev = (idx + cards.length - 1) % cards.length;
+        renderSlide(prev);
+        cards[prev].focus();
       }
     });
   });
+
+  btnPrev?.addEventListener('click', () => renderSlide(activeIndex - 1));
+  btnNext?.addEventListener('click', () => renderSlide(activeIndex + 1));
 </script>
 
 <style>
-  .pitch-mindmap-component {
-    background: var(--bg-raised);
-    border-radius: var(--radius);
-    padding: 36px 32px;
-    margin-block: 48px;
+  .pitch-blueprint-section {
+    margin-block: 56px 64px;
     color: var(--fg);
   }
-  .mindmap-header {
+  .blueprint-intro {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: flex-end;
     gap: 32px;
-    padding-bottom: 24px;
+    margin-bottom: 28px;
   }
-  .mindmap-kicker {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--accent);
-    display: block;
-    margin-bottom: 6px;
-  }
-  .mindmap-header h3 {
-    font-size: 26px;
-    letter-spacing: -0.02em;
+  .blueprint-copy h3 {
+    font-size: 32px;
+    letter-spacing: -0.025em;
+    color: var(--fg);
     margin-bottom: 8px;
   }
-  .mindmap-header p {
+  .blueprint-copy p {
     font-size: 15px;
     color: var(--fg-2);
     max-width: 60ch;
-    line-height: 1.5;
+    line-height: 1.55;
   }
-  .mindmap-meta {
-    text-align: right;
+  .blueprint-telemetry-badge {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    text-align: right;
   }
-  .meta-label {
+  .blueprint-telemetry-badge span {
     font-size: 13px;
     color: var(--fg-3);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
   }
-  .mindmap-meta strong {
+  .blueprint-telemetry-badge strong {
     font-size: 14px;
     font-weight: 500;
-    color: var(--fg);
+    color: var(--accent);
   }
 
-  .mindmap-workspace {
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 32px;
-    padding-top: 32px;
-    min-height: 520px;
-  }
-
-  .mindmap-canvas {
+  .blueprint-workspace {
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
-  .canvas-phase-track {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+
+  /* Slide Waypoint Strip */
+  .blueprint-strip-wrap {
+    overflow-x: auto;
+    padding-bottom: 8px;
   }
-  .phase-group {
-    background: #141615;
-    padding: 16px;
-    border-radius: var(--radius-sm);
-  }
-  .phase-badge {
-    font-size: 13px;
-    color: var(--accent);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    font-weight: 500;
-    display: block;
-    margin-bottom: 12px;
-  }
-  .phase-nodes {
+  .blueprint-strip {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(6, minmax(180px, 1fr));
+    gap: 12px;
   }
-  .map-node-btn {
+  .slide-waypoint-card {
     background: var(--bg-raised);
     border: 0;
-    padding: 12px 14px;
-    border-radius: var(--radius-xs);
+    border-radius: var(--radius-sm);
+    padding: 16px 18px;
     text-align: left;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    transition: background 0.18s, color 0.18s, transform 0.18s;
+    gap: 8px;
+    transition: background 0.18s, transform 0.18s;
   }
-  .map-node-btn:hover {
-    background: #242926;
-    transform: translateY(-1px);
+  .slide-waypoint-card:hover {
+    background: #232825;
+    transform: translateY(-2px);
   }
-  .map-node-btn.active {
-    background: #272d2a;
-    color: var(--fg);
+  .slide-waypoint-card.active {
+    background: #2a312c;
   }
-  .node-tag {
+  .waypoint-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 13px;
-    color: var(--fg-3);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
   }
-  .node-name {
+  .waypoint-phase {
+    color: var(--fg-3);
+  }
+  .waypoint-hotspot {
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .waypoint-num {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--fg);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .waypoint-title {
     font-size: 14px;
     font-weight: 500;
     color: var(--fg);
-    line-height: 1.3;
+    line-height: 1.35;
   }
-  .node-sub {
+  .waypoint-time {
     font-size: 13px;
     color: var(--fg-3);
     font-variant-numeric: tabular-nums;
-  }
-  .canvas-connector {
-    display: grid;
-    place-items: center;
-    opacity: 0.7;
-    margin-block: -4px;
+    margin-top: auto;
   }
 
-  .node-detail-panel {
-    background: #141615;
-    border-radius: var(--radius-sm);
-    padding: 28px;
+  /* Active Dossier Panel */
+  .blueprint-dossier {
+    background: var(--bg-raised);
+    border-radius: var(--radius);
+    padding: 36px 32px;
     display: flex;
     flex-direction: column;
+    gap: 28px;
+  }
+  .dossier-masthead {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .dossier-header-row {
+    display: flex;
     justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
   }
-  .detail-header {
-    padding-bottom: 20px;
-  }
-  .detail-phase {
+  .dossier-meta {
+    display: flex;
+    align-items: center;
     font-size: 13px;
+    font-variant-numeric: tabular-nums;
+  }
+  .dossier-step-tag {
     color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
     font-weight: 500;
   }
-  .detail-header h4 {
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    margin-block: 6px 8px;
+  .dossier-time-tag {
+    color: var(--fg-3);
+  }
+  .dossier-masthead h4 {
+    font-size: 32px;
+    letter-spacing: -0.025em;
     color: var(--fg);
   }
-  .detail-question {
-    font-size: 15px;
-    color: var(--fg-2);
+  .dossier-question {
+    font-size: 18px;
+    color: var(--fg);
     font-style: italic;
     line-height: 1.45;
   }
+  .dossier-rule {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--fg-2);
+    max-width: 72ch;
+  }
 
-  .detail-body {
+  /* Dossier Grid */
+  .dossier-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .dossier-card {
+    background: #141615;
+    border-radius: var(--radius-xs);
+    padding: 20px 22px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-block: 20px;
+    gap: 10px;
   }
-  .rule-block {
-    background: var(--bg-raised);
-    padding: 16px;
-    border-radius: var(--radius-xs);
-  }
-  .rule-title span {
+  .card-header-bar span {
     font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 6px;
+    font-weight: 500;
   }
-  .rule-block.sequoia .rule-title span { color: #8fa68e; }
-  .rule-block.yc .rule-title span { color: #dcd9d0; }
-  .rule-block.fatal .rule-title span { color: #e28a7e; }
-
-  .rule-block p {
+  .sequoia-card .card-header-bar span {
+    color: var(--accent);
+  }
+  .yc-card .card-header-bar span {
+    color: #dfdcd3;
+  }
+  .dossier-card p {
     font-size: 14px;
     line-height: 1.6;
     color: var(--fg-2);
   }
 
-  .detail-footer {
+  /* Fatal Trap Banner */
+  .dossier-fatal-banner {
+    display: flex;
+    gap: 16px;
+    background: #241917;
+    border-radius: var(--radius-xs);
+    padding: 18px 22px;
+    align-items: flex-start;
+  }
+  .fatal-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #e28a7e;
+    color: #141615;
+    font-weight: 700;
+    font-size: 14px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .fatal-text-group strong {
+    font-size: 13px;
+    font-weight: 500;
+    color: #e28a7e;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .fatal-text-group p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: #e0d0ce;
+  }
+
+  /* Dossier Footer */
+  .dossier-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 18px;
+    padding-top: 16px;
   }
-  .attention-stat {
+  .dossier-pagers {
+    display: flex;
+    gap: 12px;
+  }
+  .pager-btn {
+    background: #141615;
+    border: 0;
+    color: var(--fg-2);
+    padding: 8px 16px;
+    border-radius: var(--radius-xs);
     font-size: 13px;
-    color: var(--fg-3);
-    font-variant-numeric: tabular-nums;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
   }
-  .node-read-link {
+  .pager-btn:hover {
+    background: #272d2a;
+    color: var(--fg);
+  }
+  .dossier-guide-link {
     font-size: 13px;
     color: var(--fg);
     display: inline-flex;
@@ -616,20 +563,35 @@ const mindMapNodes = [
     text-decoration: none;
     transition: color 0.18s;
   }
-  .node-read-link:hover {
+  .dossier-guide-link:hover {
     color: var(--accent);
   }
 
-  @media (max-width: 960px) {
-    .mindmap-workspace {
-      grid-template-columns: 1fr;
-    }
-    .mindmap-header {
+  @media (max-width: 900px) {
+    .blueprint-intro {
       flex-direction: column;
+      align-items: flex-start;
       gap: 16px;
     }
-    .mindmap-meta {
+    .blueprint-telemetry-badge {
       text-align: left;
+    }
+    .blueprint-strip {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .dossier-grid {
+      grid-template-columns: 1fr;
+    }
+    .dossier-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .blueprint-strip {
+      grid-template-columns: 1fr;
     }
   }
 </style>

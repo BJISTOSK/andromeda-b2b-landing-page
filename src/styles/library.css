@@ -4,6 +4,9 @@
   padding-top: 48px;
   padding-bottom: 96px;
 }
+.library-page section {
+  overflow: clip;
+}
 .library-top-meta {
   display: flex;
   justify-content: space-between;

@@ -1,247 +1,345 @@
 ---
 import Arrow from '../Arrow.astro';
 
-const heatmapData = [
-  { section: 'Business Model & Economics', seconds: 83, pct: 100, note: 'Top scrutiny: ACV, CAC payback, and gross margins', status: 'Crucial' },
-  { section: 'Product Experience & Workflow', seconds: 77, pct: 93, note: 'Heavy focus: High-fidelity screens and UX proof', status: 'Crucial' },
-  { section: 'Traction Velocity & Milestones', seconds: 64, pct: 77, note: 'Growth slope: Revenue or active usage trajectory', status: 'High' },
-  { section: 'Team & Founder Advantage', seconds: 48, pct: 58, note: 'Founder-market fit: Past accomplishments & domain edge', status: 'High' },
-  { section: 'Acute Problem & Workarounds', seconds: 41, pct: 49, note: 'Validation of acute customer balance sheet pain', status: 'Moderate' },
-  { section: 'The "Why Now?" Inflection', seconds: 36, pct: 43, note: 'Technological or regulatory market catalyst', status: 'Moderate' },
-  { section: 'Purpose & Elevator Hook', seconds: 33, pct: 40, note: 'Immediate category mental filing', status: 'Moderate' },
-  { section: 'Market Sizing (Bottom-up TAM)', seconds: 32, pct: 39, note: 'Bottom-up math sanity check', status: 'Quick glance' },
-  { section: 'Competition & Defensibility', seconds: 24, pct: 29, note: 'Quickly skimmed; absence is an instant red flag', status: 'Sanity check' }
+const heatmapBars = [
+  { section: 'Business Model & Unit Economics', time: 83, pct: 83, zone: 'Maximum scrutiny', status: 'Crucial', note: 'Pricing structure, ACV, CAC payback, and gross margin proof' },
+  { section: 'Product Architecture & UX Workflow', time: 77, pct: 77, zone: 'Heavy scrutiny', status: 'Crucial', note: 'High-fidelity workflow walkthroughs and proprietary software secret' },
+  { section: 'Traction Velocity & Milestones', time: 64, pct: 64, zone: 'Growth verification', status: 'High priority', note: 'MoM active customer growth slope and revenue trajectory' },
+  { section: 'Team & Founder Pedigree', time: 48, pct: 48, zone: 'Pedigree check', status: 'Core validation', note: 'Founder-market fit, technical domain edge, and builder ratio' },
+  { section: 'Acute Problem & Current Workarounds', time: 41, pct: 41, zone: 'Pain validation', status: 'Core validation', note: 'Quantification of customer balance sheet loss and pain urgency' },
+  { section: 'The "Why Now?" Market Inflection', time: 36, pct: 36, zone: 'Timing catalyst', status: 'Core validation', note: 'Technological, regulatory, or behavioral inflection opening the window' },
+  { section: 'Company Purpose & Hook', time: 33, pct: 33, zone: 'Mental filing', status: 'Orientation', note: 'One-sentence declarative mission to categorize the investment thesis' },
+  { section: 'Market Sizing (Bottom-up TAM)', time: 32, pct: 32, zone: 'Sanity check', status: 'Sanity check', note: 'Bottom-up math verification: countable accounts × verified ACV' },
+  { section: 'Competitor Landscape & Moat', time: 24, pct: 24, zone: 'Rapid skim', status: 'Red flag risk', note: 'Quickly skimmed in 24 seconds, but total absence triggers immediate pass' }
 ];
 
-const animalData = [
-  { animal: 'Whales', acv: '$1,000,000+', count: '100 customers', model: 'Executive enterprise field sales, custom security, multi-year contracts', share: 'Top Tier Enterprise' },
-  { animal: 'Elephants', acv: '$100,000', count: '1,000 customers', model: 'Enterprise AE + SDR motion, dedicated customer success, POCs', share: 'Enterprise B2B' },
-  { animal: 'Deer', acv: '$10,000', count: '10,000 customers', model: 'Inside sales, demo calls, automated trial onboarding', share: 'Mid-Market' },
-  { animal: 'Rabbits', acv: '$1,000', count: '100,000 customers', model: 'Self-serve credit card signup, product-led growth (PLG)', share: 'SMB' },
-  { animal: 'Mice', acv: '$100', count: '1,000,000 customers', model: 'Pure viral product loop, freemium conversion, zero touch', share: 'Prosumer' }
+const animalTiers = [
+  {
+    tier: 'Tier 1',
+    name: 'Whales',
+    acv: '$1,000,000+',
+    volume: '100 buyers',
+    volumeNum: 100,
+    motion: 'Executive field sales, bespoke SOC2, custom on-prem / VPC',
+    cycle: '9–18 months',
+    margin: '80–85%',
+    rule: 'At $1M ACV, you only need 100 enterprise customers to reach $100M ARR. You must employ dedicated enterprise field reps and executive sponsor networks.'
+  },
+  {
+    tier: 'Tier 2',
+    name: 'Elephants',
+    acv: '$100,000',
+    volume: '1,000 buyers',
+    volumeNum: 1000,
+    motion: 'Enterprise AE + SDR pods, dedicated customer success, POC reviews',
+    cycle: '3–6 months',
+    margin: '82–88%',
+    rule: 'The classic mid-to-large B2B SaaS motion. Requires an inside/outside sales split with quota capacity around 4x to 5x OTE.'
+  },
+  {
+    tier: 'Tier 3',
+    name: 'Deer',
+    acv: '$10,000',
+    volume: '10,000 buyers',
+    volumeNum: 10000,
+    motion: 'Inside sales, inbound trial qualification, automated demo booking',
+    cycle: '30–60 days',
+    margin: '85–90%',
+    rule: 'Mid-market sweet spot. Deal sizes do not support in-person client visits; sales motions must be conducted remotely over video and self-serve sandboxes.'
+  },
+  {
+    tier: 'Tier 4',
+    name: 'Rabbits',
+    acv: '$1,000',
+    volume: '100,000 buyers',
+    volumeNum: 100000,
+    motion: 'Product-led growth (PLG), self-serve credit card, automated onboarding',
+    cycle: '1–7 days',
+    margin: '88–92%',
+    rule: 'At $1k ACV, hiring sales reps will bankrupt your startup. The acquisition engine must be 95% self-serve and product-led.'
+  },
+  {
+    tier: 'Tier 5',
+    name: 'Mice',
+    acv: '$100',
+    volume: '1,000,000 buyers',
+    volumeNum: 1000000,
+    motion: 'Pure viral product loops, freemium conversion, community word-of-mouth',
+    cycle: 'Instant',
+    margin: '90–95%',
+    rule: 'Prosumer territory. Acquisition cost must be nearly zero dollars. Success requires immense consumer distribution or built-in viral referral mechanics.'
+  }
 ];
 ---
 
-<div class="pitch-charts-component">
-  <div class="charts-header">
-    <div>
+<div class="pitch-analytics-section">
+  <div class="analytics-intro">
+    <div class="analytics-copy">
       <h3>Venture Behavior & Sizing Analytics</h3>
-      <p>Data-backed insights from thousands of institutional deck reviews and SaaS market models.</p>
+      <p>Data tracked across 3,000+ institutional pitch decks and B2B SaaS market scale models. Inspect exact reading patterns and unit economics.</p>
     </div>
-    <div class="chart-tab-controls" role="tablist" aria-label="Analytical charts">
-      <button class="chart-tab-btn active" role="tab" aria-selected="true" id="tab-chart-heatmap" aria-controls="panel-chart-heatmap">
+    <div class="analytics-tab-group" role="tablist" aria-label="Behavioral and Market Analytics">
+      <button class="analytics-nav-btn active" role="tab" aria-selected="true" id="tab-nav-heat" aria-controls="view-heatmap">
         DocSend Attention Heatmap
       </button>
-      <button class="chart-tab-btn" role="tab" aria-selected="false" id="tab-chart-animals" aria-controls="panel-chart-animals">
-        Point Nine SaaS Animal Sizing
+      <button class="analytics-nav-btn" role="tab" aria-selected="false" id="tab-nav-anim" aria-controls="view-animals">
+        Point Nine SaaS Scale Ladder
       </button>
     </div>
   </div>
 
-  <!-- Panel 1: DocSend Heatmap -->
-  <div class="chart-panel" id="panel-chart-heatmap" role="tabpanel" aria-labelledby="tab-chart-heatmap">
-    <div class="panel-intro-bar">
-      <div>
-        <h4>Investor Attention per Slide (Seconds Spent)</h4>
-        <p>DocSend study of 3,000+ decks: where institutional investors linger versus what they skim.</p>
-      </div>
-      <div class="benchmark-pill">
-        <span>Funded Avg: <strong>3m 48s</strong></span>
-        <span>Unfunded Avg: <strong>2m 13s</strong></span>
-      </div>
-    </div>
-
-    <div class="heatmap-bars-list" data-ui>
-      {heatmapData.map(item => (
-        <div class="heatmap-row">
-          <div class="row-label-group">
-            <span class="row-section-name">{item.section}</span>
-            <span class="row-note">{item.note}</span>
-          </div>
-          <div class="bar-track-wrap">
-            <div class="bar-fill-track">
-              <div class="bar-fill-progress" style={`width: ${item.pct}%;`}></div>
-            </div>
-            <div class="bar-metrics">
-              <strong class="bar-seconds">{item.seconds}s</strong>
-              <span class="bar-status-tag">{item.status}</span>
-            </div>
-          </div>
+  <div class="analytics-workspace">
+    <!-- View 1: DocSend Attention Heatmap -->
+    <div class="analytics-view" id="view-heatmap" role="tabpanel" aria-labelledby="tab-nav-heat">
+      <div class="view-telemetry-strip">
+        <div class="telemetry-col">
+          <span class="telemetry-label">Funded decks average</span>
+          <strong class="telemetry-value">3m 48s total view</strong>
+          <span class="telemetry-sub">61% complete read-through</span>
         </div>
-      ))}
-    </div>
-
-    <div class="chart-insight-box">
-      <strong>Critical Takeaway for Founders:</strong>
-      <p>Investors spend nearly 70% of their total cognitive reading time on just two sections: <em>Business Model</em> (83s) and <em>Product Architecture</em> (77s). Decks that rush or obscure these two slides face an 82% higher drop-off rate before reaching the team slide.</p>
-    </div>
-  </div>
-
-  <!-- Panel 2: Point Nine SaaS Animal Sizing -->
-  <div class="chart-panel" id="panel-chart-animals" role="tabpanel" aria-labelledby="tab-chart-animals" hidden>
-    <div class="panel-intro-bar">
-      <div>
-        <h4>Christoph Janz's 5 Ways to Build a $100M SaaS Business</h4>
-        <p>Calculate your customer count requirement based on Average Contract Value (ACV).</p>
-      </div>
-      <div class="benchmark-pill">
-        <span>Target: <strong>$100M ARR</strong></span>
-        <span>Framework: <strong>Point Nine Capital</strong></span>
-      </div>
-    </div>
-
-    <div class="animals-grid" data-ui>
-      {animalData.map(item => (
-        <div class="animal-card">
-          <div class="animal-top">
-            <span class="animal-category">{item.share}</span>
-            <strong class="animal-title">{item.animal}</strong>
-          </div>
-          <div class="animal-metrics-row">
-            <div>
-              <span class="animal-metric-lbl">Target ACV</span>
-              <strong class="animal-metric-val">{item.acv}</strong>
-            </div>
-            <div>
-              <span class="animal-metric-lbl">Required Buyers</span>
-              <strong class="animal-metric-val">{item.count}</strong>
-            </div>
-          </div>
-          <p class="animal-model-desc">{item.model}</p>
+        <div class="telemetry-col">
+          <span class="telemetry-label">Unfunded decks average</span>
+          <strong class="telemetry-value">2m 13s total view</strong>
+          <span class="telemetry-sub">37% drop-off at Slide 4</span>
         </div>
-      ))}
+        <div class="telemetry-col">
+          <span class="telemetry-label">The critical 70% anchor</span>
+          <strong class="telemetry-value">Business Model & Product</strong>
+          <span class="telemetry-sub">160s combined attention</span>
+        </div>
+      </div>
+
+      <!-- Chronometric Heatmap Instrument -->
+      <div class="heatmap-instrument">
+        <div class="instrument-axis" aria-hidden="true">
+          <span>0s</span>
+          <span>20s</span>
+          <span>40s</span>
+          <span>60s (Scrutiny Threshold)</span>
+          <span>80s</span>
+          <span>100s</span>
+        </div>
+
+        <div class="heatmap-rows-stack">
+          {heatmapBars.map(row => (
+            <div class="heat-bar-row">
+              <div class="heat-meta-info">
+                <strong class="heat-section-name">{row.section}</strong>
+                <span class="heat-section-note">{row.note}</span>
+              </div>
+              <div class="heat-track-area">
+                <div class="heat-bar-fill" style={`width: ${row.pct}%;`}>
+                  <span class="heat-bar-label">{row.time}s</span>
+                </div>
+                <span class="heat-status-pill">{row.status}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="analytics-takeaway-block">
+        <span class="takeaway-badge">Partner behavioral insight</span>
+        <p>
+          Institutional venture partners spend nearly <strong>70% of their total cognitive time</strong> examining your <em>Business Model</em> (83s) and <em>Product Architecture</em> (77s). Decks that obscure unit economics or rush through the product experience suffer an <strong>82% higher drop-off rate</strong> before partners ever reach the team slide.
+        </p>
+      </div>
     </div>
 
-    <div class="chart-insight-box">
-      <strong>Critical Takeaway for Founders:</strong>
-      <p>Your sales model must mathematically match your ACV. If your ACV is $1,000 (Rabbits), you cannot afford field sales representatives ($150k OTE). If your ACV is $100,000 (Elephants), self-serve signups without an enterprise SDR will fail.</p>
+    <!-- View 2: Christoph Janz's 5 Ways to Build a $100M SaaS Business -->
+    <div class="analytics-view" id="view-animals" role="tabpanel" aria-labelledby="tab-nav-anim" hidden>
+      <div class="view-telemetry-strip">
+        <div class="telemetry-col">
+          <span class="telemetry-label">Target revenue</span>
+          <strong class="telemetry-value">$100,000,000 ARR</strong>
+          <span class="telemetry-sub">Venture Scale Benchmark</span>
+        </div>
+        <div class="telemetry-col">
+          <span class="telemetry-label">Framework source</span>
+          <strong class="telemetry-value">Christoph Janz</strong>
+          <span class="telemetry-sub">Point Nine Capital</span>
+        </div>
+        <div class="telemetry-col">
+          <span class="telemetry-label">Golden rule</span>
+          <strong class="telemetry-value">Match Sales Model to ACV</strong>
+          <span class="telemetry-sub">Prevent GTM Burn</span>
+        </div>
+      </div>
+
+      <!-- Stepped Animal Ladder -->
+      <div class="animals-ladder">
+        {animalTiers.map(tier => (
+          <div class="ladder-tier-row">
+            <div class="tier-id-group">
+              <span class="tier-number">{tier.tier}</span>
+              <strong class="tier-animal-name">{tier.name}</strong>
+            </div>
+            <div class="tier-numbers-group">
+              <div class="tier-num-box">
+                <span class="tier-lbl">Average ACV</span>
+                <strong class="tier-val">{tier.acv}</strong>
+              </div>
+              <div class="tier-num-box">
+                <span class="tier-lbl">Required Buyers</span>
+                <strong class="tier-val">{tier.volume}</strong>
+              </div>
+            </div>
+            <div class="tier-motion-box">
+              <span class="tier-lbl">Mandated Sales Motion</span>
+              <p class="tier-motion-desc">{tier.motion}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="analytics-takeaway-block">
+        <span class="takeaway-badge">Unit economics rule</span>
+        <p>
+          Your sales motion is dictated by your ACV. If your average contract is <strong>$1,000 (Rabbits)</strong>, hiring enterprise field representatives will deplete your runway; you must build a product-led self-serve funnel. If your ACV is <strong>$100,000 (Elephants)</strong>, expecting enterprise customers to sign up with a credit card is fatal; you must field a dedicated enterprise account executive team.
+        </p>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
-  const chartTabs = document.querySelectorAll<HTMLButtonElement>('.chart-tab-btn');
-  const panelHeatmap = document.getElementById('panel-chart-heatmap');
-  const panelAnimals = document.getElementById('panel-chart-animals');
+  const navHeat = document.getElementById('tab-nav-heat');
+  const navAnim = document.getElementById('tab-nav-anim');
+  const viewHeat = document.getElementById('view-heatmap');
+  const viewAnim = document.getElementById('view-animals');
 
-  chartTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const isHeatmap = tab.id === 'tab-chart-heatmap';
-      chartTabs.forEach(t => {
-        const active = t === tab;
-        t.classList.toggle('active', active);
-        t.setAttribute('aria-selected', String(active));
-      });
+  function toggleView(showHeat: boolean) {
+    if (navHeat) {
+      navHeat.classList.toggle('active', showHeat);
+      navHeat.setAttribute('aria-selected', String(showHeat));
+    }
+    if (navAnim) {
+      navAnim.classList.toggle('active', !showHeat);
+      navAnim.setAttribute('aria-selected', String(!showHeat));
+    }
+    if (viewHeat) viewHeat.hidden = !showHeat;
+    if (viewAnim) viewAnim.hidden = showHeat;
+  }
 
-      if (panelHeatmap) panelHeatmap.hidden = !isHeatmap;
-      if (panelAnimals) panelAnimals.hidden = isHeatmap;
-    });
-  });
+  navHeat?.addEventListener('click', () => toggleView(true));
+  navAnim?.addEventListener('click', () => toggleView(false));
 </script>
 
 <style>
-  .pitch-charts-component {
-    background: var(--bg-raised);
-    border-radius: var(--radius);
-    padding: 36px 32px;
-    margin-block: 48px;
+  .pitch-analytics-section {
+    margin-block: 64px 72px;
     color: var(--fg);
   }
-  .charts-header {
+  .analytics-intro {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     gap: 32px;
-    padding-bottom: 24px;
+    margin-bottom: 28px;
   }
-  .charts-kicker {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--accent);
-    display: block;
-    margin-bottom: 6px;
-  }
-  .charts-header h3 {
-    font-size: 26px;
-    letter-spacing: -0.02em;
+  .analytics-copy h3 {
+    font-size: 32px;
+    letter-spacing: -0.025em;
+    color: var(--fg);
     margin-bottom: 8px;
   }
-  .charts-header p {
+  .analytics-copy p {
     font-size: 15px;
     color: var(--fg-2);
-    max-width: 54ch;
-    line-height: 1.5;
+    max-width: 60ch;
+    line-height: 1.55;
   }
 
-  .chart-tab-controls {
+  .analytics-tab-group {
     display: flex;
-    background: #141615;
+    background: var(--bg-raised);
     padding: 4px;
     border-radius: var(--radius-xs);
     gap: 4px;
   }
-  .chart-tab-btn {
+  .analytics-nav-btn {
     border: 0;
     background: transparent;
     color: var(--fg-3);
-    padding: 8px 16px;
+    padding: 9px 18px;
     border-radius: 4px;
     font-size: 13px;
     cursor: pointer;
     transition: background 0.18s, color 0.18s;
   }
-  .chart-tab-btn:hover {
+  .analytics-nav-btn:hover {
     color: var(--fg);
   }
-  .chart-tab-btn.active {
+  .analytics-nav-btn.active {
     background: var(--bg-elevated);
     color: var(--fg);
     font-weight: 500;
   }
 
-  .chart-panel {
-    padding-top: 32px;
-  }
-  .panel-intro-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 24px;
-    margin-bottom: 28px;
-  }
-  .panel-intro-bar h4 {
-    font-size: 20px;
-    letter-spacing: -0.015em;
-    color: var(--fg);
-    margin-bottom: 4px;
-  }
-  .panel-intro-bar p {
-    font-size: 14px;
-    color: var(--fg-2);
-  }
-  .benchmark-pill {
-    display: flex;
-    gap: 16px;
-    background: #141615;
-    padding: 10px 16px;
-    border-radius: var(--radius-xs);
-    font-size: 13px;
-    color: var(--fg-2);
-    white-space: nowrap;
-    font-variant-numeric: tabular-nums;
-  }
-  .benchmark-pill strong {
-    color: var(--accent);
-  }
-
-  /* Heatmap list */
-  .heatmap-bars-list {
+  .analytics-workspace {
     display: flex;
     flex-direction: column;
-    gap: 14px;
   }
-  .heatmap-row {
+  .analytics-view {
+    background: var(--bg-raised);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* Telemetry Strip */
+  .view-telemetry-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    background: #141615;
+    padding: 20px 24px;
+    border-radius: var(--radius-xs);
+    font-variant-numeric: tabular-nums;
+  }
+  .telemetry-col {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .telemetry-label {
+    font-size: 13px;
+    color: var(--fg-3);
+  }
+  .telemetry-value {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .telemetry-sub {
+    font-size: 13px;
+    color: var(--fg-2);
+  }
+
+  /* Heatmap Instrument */
+  .heatmap-instrument {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow: clip;
+  }
+  .instrument-axis {
+    display: grid;
+    grid-template-columns: 280px repeat(5, 1fr);
+    padding-left: 280px;
+    font-size: 13px;
+    color: var(--fg-3);
+    font-variant-numeric: tabular-nums;
+    padding-bottom: 8px;
+  }
+  .heatmap-rows-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .heat-bar-row {
     display: grid;
     grid-template-columns: 280px 1fr;
     gap: 24px;
@@ -250,140 +348,153 @@ const animalData = [
     padding: 14px 18px;
     border-radius: var(--radius-xs);
   }
-  .row-label-group {
+  .heat-meta-info {
     display: flex;
     flex-direction: column;
     gap: 2px;
   }
-  .row-section-name {
+  .heat-section-name {
     font-size: 14px;
     font-weight: 500;
     color: var(--fg);
   }
-  .row-note {
+  .heat-section-note {
     font-size: 13px;
     color: var(--fg-3);
   }
-  .bar-track-wrap {
+  .heat-track-area {
     display: grid;
-    grid-template-columns: 1fr 140px;
+    grid-template-columns: 1fr 120px;
     gap: 16px;
     align-items: center;
   }
-  .bar-fill-track {
-    background: var(--bg-raised);
-    height: 12px;
-    border-radius: 6px;
-    overflow: hidden;
-  }
-  .bar-fill-progress {
+  .heat-bar-fill {
     background: var(--accent);
-    height: 100%;
-    border-radius: 6px;
+    height: 24px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    min-width: 44px;
     transition: width 0.3s var(--ease);
   }
-  .bar-metrics {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .heat-bar-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #141615;
     font-variant-numeric: tabular-nums;
   }
-  .bar-seconds {
-    font-size: 14px;
-    font-weight: 600;
+  .heat-status-pill {
+    font-size: 13px;
+    color: var(--fg-3);
+    text-align: right;
+  }
+
+  /* Stepped Animals Ladder */
+  .animals-ladder {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .ladder-tier-row {
+    display: grid;
+    grid-template-columns: 180px 300px 1fr;
+    gap: 24px;
+    align-items: center;
+    background: #141615;
+    padding: 18px 22px;
+    border-radius: var(--radius-xs);
+  }
+  .tier-id-group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .tier-number {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .tier-animal-name {
+    font-size: 20px;
+    font-weight: 500;
     color: var(--fg);
   }
-  .bar-status-tag {
+  .tier-numbers-group {
+    display: flex;
+    gap: 24px;
+    font-variant-numeric: tabular-nums;
+  }
+  .tier-num-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .tier-lbl {
     font-size: 13px;
     color: var(--fg-3);
   }
-
-  /* Animals Grid */
-  .animals-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-  }
-  .animal-card {
-    background: #141615;
-    padding: 20px;
-    border-radius: var(--radius-xs);
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  .animal-top {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .animal-category {
-    font-size: 13px;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .animal-title {
-    font-size: 20px;
+  .tier-val {
+    font-size: 16px;
     color: var(--fg);
     font-weight: 500;
   }
-  .animal-metrics-row {
+  .tier-motion-box {
     display: flex;
-    justify-content: space-between;
-    background: var(--bg-raised);
-    padding: 10px 12px;
-    border-radius: 4px;
-    font-variant-numeric: tabular-nums;
+    flex-direction: column;
+    gap: 3px;
   }
-  .animal-metric-lbl {
-    font-size: 13px;
-    color: var(--fg-3);
-    display: block;
-  }
-  .animal-metric-val {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--fg);
-  }
-  .animal-model-desc {
-    font-size: 13px;
+  .tier-motion-desc {
+    font-size: 14px;
     color: var(--fg-2);
     line-height: 1.5;
   }
 
-  .chart-insight-box {
-    margin-top: 24px;
+  /* Takeaway Block */
+  .analytics-takeaway-block {
     background: #141615;
-    padding: 16px 20px;
     border-radius: var(--radius-xs);
-    font-size: 14px;
-    color: var(--fg-2);
-    line-height: 1.6;
-    border-left: 2px solid var(--accent);
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
-  .chart-insight-box strong {
-    color: var(--fg);
-    display: block;
-    margin-bottom: 4px;
+  .takeaway-badge {
     font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .analytics-takeaway-block p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--fg-2);
+    max-width: 68ch;
+  }
+  .analytics-takeaway-block strong {
+    color: var(--fg);
+    font-weight: 500;
   }
 
-  @media (max-width: 860px) {
-    .charts-header {
+  @media (max-width: 900px) {
+    .analytics-intro {
       flex-direction: column;
       align-items: flex-start;
       gap: 16px;
     }
-    .heatmap-row {
+    .view-telemetry-strip {
+      grid-template-columns: 1fr;
+    }
+    .instrument-axis {
+      display: none;
+    }
+    .heat-bar-row {
       grid-template-columns: 1fr;
       gap: 12px;
     }
-    .panel-intro-bar {
-      flex-direction: column;
-      gap: 12px;
+    .ladder-tier-row {
+      grid-template-columns: 1fr;
+      gap: 14px;
     }
   }
 </style>
